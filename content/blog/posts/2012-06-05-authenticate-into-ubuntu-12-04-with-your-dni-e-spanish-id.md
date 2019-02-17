@@ -1,0 +1,112 @@
+---
+id: 1185
+title: Authenticate into Ubuntu 12.04 with your DNI-e (Spanish ID)
+date: 2012-06-05T23:24:30+00:00
+author: Fran Diéguez
+layout: post
+published: true
+guid: http://www.mabishu.com/?p=1185
+permalink: /blog/2012/06/authenticate-into-ubuntu-12-04-with-your-dni-e-spanish-id/
+dsq_thread_id:
+  - "715109305"
+categories:
+  - System Administration
+tags:
+  - authentication
+  - dni-e
+  - pam
+  - ubuntu
+---
+<img class="alignright" title="dni_electronico" alt="" src="http://www.mabishu.com/wp-content/uploads/2012/06/dni_electronico-300x192.png" width="300" height="192" />
+
+This howto will explain how to setting up pam-pkcs11 for use the DNI-e (Spanish personal ID) as your auth credential and login into Ubuntu with it.
+
+I will assume that you have setted up your DNI-e. If you are looking for a comprehensive howto about this topic you can find it in the next link: <a href="http://www.ubuntu-guia.com/2010/08/dni-e-electronico-ubuntu-instalar.html">http://www.ubuntu-guia.com/2010/08/dni-e-electronico-ubuntu-instalar.html</a>
+
+So here we go.
+<!--more-->
+<h2>Installing libpam-pkcs11 library</h2>
+lipam-pkcs11 is a module and related tools for using X509-based smart cards with PAM (Pluggable Authentication Module). PAM is an extendable "daemon" that handles all the attempts of authentication in Linux-based systems.
+<pre>sudo apt-get install libpam-pkcs11</pre>
+<!--more-->
+<h2>Getting information from inside the Spanish ID</h2>
+So now you can use some of the available tools that comes with libpam-pkcs11 to inspect your DNIe. pkcs11_inspect is one of them. With this command you can inspect all the certificates available in your smart card while connected to your smart card reader.
+<pre>$ pkcs11_listcerts
+DEBUG:pam_config.c:203: Invalid CRL policy: no
+DEBUG:pkcs11_listcerts.c:69: loading pkcs #11 module...
+DEBUG:pkcs11_lib.c:975: PKCS #11 module = [/usr/lib/opensc-pkcs11.so]
+DEBUG:pkcs11_lib.c:992: module permissions: uid = 0, gid = 0, mode = 755
+DEBUG:pkcs11_lib.c:1001: loading module /usr/lib/opensc-pkcs11.so
+[...]
+DEBUG:pkcs11_lib.c:1047: - description: C3PO LTC31 (21070726) 00 00
+DEBUG:pkcs11_lib.c:1048: - manufacturer: OpenSC (www.opensc-project.org) [...]
+DEBUG:pkcs11_lib.c:1057:   - label: DNI electrónico (PIN1)
+DEBUG:pkcs11_lib.c:1058:   - manufacturer: DGP-FNMT
+[...]
+DEBUG:pkcs11_lib.c:1612: Found 3 certificates in token
+Found '3' certificate(s)
+Certificate #1:
+- Subject:   <strong>/C=ES/serialNumber=MYIDNUMBER/SN=MYLASTNAME/GN=FRANCISCO/CN=MYLASTNAME, FRANCISCO (AUTENTICACI\xC3\x93N)</strong>
+- Issuer:    /C=ES/O=DIRECCION GENERAL DE LA POLICIA/OU=DNIE/CN=AC DNIE 003
+- Algorithm: rsaEncryption
+DEBUG:cert_vfy.c:407: Neither CA nor CRL check requested. CertVrfy() skipped
+Certificate #2:
+- Subject:   <strong>/C=ES/serialNumber=MYIDNUMBER/SN=MYLASTNAME/GN=FRANCISCO/CN=MYLASTNAME, FRANCISCO (FIRMA)</strong>
+- Issuer:    /C=ES/O=DIRECCION GENERAL DE LA POLICIA/OU=DNIE/CN=AC DNIE 003
+- Algorithm: rsaEncryption
+DEBUG:cert_vfy.c:407: Neither CA nor CRL check requested. CertVrfy() skipped
+Certificate #3:
+- Subject:   <strong>/C=ES/O=DIRECCION GENERAL DE LA POLICIA/OU=DNIE/CN=AC DNIE 003</strong>
+- Issuer:    /C=ES/O=DIRECCION GENERAL DE LA POLICIA/OU=DNIE/CN=AC RAIZ DNIE
+- Algorithm: rsaEncryption
+[...]
+DEBUG:pkcs11_listcerts.c:160: Process completed</pre>
+As you can see there are 3 certificates available inside my ID,
+<ol>
+	<li>one from Spanish police</li>
+	<li>one in the line that contains " AUTENTICACIÓN" that means that is a certificate for authentication purposes</li>
+	<li>and another one in the line that contains "FIRMA", that means that is a certificate for signing data</li>
+</ol>
+I will use the second one.
+<h2>Configuring libpam-pkcs11</h2>
+There are some configuration files inside the libpam-pkcs11 debian package that will help us to get this module to work. So we need to create the configuration folder and copy two of those example files:
+<pre>sudo mkdir -p /etc/pam_pkcs11/cacerts
+cd /etc/pam_pkcs11/
+sudo cp /usr/share/doc/libpam-pkcs11/examples/{pam_pkcs11.conf.example.gz,subject_mapping.example} /etc/pam_pkcs11/</pre>
+After that, I have to make a hack to get all the process work. The usual procedure is place the certificate issuers  CRL's and CA's files ("Spanish police"' certificate files for DNIe) inside the /etc/pam_pkcs11/cacerts folder and execute
+<pre>sudo pkcs11_make_hash_link</pre>
+but  with this procedure the libpam-pkcs11 library WILL NOT WORK.
+
+PKCS11 tries to validate my ID certificate against its issuer, the Spanish police. For whatever reason I can't get pkcs11 to read the certificate files available at <a href="http://www.dnielectronico.es/seccion_integradores/certs.html">http://www.dnielectronico.es/seccion_integradores/certs.html</a>.  So for now I will deactivate this check. Take notice that this could be <strong>REALLY DANGEROUS</strong> and I will investigate further to get this to work.
+
+You must change the file /etc/pam_pkcs11/pam_pkcs11.conf and change the line:
+<pre>cert_policy = ca,signature;</pre>
+to
+<pre>cert_policy = no;</pre>
+<h2>Mapping ID certificates to users</h2>
+Reached this point you will be wondering how pkcs11 maps system users to DNIe unique cards. For this pam-pkcs11 has a built in extendable mappers, among them you can use a local file, an LDAP server, a Kerberos server, etc. For now I will explain how to setup the local file-based.
+
+Local file-based mapper uses a local file located at /etc/pam_pkcs11/subject_mapping  with the next format:
+<pre>DNIE-identifier -&gt; localsystemuser</pre>
+So we only have to replace these parameters with the real ones.
+
+Lets assume that the local system user is "fran". Now for getting the DNIe-identifier parameter you can use the pkcs11_listcerts command:
+<pre>$ pkcs11_listcerts |grep AUTEN</pre>
+this will have the next output:
+<pre>PIN for token:
+- Subject:   /C=ES/serialNumber=myspanishidnumber/SN=mylastname/GN=myname/CN=mylastname, myname (AUTENTICACI\xC3\x93N)</pre>
+So the DNIE-identifier is <strong>"/C=ES/serialNumber=myspanishidnumber/SN=mylastname/GN=myname/CN=mylastname, myname (AUTENTICACI\xC3\x93N)"</strong>
+So you must add the next line to the /etc/pam_pkcs11/subject_mapping file:
+<pre>/C=ES/serialNumber=myspanishidnumber/SN=mylastname/GN=myname/CN=mylastname, myname (AUTENTICACI\xC3\x93N) -&gt; fran</pre>
+<h2>Tell PAM to make use of pkcs11 module</h2>
+Last step! With pkcs11 already set up you have to configure PAM to make use of the pkcs11 module. For this you only have to add the next line to the /etc/pam.d/common-auth. Take notice that must be first non-comment line in the file as PAM uses the «first rule matched wins»
+<pre>[...]
+auth       sufficient   pam_pkcs11.so
+# here are the per-package modules (the "Primary" block)
+auth    [success=1 default=ignore]    pam_unix.so nullok_secure
+[...]</pre>
+Ok, all configured so from now you can login into your Ubuntu 12.04 system with your DNIe.
+
+More information about libpam-pkcs11 configuration available at <a href="http://www.opensc-project.org/doc/pam_pkcs11/pam_pkcs11.html">http://www.opensc-project.org/doc/pam_pkcs11/pam_pkcs11.html</a>.
+
+&nbsp;
