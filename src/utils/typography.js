@@ -11,7 +11,21 @@ Wordpress2016.overrideThemeStyles = () => {
 
 delete Wordpress2016.googleFonts
 
-const typography = new Typography(Wordpress2016)
+// const typography = new Typography(Wordpress2016)
+const typography = new Typography({
+  googleFonts: [
+    {
+      name: 'Lato',
+      styles: ['400italic', '700italic'],
+    },
+    {
+      name: 'Crimson Text',
+      styles: ['400italic', '400'],
+    },
+  ],
+  bodyFontFamily: ['Crimson Text', 'serif'],
+  headerFontFamily: ['Crimson Text', 'serif'],
+})
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
