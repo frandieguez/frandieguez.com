@@ -3,6 +3,7 @@ module.exports = {
     title: `Fran Dieguez | Yet another software craftmanship`,
     author: `Fran Dieguez`,
     description: ``,
+    keywords: ['Fran Dieguez', 'Software Craftmanship', 'Agile'],
     siteUrl: `https://www.frandieguez.com/`,
     social: {
       twitter: `frandieguez`,

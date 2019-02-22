@@ -1,25 +1,25 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
+// import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Post from "../components/Post"
 
-import indexStyles from "../styles/index.module.scss"
+// import indexStyles from "../styles/index.module.scss"
 
 class BlogIndex extends React.Componnent {
   render() {
-    const { data } = this.props
+    const { data }  = this.props
     const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+    const posts     = data.allMarkdownRemark.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO
+        {/* <SEO
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
-        />
+        /> */}
         {/* <Bio /> */}
         {posts.map(({ node }) => {
           return (
@@ -33,13 +33,12 @@ class BlogIndex extends React.Componnent {
   }
 }
 
-export default BlogIndex
-
 export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
-        title
+        title,
+        keywords
       }
     }
     allMarkdownRemark(
@@ -60,3 +59,4 @@ export const pageQuery = graphql`
     }
   }
 `
+export default BlogIndex
