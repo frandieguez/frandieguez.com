@@ -23,9 +23,9 @@ function Bio() {
               style={{
                 marginRight: rhythm(1 / 2),
                 marginBottom: 0,
-                minWidth: 150,
-                maxWidth:150,
-                maxHeight:150,
+                minWidth: 100,
+                maxWidth:100,
+                maxHeight:100,
                 borderRadius: `100%`,
               }}
               imgStyle={{
