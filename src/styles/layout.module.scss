@@ -1,0 +1,47 @@
+
+$headerColor: #161618;
+$headerTitleColor: #ddd;
+$textColor : #32323a;
+$textColorHover : #00aeef;
+.Header {
+  // background-color: $headerColor;
+
+  .siteTitle {
+    text-align: center;
+    display:block;
+    margin: 3rem auto;
+    max-width: 600px;
+    // background-color: darken( $headerTitleColor, 10% );
+    font-family: 'Montserrat, sans-serif';
+    color: $headerTitleColor;
+  }
+
+  .Menu {
+    font-family: 'Lato', 'sans-serif';
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 auto;
+    ul li {
+      display:inline-block;
+      margin-left: 1rem;
+
+      a {
+        font-family: 'Lato';
+        font-weight: normal;
+        font-size: .8rem;
+        color: $textColor;
+        text-decoration: none;
+
+        &:hover {
+          color: $textColorHover;
+        }
+      }
+    }
+  }
+
+}
+
+.Footer {
+  margin-top: 2rem;
+  font-size:.8rem;
+}
