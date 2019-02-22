@@ -13,7 +13,7 @@ class AboutPage extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="About" />
 
-        <img style="float: left; margin:" alt="859795_10200638722191374_162643047_o" src="http://www.mabishu.com/wp-content/uploads/2009/10/859795_10200638722191374_162643047_o-300x300.jpg" width="300" height="300" />
+        <img alt="Fran Dieguez" src="http://www.mabishu.com/wp-content/uploads/2009/10/859795_10200638722191374_162643047_o-300x300.jpg" width="300" height="300" />
 
         <strong>Fran Diéguez</strong> has been developing web applications for 7 years now, the last two as a <strong>Project Manager and CTO at OpenHost</strong>, where he spends his days and nights on improving a powerful tool for online publishing, <a href="http://www.opennemas.com/">OpenNemas</a>.  For achieving this hard task he and his team are developing their own framework, Onm, focused in high performance and heavy loaded online newspapers.
 
@@ -32,8 +32,6 @@ class AboutPage extends React.Component {
   }
 }
 
-export default AboutPage
-
 export const pageQuery = graphql`
   query {
     site {
@@ -43,3 +41,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default AboutPage

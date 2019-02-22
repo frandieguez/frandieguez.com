@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 
 function NextPrevious({ previous, next }) {
   return (
-    <ul>
+    <ul className={NextPreviousStyles.wrapper}>
       <li>
         {previous && (
           <Link to={previous.fields.slug} rel="prev">
