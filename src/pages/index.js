@@ -8,7 +8,7 @@ import Post from "../components/Post"
 
 // import indexStyles from "../styles/index.module.scss"
 
-class BlogIndex extends React.Componnent {
+class BlogIndex extends React.Component {
   render() {
     const { data }  = this.props
     const siteTitle = data.site.siteMetadata.title
