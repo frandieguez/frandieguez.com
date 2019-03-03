@@ -43,29 +43,36 @@ class Layout extends React.Component {
     return (
       <div class="page-wrapper">
 
-        <header className={layoutStyles.Header}>
+        <header className={layoutStyles.Header}
+          style={{
+            marginLeft: `auto`,
+            marginRight: `auto`,
+            maxWidth: rhythm(24),
+            padding: `0 ${rhythm(1.5)}`,
+          }}
+        >
 
           {header}
 
           <section className={layoutStyles.Menu}>
             <ul>
               <li>
-                <Link to={'/about'}>The author</Link>
+                <Link to={'/about'} clasName={layoutStyles.item}>The author</Link>
               </li>
               <li>
-                <Link to={'/'}>Thoughts</Link>
+                <Link to={'/'} clasName={layoutStyles.item}>Thoughts</Link>
               </li>
               <li>
-                <Link to={'/archives'}>About</Link>
+                <Link to={'/archives'} clasName={layoutStyles.item}>About</Link>
               </li>
               <li>
-                <Link to={'/contact'}>Contact</Link>
+                <Link to={'/contact'} clasName={layoutStyles.item}>Contact</Link>
               </li>
             </ul>
           </section>
         </header>
 
-        <div
+        <div className={layoutStyles.wrapper}
           style={{
             marginLeft: `auto`,
             marginRight: `auto`,
