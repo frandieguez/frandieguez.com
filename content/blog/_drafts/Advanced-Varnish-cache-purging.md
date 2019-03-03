@@ -4,6 +4,7 @@ title: Advanced Varnish cache purging
 date: 2013-12-04T11:15:02+00:00
 author: Fran Diéguez
 layout: post
+published: false
 guid: http://www.mabishu.com/?p=1686
 permalink: /?p=1686
 categories:

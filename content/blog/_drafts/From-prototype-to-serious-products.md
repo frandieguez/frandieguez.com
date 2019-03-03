@@ -4,8 +4,7 @@ title: From prototype to serious products
 date: 2015-01-13T15:11:53+00:00
 author: Fran Diéguez
 layout: post
-guid: http://www.frandieguez.com/?p=1745
-permalink: /?p=1745
+published: false
 categories:
   - Uncategorized
 

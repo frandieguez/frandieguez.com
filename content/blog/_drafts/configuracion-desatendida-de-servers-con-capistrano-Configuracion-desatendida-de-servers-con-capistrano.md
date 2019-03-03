@@ -4,6 +4,7 @@ title: Configuracion desatendida de servers con capistrano
 date: 2008-12-26T17:39:20+00:00
 author: Fran Diéguez
 layout: post
+published: false
 guid: http://www.mabishu.com/blog/2008/12/26/configuracion-desatendida-de-servers-con-capistrano/
 permalink: /?p=276
 categories:
