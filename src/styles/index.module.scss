@@ -1,11 +1,25 @@
-.date {
-  color: #ccc;
-}
+.post {
 
-.title {
-  text-decoration: none;
-}
+  &:hover .date {
+    opacity: 1;
+  }
 
-.excerpt {
-  font-size: 1.2rem;
+  .title {
+    display:inline-block;
+    padding-right: .5rem;
+    font-size:1rem;
+    font-weight: 200
+
+    a {
+      text-decoration: none;
+      color: Black;
+    }
+    a:hover {
+      border-color: currentColor;
+    }
+  }
+  .date {
+    display: inline-block;
+    opacity:.9;
+  }
 }

@@ -1,12 +1,12 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Post from "../components/Post"
+// import SEO from "../components/seo"
+// import Post from "../components/Post"
 
-// import indexStyles from "../styles/index.module.scss"
+import indexStyles from "../styles/index.module.scss"
 
 class BlogIndex extends React.Component {
   render() {
@@ -21,10 +21,20 @@ class BlogIndex extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         /> */}
         {/* <Bio /> */}
+        <div class="wip">
+          This site is under construction. Sorry for those things that look wrong.
+        </div>
         {posts.map(({ node }) => {
+          let title = node.frontmatter.title || node.fields.slug
           return (
-            <div key={node.fields.slug}>
-              <Post node={node} />
+            <div key={node.fields.slug} className={indexStyles.post}>
+              <h3 className={indexStyles.title}>
+                <Link to={node.fields.slug}>
+                  {title}
+                </Link>
+              </h3>
+              <span className={indexStyles.date}>{node.frontmatter.date}</span>
+              {/* <div className={postStyles.excerpt} dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
             </div>
           )
         })}
