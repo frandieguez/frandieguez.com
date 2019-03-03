@@ -1,6 +1,6 @@
 ---
 id: 842
-title: 'Speech at Trasnada &#8217;10 &#8211; Open Source translators event'
+title: 'Speech at Trasnada "10 &#8211; Open Source translators event'
 date: 2010-10-15T15:38:22+00:00
 author: Fran Diéguez
 layout: post

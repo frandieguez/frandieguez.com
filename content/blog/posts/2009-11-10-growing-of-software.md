@@ -1,6 +1,6 @@
 ---
 id: 16
-title: 'Software&#8217;s life cycle'
+title: 'Software"s life cycle'
 date: 2009-11-10T22:53:53+00:00
 author: Fran Diéguez
 layout: post

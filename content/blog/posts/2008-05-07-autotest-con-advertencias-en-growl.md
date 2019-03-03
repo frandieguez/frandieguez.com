@@ -19,9 +19,9 @@ tags:
   - Ruby
   - testing
 ---
-He buscado en la red un m&eacute;todo para "enganchar" la utilidad de testeo Autotest en Ruby y el sistema de mensajes de sistema Growl en Mac OS X y la verdad es que no me fue muy bien.
-Una vez modificado el archivo .autotest en mi $home ya funciona a la perfecci&oacute;n. Relato a continuaci&oacute;n como obtener esta maravilla.
-Basta instalar Growl en Mac OS tal que as&iacute;:
+He buscado en la red un método para "enganchar" la utilidad de testeo Autotest en Ruby y el sistema de mensajes de sistema Growl en Mac OS X y la verdad es que no me fue muy bien.
+Una vez modificado el archivo .autotest en mi $home ya funciona a la perfección. Relato a continuación como obtener esta maravilla.
+Basta instalar Growl en Mac OS tal que así:
 <pre>wget http://growl.info/files/Growl-1.1.2.dmg
 open Growl-1.1.2.dmg
 cd /Volumes/Growl 1.1.2/Extras/growlnotify

@@ -12,8 +12,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-Estoy empezando este blog nuevo, por lo que en los proximos d&iacute;as har&eacute; el diseño, pero en estos momentos estoy haciendo labores de mantenimiento
+Estoy empezando este blog nuevo, por lo que en los proximos días haré el diseño, pero en estos momentos estoy haciendo labores de mantenimiento
 <p align="center"><img src="http://farm2.static.flickr.com/1395/600272369_0fd5ffcb7e.jpg?v=0" alt="nuevo diseño" /></p>
 Pero ahora mismo ya estoy con el diseño a vueltas y puede estar un poco todo revuelto, mientras tanto puedes deleitarte viendo como estan <a href="http://flickr.com/photos/cuppido/" title="Flickr: Photos from cuppido">mis fotos en flickr.com</a>
 
-<code>Y esto es un pedazo de c&oacute;digo</code>
+<code>Y esto es un pedazo de código</code>

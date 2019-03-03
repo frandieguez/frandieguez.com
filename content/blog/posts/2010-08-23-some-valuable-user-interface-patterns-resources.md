@@ -1,6 +1,6 @@
 ---
 id: 800
-title: 'Some valuable &#8216;User Interface Patterns&#8217; resources'
+title: 'Some valuable &#8216;User Interface Patterns" resources'
 date: 2010-08-23T16:36:22+00:00
 author: Fran Diéguez
 layout: post

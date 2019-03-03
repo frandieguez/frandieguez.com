@@ -17,7 +17,7 @@ tags:
   - lighttpd
   - url limpia
 ---
-No sabeis el trabajiño que me dio solventar el problema de las URLs limpias con el binomio Drupal, Lighttpd. Como no soi de mucha falacia os enseño el c&oacute;digo que ten&eacute;is que pegar dentro de /etc/lighttpd.conf o dentro del archivo de configuraci&oacute;n de cara slide virtual.
+No sabeis el trabajiño que me dio solventar el problema de las URLs limpias con el binomio Drupal, Lighttpd. Como no soi de mucha falacia os enseño el código que tenéis que pegar dentro de /etc/lighttpd.conf o dentro del archivo de configuración de cara slide virtual.
 
 <pre lang="shell">$HTTP["host"] =~ "^(slide.dominio.com)$" {
 server.document-root = "/var/www/host-virtual"
