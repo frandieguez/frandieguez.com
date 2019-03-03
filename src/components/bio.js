@@ -1,8 +1,10 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
+
+import bioStyles from "../styles/bio.module.scss";
 
 function Bio() {
   return (
@@ -35,11 +37,19 @@ function Bio() {
             <p style={{
               marginTop: 25
             }}>
-              Written by <strong>{author}</strong> who lives and works in Spain building useful things.
-              {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a>
+              Hi!
+
+              I'm <strong>{author}</strong>, I'm a software developer who lives and works in Spain building useful things.
+              <Link className={bioStyles.subscribeLink} to="/rss.xml">
+                <svg viewBox="0 0 800 800"><path d="M493 652H392c0-134-111-244-244-244V307c189 0 345 156 345 345zm71 0c0-228-188-416-416-416V132c285 0 520 235 520 520z"></path><circle cx="219" cy="581" r="71"></circle></svg>
+                Subscribe
+              </Link>.
+
+              <p>
+                <a href={`https://twitter.com/${social.twitter}`}>
+                  You should follow him on Twitter
+                </a>
+              </p>
             </p>
           </div>
         )

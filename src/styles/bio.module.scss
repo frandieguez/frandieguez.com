@@ -1,0 +1,19 @@
+.subscribeLink {
+  line-height: 20px;
+  text-decoration: none;
+  background: #00000015;
+  border: none;
+  font-size: 12px;
+  padding: 0px 7px;
+  display: inline-block;
+  border-radius: 4px;
+  position: relative;
+  top: -1px;
+
+  svg {
+    width: 21px;
+    height: 21px;
+    vertical-align: bottom;
+    margin: 0 -2px 0 -5px;
+  }
+}
