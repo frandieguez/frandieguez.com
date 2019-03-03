@@ -1,6 +1,6 @@
 ---
 id: 991
-title: 'Sending patches through mail with &#8216;git send-mail"'
+title: 'Sending patches through mail with "git send-mail"'
 date: 2011-11-06T20:20:49+00:00
 author: Fran Diéguez
 layout: post
