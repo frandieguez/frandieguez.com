@@ -22,9 +22,13 @@ const typography = new Typography({
       name: 'Crimson Text',
       styles: ['400italic', '400'],
     },
+    {
+      name: 'IBM Plex Sans',
+      styles: []
+    },
   ],
-  bodyFontFamily: ['Crimson Text', 'serif'],
-  headerFontFamily: ['Crimson Text', 'serif'],
+  bodyFontFamily: ['IBM Plex Sans', 'sans-serif'],
+  headerFontFamily: ['IBM Plex Sans', 'sans-serif'],
 })
 
 // Hot reload typography in development.
