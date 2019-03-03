@@ -1,32 +1,41 @@
-
 $headerColor: #161618;
 $headerTitleColor: #ddd;
 $textColor : #32323a;
 $textColorHover : #00aeef;
+
 .Header {
   // background-color: $headerColor;
 
   .siteTitle {
-    text-align: center;
-    display:block;
-    margin: 3rem auto;
-    max-width: 600px;
+    // text-align: center;
+    display: block;
+    // margin: 3rem auto;
+    // max-width: 600px;
     // background-color: darken( $headerTitleColor, 10% );
-    font-family: 'Montserrat, sans-serif';
+    // font-family: 'Montserrat, sans-serif';
     color: $headerTitleColor;
+
+    a {
+      text-decoration: none
+    }
   }
 
   .Menu {
-    font-family: 'Lato', 'sans-serif';
+    width: 600px;
     text-transform: uppercase;
-    text-align: center;
+    // text-align: center;
     margin: 0 auto;
+
+    ul {
+      margin:0;
+      padding:0
+    }
+
     ul li {
-      display:inline-block;
+      display: inline-block;
       margin-left: 1rem;
 
       a {
-        font-family: 'Lato';
         font-weight: normal;
         font-size: .8rem;
         color: $textColor;
@@ -43,5 +52,37 @@ $textColorHover : #00aeef;
 
 .Footer {
   margin-top: 2rem;
-  font-size:.8rem;
+  font-size: .8rem;
+}
+
+
+.Menu {
+  margin: 0 auto 0;
+  vertical-align: top;
+
+  &>li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 1.5em 0 0;
+    vertical-align: top;
+  }
+
+  .item,
+  a.item {
+    color: #00000050;
+    border-color: transparent;
+    display: inline-block;
+  }
+
+  .item_selected,
+  &.item_selected,
+  &.item:hover {
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
+}
+
+.Menu__item_inside,
+a.Menu__item_inside {
+  border-bottom: 2px solid #00000030;
 }
