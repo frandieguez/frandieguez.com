@@ -5,6 +5,7 @@ date: 2012-12-25T02:13:14+00:00
 author: Fran Diéguez
 layout: post
 published: false
+draft: true
 guid: http://www.mabishu.com/?p=1108
 permalink: /?p=1108
 categories:
