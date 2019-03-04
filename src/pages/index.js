@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
+import Wip from "../components/wip"
 // import SEO from "../components/seo"
 // import Post from "../components/Post"
 
@@ -21,9 +22,7 @@ class BlogIndex extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         /> */}
         {/* <Bio /> */}
-        <div class="wip">
-          This site is under construction. Sorry for those things that look wrong.
-        </div>
+        <Wip />
         {posts.map(({ node }) => {
           let title = node.frontmatter.title || node.fields.slug
           return (

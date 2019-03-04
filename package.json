@@ -1,14 +1,15 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "frandieguez-site",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "The code below frandieguez.dev",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Fran Dieguez <fran.dieguez@mabishu.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/frandieguez/frandieguez.com/issues"
   },
   "dependencies": {
     "@raae/gatsby-remark-oembed": "^0.0.4",
+    "babel-plugin-styled-components": "^1.10.0",
     "disqus-react": "^1.0.5",
     "gatsby": "^2.1.2",
     "gatsby-image": "^2.0.29",
@@ -34,12 +35,13 @@
     "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.18",
+    "styled-components": "^4.1.3",
     "typeface-merriweather": "0.0.54",
     "typeface-montserrat": "0.0.54",
     "typography": "^0.16.18",
     "typography-theme-wordpress-2016": "^0.16.18"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://frandieguez.dev",
   "keywords": [
     "gatsby"
   ],
@@ -47,7 +49,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/frandieguez/frandieguez.com"
   },
   "scripts": {
     "build": "gatsby build",

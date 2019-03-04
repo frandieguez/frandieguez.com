@@ -10,6 +10,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-styled-component`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
