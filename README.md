@@ -2,6 +2,7 @@
 <hr>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/df049c12-f7f4-4bf7-9115-90fce9d3a37e/deploy-status)](https://app.netlify.com/sites/frandieguezcom/deploys) 
+[![Travis CI Status](https://travis-ci.org/frandieguez/frandieguez.com.svg?branch=master)](https://travis-ci.org/frandieguez/frandieguez.com)
 
 Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
