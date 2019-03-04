@@ -1,12 +1,6 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.frandieguez.com">
-    ![Fran Dieguez site logo](http://www.mabishu.com/wp-content/uploads/2013/04/gafas.png)
-  </a>
-</p>
-<h1 align="center">
-  Frandieguez site
-</h1>
+![Fran Dieguez site logo](https://raw.githubusercontent.com/frandieguez/frandieguez.com/master/content/assets/logos/glasses.png)
+<hr>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/df049c12-f7f4-4bf7-9115-90fce9d3a37e/deploy-status)](https://app.netlify.com/sites/frandieguezcom/deploys) 
 
 Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
@@ -14,13 +8,16 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+1.  **Install the base tools.**
 
-    Use the Gatsby CLI to create a new site, specifying the blog starter.
-
+   Install Yarn to manage dependencies
+   ```
+   https://yarnpkg.com/lang/en/docs/install/
+   ```
+   
+   Install the dependencies to work.
     ```sh
-    # create a new Gatsby site using the blog starter
-    npx gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
+    yarn install
     ```
 
 1.  **Start developing.**
@@ -28,7 +25,6 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     Navigate into your new site’s directory and start it up.
 
     ```sh
-    cd my-blog-starter/
     gatsby develop
     ```
 
@@ -36,9 +32,8 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     Your site is now running at `http://localhost:8000`!
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
-
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    _Note: There is another endpoint available at _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying data. 
+    Check further info at [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
 ## 🧐 What's inside?
 
@@ -46,6 +41,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
     .
     ├── node_modules
+    ├── content
     ├── src
     ├── .gitignore
     ├── gatsby-browser.js
@@ -58,8 +54,8 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     └── README.md
 
 1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+2.  **`/content`**: This directory contains all the markdown files with posts and all static files, like images for all the posts.
+2.  **`/src`**: This directory contains all the code related what is seeing at the front-end of the site (what you see in the browser) such the site header or a page template.
 
 3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
@@ -75,19 +71,11 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+10. **`yarn.lock`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of the npm dependencies that were installed for the project. **(Do not change this file directly).**
 
 11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
 ## 💫 Deploy
 
