@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
-// import Bio from "../components/bio"
+import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Wip from "../components/wip"
-// import SEO from "../components/seo"
+import SEO from "../components/seo"
 // import Post from "../components/Post"
 
 import indexStyles from "../styles/index.module.scss"
@@ -17,10 +17,10 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        {/* <SEO
+        <SEO
           title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
-        /> */}
+          keywords={data.site.siteMetadata.keywords}
+        />
         {/* <Bio /> */}
         <Wip />
         {posts.map(({ node }) => {

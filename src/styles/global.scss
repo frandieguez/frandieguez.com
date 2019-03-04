@@ -26,9 +26,23 @@ code,
 pre,
 blockquote,
 cite {
-  background-color:rgba(0,0,0,0.3);
+  background-color:rgba(0,0,0,0.1);
   margin-bottom: 1.714em;
   overflow: auto;
   overflow-y: hidden;
-  padding: 0 0 1.429em 1.429em;
+  padding: 1.429em 1.429em;
+  transition:100ms linear background;
+}
+
+code:hover,
+pre:hover,
+blockquote:hover,
+cite:hover {
+  background-color:rgba(0,0,0,0.2)
+}
+
+.page-wrapper {
+  max-width:600px;
+  margin:0 auto;
+  max-width: 34rem;
 }

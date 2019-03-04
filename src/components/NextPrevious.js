@@ -13,6 +13,7 @@ function NextPrevious({ previous, next }) {
           </Link>
         )}
       </li>
+
       <li className={NextPreviousStyles.next}>
         {next && (
           <Link to={next.fields.slug} rel="next">

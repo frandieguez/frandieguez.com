@@ -41,45 +41,31 @@ class Layout extends React.Component {
       )
     }
     return (
-      <div class="page-wrapper">
+      <div className="page-wrapper">
 
-        <header className={layoutStyles.Header}
-          style={{
-            marginLeft: `auto`,
-            marginRight: `auto`,
-            maxWidth: rhythm(24),
-            padding: `0 ${rhythm(1.5)}`,
-          }}
-        >
+        <header className={` ${layoutStyles.Header} ${layoutStyles.wrapper}`}>
 
           {header}
 
           <section className={layoutStyles.Menu}>
             <ul>
               <li>
-                <Link to={'/about'} clasName={layoutStyles.item}>The author</Link>
+                <Link to={'/about'} className={layoutStyles.item}>The author</Link>
               </li>
               <li>
-                <Link to={'/'} clasName={layoutStyles.item}>Thoughts</Link>
+                <Link to={'/'} className={layoutStyles.item}>Thoughts</Link>
               </li>
               <li>
-                <Link to={'/archives'} clasName={layoutStyles.item}>About</Link>
+                <Link to={'/archives'} className={layoutStyles.item}>About</Link>
               </li>
               <li>
-                <Link to={'/contact'} clasName={layoutStyles.item}>Contact</Link>
+                <Link to={'/contact'} className={layoutStyles.item}>Contact</Link>
               </li>
             </ul>
           </section>
         </header>
 
-        <div className={layoutStyles.wrapper}
-          style={{
-            marginLeft: `auto`,
-            marginRight: `auto`,
-            maxWidth: rhythm(24),
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-          }}
-          >
+        <div className={layoutStyles.wrapper}>
           <main>{children}</main>
           <footer className={layoutStyles.Footer}>
             © {new Date().getFullYear()}, Web app designed and coded

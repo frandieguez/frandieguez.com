@@ -1,14 +1,15 @@
 $headerColor: #161618;
 $headerTitleColor: #ddd;
 $textColor : #32323a;
-$textColorHover : #00aeef;
+$textColorHover : Black;
 
 .Header {
   // background-color: $headerColor;
+  margin-bottom: 2rem;
 
   .siteTitle {
     // text-align: center;
-    margin-top:30px;
+    margin-top:1rem;
     display: block;
     // margin: 3rem auto;
     // max-width: 600px;
@@ -17,13 +18,15 @@ $textColorHover : #00aeef;
     color: $headerTitleColor;
 
     a {
-      text-decoration: none
+      text-decoration: none;
+      border: 0 none;
     }
   }
 
   .Menu {
+
     width: 600px;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     // text-align: center;
     margin: 0 auto;
 
@@ -34,13 +37,14 @@ $textColorHover : #00aeef;
 
     ul li {
       display: inline-block;
-      margin-left: 1rem;
+      margin-right: 1rem;
 
       a {
         font-weight: normal;
-        font-size: .8rem;
-        color: $textColor;
+        font-size: 1rem;
+        color: #00000050;
         text-decoration: none;
+        border-bottom:
 
         &:hover {
           color: $textColorHover;

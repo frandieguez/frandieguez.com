@@ -1,6 +1,6 @@
 ---
 id: 259
-title: 'Migration de SQLite a MySQL'
+title: 'Migracion de SQLite a MySQL'
 date: 2008-07-04T11:30:54+00:00
 author: Fran Diéguez
 layout: post
