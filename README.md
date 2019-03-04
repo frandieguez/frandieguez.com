@@ -2,7 +2,9 @@
 <hr>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/df049c12-f7f4-4bf7-9115-90fce9d3a37e/deploy-status)](https://app.netlify.com/sites/frandieguezcom/deploys) 
-[![Travis CI Status](https://travis-ci.org/frandieguez/frandieguez.com.svg?branch=master)](https://travis-ci.org/frandieguez/frandieguez.com)
+[![Travis CI Status](https://travis-ci.org/frandieguez/frandieguez.com.svg?branch=master)](https://travis-ci.org/frandieguez/frandieguez.com) 
+[![Maintainability](https://api.codeclimate.com/v1/badges/c05dae42f64d4bc4fecf/maintainability)](https://codeclimate.com/github/frandieguez/frandieguez.com/maintainability)
+[![dependencies Status](https://david-dm.org/frandieguez/frandieguez.com/status.svg)](https://david-dm.org/frandieguez/frandieguez.com)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
