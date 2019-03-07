@@ -6,9 +6,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/c05dae42f64d4bc4fecf/maintainability)](https://codeclimate.com/github/frandieguez/frandieguez.com/maintainability)
 [![dependencies Status](https://david-dm.org/frandieguez/frandieguez.com/status.svg)](https://david-dm.org/frandieguez/frandieguez.com)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+This repository contains the code and contents for [Fran Dieguez's site](http://www.frandieguez.dev), a blog about technology and topics that insterest me.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+The leitmotiv of this code was to use and learn interesting technologies like React, GraphQL, Gatsby, etc.
 
 ## 🚀 Quick start
 
