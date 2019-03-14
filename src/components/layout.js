@@ -53,10 +53,7 @@ class Layout extends React.Component {
                 <Link to={'/about'} className={layoutStyles.item}>The author</Link>
               </li>
               <li>
-                <Link to={'/'} className={layoutStyles.item}>Thoughts</Link>
-              </li>
-              <li>
-                <Link to={'/archives'} className={layoutStyles.item}>About</Link>
+                <Link to={'/archives'} className={layoutStyles.item}>Arquive</Link>
               </li>
               <li>
                 <Link to={'/contact'} className={layoutStyles.item}>Contact</Link>

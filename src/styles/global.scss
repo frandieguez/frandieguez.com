@@ -6,9 +6,10 @@ a {
 }
 
 body {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAQSURBVHgBAQUA+v8A/dsp/wfbAwFy+CMuAAAAAElFTkSuQmCC);
+  // background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAQSURBVHgBAQUA+v8A/dsp/wfbAwFy+CMuAAAAAElFTkSuQmCC);
   /* #FDDB29 */
-  background-color: hsl(51, 100%, 59%);
+  // background-color: hsl(51, 100%, 59%);
+  background-color: white;
   /* fallback */
   color: #000;
   -webkit-font-feature-settings: "kern"1, "liga"1, "calt"1;
@@ -23,7 +24,6 @@ body {
 
 
 code,
-pre,
 blockquote,
 cite {
   background-color:rgba(0,0,0,0.1);
@@ -35,7 +35,6 @@ cite {
 }
 
 code:hover,
-pre:hover,
 blockquote:hover,
 cite:hover {
   background-color:rgba(0,0,0,0.2)
