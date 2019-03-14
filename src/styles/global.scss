@@ -23,7 +23,7 @@ body {
 }
 
 
-code,
+pre,
 blockquote,
 cite {
   background-color:rgba(0,0,0,0.1);
@@ -34,7 +34,7 @@ cite {
   transition:100ms linear background;
 }
 
-code:hover,
+pre:hover,
 blockquote:hover,
 cite:hover {
   background-color:rgba(0,0,0,0.2)

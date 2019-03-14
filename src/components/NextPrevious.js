@@ -25,9 +25,9 @@ function NextPrevious({ previous, next }) {
   )
 }
 
-NextPrevious.propTypes = {
-  next: PropTypes.isOptional,
-  previous: PropTypes.isOptional
-}
+// NextPrevious.propTypes = {
+//   next: PropTypes.optionalFunc,
+//   previous: PropTypes.optionalFunc
+// }
 
 export default NextPrevious
