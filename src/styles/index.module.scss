@@ -5,20 +5,28 @@
   }
 
   .title {
+    font-family: 'Crimson Text', serif;
     display:inline-block;
     padding-right: .5rem;
-    font-size:1rem;
-    font-weight: 200
+    font-size:1.3rem;
+    font-weight: 200;
 
     a {
       text-decoration: none;
       color: Black;
+      border: 0 none;
     }
+
     a:hover {
       border-color: currentColor;
     }
   }
+
   .date {
+    font-family: Lato;
+    letter-spacing: 1px;
+    font-size:.7em;
+    text-transform: uppercase;
     display: inline-block;
     opacity:.9;
   }

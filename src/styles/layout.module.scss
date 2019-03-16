@@ -2,92 +2,68 @@ $headerColor: #161618;
 $headerTitleColor: #ddd;
 $textColor : #32323a;
 $textColorHover : Black;
+$linkHover: #00aeef;
+
+.pageWrapper {
+  margin: 0 auto;
+  position: relative;
+  max-width: 47em;
+}
+
+.siteTitle {
+  text-align: center;
+  margin-top:.9rem;
+  display: block;
+  color: $headerTitleColor;
+
+  a {
+    text-decoration: none;
+    border: 0 none;
+  }
+}
+
+.Menu {
+  margin: 0 auto;
+  text-align: center;
+  width: 600px;
+  text-transform: uppercase;
+  color: #32323a;
+
+  ul {
+    margin:0;
+    padding:0;
+    letter-spacing: 0.167em;
+  }
+
+  ul li {
+      border-bottom: none;
+      display: inline-block;
+      margin: 0 1.25em;
+
+  }
+
+  ul li a {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: .6em;
+    font-style: normal;
+    text-decoration: none;
+    border: 0 none;
+    font-stretch:100%;
+    color: #32323a;
+    padding: 1.25em 0;
+  }
+
+  ul li a:hover {
+    color:$linkHover;
+  }
+}
 
 .Header {
-  // background-color: $headerColor;
   margin-bottom: 2rem;
-
-  .siteTitle {
-    // text-align: center;
-    margin-top:1rem;
-    display: block;
-    // margin: 3rem auto;
-    // max-width: 600px;
-    // background-color: darken( $headerTitleColor, 10% );
-    // font-family: 'Montserrat, sans-serif';
-    color: $headerTitleColor;
-
-    a {
-      text-decoration: none;
-      border: 0 none;
-    }
-  }
-
-  .Menu {
-
-    width: 600px;
-    // text-transform: uppercase;
-    // text-align: center;
-    margin: 0 auto;
-
-    ul {
-      margin:0;
-      padding:0
-    }
-
-    ul li {
-      display: inline-block;
-      margin-right: 1rem;
-
-      a {
-        font-weight: normal;
-        font-size: 1rem;
-        color: #00000050;
-        text-decoration: none;
-        border-bottom:
-
-        &:hover {
-          color: $textColorHover;
-        }
-      }
-    }
-  }
-
 }
 
 .Footer {
   margin-top: 2rem;
   font-size: .8rem;
-}
-
-
-.Menu {
-  margin: 0 auto 0;
-  vertical-align: top;
-
-  &>li {
-    list-style: none;
-    display: inline-block;
-    margin: 0 1.5em 0 0;
-    vertical-align: top;
-  }
-
-  .item,
-  a.item {
-    color: #00000050;
-    border-color: transparent;
-    display: inline-block;
-  }
-
-  .item_selected,
-  &.item_selected,
-  &.item:hover {
-    color: #000;
-    border-bottom: 2px solid #000;
-  }
-}
-
-.Menu__item_inside,
-a.Menu__item_inside {
-  border-bottom: 2px solid #00000030;
 }

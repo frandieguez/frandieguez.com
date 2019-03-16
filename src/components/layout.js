@@ -2,7 +2,6 @@ import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 
-import { rhythm } from "../utils/typography"
 import layoutStyles from "../styles/layout.module.scss"
 
 class Layout extends React.Component {
@@ -41,7 +40,7 @@ class Layout extends React.Component {
       )
     }
     return (
-      <div className="page-wrapper">
+      <div className={layoutStyles.pageWrapper}>
 
         <header className={` ${layoutStyles.Header} ${layoutStyles.wrapper}`}>
 
@@ -53,6 +52,9 @@ class Layout extends React.Component {
                 <Link to={'/about'} className={layoutStyles.item}>The author</Link>
               </li>
               <li>
+                <Link to={'/'} className={layoutStyles.item}>Thoughts</Link>
+              </li>
+              <li>
                 <Link to={'/archives'} className={layoutStyles.item}>Arquive</Link>
               </li>
               <li>
@@ -62,11 +64,20 @@ class Layout extends React.Component {
           </section>
         </header>
 
-        <div className={layoutStyles.wrapper}>
+
+        <div className={layoutStyles.wrapper} role="main">
           <main>{children}</main>
           <footer className={layoutStyles.Footer}>
             © {new Date().getFullYear()}, Web app designed and coded
             by <strong>Fran Dieguez</strong> using <a href="https://www.gatsbyjs.org">Gatsby</a>
+
+            {/* <ul id="menu-social" class="social-nav-anchors">
+              <li id="menu-item-1367" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1367"><a title="Fran’s Twitter profile" href="http://twitter.com/frandieguez"><span>T</span></a></li>
+              <li id="menu-item-1368" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1368"><a title="Fran’s Facebook profile" href="http://facebook.com/frandieguez"><span>F</span></a></li>
+              <li id="menu-item-1369" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1369"><a title="Fran’s Instagram profile" href="http://instagram.com/fdieguez"><span>I</span></a></li>
+              <li id="menu-item-1370" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1370"><a title="Fran’s Github profile" href="http://github.com/frandieguez"><span>g</span></a></li>
+              <li id="menu-item-1371" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1371"><a title="Fran’s Google+ profile" href="https://plus.google.com/111118036112614969771/about"><span>G</span></a></li>
+            </ul> */}
           </footer>
         </div>
       </div>

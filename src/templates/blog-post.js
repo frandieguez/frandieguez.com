@@ -17,7 +17,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
     const disqusShortname = "mabishu";
     const disqusConfig = {
-      identifier: post.id,
+      identifier: post.dsq_thread_id || post.id,
       title: post.frontmatter.title,
     };
 
@@ -25,17 +25,19 @@ class BlogPostTemplate extends React.Component {
       <Layout location={this.props.location} title={siteTitle} className="postStyles.post">
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <div className={postStyles.post}>
-          <h1>{post.frontmatter.title}</h1>
+          <div className={postStyles.meta}>
+            <h1 className={postStyles.title}>{post.frontmatter.title}</h1>
 
-          <p className={postStyles.date}>
-            {post.frontmatter.date}
-          </p>
+            <time className={postStyles.date}> {post.frontmatter.date} </time>
+
+            <div className={postStyles.author}>Inked by {post.author || 'Fran Dieguez'}</div>
+          </div>
 
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
         </div>
 
-        <Bio />
+        {/* <Bio /> */}
         <NextPrevious previous={previous} next={next} />
         <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
       </Layout>
@@ -58,8 +60,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
-      }
+        date(formatString: "MMMM DD, YYYY"),
+        dsq_thread_id,
+        author,
+      },
     }
   }
 `

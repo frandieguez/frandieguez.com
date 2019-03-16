@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import Wip from "../components/wip"
 import SEO from "../components/seo"
 // import Post from "../components/Post"
+import Bio from "../components/bio"
 
 import indexStyles from "../styles/index.module.scss"
 
@@ -21,8 +22,8 @@ class BlogIndex extends React.Component {
           title="All posts"
           keywords={data.site.siteMetadata.keywords}
         />
-        {/* <Bio /> */}
-        <Wip />
+        <Bio />
+
         {posts.map(({ node }) => {
           let title = node.frontmatter.title || node.fields.slug
           return (

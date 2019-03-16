@@ -1,34 +1,18 @@
 import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
 
-Wordpress2016.overrideThemeStyles = () => {
-  return {
-    "a.gatsby-resp-image-link": {
-      boxShadow: `none`,
-    },
-  }
-}
-
-delete Wordpress2016.googleFonts
-
-// const typography = new Typography(Wordpress2016)
 const typography = new Typography({
   googleFonts: [
     {
       name: 'Lato',
-      styles: ['400italic', '700italic'],
+      styles: ['200', '400', '400italic', '700', '700italic'],
     },
     {
       name: 'Crimson Text',
       styles: ['400italic', '400'],
     },
-    {
-      name: 'IBM Plex Sans',
-      styles: []
-    },
   ],
-  bodyFontFamily: ['IBM Plex Sans', 'sans-serif'],
-  headerFontFamily: ['IBM Plex Sans', 'sans-serif'],
+  bodyFontFamily: ['Crimson Text', 'sans-serif'],
+  headerFontFamily: ['Lato', 'sans-serif'],
 })
 
 // Hot reload typography in development.
