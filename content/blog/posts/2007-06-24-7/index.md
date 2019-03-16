@@ -11,9 +11,10 @@ dsq_thread_id:
   - "654481991"
 categories:
   - Uncategorized
+hero: ../images/example-hero.png
 ---
 Buscando un poco por la red me he encontrado un tema muy curioso, y la verdad es que nunca me he parado a pensar. Como se consideran unos programadores a otros en función del lenguaje que utilizan. Unos chavales han echo un estudio sobre la jerarquía de programadores, o lo que es lo mismo lo que piensa uno que programa en Java de uno que programa en C, o los machotes que programan en Ensamblador.
-<p style="text-align: center"><img src="http://www.mabishu.com/wp-content/uploads/2007/06/programmer-hierarchy-207x300.png" alt="programmer-hierarchy" title="programmer-hierarchy" width="207" height="300" class="aligncenter size-medium wp-image-450" /></p>
+![](./programmer-hierarchy.png)
 
 Yo empecé programando en Visual Basic 6, creo que todos hemos empezado por ahí, es un lenguaje muy simple, el cual tiene una curva de apredinzaje bastante plana, luego me pasé a C. Tranquilos sobreviví al intento, este si que tiene una curva superexponencial.
 
