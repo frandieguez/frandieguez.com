@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
-import Wip from "../components/wip"
+// import Wip from "../components/wip"
 import SEO from "../components/seo"
 // import Post from "../components/Post"
 import Bio from "../components/bio"
@@ -34,7 +34,7 @@ class BlogIndex extends React.Component {
                 </Link>
               </h3>
               <span className={indexStyles.date}>{node.frontmatter.date}</span>
-              {/* <div className={postStyles.excerpt} dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
+              {/* <div className={indexStyles.excerpt} dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
             </div>
           )
         })}

@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
-import Wip from "../components/wip"
+// import Wip from "../components/wip"
 import SEO from "../components/seo"
 // import Post from "../components/Post"
 
