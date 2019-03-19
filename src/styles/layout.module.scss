@@ -14,6 +14,7 @@ div[role=main] {
   position: relative;
 }
 
+
 @media only screen and (min-width: 56.25em) {
   .pageWrapper {
     margin-left: 10%;
@@ -23,10 +24,11 @@ div[role=main] {
 }
 @media only screen and (min-width: 33.75em) {
   .pageWrapper {
-      margin-left: 12.5%;
-      margin-right: 12.5%;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
   }
 }
+
 .siteTitle {
   text-align: center;
   margin-top:1.2rem;
@@ -36,43 +38,6 @@ div[role=main] {
   a {
     text-decoration: none;
     border: 0 none;
-  }
-}
-
-.Menu {
-  margin: 0 auto;
-  text-align: center;
-  width: 600px;
-  text-transform: uppercase;
-  color: #32323a;
-
-  ul {
-    margin:0;
-    padding:0;
-    letter-spacing: 0.167em;
-  }
-
-  ul li {
-      border-bottom: none;
-      display: inline-block;
-      margin: 0 1em;
-
-  }
-
-  ul li a {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: .6em;
-    font-style: normal;
-    text-decoration: none;
-    border: 0 none;
-    font-stretch:100%;
-    color: #32323a;
-    padding: 1em 0;
-  }
-
-  ul li a:hover {
-    color:$linkHover;
   }
 }
 

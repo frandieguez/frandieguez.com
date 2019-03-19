@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
+import Menu from "./menu"
 
 import layoutStyles from "../styles/layout.module.scss"
 
@@ -46,22 +47,7 @@ class Layout extends React.Component {
 
           {header}
 
-          <section className={layoutStyles.Menu}>
-            <ul>
-              <li>
-                <Link to={'/about'} className={layoutStyles.item}>The author</Link>
-              </li>
-              <li>
-                <Link to={'/'} className={layoutStyles.item}>Thoughts</Link>
-              </li>
-              <li>
-                <Link to={'/archives'} className={layoutStyles.item}>Arquive</Link>
-              </li>
-              <li>
-                <Link to={'/contact'} className={layoutStyles.item}>Contact</Link>
-              </li>
-            </ul>
-          </section>
+          <Menu />
         </header>
 
 
