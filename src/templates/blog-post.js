@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
+// import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import NextPrevious from "../components/NextPrevious"
@@ -30,13 +30,15 @@ class BlogPostTemplate extends React.Component {
 
             <time className={postStyles.date}> {post.frontmatter.date} </time>
 
-            <div className={postStyles.author}>Inked by {post.author || 'Fran Dieguez'}</div>
+            <div className={postStyles.author}>
+              Inked by <a href="/about">{post.author || 'Fran Dieguez'}</a>
+            </div>
           </div>
 
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
           <div className={postStyles.postInfo}>
-            Posted in <a href="#">Category</a> and tagged
+            Posted in <a href="#category">Category</a> and tagged
           </div>
 
         </div>
