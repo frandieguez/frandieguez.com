@@ -35,6 +35,10 @@ class BlogPostTemplate extends React.Component {
 
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
+          <div className={postStyles.postInfo}>
+            Posted in <a href="#">Category</a> and tagged
+          </div>
+
         </div>
 
         {/* <Bio /> */}

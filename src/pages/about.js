@@ -25,8 +25,6 @@ class AboutPage extends React.Component {
 
         Currently is <strong>not available for hire</strong> but you can write him to propose future and innovative projects.
 
-        <h1>Not Found</h1>
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
       </Layout>
     )
   }

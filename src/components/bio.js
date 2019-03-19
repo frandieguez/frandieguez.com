@@ -47,7 +47,7 @@ function Bio() {
 
               <p>
                 <a href={`https://twitter.com/${social.twitter}`}>
-                  Follow me him on Twitter
+                  Follow me on Twitter
                 </a>
               </p>
             </p>

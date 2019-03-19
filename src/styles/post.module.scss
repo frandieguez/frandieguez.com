@@ -8,8 +8,31 @@
     font-weight: 400;
   }
 
+  .postInfo {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
 }
 
+@media only screen and (min-width: 33.75em) {
+  .post {
+
+    h3 {
+        font-size: 1.938em;
+        line-height: 1.129;
+        margin-bottom: 0.903em;
+    }
+
+    p, ul, ol, dl, table {
+       font-size: 1.188em;
+       line-height: 1.474;
+       margin-bottom: 1.474em;
+   }
+
+  }
+
+}
 
 .meta {
   color: #696975;

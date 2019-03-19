@@ -4,13 +4,19 @@
   list-style: none;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   padding:0;
   margin: 0;
+  flex-wrap: nowrap;
+  margin-bottom:2rem;
+  font-size:1.1rem;
 
   .next {
     text-align: right;
     padding:0 10px 0 0;
   }
+
   .prev {
     text-align: left;
   }

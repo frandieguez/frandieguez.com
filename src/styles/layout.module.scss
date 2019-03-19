@@ -4,15 +4,32 @@ $textColor : #32323a;
 $textColorHover : Black;
 $linkHover: #00aeef;
 
+div[role=main] {
+    background-color: #fff;
+    padding: 0.938em 0.938em 0.313em;
+}
+
 .pageWrapper {
   margin: 0 auto;
   position: relative;
-  max-width: 47em;
 }
 
+@media only screen and (min-width: 56.25em) {
+  .pageWrapper {
+    margin-left: 10%;
+    margin-right: 10%;
+    max-width: 47em;
+  }
+}
+@media only screen and (min-width: 33.75em) {
+  .pageWrapper {
+      margin-left: 12.5%;
+      margin-right: 12.5%;
+  }
+}
 .siteTitle {
   text-align: center;
-  margin-top:.9rem;
+  margin-top:1.2rem;
   display: block;
   color: $headerTitleColor;
 
@@ -38,7 +55,7 @@ $linkHover: #00aeef;
   ul li {
       border-bottom: none;
       display: inline-block;
-      margin: 0 1.25em;
+      margin: 0 1em;
 
   }
 
@@ -51,7 +68,7 @@ $linkHover: #00aeef;
     border: 0 none;
     font-stretch:100%;
     color: #32323a;
-    padding: 1.25em 0;
+    padding: 1em 0;
   }
 
   ul li a:hover {
