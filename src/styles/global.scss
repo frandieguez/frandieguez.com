@@ -56,7 +56,8 @@ h1, h2, h3, h4, h5, h6, code, b, strong, dt, th, captio, label {
 }
 a, a:visited {
 	border-color: #d9d9dc;
-	color: #32323a;
+  color: #32323a;
+  cursor: pointer;
 }
 a:hover, a:active {
 	color: #00aeef;
@@ -121,12 +122,22 @@ del {
   display:none
 }
 
-.alignright {
-  float: right;
-  padding: 0 0 1rem 1rem;
-}
-
+.alignright,
 .alignleft {
-  float: left;
-  padding: 0 1rem 1rem 0;
+  text-align: center;
+  display:block;
+  margin:1em auto;
+}
+@media only screen and (min-width: 33.75em) {
+
+  .alignright {
+    float: right;
+    padding: 0 0 1rem 1rem;
+  }
+
+  .alignleft {
+    float: left;
+    padding: 0 1rem 1rem 0;
+  }
+
 }
