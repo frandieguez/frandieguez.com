@@ -108,3 +108,21 @@ input[type=submit] {
 footer[role='complimentary'] {
 	background-color: #18181e;
 }
+.contact {
+  margin: 0 auto;
+}
+.contact input[type=text],
+.contact input[type=email],
+textarea {
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 4px;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+  padding: .2rem .5rem;
+}
+.contact button {
+  font-weight: 700;
+  border: 1px solid rgb(227, 227, 227);
+  padding: .5rem 2rem;
+  border-radius: 30px;
+}

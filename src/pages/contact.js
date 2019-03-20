@@ -17,12 +17,15 @@ class AboutPage extends React.Component {
           If you have anything to say to me. Use the form below. 👇
         </p>
 
-        <form name="contact" netlify>
+        <form name="contact" className="contact" netlify>
           <p>
-            <label>Name <input type="text" name="name" /></label>
+            <input type="text" placeholder="Your name" name="name" required/>
           </p>
           <p>
-            <label>Email <input type="email" name="email" /></label>
+            <input type="email" placeholder="Your email" name="email" />
+          </p>
+          <p>
+            <textarea placeholder="Your message" name="message" id="message" cols="30" rows="10" required></textarea>
           </p>
           <p>
             <button type="submit">Send</button>
