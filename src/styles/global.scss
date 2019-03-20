@@ -1,3 +1,5 @@
+@import './partials/blockquote';
+
 // General styles
 a {
   border-bottom: 2px solid #00000030;
@@ -5,6 +7,18 @@ a {
   color: #333
 }
 
+::-moz-selection {
+  background: #00aeef
+}
+
+::selection {
+  background: #00aeef
+}
+
+strike,
+del {
+  color: #32323a
+}
 body {
   font-size: 1.188em;
   line-height: 1.474;
@@ -24,25 +38,11 @@ body {
   // font-family: ;
 }
 
-@media only screen and (min-width: 56.25em) {
-  div[role=main] {
-    padding: .5em 3.7% 0.938em;
-  }
-}
 
 cite {
   font-style: italic;
 }
 
-pre,
-blockquote {
-  background-color: rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.714em;
-  overflow: auto;
-  overflow-y: hidden;
-  padding: 1.429em 1.429em;
-  transition: 100ms linear background;
-}
 
 h3 {
   line-height: 2rem;
@@ -62,15 +62,33 @@ a, a:visited {
 a:hover, a:active {
 	color: #00aeef;
 }
-.main-nav li a:hover, .main-nav li.current-menu-item a {
-	background-color: #00aeef;
+
+
+#reactions {
+  display:none
 }
-.secondary-content, code, pre {
-	background-color: #f2f2fc;
+
+.alignright,
+.alignleft {
+  text-align: center;
+  display:block;
+  margin:1em auto;
 }
-pre code {
-	background-color: transparent;
+
+@media only screen and (min-width: 33.75em) {
+
+  .alignright {
+    float: right;
+    padding: 0 0 1rem 1rem;
+  }
+
+  .alignleft {
+    float: left;
+    padding: 0 1rem 1rem 0;
+  }
+
 }
+
 article header time, .blog .article-content, .archive .article-content,
 .search-results .article-content, .post-navigation, p.post-meta, ol.commentlist,
 ol.commentlist li, ol.commentlist img.avatar, ol.commentlist ul.children li,
@@ -89,55 +107,4 @@ input[type=submit] {
 }
 footer[role='complimentary'] {
 	background-color: #18181e;
-}
-@media only screen and ( min-width: 43.75em ) {
-	.main-nav li a {
-		color: #32323a;
-	}
-	.main-nav li a:hover, .main-nav li.current-menu-item a {
-		background-color: transparent;
-		color: #00aeef;
-	}
-	.main-nav li li a:hover, .main-nav li li.current-menu-item a {
-		background-color: #00aeef;
-	}
-	.main-nav li .dd-indicator {
-		color: #32323a;
-	}
-}
-
-::-moz-selection {
-  background: #00aeef
-}
-
-::selection {
-  background: #00aeef
-}
-
-strike,
-del {
-  color: #32323a
-}
-#reactions {
-  display:none
-}
-
-.alignright,
-.alignleft {
-  text-align: center;
-  display:block;
-  margin:1em auto;
-}
-@media only screen and (min-width: 33.75em) {
-
-  .alignright {
-    float: right;
-    padding: 0 0 1rem 1rem;
-  }
-
-  .alignleft {
-    float: left;
-    padding: 0 1rem 1rem 0;
-  }
-
 }

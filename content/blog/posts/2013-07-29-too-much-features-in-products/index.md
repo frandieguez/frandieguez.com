@@ -1,6 +1,6 @@
 ---
 id: 1613
-title: To much features in products
+title: Too much features in products
 date: 2013-07-29T16:54:51+00:00
 author: Fran Diéguez
 layout: post

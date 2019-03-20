@@ -5,8 +5,14 @@ $textColorHover : Black;
 $linkHover: #00aeef;
 
 div[role=main] {
-    background-color: #fff;
-    padding: 0.938em 0.938em 0.313em;
+  background-color: #fff;
+  padding: 0.938em 0.938em 0.313em;
+}
+
+@media only screen and (min-width: 56.25em) {
+  div[role=main] {
+    padding: .5em 3.7% 0.938em;
+  }
 }
 
 .pageWrapper {

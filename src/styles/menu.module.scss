@@ -62,6 +62,10 @@ $linkHover: #00aeef;
       display: block;
       padding: 1.5em;
     }
+
+    a:hover {
+      color:$linkHover;
+    }
   }
 }
 
@@ -100,8 +104,9 @@ $linkHover: #00aeef;
       padding: 1em 0;
     }
 
-    ul li a:hover {
-      color:$linkHover;
+    a:hover {
+      color:$linkHover !important;
     }
+
   }
 }
