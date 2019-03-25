@@ -1,6 +1,20 @@
-.post {
-  display: block;
+$linkHover: #00aeef;
 
+@media (max-width: 767px) {
+
+  .post {
+    margin: 0 1em;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+ .post {
+   margin-left:6em;
+ }
+}
+
+.post {
   &:hover .date {
     opacity: 1;
   }
@@ -20,6 +34,7 @@
 
     a:hover {
       border-color: currentColor;
+      color: $linkHover;
     }
   }
 
