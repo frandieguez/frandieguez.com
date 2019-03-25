@@ -23,15 +23,12 @@ div[role=main] {
 
 @media only screen and (min-width: 56.25em) {
   .pageWrapper {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0 auto;
     max-width: 47em;
   }
 }
 @media only screen and (min-width: 33.75em) {
   .pageWrapper {
-    margin-left: 12.5%;
-    margin-right: 12.5%;
   }
 }
 
