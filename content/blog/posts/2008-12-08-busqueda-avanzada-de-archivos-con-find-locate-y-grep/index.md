@@ -59,7 +59,7 @@ Podemos destacar varios modificadores de dicho comando:
 	<li><strong>--regex </strong>busca en la base de datos según una expresión regular</li>
 </ul>
 <p style="text-align: center;">En la siguiente imagen podemos ver la diferencia de rendimiento entre find y locate, encontrado <a title="Quick Tipos find files linux file system" href="http://www.secguru.com/article/quick_tips_find_files_linux_file_system">aquí</a>:
-<a href="http://mabishu.com/blog/wp-content/uploads/2008/12/findlocatecomparisonke7.png"><img class="size-medium wp-image-186 aligncenter" title="findlocatecomparisonke7" alt="Find locate comparison performance" src="http://mabishu.com/blog/wp-content/uploads/2008/12/findlocatecomparisonke7.png" /></a></p>
+<a href="/assets/2008/12/findlocatecomparisonke7.png"><img class="size-medium wp-image-186 aligncenter" title="findlocatecomparisonke7" alt="Find locate comparison performance" src="/assets/2008/12/findlocatecomparisonke7.png" /></a></p>
 
 <h3>Grep</h3>
 Muy utilizado comando sobre todo utilizando tuberías ( | ), se utilza principalmente para buscar ficheros según el contenido de los mismos. La mejor forma de observar su comportamiento es mediante ejemplos:

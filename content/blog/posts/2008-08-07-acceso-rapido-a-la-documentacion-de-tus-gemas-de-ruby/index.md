@@ -39,4 +39,4 @@ _gemdocomplete</pre>
 Por lo tanto solo habría que escribir en terminal
 <code>gemdoc </code>
 y se autocompletan los nombres de las gemas con sus respectivas versiones, si no proporcionas la version se cogerá la última versión.
-<a href="http://mabishu.com/blog/wp-content/uploads/2008/08/captura-firefox-gems.gif"><img class="alignnone sinborde size-medium wp-image-168" title="captura-firefox-gems" src="http://mabishu.com/blog/wp-content/uploads/2008/08/captura-firefox-gems.gif" alt="" width="100%" /></a>
+<a href="/assets/2008/08/captura-firefox-gems.gif"><img class="alignnone sinborde size-medium wp-image-168" title="captura-firefox-gems" src="/assets/2008/08/captura-firefox-gems.gif" alt="" width="100%" /></a>

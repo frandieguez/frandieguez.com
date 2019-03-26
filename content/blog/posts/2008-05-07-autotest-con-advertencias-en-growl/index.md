@@ -64,4 +64,4 @@ module Autotest::Growl
 end
 </pre>
 y listo ya podemos correr test en apps ruby y que se nos notifique en growl
-<pre style="text-align: center;"><a href="http://mabishu.com/blog/wp-content/uploads/2008/05/imagen-1.png"><img class="aligncenter size-full wp-image-131" title="Autotest con Growl" src="http://www.mabishu.comwp-content/uploads/2008/05/imagen-11.png" alt="Autotest con Growl" width="344" height="105" /></a></pre>
+<pre style="text-align: center;"><a href="/assets/2008/05/imagen-1.png"><img class="aligncenter size-full wp-image-131" title="Autotest con Growl" src="/assets/2008/05/imagen-11.png" alt="Autotest con Growl" width="344" height="105" /></a></pre>

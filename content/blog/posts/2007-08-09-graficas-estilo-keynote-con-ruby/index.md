@@ -40,6 +40,6 @@ g.labels = {0 =&gt; '2003', 1 =&gt; '2004', 2 =&gt; '2005'}
 g.write('sexo-edad.png')</pre>
 y aquí está nuestra gran keynote:
 
-<a title="Grafica echa con Gruff en Ruby" href="http://www.mabishu.comwp-content/uploads/2007/08/sexo-edad.png"></a>
+<a title="Grafica echa con Gruff en Ruby" href="/assets/2007/08/sexo-edad.png"></a>
 
-<a title="Grafica echa con Gruff en Ruby" href="http://www.mabishu.comwp-content/uploads/2007/08/sexo-edad.png"><img src="/assets/2007/11/sexo-edad.png" alt="Grafica echa con Gruff en Ruby" width="480" height="360" /></a>
+<a title="Grafica echa con Gruff en Ruby" href="/assets/2007/08/sexo-edad.png"><img src="/assets/2007/11/sexo-edad.png" alt="Grafica echa con Gruff en Ruby" width="480" height="360" /></a>

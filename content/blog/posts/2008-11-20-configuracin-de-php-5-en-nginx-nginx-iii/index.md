@@ -12,7 +12,7 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<a href="http://mabishu.com/blog/wp-content/uploads/2008/05/nginx-black-logo.jpg"><img class="alignright alignnone size-medium wp-image-133 sinborde" style="float: right;" title="Nginx Server" src="http://mabishu.com/blog/wp-content/uploads/2008/05/nginx-black-logo.jpg" alt="" width="277" height="92" /></a>Continuamos con el periplo de configurar Nginx siguiente con <a title="Web Server optimizado con Nginx" href="http://www.mabishu.com/blog/2008/05/07/servidor-optimizado-con-nginx-y-memcached" target="_blank">las dos</a> <a title="Configuración de VirtualHosts en Nginx" href="http://www.mabishu.com/blog/2008/05/08/configuracion-de-virtualhosts-en-nginx-con-php-5-nginx-ii">anteriores entradas</a>.
+<a href="/assets/2008/05/nginx-black-logo.jpg"><img class="alignright alignnone size-medium wp-image-133 sinborde" style="float: right;" title="Nginx Server" src="/assets/2008/05/nginx-black-logo.jpg" alt="" width="277" height="92" /></a>Continuamos con el periplo de configurar Nginx siguiente con <a title="Web Server optimizado con Nginx" href="http://www.mabishu.com/blog/2008/05/07/servidor-optimizado-con-nginx-y-memcached" target="_blank">las dos</a> <a title="Configuración de VirtualHosts en Nginx" href="http://www.mabishu.com/blog/2008/05/08/configuracion-de-virtualhosts-en-nginx-con-php-5-nginx-ii">anteriores entradas</a>.
 Ahora lo que trataremos es de ejecutar nuestras apps o scripts escritos en PHP 5. Let's go.
 <h3>Instalación de PHP</h3>
 La instalación de PHP no tiene mucha ciencia en GNU/Linux:

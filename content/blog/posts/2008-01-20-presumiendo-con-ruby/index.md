@@ -16,10 +16,10 @@ tags:
   - Ruby
 ---
 Es bien conocido que Ruby es uno de los lenguajes que más cercanos y que más satisfacción dan al programador. ¿Pero que pensarías si te enseñara esto?
-<p style="text-align: center;" align="center"><img class="aligncenter" src="http://www.mabishu.comwp-content/uploads/2008/01/ejemplo-codigo-ruby1.png" alt="ejemplo-implementacion-ruby.png" /></p>
+<p style="text-align: center;" align="center"><img class="aligncenter" src="/assets/2008/01/ejemplo-codigo-ruby1.png" alt="ejemplo-implementacion-ruby.png" /></p>
 
 Y es muy difícil de implementar? Sigue leyendo!
-<p style="text-align: center;" align="center"><img class="aligncenter" src="http://www.mabishu.comwp-content/uploads/2008/01/ejemplo-implementacion-codigo-ruby11.png" alt="Ejemplo implementación código Ruby" width="363" height="156" /></p>
+<p style="text-align: center;" align="center"><img class="aligncenter" src="/assets/2008/01/ejemplo-implementacion-codigo-ruby11.png" alt="Ejemplo implementación código Ruby" width="363" height="156" /></p>
 
 Mola un cacho, eh?
 
