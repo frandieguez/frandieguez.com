@@ -16,7 +16,7 @@ tags:
   - Ruby
   - symbian
 ---
-<p align="justify"><img class="sinborde alignleft" style="margin-right: 15px" src="http://www.mabishu.com/wp-content/uploads/2007/10/image.jpg" alt="Nokia e65" align="left" />Recientemente me he comprado el móbil que veis en la imagen, el Nokia E65, y que decir para describirlo despues de testearlo y estresarlo durante unos días, pues yo diría</p>
+<p align="justify"><img class="sinborde alignleft" style="margin-right: 15px" src="/assets/2007/10/image.jpg" alt="Nokia e65" align="left" />Recientemente me he comprado el móbil que veis en la imagen, el Nokia E65, y que decir para describirlo despues de testearlo y estresarlo durante unos días, pues yo diría</p>
 <p align="center"><cite>Impresionante</cite></p>
 <p align="justify">Este dispositivo es de lo má estilizado que he visto con una slide activa incorpora 3G y conexión WIFI (WPA(1 y 2) Personal o Enterprise, WEP), cuatribanda, con cámara de 2 megapíxeles, sincronización de cuentas de correo IMAP4 y POP3, utilidades de oficina (lector pdf) y una de las cosas más importantes, totalmente integrable con GNU/Linux esto es, sincronización de contactos, notas, calendario y demás gracias a <a title="Msynctool: sincronización de móbiles con evolution" href="http://opensync.gforge.punktart.de/repo/opensync-0.21/">msynctool</a> y gracias a <a title="Tutorial en inglés sobre el proceso de sincronización del Nokia e65 con Evolution en GNU/Linux" href="http://opensync.gforge.punktart.de/repo/opensync-0.21/">este tutorial</a>.</p>
 <p align="justify">De la apariencia solo decir que es impecable, todo muy estilizado, slide muy robusto, tapa de batería en "cuero", y el resto de plástico "Bat-man".</p>

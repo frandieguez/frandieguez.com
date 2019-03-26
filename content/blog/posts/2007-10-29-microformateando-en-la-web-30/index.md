@@ -16,7 +16,7 @@ tags:
   - usabilidad
   - web 3.0
 ---
-<img class="alignright" style="text-align: center;" alt="Micrormatos" src="http://www.mabishu.com/wp-content/uploads/2007/10/wiki.png" width="120" height="127" />
+<img class="alignright" style="text-align: center;" alt="Micrormatos" src="/assets/2007/10/wiki.png" width="120" height="127" />
 
 No teníamos con suficiente con la revolución 2.0 que nos ha acercado la web más al escritorio, con aplicaciones mucho más amigables y accesibles, e infinitamente más sociables, véase <a title="microformats" href="http://microformats.org/">Facebook</a>, <a title="Bienvenido a Flickr: Intercambio de fotos" href="http://flickr.com/">flickr</a>, <a title="Google Maps" href="http://maps.google.com/">Google Maps</a>; lo que ya está llamando a las puertas la web 3.
 <h2>¿Pero que es esto de la web 3.0?</h2>

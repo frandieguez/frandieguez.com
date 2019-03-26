@@ -51,6 +51,6 @@ As I said before, Hubot has a quite good extendability by what's called scripts.
 	<li><a href="https://github.com/github/hubot-scripts/tree/master/src/scripts">github.com/github/hubot-scripts</a></li>
 </ul>
 <h3>Here is our bender bot</h3>
-<h3><a href="http://www.mabishu.com/wp-content/uploads/2013/05/Captura-de-pantalla-de-2013-05-09-184137.png"><img class="alignnone size-full wp-image-1566" alt="Captura de pantalla de 2013-05-09 18:41:37" src="http://www.mabishu.com/wp-content/uploads/2013/05/Captura-de-pantalla-de-2013-05-09-184137.png" width="721" height="569" /></a></h3>
+<h3><a href="/assets/2013/05/Captura-de-pantalla-de-2013-05-09-184137.png"><img class="alignnone size-full wp-image-1566" alt="Captura de pantalla de 2013-05-09 18:41:37" src="/assets/2013/05/Captura-de-pantalla-de-2013-05-09-184137.png" width="721" height="569" /></a></h3>
 <h3>Future findings</h3>
 I'm trying to find a cheap node.js hosting for running this bot. I'll try to explain soon what my findings are.

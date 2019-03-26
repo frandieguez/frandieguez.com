@@ -25,7 +25,8 @@ We’ve all seen poorly written code that’s hard to understand, test, and main
 
 It's well understood what are the core concepts behind good design, any software engineering book will hightlight seven code qualities that matter: cohesion, loose coupling, no redundancy, encapsulation, testability, readability, and focus. Yet it’s hard to put those concepts into practice there are some other rules that could help us.
 
-<!--more-->Anyway, Object Calisthenics is an idea suggest by Jeff Bay in <a href="http://www.amazon.co.uk/ThoughtWorks-Anthology-Technology-Innovation-Programmers/dp/193435614X/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1225966906&amp;sr=8-1">The ThoughtWorks Anthology</a> , and lists 9 rules to writing better Object Oriented code. Among those rules are:
+<!--more-->
+Anyway, Object Calisthenics is an idea suggest by Jeff Bay in <a href="http://www.amazon.co.uk/ThoughtWorks-Anthology-Technology-Innovation-Programmers/dp/193435614X/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1225966906&amp;sr=8-1">The ThoughtWorks Anthology</a> , and lists 9 rules to writing better Object Oriented code. Among those rules are:
 <ol>
 	<li>Use only one level of indentation per method</li>
 	<li>Don’t use the else keyword</li>
@@ -39,12 +40,15 @@ It's well understood what are the core concepts behind good design, any software
 </ol>
 This is not intended to do it in a production code but for example in a <a title="Kata in Wikipedia" href="http://en.wikipedia.org/wiki/Kata_(programming)">code kata</a>. In fact, I found it a little difficult to completely apply all of the rules to any code. Particularly the 7th rule, as in many situations your working model could be a little more complex than this particular rule allows.
 <h2>The Challenge</h2>
+
 <h3>Rule 1: One level of indentation per method</h3>
 This is really easy as you only has to ensure that the method you are writing only performs one simple tasks: one control structure, or one block of statements, etc. The way to achieve this is to split methods up.
+
 <h3>Rule 2: Don’t use the ELSE keyword</h3>
 Nearly every programmer has seen a nasty nested conditional that’s impossible to follow, or a case statement that goes on for pages. Object-oriented languages give us a powerful tool, polymorphism, for handling complex conditional cases. You can take this to avoid the ELSE keyword.
 
 Or if you want an easy approach you can perform "early return" for the particular situation of handling only two conditionals.
+
 <h3>Rule 3: Wrap all primitives and Strings</h3>
 This rule tries to encapsulate all the primitives with in objects for allow our programs to work in all our code in a OO-way. For example you can wrap the int primitive like this:
 <pre>&lt;?php
@@ -55,9 +59,12 @@ class IntegerNumber
     public function __construct($number)
     {
         $this-&gt;number = $number;
-    }</pre>
+    }
+</pre>
+
 <h3>Rule 4: Use only one dot per line</h3>
 In the case of PHP, my language of choice, only one arrow after <em>$this-&gt;</em>, since the former arrow cannot be omitted. Respecting the Law of Demeter was not an issue but it forced you to continuously avoid foreign methods, substituting them with methods on the right class.
+
 <h3>Rule 5: Don’t abbreviate</h3>
 It’s often tempting to abbreviate in the names of classes, methods, or variables. Please, resist the temptation – abbreviations can be confusing, and they tend to hide larger problems. The most common example in PHP are C-like languages could be the next one.
 <pre>public function isTrue($boolean)

@@ -17,7 +17,7 @@ tags:
   - git
   - restore
 ---
-<img class="alignright" style="max-width: 300px;" title="Mistake done at gnome-system-tools with icons directory deleted" alt="" src="http://www.mabishu.com/wp-content/uploads/2010/08/Captura-de-pantalla-gitg-gnome-system-tools-master-1.png" />
+<img class="alignright" style="max-width: 300px;" title="Mistake done at gnome-system-tools with icons directory deleted" alt="" src="/assets/2010/08/Captura-de-pantalla-gitg-gnome-system-tools-master-1.png" />
 
 When I met git, I fall in love in the moment. You can read any apointments I wrote previously <a title="Control de versiones con GIT I" href="http://www.mabishu.com/blog/2008/06/04/control-de-versiones-con-git-i/">here</a>, and <a title="Control de versiones con GIT II" href="http://www.mabishu.com/blog/2008/06/13/gestion-de-branches-y-tags-con-git-ii/">here</a> (in spanish) but today I'll explain how to restore files and directories from previous commits that it was deleted by a mistake or intentionally in the past.
 

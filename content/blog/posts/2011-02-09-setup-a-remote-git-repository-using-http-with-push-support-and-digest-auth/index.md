@@ -17,7 +17,7 @@ tags:
   - http
   - push
 ---
-<img class=" alignright" title="Git over HTTP" src="http://www.mabishu.com/wp-content/uploads/2011/02/git_over_http.png" alt="" width="324" height="185" />
+<img class=" alignright" title="Git over HTTP" src="/assets/2011/02/git_over_http.png" alt="" width="324" height="185" />
 
 And here is another post about our daily job with git, this time talking about how to setting up a remote git repository with digest authentication and support for pushing changes using http protocol.
 

@@ -12,4 +12,4 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<p style="text-align: center;"><img class="aligncenter" alt="harddrive.jpg" src="http://www.mabishu.com/wp-content/uploads/2007/08/harddrive.jpg" width="400" height="558" /></p>
+<p style="text-align: center;"><img class="aligncenter" alt="harddrive.jpg" src="/assets/2007/08/harddrive.jpg" width="400" height="558" /></p>

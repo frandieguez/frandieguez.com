@@ -18,7 +18,7 @@ tags:
   - javascript
   - Linux
 ---
-<img class="size-full wp-image-640 alignright" style="margin-left: 10px;" title="Google Analytics screenshot" alt="" src="http://www.mabishu.com/wp-content/uploads/2010/06/rect2818.png" width="431" height="206" align="right" />
+<img class="size-full wp-image-640 alignright" style="margin-left: 10px;" title="Google Analytics screenshot" alt="" src="/assets/2010/06/rect2818.png" width="431" height="206" align="right" />
 
 The big problem of use Google Analytics is that you have to get its javascript to get to work statistics. For me this causes that my sites takes a lot of time to end the load. For this reason I always recommend put the GAnalytics code at the bottom of the page, but for me this is not enought.
 

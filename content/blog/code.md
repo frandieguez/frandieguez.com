@@ -11,7 +11,7 @@ slug: code
 <div>
   <div style="text-align:center; margin-top:2em;">
 
-  ![Galiza ID](http://www.mabishu.com/wp-content/uploads/2009/11/logo-galizaid.png "Logo de GalizaID")
+  ![Galiza ID](/assets/2009/11/logo-galizaid.png "Logo de GalizaID")
 
   </div>
 
@@ -25,7 +25,7 @@ slug: code
 <div>
   <div style="text-align:center; margin-top:2em;">
 
-  ![Tiboxe](http://www.mabishu.com/wp-content/uploads/2009/11/tiboxe1.png)
+  ![Tiboxe](/assets/2009/11/tiboxe1.png)
 
   </div>
 
@@ -39,7 +39,7 @@ slug: code
 <div>
   <div style="text-align:center; margin-top:2em;">
 
-  ![UbuntuUSC](http://www.mabishu.com/wp-content/uploads/2009/11/ubuntuusc-logo.png)
+  ![UbuntuUSC](/assets/2009/11/ubuntuusc-logo.png)
 
   </div>
 
@@ -52,7 +52,7 @@ slug: code
 <div>
   <div style="text-align:center; margin-top:2em;">
 
-  ![Google PageRank](http://www.mabishu.com/wp-content/uploads/2009/11/GooglePageRank-300x93.png)
+  ![Google PageRank](/assets/2009/11/GooglePageRank-300x93.png)
 
   </div>
 

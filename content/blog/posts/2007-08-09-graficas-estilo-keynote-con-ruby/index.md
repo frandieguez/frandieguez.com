@@ -42,4 +42,4 @@ y aquí está nuestra gran keynote:
 
 <a title="Grafica echa con Gruff en Ruby" href="http://www.mabishu.comwp-content/uploads/2007/08/sexo-edad.png"></a>
 
-<a title="Grafica echa con Gruff en Ruby" href="http://www.mabishu.comwp-content/uploads/2007/08/sexo-edad.png"><img src="http://www.mabishu.com/wp-content/uploads/2007/11/sexo-edad.png" alt="Grafica echa con Gruff en Ruby" width="480" height="360" /></a>
+<a title="Grafica echa con Gruff en Ruby" href="http://www.mabishu.comwp-content/uploads/2007/08/sexo-edad.png"><img src="/assets/2007/11/sexo-edad.png" alt="Grafica echa con Gruff en Ruby" width="480" height="360" /></a>

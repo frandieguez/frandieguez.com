@@ -20,7 +20,7 @@ tags:
   - server
   - setup
 ---
-<img class="alignright size-full wp-image-735" title="lamp" alt="" src="http://www.mabishu.com/wp-content/uploads/2010/07/lamp.png" width="336" height="175" />
+<img class="alignright size-full wp-image-735" title="lamp" alt="" src="/assets/2010/07/lamp.png" width="336" height="175" />
 
 One of the reasons cause I love the GNU/Linux for developing is its easy and quick setup.
 

@@ -20,7 +20,7 @@ tags:
   - ui patterns
   - user interface
 ---
-<img class="alignright size-full wp-image-801" title="4328394839_e632f7c98d" alt="" src="http://www.mabishu.com/wp-content/uploads/2010/08/4328394839_e632f7c98d.jpg" width="461" height="266" />
+<img class="alignright size-full wp-image-801" title="4328394839_e632f7c98d" alt="" src="/assets/2010/08/4328394839_e632f7c98d.jpg" width="461" height="266" />
 
 Last week I've been investigating about Web UI Patterns and anything concerning Social Media Patterns, mainly focused on building a consistent UI Pattern Toolkit that I'll release as soon it will be ready.
 

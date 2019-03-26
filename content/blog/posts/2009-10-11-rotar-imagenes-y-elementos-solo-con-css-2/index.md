@@ -54,6 +54,6 @@ Debajo puedes ver una prueba de rotación de una imagen poniendo los separadores
 <p style="text-align: center;"></p>
 
 
-[caption id="attachment_283" align="aligncenter" width="400" caption="Rotación de imagenes con css"]<a href="http://www.mabishu.com/examples/css-imagen-rotacion"><img class="size-full wp-image-283" title="css-rotation-screen-shot" src="http://www.mabishu.com/wp-content/uploads/2009/10/css-rotation-screen-shot.png" alt="Rotación de imagenes con css" width="400" height="323" /></a>[/caption]
+[caption id="attachment_283" align="aligncenter" width="400" caption="Rotación de imagenes con css"]<a href="http://www.mabishu.com/examples/css-imagen-rotacion"><img class="size-full wp-image-283" title="css-rotation-screen-shot" src="/assets/2009/10/css-rotation-screen-shot.png" alt="Rotación de imagenes con css" width="400" height="323" /></a>[/caption]
 
 Este es un ejemplo que funciona con navegadores basados en gecko como Safari o Safari Mobile en el iPhone, Firefox 3.5 e Internet Explorer 5.5 y superiores.

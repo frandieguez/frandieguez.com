@@ -18,7 +18,7 @@ tags:
   - macbook
   - mbr
 ---
-<img class="alignright size-medium wp-image-1300" alt="rEFIT-dualboot" src="http://www.mabishu.com/wp-content/uploads/2012/12/rEFIT-dualboot-300x225.jpg" width="300" height="225" />
+<img class="alignright size-medium wp-image-1300" alt="rEFIT-dualboot" src="/assets/2012/12/rEFIT-dualboot.jpg" width="300" height="225" />
 
 OK, you messed it up, you’ve installed <a href="http://www.ubuntu.com/" target="_blank">Ubuntu</a> <a href="https://wiki.ubuntu.com/MactelSupportTeam/CommunityHelpPages" target="_blank">on your Mac</a> running a dual boot with OSX, and accidentally installed the bootloader to the MBR.  Well this will render your system useless as Mac’s use EFI and GPTs, rendering MBRs rather useless, outside of its MBR emulation mode that is.
 

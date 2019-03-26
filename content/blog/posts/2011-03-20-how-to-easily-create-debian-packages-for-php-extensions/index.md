@@ -21,7 +21,7 @@ tags:
   - PHP
   - php extensions
 ---
-<p><img src="http://www.mabishu.com/wp-content/uploads/2011/03/20/debian-php-packe.png" alt="Debian PHP packages" style="float:right; margin: 0 0 10px 10px"/></p>
+<p><img src="/assets/2011/03/20/debian-php-packe.png" alt="Debian PHP packages" style="float:right; margin: 0 0 10px 10px"/></p>
 <p>Let me explain to all of you how to create a Debian package from a <a title="PECL :: The PHP Extension Community Library" href="http://pecl.php.net/" target="_blank">PECL</a> tarball. Currently is very simple to package a PECL extension without having any previous experience in Debian packaging and thus this system administration by installing deb packages could be more easy too.</p>
 <p>So let's start the packaging.</p><!--more-->
 <p>For this example we will create a package that I have tested last weeks and seems to fit all my needs for handling YAML files in a great way <a href="http://code.google.com/p/php-yaml/">http://code.google.com/p/php-yaml/</a>.</p>

@@ -20,7 +20,7 @@ tags:
   - setup
   - ubuntu
 ---
-<img class="alignright  wp-image-1155" title="jenkins_logo" alt="" src="http://www.mabishu.com/wp-content/uploads/2012/04/jenkins_logo.png" width="318" height="102" />
+<img class="alignright  wp-image-1155" title="jenkins_logo" alt="" src="/assets/2012/04/jenkins_logo.png" width="318" height="102" />
 
 This howto tries to clarify all the steps for setting up a Ubuntu Precise box as Continuous Integration server for PHP projects by using Jenkins.  In the next days I'll write another post about how to configure a PHP project inside Jenkins.
 
@@ -33,7 +33,7 @@ Ubuntu Precise now has inside its repository the Jenkins server packaged for an 
 </div>
 </div>
 <!--more-->after the installation jenkins will be running in the 8080 port. For accessing it you must go to <a href="http://localhost:8080">http://localhost:8080</a>
-<p style="text-align: center;"><a href="http://www.mabishu.com/wp-content/uploads/2012/04/1-jenkins-ready.png"><img class=" wp-image-1147 aligncenter" style="max-width: 100%;" title="1-jenkins-ready" alt="" src="http://www.mabishu.com/wp-content/uploads/2012/04/1-jenkins-ready.png" /></a></p>
+<p style="text-align: center;"><a href="/assets/2012/04/1-jenkins-ready.png"><img class=" wp-image-1147 aligncenter" style="max-width: 100%;" title="1-jenkins-ready" alt="" src="/assets/2012/04/1-jenkins-ready.png" /></a></p>
 If you want to allow Jenkins to send mails after the builds, for informing of build reports to your team, you have to install a MTA:
 <pre>sudo apt-get install postfix</pre>
 <h2>Installing required Jenkins Plugins</h2>
@@ -54,7 +54,7 @@ You can install these plugins using the web frontend at http://localhost:8080/p
 
 Just check them all and click the «Install» button. You will see the plugin installation progress:
 
-<a href="http://www.mabishu.com/wp-content/uploads/2012/04/2-installing-plugins.png"><img class="size-full wp-image-1148 aligncenter" title="2-installing-plugins" alt="" src="http://www.mabishu.com/wp-content/uploads/2012/04/2-installing-plugins.png" width="427" height="510" /></a>
+<a href="/assets/2012/04/2-installing-plugins.png"><img class="size-full wp-image-1148 aligncenter" title="2-installing-plugins" alt="" src="/assets/2012/04/2-installing-plugins.png" width="427" height="510" /></a>
 
 If you can't find the Jenkins plugin from the Jenkins interface you can install them from command line. Go to <a href="http://updates.jenkins-ci.org/download/plugins/">http://updates.jenkins-ci.org/download/plugins/</a> and copy the hpi file URL of your desired plugin and execute the next commands from your jenkins server commandline:
 <pre>cd /var/lib/jenkins/plugins

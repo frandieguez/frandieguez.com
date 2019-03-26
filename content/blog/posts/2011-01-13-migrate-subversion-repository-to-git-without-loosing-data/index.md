@@ -16,7 +16,7 @@ tags:
   - migrate
   - subverstion
 ---
-<img class="alignright" src="http://www.mabishu.com/wp-content/uploads/2011/01/git-pony-svn-ogre.png" alt="" width="320" height="154" />
+<img class="alignright" src="/assets/2011/01/git-pony-svn-ogre.png" alt="" width="320" height="154" />
 
 In our company we migrated all our SVN repositories to Git, as the migration is not straight forward I wrote down it and made available for all of you. Some tips are taken from documentation and others from <a href="http://stackoverflow.com/">other websites</a>.
 

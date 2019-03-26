@@ -18,7 +18,7 @@ tags:
   - macbook
   - macboopro6.2
 ---
-<img class="alignright size-full wp-image-706" style="margin-left: 10px;" title="macbook-keyboard" alt="" src="http://www.mabishu.com/wp-content/uploads/2010/06/macbook-keyboard1.png" width="431" height="187" />
+<img class="alignright size-full wp-image-706" style="margin-left: 10px;" title="macbook-keyboard" alt="" src="/assets/2010/06/macbook-keyboard1.png" width="431" height="187" />
 
 Recently I have purchased a new MacBook Pro 15" and the first thing I do was install <a title="Ubuntu Lucid Lynx" href="https://wiki.ubuntu.com/LucidLynx">Ubuntu Lucid Lynx</a> on it. After <a href="https://help.ubuntu.com/community/MacBookPro6-2/Lucid">some readying</a> I have all the hardware working properly but the keyboard backlight wasn’t integrated into system and unfortunately after searching on the web for something that could do this, I decide to write a simple script with Bash and use Ubuntu-tweak to bind the keyboard keys to invoke the script. So let’s go...
 
@@ -97,6 +97,6 @@ Now that the script works from command line without password prompting we could 
 
 In ubuntu-tweak we can tune our keyboard special keys under Personal &gt; Shortcuts Commands, there just set up shortcuts as you can see in the image below.
 
-<a href="http://www.mabishu.com/wp-content/uploads/2010/06/ubuntu-tweak-macbook-backlight.png"><img class="aligncenter size-medium wp-image-709" title="ubuntu-tweak-macbook-backlight" alt="" src="http://www.mabishu.com/wp-content/uploads/2010/06/ubuntu-tweak-macbook-backlight-300x176.png" width="300" height="176" /></a>
+<a href="/assets/2010/06/ubuntu-tweak-macbook-backlight.png"><img class="aligncenter size-medium wp-image-709" title="ubuntu-tweak-macbook-backlight" alt="" src="/assets/2010/06/ubuntu-tweak-macbook-backlight-300x176.png" width="300" height="176" /></a>
 
 I hope you enjoy it! And as I say always "Comments, questions, heckles, attacks, praises, and, (most especially) patches and contributions are welcome!"

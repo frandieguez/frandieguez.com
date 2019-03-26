@@ -16,7 +16,7 @@ tags:
   - Linux
   - spotify
 ---
-<img class="size-full wp-image-869 alignright" style="margin: 0 0 15px 15px;" title="Spotify Developer Toolkit" alt="" src="http://www.mabishu.com/wp-content/uploads/2010/11/spotify_tools.png" width="224" height="233" />
+<img class="size-full wp-image-869 alignright" style="margin: 0 0 15px 15px;" title="Spotify Developer Toolkit" alt="" src="/assets/2010/11/spotify_tools.png" width="224" height="233" />
 
 After a lot of requests from Linux users, Spotify developers have integrated D-Bus support in version 0.4.8.282. So, what this means is simply and awesome! Now Linux developers could use this programmatic interface to interact with Spotify from other apps.
 

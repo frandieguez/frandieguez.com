@@ -17,7 +17,7 @@ tags:
   - madwifi
   - wireless
 ---
-<a title="Driver para tarjetas Atheros en GNU/Linux" rel="attachment wp-att-80" href="http://www.mabishu.com/code/2-revision-35/"><img class="sinborde" src="http://www.mabishu.com/wp-content/uploads/2007/09/madwifi-logo-20070907.png" alt="Logo Madwifi.org" align="left" /></a>Aquí está la segunda entrega de instalación de nuestro sistema operativo favorito, GNU/Linux. Como amante del software libre no me canso de recomendar este sistema, y en el tiempo que llevo los problemas que se presentan siempre son recursivos:
+<a title="Driver para tarjetas Atheros en GNU/Linux" rel="attachment wp-att-80" href="http://www.mabishu.com/code/2-revision-35/"><img class="sinborde" src="/assets/2007/09/madwifi-logo-20070907.png" alt="Logo Madwifi.org" align="left" /></a>Aquí está la segunda entrega de instalación de nuestro sistema operativo favorito, GNU/Linux. Como amante del software libre no me canso de recomendar este sistema, y en el tiempo que llevo los problemas que se presentan siempre son recursivos:
 <ul>
 	<li><strong>instalación de software,</strong> llegados a un punto de práctica suficiente se solventa con un ./configure, make, make install para el caso de los tarball y un dpkg -i para los archivos deb, en el caso de los paquetes de debian.</li>
 	<li><strong>configuración de hardware, </strong>este es el tema más peliagudo que le veo a GNU/Linux, la gente inexperta se desespera al tener una máquina que no funciona del todo.</li>

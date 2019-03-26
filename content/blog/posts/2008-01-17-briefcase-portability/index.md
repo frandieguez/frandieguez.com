@@ -12,4 +12,4 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<p style="text-align: center;"><img class="aligncenter" src="http://www.mabishu.comwp-content/uploads/2008/01/briefcase-portability1.jpg" alt="Briefcase Portability" align="center" /></p>
+<img class="aligncenter" src="/assets/2008/01/briefcase-portability1.jpg" alt="Briefcase Portability" align="center" />

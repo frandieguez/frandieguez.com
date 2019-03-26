@@ -17,7 +17,7 @@ tags:
   - SSD
   - tips
 ---
-<img class="alignright size-medium wp-image-1298" alt="OCZ Vertex 4" src="http://www.mabishu.com/wp-content/uploads/2012/12/ocz-vertex-4-256gb-ssd-sata-iii-3-6gbps-120k-max-iops-adapt_MLA-F-3249716722_102012-300x296.jpg" width="300" height="296" />
+<img class="alignright size-medium wp-image-1298" alt="OCZ Vertex 4" src="/assets/2012/12/ocz-vertex-4-256gb-ssd-sata-iii-3-6gbps-120k-max-iops-adapt_MLA-F-3249716722_102012.jpg" width="300" height="296" />
 
 Recently I acquired an OCZ Vertex 4 SSD as my old hard drive was about to die as SMART were reporting. Definitely I would suggest you to go for a SSD as this upgrade will be the most significant and noticeable upgrade you can do for you computer.
 

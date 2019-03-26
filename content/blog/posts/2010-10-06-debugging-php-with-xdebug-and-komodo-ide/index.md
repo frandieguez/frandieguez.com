@@ -23,7 +23,7 @@ tags:
   - server
   - xdebug
 ---
-<img class=" wp-image-817 alignright" style="max-width: 400px;" title="Some PHP Code" alt="" src="http://www.mabishu.com/wp-content/uploads/2010/10/Captura-de-pantalla-1.png" width="261" height="169" align="right" />
+<img class=" wp-image-817 alignright" style="max-width: 400px;" title="Some PHP Code" alt="" src="/assets/2010/10/Captura-de-pantalla-1.png" width="261" height="169" align="right" />
 
 When you develop a very important web app it is pretty sure you will need debugging it. The best way to do this is using XDebug so in this article I am going to explain how to setup and use XDebug with Komodo IDE or Edit, but you can use it for Netbeans or Eclipse as well.
 
@@ -34,7 +34,7 @@ So now you should have the file xdebug.ini at /etc/php5/conf.d/. I have done som
 Restart your Apache server to reload the PHP configuration.
 <pre lang="bash"><code>sudo service apache2 restart</code></pre>
 Now you have to set up Komodo Edit or Komodo IDE to listen XDebug connections. Start Komodo and go to<strong> Edit -&gt; Preferences -&gt; Debugger -&gt; Connection</strong> and modify your configurations to fit the next screenshot.
-<img class="size-full wp-image-818 alignnone" title="Captura-de-pantalla-2" alt="" src="http://www.mabishu.com/wp-content/uploads/2010/10/Captura-de-pantalla-2.png" width="341" height="246" />
+<img class="size-full wp-image-818 alignnone" title="Captura-de-pantalla-2" alt="" src="/assets/2010/10/Captura-de-pantalla-2.png" width="341" height="246" />
 
 So if you point your browser to your app, append the "XDEBUG_SESSION_START=1" HTTP GET parameter or use one Firefox (if you are using it) extension like <a title="Easy XDebug Firefox extension download page" href="https://addons.mozilla.org/es-ES/firefox/addon/58688/">Easy XDebug</a> and Komodo will pop up pointing to the start point of your app. Now you can use keyboard shortcuts to step into, step over continue or stop your debugging session.
 

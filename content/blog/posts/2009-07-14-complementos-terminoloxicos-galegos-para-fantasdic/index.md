@@ -36,20 +36,20 @@ O aplicativo <a href="http://www.gnome.org/projects/fantasdic">Fantasdic</a> é 
 <p style="text-align: left;">Copiar os seguintes ficheiros .rb no cartafol ~/.fantasdic/sources.</p>
 <p style="text-align: left;"><a href="http://www.mabishu.com/blog/wp-content/uploads/2009/07/corpus_mancomun.rb">corpus_mancomun</a>.rb – Complemento para consulta do corpus de corpus.mancomun.org
 <a href="http://www.mabishu.com/blog/wp-content/uploads/2009/07/open_tran.rb">open_tran</a> – Complemento para consulta de Open-Tran.eu</p>
-<p style="text-align: left;"><img class="size-full wp-image-243 alignnone" title="Fantasdic-0" alt="Fantasdic-0" src="http://www.mabishu.com/wp-content/uploads/2009/07/Fantasdic-0.png" width="542" height="384" align="center" /></p>
+<p style="text-align: left;"><img class="size-full wp-image-243 alignnone" title="Fantasdic-0" alt="Fantasdic-0" src="/assets/2009/07/Fantasdic-0.png" width="542" height="384" align="center" /></p>
 <p style="text-align: left;">Iniciar o Fantasdic.</p>
 
 <h4 style="text-align: left;">Configuración da orixe</h4>
 <p style="text-align: left;">Ir ao menú Editar-&gt;Preferencias.</p>
-<img class="size-full wp-image-244 alignnone" title="Fantasdic-1" alt="Fantasdic-1" src="http://www.mabishu.com/wp-content/uploads/2009/07/Fantasdic-1.png" width="434" height="394" align="center" />
+<img class="size-full wp-image-244 alignnone" title="Fantasdic-1" alt="Fantasdic-1" src="/assets/2009/07/Fantasdic-1.png" width="434" height="394" align="center" />
 <p style="text-align: left;">Pulsar no botón Engadir no separador Dicionarios.</p>
-<p style="text-align: left;"><img class="size-full wp-image-245 alignnone" title="Fantasdic-2" alt="Fantasdic-2" src="http://www.mabishu.com/wp-content/uploads/2009/07/Fantasdic-2.png" width="354" height="354" /></p>
+<p style="text-align: left;"><img class="size-full wp-image-245 alignnone" title="Fantasdic-2" alt="Fantasdic-2" src="/assets/2009/07/Fantasdic-2.png" width="354" height="354" /></p>
 <p style="text-align: left;">Abrese un diálogo para meter unha orixe. Seleccionamos en orixe o “Corpus Mancomun” e inserimos un nome para poder diferencialo do resto (p.ex. “Manc. en-&gt;gl”),</p>
-<p style="text-align: left;"><img class="size-full wp-image-246 alignnone" title="Fantasdic-3" alt="Fantasdic-3" src="http://www.mabishu.com/wp-content/uploads/2009/07/Fantasdic-3.png" width="355" height="460" /></p>
+<p style="text-align: left;"><img class="size-full wp-image-246 alignnone" title="Fantasdic-3" alt="Fantasdic-3" src="/assets/2009/07/Fantasdic-3.png" width="355" height="460" /></p>
 <p style="text-align: left;">Vamos ao separador “Bases de datos”, e activamos a que queremos (seleccionamos unha e damoslle ao botón Baixar).</p>
-<p style="text-align: left;"><img class="size-full wp-image-247 alignnone" title="Fantasdic-4" alt="Fantasdic-4" src="http://www.mabishu.com/wp-content/uploads/2009/07/Fantasdic-4.png" width="336" height="436" />
+<p style="text-align: left;"><img class="size-full wp-image-247 alignnone" title="Fantasdic-4" alt="Fantasdic-4" src="/assets/2009/07/Fantasdic-4.png" width="336" height="436" />
 Xa esta!</p>
 
 <h4 style="text-align: left;">Consultas</h4>
 <p style="text-align: left;">Agora para facer consultas seleccionamos no despregábel da dereita a orixe que queiramos e inserimos o termo a buscar.</p>
-<p style="text-align: left;"><img class="size-full wp-image-248 alignnone" title="Fantasdic-5" alt="Fantasdic-5" src="http://www.mabishu.com/wp-content/uploads/2009/07/Fantasdic-5.png" width="453" height="427" /></p>
+<p style="text-align: left;"><img class="size-full wp-image-248 alignnone" title="Fantasdic-5" alt="Fantasdic-5" src="/assets/2009/07/Fantasdic-5.png" width="453" height="427" /></p>

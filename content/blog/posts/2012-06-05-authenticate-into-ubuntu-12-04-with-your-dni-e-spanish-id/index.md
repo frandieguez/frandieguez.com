@@ -17,7 +17,7 @@ tags:
   - pam
   - ubuntu
 ---
-<img class="alignright" title="dni_electronico" alt="" src="http://www.mabishu.com/wp-content/uploads/2012/06/dni_electronico-300x192.png" width="300" height="192" />
+<img class="alignright" title="dni_electronico" alt="" src="/assets/2012/06/dni_electronico-300x192.png" width="300" height="192" />
 
 This howto will explain how to setting up pam-pkcs11 for use the DNI-e (Spanish personal ID) as your auth credential and login into Ubuntu with it.
 

@@ -12,4 +12,4 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<img src="http://www.mabishu.com/wp-content/uploads/2007/07/pubsoyusuariode39864099xk7.png" alt="Soy Usuario de…" />
+<img src="/assets/2007/07/pubsoyusuariode39864099xk7.png" alt="Soy Usuario de…" />

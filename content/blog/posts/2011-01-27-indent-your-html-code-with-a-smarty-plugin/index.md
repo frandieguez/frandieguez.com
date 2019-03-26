@@ -19,7 +19,7 @@ tags:
   - server
   - smarty
 ---
-<img class="alignright" title="XHTML code" src="http://www.mabishu.com/wp-content/uploads/2011/01/images.jpg" alt="XHTML code" width="259" height="194" />
+<img class="alignright" title="XHTML code" src="/assets/2011/01/images.jpg" alt="XHTML code" width="259" height="194" />
 
 If you are using Smarty as a template system in your PHP project you will be very pleased to use this tiny-but-very-useful outputfilter that I made.
 

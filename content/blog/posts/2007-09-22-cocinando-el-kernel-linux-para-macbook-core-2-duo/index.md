@@ -18,7 +18,7 @@ tags:
   - Linux
   - macbook
 ---
-<img class="sinborde alignright" title="Kernel Linux tux" alt="Kernel Linux tux" src="http://www.mabishu.com/wp-content/uploads/2007/09/korg10yr.gif" width="128" height="147" align="left" border="0" />
+<img class="sinborde alignright" title="Kernel Linux tux" alt="Kernel Linux tux" src="/assets/2007/09/korg10yr.gif" width="128" height="147" align="left" border="0" />
 
 Hoy toca compilar, aquí relato como compilar el kernel Linux para que todo en nuestra Mac funcione a la perfección.
 

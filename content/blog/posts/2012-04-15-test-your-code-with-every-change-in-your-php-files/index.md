@@ -18,7 +18,7 @@ tags:
   - testing
   - watchr
 ---
-<img class="alignright  wp-image-1169" title="tdd-red-green-refactor-diagram" alt="" src="http://www.mabishu.com/wp-content/uploads/2012/04/tdd-red-green-refactor-diagram-300x277.gif" width="210" height="194" />
+<img class="alignright  wp-image-1169" title="tdd-red-green-refactor-diagram" alt="" src="/assets/2012/04/tdd-red-green-refactor-diagram-300x277.gif" width="210" height="194" />
 
 Applying TDD to your PHP code is a big improve in your code as forces you to "think" the code before write it down. A common approach to TDD workflow could be:
 <ol>
