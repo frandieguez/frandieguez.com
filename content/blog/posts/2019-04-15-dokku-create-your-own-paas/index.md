@@ -17,16 +17,25 @@ tags:
 ---
 If you have been playing for some time with [heroku](https://www.heroku.com) or even [now.sh](https://zeit.co/now) for some time you will be on my boat about how easy is to deploy application on those services. **What if I tell you that you can have your own PaaS using [dokku](https://github.com/dokku/dokku) ? 😍** In this post I will explain how to deploy a node.js application within a docker container on your own Dokku service using a cheap Digital Ocean droplet.
 
+<div class="aligncenter">
+
+![Dokku initial configuration form page](/assets/2019/04/dokku-logo.png)
+
+</div>
+
 # 🚀 Deploying a DO droplet with Dokku
 Due to the addition of the [Marketplace](https://blog.digitalocean.com/introducing-digitalocean-marketplace/) to Digital Ocean you can easily deploy prebuild droplets from your DO dashboard. So let's search for dokku and create a droplet with their 1-click install.
 
-![Dokku on Digital Ocean Marketplace](./dokku-do-marketplace.png)
+![Dokku on Digital Ocean Marketplace](/assets/2019/04/dokku-do-marketplace.png)
 
+*Do not forget to mark Use virtualhost naming for apps*. This will allow to map each application on a single subdomain. The other option is to expose all the application on the base domain and assign each applcation
+
+![Dokku droplet configuration](/assets/2019/04/do-droplet-configuration.png)
 
 Then you have to copy the IP address of your droplet. And open a new browser tab with it. you will see an administration form that will let you configure the Admin SSH key, use virtualhost naming mapping for each app deployed
 
 
-![Dokku initial configuration form page](./159.89.100.242_.png)
+![Dokku initial configuration form page](/assets/2019/04/dokku-server-config.png)
 
 After that you will have your dokku server up and running.
 
@@ -51,9 +60,8 @@ root@frandieguez-dokku-server:~# dokku apps:create nodejs-app-sample
 For this app we dont need any other service, like a database or a queue server. To achieve this dokku has plugins. You can review dokku plugins at the next link : [Dokku plugins](http://dokku.viewdocs.io/dokku/community/plugins/#official-plugins-beta)
 
 For example if you need mysql you have to:
-
-- install the plugin
-```bash
+- Install the plugin
+```
 sudo dokku plugin:install https://github.com/dokku/dokku-mysql.git
 ```
 - Create the mysql service with  the name nodejsdatabase
@@ -69,7 +77,6 @@ dokku mysql:link nodejsdatabase nodejs-app-sample
 Then in your development machine download the app code
 
 ```bash
-20:48:07 fran@flexo:~
 $ git clone https://github.com/heroku/node-js-sample
 Cloning into 'node-js-sample'...
 remote: Enumerating objects: 410, done.
@@ -78,11 +85,12 @@ Receiving objects: 100% (410/410), 215.25 KiB | 841.00 KiB/s, done.
 Resolving deltas: 100% (63/63), done.
 ```
 
+Then configure the dokku server to push changes to it
 ```bash
-20:50:03 fran@flexo:node-js-sample (master=)
 $ git remote add dokku dokku@159.89.100.242:nodejs-app-sample
 ```
 
+Finally upload the changes to the dokku server
 ```bash
 $ git push dokku master
 Enumerating objects: 410, done.
@@ -204,7 +212,8 @@ As you can see from the command output above while pushing changes to the dokku 
 
 At this point your app is ready to be accessed
 
-Edit your /etc/hosts
+Edit your /etc/hosts adding the next line:
+
 ```bash
 159.89.100.242 nodejs-app-sample.frandieguez-dokku-server
 ```
@@ -212,3 +221,8 @@ Edit your /etc/hosts
 And go to [http://nodejs-app-sample.frandieguez-dokku-server](http://nodejs-app-sample.frandieguez-dokku-server). And your app is up and running.
 
 Quite impressive! Your own heroku!
+
+<div class="aligncenter">
+
+<img src="/assets/2019/04/bacon-yoda.png" width=250px alt="Bacon Smell"/>
+</div>
