@@ -10,6 +10,6 @@ permalink: /blog/2008/01/briefcase-portability/
 dsq_thread_id:
   - "721978530"
 categories:
-  - Uncategorized
+  - Curiosity
 ---
 <img class="aligncenter" src="/assets/2008/01/briefcase-portability1.jpg" alt="Briefcase Portability" align="center" />

@@ -22,10 +22,16 @@ Recientemente ha salido Ruby on Rails versión 2 que todavía estoy estudiando p
 
 Pero vayamos al meollo de la cuestión, inicialmente había pensado en crearme alguna función que cargue el sistema de procesos pero como soy un Vago Bueno™, he deducido que el Makefile del intérprete de Ruby tenía que tener algún sistema de benchmark.
 
-Descargaremos <a title="Nueva versión de Ruby 1.9.0" href="http://www.ruby-lang.org/es/news/2007/12/25/ruby-1-9-0-ya-esta-disponible/">la nueva versión 1.9.0</a> y compilaremos como siempre ./configure &amp;&amp; make &amp;&amp; make test &amp;&amp; make install. Así que lanzaremos lo siguiente:
-<pre>make benchmark</pre>
+Descargaremos <a title="Nueva versión de Ruby 1.9.0" href="http://www.ruby-lang.org/es/news/2007/12/25/ruby-1-9-0-ya-esta-disponible/">la nueva versión 1.9.0</a> y compilaremos como siempre `./configure && make && make test && make install`. Así que lanzaremos lo siguiente:
+
+```
+make benchmark
+```
+
 Esta tarea detectará tu versión anterior y ejecutará un elevado número de pruebas comparando la versión recién compilada con la antigua, he aquí un ejemplo que se lleva a cabo.
-<pre lang="ruby">vm1_rescue
+
+```ruby
+vm1_rescue
 
 i=0
 while i&lt;30000000 # while loop 1
@@ -36,7 +42,9 @@ while i&lt;30000000 # while loop 1
 end
 
 ruby 1.8.6 (2007-09-24) [universal-darwin9.0]    11.3471548557281
-ruby 1.9.0 (2007-12-25 revision 14709) [i686-darwin9.1.0]    1.78452610969543</pre>
+ruby 1.9.0 (2007-12-25 revision 14709) [i686-darwin9.1.0]    1.78452610969543
+```
+
 La mejora es evidente, también es verdad que en algunos casos la mejora no es tan sustancial y en otras contadas ocasiones incluso empeora la anterior marca de tiempo. Si queréis ver el reporte completo de mis pruebas os dejo aquí el archivo <a title="Benchmarks de Ruby 1.9" href="http://mabishu.com/temp/wordpress/wp-content/uploads/2007/12/benchmark-ruby19.txt">Benchmarks de Ruby 1.9</a>
 
 Para aquel que esta más interesado en hacer benchmarks de sus scripts, es bueno utilizar <a title="Clase Benchmark de Ruby" href="http://ruby-doc.org/stdlib/libdoc/benchmark/rdoc/index.html">la clase Benchmark</a>, que da muchísimas facilidades para llevar a cabo pruebas de forma muy rápida.

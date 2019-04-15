@@ -10,7 +10,13 @@ permalink: /blog/2007/08/videos-de-la-ruby-hoedown-2007/
 dsq_thread_id:
   - "662026988"
 categories:
-  - Uncategorized
+  - Resources
+tags:
+  - conferences
+  - ruby
 ---
-<p style="text-align: center"><a href="http://www.rubyhoedown.com/" title="Ruby Hoedown 2007"><img src="/assets/2007/08/hoedownlogo.png" title="Ruby Hoedown 2007" alt="Ruby Hoedown 2007" height="266" width="300" /></a></p>
+<p style="text-align: center">
+<img src="/assets/2007/08/hoedownlogo.png" title="Ruby Hoedown 2007" alt="Ruby Hoedown 2007" height="266" width="300" />
+</p>
+
 Esta misma tarde han publicado los videos de la Ruby Hoedown 2007, jornadas para desarrolladores en Ruby que versan sobre diferentes temas desde las diferentes técnicas de testeo en Ruby on Rails, Vo-IP, creación de juegos con Ruby, emplear C en tus aplicaciones Rails, entre otras. La p&aacute;gina para la descarga de los videos o visionado online est&aacute; <a href="http://rubyhoedown2007.confreaks.com/" title="Download Ruby Hoedown 2007 conference's Videos">aquí</a>

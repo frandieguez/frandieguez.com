@@ -12,4 +12,4 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<p style="text-align: center;"><a href="/assets/2007/07/spoiler.jpg"><img class="size-medium wp-image-164 aligncenter" alt="Jesus dies at page ..." src="/assets/2007/07/spoiler-300x292.jpg" width="300" height="292" /></a></p>
+<p style="text-align: center;"><a href="/assets/2007/07/spoiler.jpg"><img class="size-medium wp-image-164 aligncenter" alt="Jesus dies at page ..." src="/assets/2007/07/spoiler.jpg" width="300" height="292" /></a></p>

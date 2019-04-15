@@ -10,6 +10,12 @@ permalink: /blog/2007/08/ive-been-thinking-about-you/
 dsq_thread_id:
   - "850869395"
 categories:
-  - Uncategorized
+  - Photography
+tags:
+  - beauties
 ---
-![Madre naturaleza](/images/1214778223_5757738e5e.jpg)
+<div style="text-align:center;">
+
+![Madre naturaleza](/assets/2007/08/1214778223_5757738e5e.jpg)
+
+</div>

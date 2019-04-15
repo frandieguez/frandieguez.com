@@ -1,10 +1,10 @@
 ---
 id: 1690
 title: 'Dokku: create your own PaaS'
-date: 2019-04-15T22:19:15+00:00
+date: 2019-04-15
 author: Fran Diéguez
 layout: post
-published: false
+published: true
 guid: 1690
 permalink: /blog/2019/04/dokku-create-your-own-paas/
 categories:
@@ -15,21 +15,22 @@ tags:
   - PaaS
   - DIY
 ---
-If you have been playing for some time with [heroku](https://www.heroku.com) or even [now.sh](https://zeit.co/now) for some time you will be on my boat about how easy is to deploy application on those services. **What if I tell you that you can have your own PaaS using [dokku](https://github.com/dokku/dokku) ?** In this post I will explain how to deploy a node.js application within a docker container on your own Dokku service using a cheap Digital Ocean droplet. 😍
+If you have been playing for some time with [heroku](https://www.heroku.com) or even [now.sh](https://zeit.co/now) for some time you will be on my boat about how easy is to deploy application on those services. **What if I tell you that you can have your own PaaS using [dokku](https://github.com/dokku/dokku) ? 😍** In this post I will explain how to deploy a node.js application within a docker container on your own Dokku service using a cheap Digital Ocean droplet.
 
-# Deploying a DO droplet with Dokku
-Due to the addition of the [Marketplace](https://blog.digitalocean.com/introducing-digitalocean-marketplace/) to Digital Ocean you can easily deploy prebuild droplets from your DO dashboard. So let's search for dokku on it and create a droplet with their 1-click install.
+# 🚀 Deploying a DO droplet with Dokku
+Due to the addition of the [Marketplace](https://blog.digitalocean.com/introducing-digitalocean-marketplace/) to Digital Ocean you can easily deploy prebuild droplets from your DO dashboard. So let's search for dokku and create a droplet with their 1-click install.
 
-![Dokku in Digital Ocean Marketplace](./dokku1.png)
+![Dokku on Digital Ocean Marketplace](./dokku-do-marketplace.png)
+
 
 Then you have to copy the IP address of your droplet. And open a new browser tab with it. you will see an administration form that will let you configure the Admin SSH key, use virtualhost naming mapping for each app deployed
 
 
-![Dokku in Digital Ocean Marketplace](./159.89.100.242_.png)
+![Dokku initial configuration form page](./159.89.100.242_.png)
 
 After that you will have your dokku server up and running.
 
-```
+```bash
 yay -S dokku
 ```
 
@@ -39,7 +40,7 @@ Ok, you have reached the point that you have your own heroku like server. So let
 
 In order to to that we have to connect to the serer and create the app using the dokku command
 
-```
+```bash
 $ ssh root@159.89.100.242
 Last login: Mon Apr 15 17:58:36 2019 from 83.165.229.217
 root@frandieguez-dokku-server:~# dokku apps:create nodejs-app-sample
@@ -52,22 +53,22 @@ For this app we dont need any other service, like a database or a queue server. 
 For example if you need mysql you have to:
 
 - install the plugin
-```
+```bash
 sudo dokku plugin:install https://github.com/dokku/dokku-mysql.git
 ```
 - Create the mysql service with  the name nodejsdatabase
-```
+```bash
 dokku mysql:create nodejsdatabase
 ```
 - Finally link the service to our app
-```
+```bash
 dokku mysql:link nodejsdatabase nodejs-app-sample
 ```
 
 ## Deploying the app
 Then in your development machine download the app code
 
-```
+```bash
 20:48:07 fran@flexo:~
 $ git clone https://github.com/heroku/node-js-sample
 Cloning into 'node-js-sample'...
@@ -77,12 +78,12 @@ Receiving objects: 100% (410/410), 215.25 KiB | 841.00 KiB/s, done.
 Resolving deltas: 100% (63/63), done.
 ```
 
-```
+```bash
 20:50:03 fran@flexo:node-js-sample (master=)
 $ git remote add dokku dokku@159.89.100.242:nodejs-app-sample
 ```
 
-```
+```bash
 $ git push dokku master
 Enumerating objects: 410, done.
 Counting objects: 100% (410/410), done.
@@ -204,7 +205,7 @@ As you can see from the command output above while pushing changes to the dokku 
 At this point your app is ready to be accessed
 
 Edit your /etc/hosts
-```
+```bash
 159.89.100.242 nodejs-app-sample.frandieguez-dokku-server
 ```
 

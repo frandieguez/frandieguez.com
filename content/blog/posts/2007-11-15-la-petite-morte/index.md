@@ -18,6 +18,9 @@ tags:
   - youtube
 format: video
 ---
+<div class="aligncenter">
+
 http://www.youtube.com/watch?v=vNTRZ31VgiM
 
-No dan escalofríos al ver el video?
+<p>No dan escalofríos al ver el video?</p>
+</div>

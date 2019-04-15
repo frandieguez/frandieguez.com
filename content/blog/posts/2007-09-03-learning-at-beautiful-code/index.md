@@ -1,6 +1,6 @@
 ---
 id: 190
-title: 'Learning at &quot;Beautiful Code&quot;'
+title: 'Learning from "Beautiful Code"'
 date: 2007-09-03T22:38:42+00:00
 author: Fran Diéguez
 layout: post

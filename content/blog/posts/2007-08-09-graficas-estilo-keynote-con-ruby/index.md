@@ -18,13 +18,20 @@ tags:
   - Ruby
 ---
 Vamos a probar la gema Gruff <a title="Gruff Graphs para Ruby" href="http://nubyonrails.com/pages/gruff">Graphs para Ruby</a> (<a title="Ejemplos de uso de Graphs para Ruby" href="http://geoffreygrosenbach.com/projects/show/5">algunos ejemplos</a>) una gema que he descubierto hace poco que nos simplifica muchísimo la creación de gráficas (con un toque de estilo keynote para presentaciones). Para ello debemos tener la librería RMagick, necesaria para que Gruff funcione, y gem, para poder instalar librerías de Ruby al vuelo. Let's Go!
-<pre>sudo aptitude install ruby rubygems librmagick-ruby
-//para los que lleguen tarde</pre>
-Ahora gracias a la magnífica gem instalamos gruff, aceptando dependencias.
-<pre>sudo gem install gruff</pre>
-Ahora podemos hacer nuestro script en Ruby para que de forma muy fácil nos cree la grafica como queramos:
-<pre lang="ruby">#!/usr/bin/ruby
 
+```bash
+sudo aptitude install ruby rubygems librmagick-ruby
+//para los que lleguen tarde
+```
+
+Ahora gracias a la magnífica gem instalamos gruff, aceptando dependencias.
+
+```bash
+sudo gem install gruff
+```
+
+Ahora podemos hacer nuestro script en Ruby para que de forma muy fácil nos cree la grafica como queramos:
+```ruby
 require 'rubygems'
 require 'gruff'
 
@@ -37,9 +44,12 @@ g.data("Solteros", [5, 6.5, 9.5])
 
 g.labels = {0 =&gt; '2003', 1 =&gt; '2004', 2 =&gt; '2005'}
 
-g.write('sexo-edad.png')</pre>
+g.write('sexo-edad.png')
+```
+
 y aquí está nuestra gran keynote:
 
-<a title="Grafica echa con Gruff en Ruby" href="/assets/2007/08/sexo-edad.png"></a>
 
-<a title="Grafica echa con Gruff en Ruby" href="/assets/2007/08/sexo-edad.png"><img src="/assets/2007/11/sexo-edad.png" alt="Grafica echa con Gruff en Ruby" width="480" height="360" /></a>
+<div style="text-align:center;">
+<img src="/assets/2007/11/sexo-edad.png" alt="Grafica echa con Gruff en Ruby" width="480" height="360" />
+</div>

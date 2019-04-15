@@ -10,10 +10,14 @@ permalink: /blog/2007/09/tu-shell-en-irb/
 dsq_thread_id:
   - "981832476"
 categories:
-  - Uncategorized
+  - Programming
+tags:
+  - ruby
+  - coding
 ---
 Con este simple script una vez que estas en la shell de ruby (irb) puedes simular una shell de sistema con todas sus ventajas.
-<pre lang="actionscript">alias old_method_missing method_missing
+```ruby
+alias old_method_missing method_missing
 def method_missing(name, *args)
         exname = name.to_s
         found = false
@@ -28,4 +32,5 @@ def method_missing(name, *args)
 	else
 		old_method_missing(name, *args)
         end
-end</pre>
+end
+```

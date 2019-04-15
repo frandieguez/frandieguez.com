@@ -30,22 +30,36 @@ Nginx es usualmente utilizado como reemplazo de apache que gestiona muchas conex
 Dejemonos de alabanzas y procedamos a la instalación del mismo:  En el momento que escribo tanto <a title="Installation Nginx on Deban Testing and Unstable" href="http://wiki.codemongers.com/InstallingFromDebianRepositories?highlight=(debian)">Debian Testing como Sid</a> tienen unas versiones desfasadas  tiene nginx en su repositorio pero es una versión algo desfasada, 0.4.13, por lo que vamos a compilar e instalar la última versión:
 
 Antes de nada instalaremos unas cuantas dependencias:
-<pre><code>sudo aptitude install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev</code></pre>
+
+```bash
+sudo aptitude install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev
+```
+
 Hecho esto, ahora procedemos a recoger los fuentes, compilar y configurar.
 <!--more-->
 Por defecto nginx se instala en /usr/local/nginx, aunque es un buen sitio, esto significa que el binario principal de nginx se podrá encontrar en /usr/local/nginx/sbin/nginx, la cual no es un lugar común del path por defecto en *nix.
-<pre><code>wget http://sysoev.ru/nginx/nginx-0.6.30.tar.gz
+
+```bash
+wget http://sysoev.ru/nginx/nginx-0.6.30.tar.gz
 tar xvzf nginx-0.6.30.tar.gz
 ...
 cd nginx-0.6.30/
 # hay muchas mas opciones, <a title="Opciones de Configuración de Compilación de Nginx" href="http://wiki.codemongers.com/NginxInstallOptions">Configuring Options</a>
-./configure --sbin-path=/usr/local/sbin --with-http_ssl_module</code></pre>
-<pre><code>make
+./configure --sbin-path=/usr/local/sbin --with-http_ssl_module
+```
+
+```bash
+make
 ...
-sudo make install</code></pre>
+sudo make install
+```
 con esto ya tenemos instalado nuestro servidor y se puede testear. Aunque vamos a  hacer que nginx sea nuestro servidor por defecto y crear un script de control en /etc/init.d/nginx con el que podremos reiniciar, iniciar, detener y hacer que cargue la configuración
-<pre><code>sudo vim /etc/init.d/nginx</code></pre>
-<pre lang="javascript">#! /bin/sh
+```bash
+sudo vim /etc/init.d/nginx
+```
+
+```bash
+#! /bin/sh
 
 ### BEGIN INIT INFO
 # Provides:          nginx
@@ -107,11 +121,17 @@ case "$1" in
         ;;
 esac
 
-exit 0</pre>
+exit 0
+```
 Le damos permisos de ejecución al script anterior y hacemos que arranque con el sistema por defecto en todos los runlevels:
-<pre><code>sudo chmod +x /etc/init.d/nginx
-</code><code>sudo /usr/sbin/update-rc.d -f nginx defaults
-</code><code>Adding system startup for /etc/init.d/nginx ...
+```
+sudo chmod +x /etc/init.d/nginx
+```
+```
+sudo /usr/sbin/update-rc.d -f nginx defaults
+```
+```
+Adding system startup for /etc/init.d/nginx ...
    /etc/rc0.d/K20nginx -&gt; ../init.d/nginx
    /etc/rc1.d/K20nginx -&gt; ../init.d/nginx
    /etc/rc6.d/K20nginx -&gt; ../init.d/nginx
@@ -119,5 +139,5 @@ Le damos permisos de ejecución al script anterior y hacemos que arranque con el
    /etc/rc3.d/S20nginx -&gt; ../init.d/nginx
    /etc/rc4.d/S20nginx -&gt; ../init.d/nginx
    /etc/rc5.d/S20nginx -&gt; ../init.d/nginx
-</code></pre>
+```
 Con esto ya tendremos nginx totalmente integrado en nuestro server Debian. El siguiente post hablaré de configurar virtualhosts y configurar php

@@ -22,17 +22,24 @@ Muchas veces cuando estas en las fases de pruebas, y cuando tu aplicación se su
 
 Como es lógico, estas pruebas sería materialmente imposible hacerlas uno mismo, ya que seríamos incapaces manualmente de generar suficientes peticiones como para saber los límites de rendimiento de nuestros proyectos.
 Para esto hay utilidades que ya no solo podemos testear aplicaciones con Rails, si no también cualquier aplicación web  escrita en el lenguaje de tu elección.
-<h4>Aplicaciones de stress</h4>
+### Aplicaciones de stress
+
 Entonces, desechada la opción de enviarle un mail a todos tus familiares y conocidos para que prueben la app. Vamos a echar un ojo al mundo del software libre para ver los recursos que nos brinda:
-<h4><a href="http://jakarta.apache.org/jmeter/" title="JMeter">JMeter</a></h4>
+
+### <a href="http://jakarta.apache.org/jmeter/" title="JMeter">JMeter</a>
+
 JMeter aunque un tanto engorroso de configurar, es un gran aliado. Después de trabajar un poco con el se entiende bastante bien y se llega a aprovechar mucho su uso. Adem&aacute;s permite trabajar como proxy HTTP para capturar las solicitudes y repetirlas
-<h4><a href="http://httpd.apache.org/docs/2.0/programs/ab.html">ab - Apache HTTP server benchmarking tool</a></h4>
+### <a href="http://httpd.apache.org/docs/2.0/programs/ab.html">ab - Apache HTTP server benchmarking tool</a>
 ab permite realizar mú;ltiples peticiones GET o POST contra un servidor. Las peticiones las podemos hacer en modo secuencial o, como a nosotros nos interesa en esta ocasión, de modo concurrente, de la misma forma que podemos hacer que las peticiones sean independientes o de forma que esten en la misma sesión.
-<h3><a href="http://www.hpl.hp.com/research/linux/httperf/" title="httperf benchmarking tool">httperf</a></h3>
+
+### <a href="http://www.hpl.hp.com/research/linux/httperf/" title="httperf benchmarking tool">httperf</a>
+
 Este proyecto tiene muchas opciones para "machacar" a los servidores, donde puedes simular "r&aacute;fagas" de "usuarios" conectados de forma concurrente, simula muy bien las sesiones al estilo de los navegadores HTTP actuales.
 
 Adem&aacute;s las estadísticas que reporta son muy completas, donde podemos ver porcentaje de uso de CPU, tiempos de respuesta y muchas m&aacute;s cosas.
-<h4><a href="http://www.xenoclast.org/autobench/" title="Autobench benchmarking tool">Autobench</a></h4>
+
+### <a href="http://www.xenoclast.org/autobench/" title="Autobench benchmarking tool">Autobench</a>
+
 Esta es una abstracción de httpref, no es m&aacute;s que un script escrito en Perl para automatizar la medición del comportamiento. Es b&aacute;sicamente incrementar el nú;mero de peticiones o nivel de concurrencia conforme pase el tiempo y analizar cambios bruscos en las peticiones.
 El nivel de detalle de este llega al punto de crear gr&aacute;ficas, geniales para su mejor lectura.
 

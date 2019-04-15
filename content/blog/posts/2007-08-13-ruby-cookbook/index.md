@@ -10,7 +10,11 @@ permalink: /blog/2007/08/ruby-cookbook/
 dsq_thread_id:
   - "659773197"
 categories:
-  - Uncategorized
+  - Programming
+
+tags:
+  - ruby
+  - coding
 ---
 <img class="alignright" alt="Ruby CookBook" src="/assets/2007/08/51sv7fby32l_aa240_.jpg" width="240" height="240" align="left" />
 
@@ -21,7 +25,9 @@ La valoración inicial, es un libro muy fácil de leer, además de una fuente in
 El libro toca todos los temas que todo programador de Ruby necesita, amenizándolo con pequeños trucos que de más de algún apuro sacarán. Sin duda un libro de los que se necesitan en el escritorio cuando se está en el tajo.
 
 Para envidia y deleite de los PHPseros un pequeño lector de RSS en 8 lineas e incluso menos:
-<pre lang="ruby">require 'rss/2.0'
+
+```ruby
+require 'rss/2.0'
 require "open-uri"
 url = "http://www.oreillynet.com/pub/feed/1?format=rss2"
 feed = RSS::Parser.parse(open(url).read,false)
@@ -30,4 +36,5 @@ feed.items.each do |item|
   puts item.title
   puts " (#{item.link})"
   puts item.description
-end</pre>
+end
+```

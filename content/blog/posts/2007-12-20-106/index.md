@@ -6,7 +6,7 @@ author: Fran Diéguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/12/20/106/
-permalink: /blog/2007/12/106/
+permalink: /blog/2007/12/10/camino-a-las-estrellas
 dsq_thread_id:
   - "917524921"
 categories:

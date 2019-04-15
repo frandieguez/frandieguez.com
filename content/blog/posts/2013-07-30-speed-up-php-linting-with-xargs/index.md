@@ -16,13 +16,16 @@ Most of us use Jenkins to continuously integrate our projects with every commit 
 
 This action is badly slow and if your project has a lot of files this will take a good percentage of your build time. A really good approach could be executing this task with different files in parallel. For this you can use the powerful <em>xargs</em> command with -P0, which allows xargs to run as many processes as possible at a time.
 
-<pre>find codefolder/ -name "*.php" -print0 | xargs -0 -n1 -P0 php -l</pre>
+```bash
+find codefolder/ -name "*.php" -print0 | xargs -0 -n1 -P0 php -l</pre>
+```
 
 So the final snippet for your Ant based project will be:
-<pre>
-&lt;target name="lint"&gt;
-  &lt;exec executable="sh" failonerror="true"&gt;
-      &lt;arg value="-c" /&gt;
-      &lt;arg value="find ${project.paths.php.space-separated} -name *.php -print0 | xargs -0 -n1 -P0 php -l"/&gt;
-  &lt;/exec&gt;
-&lt;/target&gt;</pre>
+```
+<target name="lint">
+  <exec executable="sh" failonerror="true">
+      <arg value="-c" />
+      <arg value="find ${project.paths.php.space-separated} -name *.php -print0 | xargs -0 -n1 -P0 php -l"/>
+  </exec>
+</target>
+```

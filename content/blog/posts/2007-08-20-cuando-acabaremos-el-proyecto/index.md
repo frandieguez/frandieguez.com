@@ -4,7 +4,7 @@ title: Kill your PHB
 date: 2007-08-20T23:18:49+00:00
 author: Fran Diéguez
 layout: post
-published: true
+published: false
 guid: http://www.mabishu.com/blog/?p=57
 permalink: '/blog/2007/08/%c2%bfcuando-acabaremos-el-proyecto/'
 dsq_thread_id:

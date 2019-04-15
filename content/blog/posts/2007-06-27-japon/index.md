@@ -1,6 +1,6 @@
 ---
 id: 153
-title: wp-contents
+title: Japón
 date: 2007-06-27T19:38:43+00:00
 author: Fran Diéguez
 layout: post

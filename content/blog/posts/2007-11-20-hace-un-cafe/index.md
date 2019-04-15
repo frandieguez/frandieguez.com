@@ -1,6 +1,6 @@
 ---
 id: 222
-title: '¿Hace un caf&#233;?'
+title: '¿Would you mind a cup of coffee?'
 date: 2007-11-20T13:36:11+00:00
 author: Fran Diéguez
 layout: post
@@ -10,7 +10,7 @@ permalink: /blog/2007/11/hace-un-cafe/
 dsq_thread_id:
   - "930086714"
 categories:
-  - Uncategorized
+  - Curiosity
 ---
 <p align="center"><img src="/assets/2007/11/anagrama-cafes1.png" alt="anagrama-cafes" width="450" height="445" /></p>
 

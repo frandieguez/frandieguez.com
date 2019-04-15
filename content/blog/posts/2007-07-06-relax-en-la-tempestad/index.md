@@ -10,7 +10,10 @@ permalink: /blog/2007/07/relax-en-la-tempestad/
 dsq_thread_id:
   - "767181717"
 categories:
-  - Uncategorized
+  - Books
+tags:
+  - readings
+  - fiction
 ---
 <img class="sinborde alignright" alt="51clir1zybl_aa240_.jpg" src="/assets/2007/07/51clir1zybl_aa240_.jpg" width="240" height="240" align="left" />
 

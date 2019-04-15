@@ -21,6 +21,6 @@ Es bien conocido que Ruby es uno de los lenguajes que más cercanos y que más s
 Y es muy difícil de implementar? Sigue leyendo!
 <p style="text-align: center;" align="center"><img class="aligncenter" src="/assets/2008/01/ejemplo-implementacion-codigo-ruby11.png" alt="Ejemplo implementación código Ruby" width="363" height="156" /></p>
 
-Mola un cacho, eh?
+Mola un montón, no?
 
 Solo tienes que recordar correr el programa con el flag KCODE -Ku, esto es, ruby -Ku nombre_programa,rb  :)

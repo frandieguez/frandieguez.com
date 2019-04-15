@@ -14,7 +14,8 @@ categories:
   - Sofware Development
 ---
 If you need an easy and quick way to install your <a title="PHP QA tools website" href="http://phpqatools.org/" target="_blank">PHP QA tools</a>, you can use the next bash snippet.
-<pre># Install composer based tools
+```bash
+# Install composer based tools
 cat &gt; ~/.composer/composer.json &lt;&lt;EOF
 {
     "require": {
@@ -33,7 +34,9 @@ cat &gt; ~/.composer/composer.json &lt;&lt;EOF
 EOF
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 /usr/local/bin/composer global install
-chown -R $SUDO_USER.$SUDO_USER ~/.composer</pre>
+chown -R $SUDO_USER.$SUDO_USER ~/.composer
+```
+
 And all your required tools (phpunit, phploc, phpmd, pdepend, ...) are now located at ~/.composer/vendor/bin, so set your $PATH environment variable to include it.
 
 If you find it useful please share it.

@@ -14,5 +14,8 @@ categories:
 format: image
 ---
 
-<p style="text-align: center;"><a title="Cientifismo vs. Creacionismo" href="http://mabishu.comb/blog/wp-content/uploads/2007/07/trever_small.gif">
-<img class="aligncenter" alt="Cientifismo vs. Creacionismo" src="/assets/2007/07/trever_small.gif" width="600" height="444" /></a></p>
+<p style="text-align: center;">
+
+<img class="aligncenter" alt="Cientifismo vs. Creacionismo" src="/assets/2007/07/trever_small.gif" width="100%" /></a>
+
+</p>

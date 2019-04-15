@@ -12,7 +12,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<pre lang="php">&lt;?php while ( $bateador_eliminado != TRUE) {
+```php
+<?php while ( $bateador_eliminado != TRUE) {
     while ($numero_de_overs &lt; X) {
       while ($numero_de_bolas &lt;= 6 ) {
         $batea = lanzador_lanza_bola();
@@ -37,4 +38,4 @@ categories:
       numero_de_overs++;
     }
   }
-?&gt;</pre>
+```

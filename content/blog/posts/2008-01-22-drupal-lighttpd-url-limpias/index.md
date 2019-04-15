@@ -17,15 +17,18 @@ tags:
   - lighttpd
   - url limpia
 ---
-No sabeis el trabajiño que me dio solventar el problema de las URLs limpias con el binomio Drupal, Lighttpd. Como no soi de mucha falacia os enseño el código que tenéis que pegar dentro de /etc/lighttpd.conf o dentro del archivo de configuración de cara slide virtual.
+No sabeis el trabajiño que me dio solventar el problema de las URLs limpias con el binomio Drupal, Lighttpd. Como no soi de mucha falacia os enseño el código que tenéis que pegar dentro de `/etc/lighttpd.conf` o dentro del archivo de configuración de cada slide virtual.
 
-<pre lang="shell">$HTTP["host"] =~ "^(slide.dominio.com)$" {
-server.document-root = "/var/www/host-virtual"
-url.rewrite-final = (
-"^/system/test/(.*)$" =&gt;  "/index.php?q=system/test/$1",
-"^/([^.?]*)\?(.*)$" =&gt; "/index.php?q=$1&amp;$2",
-"^/([^.?]*)$" =&gt; "/index.php?q=$1",
-"^/search/node/(.*)$" =&gt; "/index.php?q=search/node/$1"
-)
-}</pre>
-Espero de sea de buen provecho.
+```
+$HTTP["host"] =~ "^(slide.dominio.com)$" {
+   server.document-root = "/var/www/host-virtual"
+   url.rewrite-final = (
+      "^/system/test/(.*)$" =&gt;  "/index.php?q=system/test/$1",
+      "^/([^.?]*)\?(.*)$" =&gt; "/index.php?q=$1&amp;$2",
+      "^/([^.?]*)$" =&gt; "/index.php?q=$1",
+      "^/search/node/(.*)$" =&gt; "/index.php?q=search/node/$1"
+   )
+}
+```
+
+Espero de sea de ayuda.

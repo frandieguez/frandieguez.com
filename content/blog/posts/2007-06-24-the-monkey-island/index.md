@@ -10,10 +10,10 @@ permalink: /blog/2007/06/the-monkey-island/
 dsq_thread_id:
   - "681998001"
 categories:
-  - Uncategorized
+  -
 ---
 Hoy he recordado tiempo atrás cuando me sentaba delante del ordenador para jugar al <strong>The Secret Island</strong> y me ha entrado una nostalgia que no sabes tu.
-<p style="text-align: center"><img class="aligncenter size-medium wp-image-448" title="monkey-island" src="/assets/2007/06/monkey-island-300x165.png" alt="monkey-island" width="300" height="165" /></p>
+<p style="text-align: center"><img class="aligncenter size-medium wp-image-448" title="monkey-island" src="/amonkey-island-300x165.png" alt="monkey-island" width="300" height="165" /></p>
 
 Así que para que el cuerpo no eche de menos nada me voy  a poner a pasar otra vez la saga, que a ver si sacan la esperadísima 5ª parte. Mientras tanto voy a descargar el <a title="ScummVM.org" href="http://www.scummvm.org">ScummVM</a> y me pillo los dos primeros juegos.
 
