@@ -6,7 +6,7 @@ module.exports = {
     keywords: ['Fran Dieguez', 'Software Craftmanship', 'Agile'],
     siteUrl: `https://www.frandieguez.dev`,
     social: {
-      twitter: `frandieguez`,
+      twitter: `@frandieguez`,
     },
   },
   plugins: [
@@ -43,7 +43,20 @@ module.exports = {
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
+          'gatsby-remark-smartypants',
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+            },
+          },
+          'gatsby-remark-autolink-headers',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              inlineCodeMarker: '÷',
+            },
+          },
         ],
       },
     },
