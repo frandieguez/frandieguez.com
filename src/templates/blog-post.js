@@ -38,8 +38,10 @@ class BlogPostTemplate extends React.Component {
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
           <div className={postStyles.postInfo}>
-            Posted in <a href="#category">Category</a> and tagged {post.tags && post.tags.map(tag => {
-              return (<span>{tag}</span>)
+            Posted in {post.frontmatter.categories.length > 0 && post.frontmatter.categories.map((category) => {
+            return <span className={postStyles.categoryLink}>{category}</span>
+          })} and tagged {post.frontmatter.tags && post.frontmatter.tags.map(tag => {
+              return (<span className={postStyles.tagLink}>{tag} </span>)
             })}
           </div>
 
@@ -65,13 +67,14 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      html,
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY"),
         dsq_thread_id,
         author,
-        tags
+        tags,
+        categories
       },
     }
   }
