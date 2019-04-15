@@ -38,7 +38,9 @@ class BlogPostTemplate extends React.Component {
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
           <div className={postStyles.postInfo}>
-            Posted in <a href="#category">Category</a> and tagged
+            Posted in <a href="#category">Category</a> and tagged {post.tags && post.tags.map(tag => {
+              return (<span>{tag}</span>)
+            })}
           </div>
 
         </div>
@@ -68,7 +70,8 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY"),
         dsq_thread_id,
-        author
+        author,
+        tags
       },
     }
   }

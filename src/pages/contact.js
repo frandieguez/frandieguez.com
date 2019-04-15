@@ -14,7 +14,7 @@ class AboutPage extends React.Component {
         <SEO title="Contact" />
 
         <p>
-          If you have anything to say to me. Use the form below. 👇
+          If you have anything to say to me. Use the form below. <span role='img' aria-label='down'>👇</span>
         </p>
 
         <form name="contact" className="contact" netlify>

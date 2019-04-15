@@ -30,12 +30,3 @@ slug: about
   In the past I've created a custom Linux-based desktop focused in University Studies, with which we won the Libre Software contest here in Galiza. This project was oriented to create an specialized GNU / Linux environment, by simplifying administrative tasks and also doing massive migrations to open source software in educational settings.
 </p>
 
-Hi! I'm <strong>Fran Diéguez</strong> and I've been developing web applications 2005, the last two as a <strong>Project Manager and CTO at OpenHost</strong>, where he spends his days and nights on improving a powerful tool for online publishing, <a href="http://www.opennemas.com/">OpenNemas</a>.  For achieving this hard task he and his team are developing their own framework, Onm, focused in high performance and heavy loaded online newspapers.
-
-For a long time his main focus was web performance <a href="https://github.com/frandieguez">engineering</a> and open source technology.
-
-Prior to focusing on online newspapers, Fran worked as a open-source software developer at the University of Santiago de Compostela, where he have <strong>developed a custom Linux-based desktop</strong> for simplifying administrative tasks and also doing massive migrations to open source sofware in educational settings. This project <a href="http://www.mancomun.org/es/no_cache/actualidade/detalledenova/nova/a-osl-da-usc-gana-o-premio-eganet-2009-na-categoria-software-libre/">won the Libre Software contest</a> in Galicia, Spain.
-
-Whenever not thinking web development, or newspapers, Fran can be found contributing to <a href="https://www.ohloh.net/accounts/frandieguez">open-source projects</a> like <strong>GNOME </strong>(as a project member) or Ubuntu as Galician translators coordinator, <a href="https://www.amazon.com/gp/pdp/profile/A362F32UBZHEUR">reading</a> or doing sports.
-
-Currently is <strong>not available for hire</strong> but you can write him to propose future and innovative projects.
