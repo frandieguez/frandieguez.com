@@ -3,7 +3,7 @@ $linkHover: #00aeef;
 @media (max-width: 767px) {
 
   .post {
-    margin: 0 1em;
+    margin: 0 .8em;
   }
 
 }
@@ -15,6 +15,9 @@ $linkHover: #00aeef;
 }
 
 .post {
+  display:block;
+  margin-bottom:2em;
+
   &:hover .date {
     opacity: 1;
   }
@@ -25,6 +28,7 @@ $linkHover: #00aeef;
     padding-right: .5rem;
     font-size:1.3rem;
     font-weight: 200;
+    margin-bottom:.2rem;
 
     a {
       text-decoration: none;

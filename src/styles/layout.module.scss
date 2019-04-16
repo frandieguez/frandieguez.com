@@ -27,10 +27,6 @@ div[role=main] {
     max-width: 47em;
   }
 }
-@media only screen and (min-width: 33.75em) {
-  .pageWrapper {
-  }
-}
 
 .siteTitle {
   text-align: center;
@@ -51,4 +47,5 @@ div[role=main] {
 .Footer {
   margin-top: 2rem;
   font-size: .8rem;
+  text-align: center;
 }

@@ -23,7 +23,7 @@ tags:
   - server
   - xdebug
 ---
-<img class=" wp-image-817 alignright" style="max-width: 400px;" title="Some PHP Code" alt="" src="/assets/2010/10/Captura-de-pantalla-1.png" width="261" height="169" align="right" />
+<img class="alignright" style="max-width: 270px;" title="Some PHP Code" src="/assets/2010/10/Captura-de-pantalla-1.png" />
 
 When you develop a very important web app it is pretty sure you will need debugging it. The best way to do this is using XDebug so in this article I am going to explain how to setup and use XDebug with Komodo IDE or Edit, but you can use it for Netbeans or Eclipse as well.
 

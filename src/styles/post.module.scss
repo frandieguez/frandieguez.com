@@ -13,16 +13,11 @@
     margin-bottom: 4rem;
   }
 
-  ul li {
-    padding-left:1em !important;
-  }
-
 }
 
 
 .meta {
   color: #696975;
-  text-align: center;
 
   .title {
     color: #222;
@@ -57,6 +52,7 @@
 }
 
 @media only screen and (min-width: 33.75em) {
+
   .post {
 
     h3 {
