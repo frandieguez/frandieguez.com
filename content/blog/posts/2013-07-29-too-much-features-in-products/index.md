@@ -3,7 +3,7 @@ id: 1613
 title: Too much features in products
 date: 2013-07-29T16:54:51+00:00
 author: Fran Diéguez
-layout: post
+layout: phrase
 published: true
 guid: http://www.mabishu.com/?p=1613
 permalink: /blog/2013/07/to-much-features-in-products/

@@ -33,20 +33,21 @@ class BlogPostTemplate extends React.Component {
       <Layout location={this.props.location} title={siteTitle} className="postStyles.post">
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <div className={postStyles.post}>
-          <div className={postStyles.meta}>
-            <h1 className={postStyles.title}>{post.frontmatter.title}</h1>
+        {post.frontmatter.layout !== 'phrase' ?
+          (<div className={postStyles.meta}>
+              <h1 className={postStyles.title}>{post.frontmatter.title}</h1>
 
             <time className={postStyles.date}> {post.frontmatter.date} </time>
 
             <div className={postStyles.author}>
               Inked by <a href="/about">{post.author || 'Fran Dieguez'}</a>
             </div>
-          </div>
+          </div>) : null}
 
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
           <div className={postStyles.postInfo}>
-            Posted in {categories} and tagged {tags}
+            Posted in span{categories} and tagged with {tags}
           </div>
 
         </div>
@@ -73,6 +74,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html,
       frontmatter {
+        layout
         title
         date(formatString: "MMMM DD, YYYY"),
         dsq_thread_id,
