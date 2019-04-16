@@ -21,6 +21,14 @@ class BlogPostTemplate extends React.Component {
       title: post.frontmatter.title,
     };
 
+    let categories = post.frontmatter.categories.length > 0 ? post.frontmatter.categories.map((category) => {
+      return <span className={postStyles.categoryLink}>{category}</span>
+    }) : `Uncategorized`;
+
+    let tags = post.frontmatter.tags ? post.frontmatter.tags.map(tag => {
+      return (<span className={postStyles.tagLink}>{tag} </span>)
+    }) : null;
+
     return (
       <Layout location={this.props.location} title={siteTitle} className="postStyles.post">
         <SEO title={post.frontmatter.title} description={post.excerpt} />
@@ -38,11 +46,7 @@ class BlogPostTemplate extends React.Component {
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
           <div className={postStyles.postInfo}>
-            Posted in {post.frontmatter.categories.length > 0 && post.frontmatter.categories.map((category) => {
-            return <span className={postStyles.categoryLink}>{category}</span>
-          })} and tagged {post.frontmatter.tags && post.frontmatter.tags.map(tag => {
-              return (<span className={postStyles.tagLink}>{tag} </span>)
-            })}
+            Posted in {categories} and tagged {tags}
           </div>
 
         </div>
