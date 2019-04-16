@@ -1,19 +1,5 @@
 $linkHover: #00aeef;
 
-@media (max-width: 767px) {
-
-  .post {
-    margin: 0 .8em;
-  }
-
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
- .post {
-   margin-left:6em;
- }
-}
-
 .post {
   display:block;
   margin-bottom:2em;
@@ -50,4 +36,18 @@ $linkHover: #00aeef;
     display: inline-block;
     opacity:.9;
   }
+}
+
+@media (max-width: 767px) {
+
+  .post {
+    margin:0 .8em 1em .8em;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+ .post {
+   margin:0 0 1em 6em;
+ }
 }
