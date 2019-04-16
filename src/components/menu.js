@@ -9,7 +9,7 @@ const Menu = (props) => {
   return (
     <div className={menuStyles.MenuWrapper}>
       <div className={menuStyles.MenuToggler} onClick={() => setOpen(!open)}>
-        <a className={`${open ? menuStyles.MenuOpen : ''} ${menuStyles.showMenu}`}
+        <a className={`${open ? menuStyles.MenuOpenButton : ''} ${menuStyles.showMenu}`}
           href="#menu"><span>☰</span></a>
       </div>
 
