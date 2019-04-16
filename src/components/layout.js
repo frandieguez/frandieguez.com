@@ -18,10 +18,11 @@ class Layout extends React.Component {
           return (
             <Link to={`/`} title={title}>
               {/* <Logo /> */}
-              <Image
+              <img src="/assets/logos/glasses.png" />
+              {/* <Image
                 fixed={data.siteLogo.childImageSharp.fixed}
                 alt={title}
-              />
+              /> */}
             </Link>
           )
         }
