@@ -19,6 +19,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/assets`,
+        name: `assets`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -71,7 +78,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#00aeef`,
         display: `minimal-ui`,
-        icon: `content/assets/logos/glasses.png`,
+        icon: `static/assets/logos/glasses.png`,
       },
     },
     `gatsby-plugin-offline`,

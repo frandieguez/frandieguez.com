@@ -18,9 +18,9 @@ const Menu = (props) => {
           <li>
             <Link to={'/about'} className={menuStyles.item}>The author</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to={'/code'} className={menuStyles.item}>Work</Link>
-          </li>
+          </li> */}
           <li>
             <Link to={'/archives'} className={menuStyles.item}>Arquive</Link>
           </li>
