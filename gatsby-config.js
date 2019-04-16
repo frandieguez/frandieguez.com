@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Fran Dieguez | Yet another software craftmanship`,
+    title: `Fran Dieguez`,
     author: `Fran Dieguez`,
-    description: ``,
+    description: `Yet another software craftmanship. Node.js, PHP, Angular, React, Golang, ...`,
     keywords: ['Fran Dieguez', 'Software Craftmanship', 'Agile'],
     siteUrl: `https://www.frandieguez.dev`,
     social: {
