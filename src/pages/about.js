@@ -13,7 +13,7 @@ class AboutPage extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="About" />
 
-        <img className="alignleft" src="/assets/2009/10/859795_10200638722191374_162643047_o.jpg" width="300" height="300" />
+        <img className="alignleft" src="/assets/2009/10/859795_10200638722191374_162643047_o.jpg" width="300" height="300" alt="Fran Dieguez" />
 
         <p>
           Hi! I'm <strong>Fran Diéguez</strong> and I've been developing web applications as a Full Stack Developer since 2006. I've been in multiple positions thoughtout my career, from a software developer, lead developer, CTO, and <strong>Head of Research and Development</strong>. My main focus is to create useful tools that make impact on users.
@@ -34,11 +34,11 @@ class AboutPage extends React.Component {
         </p>
 
         <p>
-          But now I help to create the visual part of <a href='https://situm.es/es' title="Situm, indoor positioning" target="_blank">Situm</a>
+          But now I help to create the visual part of <a href='https://situm.es/es' rel="noopener noreferrer" title="Situm, indoor positioning" target="_blank">Situm</a>
           , an awesome company that helps multiple industries to position their users (robots and people) indoors.
         </p>
         <p>
-          For a long time my main focus was web performance, <a href="https://github.com/frandieguez" target="_blank">engineering</a> and open source technology.
+          For a long time my main focus was web performance, <a href="https://github.com/frandieguez" rel="noopener noreferrer" target="_blank">engineering</a> and open source technology.
         </p>
 
         <p>
@@ -46,7 +46,7 @@ class AboutPage extends React.Component {
         </p>
 
         <p>
-          Whenever not thinking on web development, I can be found contributing to <a href="https://www.ohloh.net/accounts/frandieguez" target="_blank">open-source projects</a> 👨‍💻 like <strong>GNOME</strong> (as a member of the GNOME Foundation) or in Ubuntu as Galician translators coordinator, <a href="https://www.amazon.com/gp/pdp/profile/A362F32UBZHEUR" target="_blank">reading</a> or doing sports like Crossfit and snowboard 🏂.
+          Whenever not thinking on web development, I can be found contributing to <a href="https://www.ohloh.net/accounts/frandieguez" rel="noopener noreferrer" target="_blank">open-source projects</a> 👨‍💻 like <strong>GNOME</strong> (as a member of the GNOME Foundation) or in Ubuntu as Galician translators coordinator, <a href="https://www.amazon.com/gp/pdp/profile/A362F32UBZHEUR" target="_blank">reading</a> or doing sports like Crossfit and snowboard 🏂.
         </p>
 
         <p>

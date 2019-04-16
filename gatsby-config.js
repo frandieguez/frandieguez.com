@@ -91,7 +91,8 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    `gatsby-plugin-sitemap`,{
+    `gatsby-plugin-sitemap`,
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
