@@ -19,7 +19,7 @@ class AboutPage extends React.Component {
             If you have anything to say to me. Use the form below. <span role='img' aria-label='down'>👇</span>
           </p>
 
-          <form name="contact" className="contact" netlify>
+          <form name="contact" className="contact" data-netlify="true" data-netlify-honeypot="bot-field">
             <p>
               <input type="text" placeholder="Your name" name="name" required/>
             </p>
