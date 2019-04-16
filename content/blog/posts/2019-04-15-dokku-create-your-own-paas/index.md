@@ -15,7 +15,7 @@ tags:
   - PaaS
   - DIY
 ---
-If you have been playing for some time with [heroku](https://www.heroku.com) or even [now.sh](https://zeit.co/now) for some time you will be on my boat about how easy is to deploy application on those services. **What if I tell you that you can have your own PaaS using [dokku](https://github.com/dokku/dokku) ? 😍** In this post I will explain how to deploy a node.js application within a docker container on your own Dokku service using a cheap Digital Ocean droplet.
+If you have been playing for some time with [heroku](https://www.heroku.com) or even [now.sh](https://zeit.co/now) you will be on my boat about how easy is to deploy applications on those services. **What if I tell you that you can have your own PaaS using [dokku](https://github.com/dokku/dokku) ? 😍** In this post I will explain how to deploy a node.js application within a docker container on your own Dokku service using a cheap Digital Ocean droplet.
 
 <div class="aligncenter">
 
@@ -24,20 +24,21 @@ If you have been playing for some time with [heroku](https://www.heroku.com) or 
 </div>
 
 # 🚀 Deploying a DO droplet with Dokku
-Due to the addition of the [Marketplace](https://blog.digitalocean.com/introducing-digitalocean-marketplace/) to Digital Ocean you can easily deploy prebuild droplets from your DO dashboard. So let's search for dokku and create a droplet with their 1-click install.
+Due to addition of the [Marketplace](https://blog.digitalocean.com/introducing-digitalocean-marketplace/) to Digital Ocean you can easily deploy prebuilt droplets from your DO dashboard. So let's search for dokku and create a droplet with their 1-click install.
 
 ![Dokku on Digital Ocean Marketplace](/assets/2019/04/dokku-do-marketplace.png)
 
-*Do not forget to mark Use virtualhost naming for apps*. This will allow to map each application on a single subdomain. The other option is to expose all the application on the base domain and assign each applcation
+After clicking the install button you have to configure your droplet size and region. Do not enable IPv6 for now as seems that dokku has some problems with it.
 
 ![Dokku droplet configuration](/assets/2019/04/do-droplet-configuration.png)
 
-Then you have to copy the IP address of your droplet. And open a new browser tab with it. you will see an administration form that will let you configure the Admin SSH key, use virtualhost naming mapping for each app deployed
+Then you have to copy the IP address of your droplet. And open a new browser tab with it. you will see an administration form that will let you configure the Admin SSH key and the base domain name.
 
+One feature that mimics heroku or even netlify is *Use virtualhost naming for apps*, this option will allow you to run one application per subdomain. If you do not enable this option each application will be exposed on the base domain but on different HTTP ports.
 
 ![Dokku initial configuration form page](/assets/2019/04/dokku-server-config.png)
 
-After that you will have your dokku server up and running.
+Click _Finish setup_, and after that you will have your dokku server up and running.
 
 ```bash
 yay -S dokku
@@ -47,7 +48,7 @@ yay -S dokku
 
 Ok, you have reached the point that you have your own heroku like server. So lets ramp up the server and deploy our custom app on it.
 
-In order to to that we have to connect to the serer and create the app using the dokku command
+In order to do that we have to connect via SSH to the serer and create the app using the dokku command:
 
 ```bash
 $ ssh root@159.89.100.242
@@ -57,9 +58,9 @@ root@frandieguez-dokku-server:~# dokku apps:create nodejs-app-sample
 ```
 
 ## Connecting services
-For this app we dont need any other service, like a database or a queue server. To achieve this dokku has plugins. You can review dokku plugins at the next link : [Dokku plugins](http://dokku.viewdocs.io/dokku/community/plugins/#official-plugins-beta)
 
-For example if you need mysql you have to:
+For this app we do not need any other service, like a database or a queue server, but dokku provides an easy way to do this via plugins. You can review dokku plugins at the next link : [Dokku plugins](http://dokku.viewdocs.io/dokku/community/plugins/#official-plugins-beta). Think of them as docker-compose services that you have to link to your app. So the steps to add a MySQL server, i.e.:
+
 - Install the plugin
 ```
 sudo dokku plugin:install https://github.com/dokku/dokku-mysql.git
@@ -207,7 +208,6 @@ As you can see from the command output above while pushing changes to the dokku 
  - Launch the app on one HTTP port
  - Finally configure the nginx reverse proxy to enable a virtualhost and point it to the new deployed app.
 
-
 ## Accessing your deployed app
 
 At this point your app is ready to be accessed
@@ -223,6 +223,5 @@ And go to [http://nodejs-app-sample.frandieguez-dokku-server](http://nodejs-app-
 Quite impressive! Your own heroku!
 
 <div class="aligncenter">
-
-<img src="/assets/2019/04/bacon-yoda.png" width=250px alt="Bacon Smell"/>
+  <img src="/assets/2019/04/bacon-yoda.png" width=250px alt="Bacon Smell"/>
 </div>
