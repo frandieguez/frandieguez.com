@@ -68,6 +68,7 @@ module.exports = {
         trackingId: `UA-36718505-1`,
       },
     },
+    `gatsby-plugin-react-svg`,
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,

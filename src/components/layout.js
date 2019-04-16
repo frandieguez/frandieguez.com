@@ -1,8 +1,8 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
-import Image from "gatsby-image"
+// import Image from "gatsby-image"
 import Menu from "./menu"
-// import Logo from "../../content/assets/logos/glasses.svg"
+import Logo from "../../static/assets/logos/header.svg"
 
 import layoutStyles from "../styles/layout.module.scss"
 
@@ -17,8 +17,8 @@ class Layout extends React.Component {
         render={data => {
           return (
             <Link to={`/`} title={title}>
-              {/* <Logo /> */}
-              <img src="/assets/logos/glasses.png" />
+              <Logo />
+              {/* <img src="/assets/logos/glasses.png" /> */}
               {/* <Image
                 fixed={data.siteLogo.childImageSharp.fixed}
                 alt={title}
