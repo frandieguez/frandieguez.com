@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import NextPrevious from "../components/NextPrevious"
+import PostInfo from "../components/postinfo"
 
 import postStyles from "../styles/post.module.scss"
 
@@ -20,14 +21,6 @@ class BlogPostTemplate extends React.Component {
       identifier: post.dsq_thread_id || post.id,
       title: post.frontmatter.title,
     };
-
-    let categories = post.frontmatter.categories.length > 0 ? post.frontmatter.categories.map((category) => {
-      return <span className={postStyles.categoryLink}>{category}</span>
-    }) : `Uncategorized`;
-
-    let tags = post.frontmatter.tags ? post.frontmatter.tags.map(tag => {
-      return (<span className={postStyles.tagLink}>{tag} </span>)
-    }) : null;
 
     return (
       <Layout location={this.props.location} title={siteTitle} className="postStyles.post">
@@ -47,7 +40,7 @@ class BlogPostTemplate extends React.Component {
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
           <div className={postStyles.postInfo}>
-            Posted in span{categories} and tagged with {tags}
+            <PostInfo categories={post.frontmatter.categories} tags={post.frontmatter.tags} />
           </div>
 
         </div>
