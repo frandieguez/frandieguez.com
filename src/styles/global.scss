@@ -1,5 +1,9 @@
 @import './partials/blockquote';
 
+body {
+  --background-blue: #00aeef;
+}
+
 // General styles
 a {
   border-bottom: 2px solid #00000030;
@@ -202,3 +206,44 @@ textarea {
    padding: 0.15em 0.2em 0.05em;
    white-space: normal;
  }
+.wrapper404 {
+
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 10px;
+}
+
+.error404Title {
+  text-transform: uppercase;
+  font-size:2em;
+  text-align:center;
+  margin-bottom: 1em;
+}
+.error404Image {
+  display:inline-block;
+  text-align:right
+}
+.error404Message:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-right-color: var(--background-blue);
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -10px;
+	margin-left: -20px;
+}
+.error404Message {
+	position: relative;
+	background-color:var(--background-blue);
+  text-transform: uppercase;
+  font-family: sans;
+  font-weight: bold;
+  color: White;
+  padding: .5em;
+  display:inline-block;
+}
