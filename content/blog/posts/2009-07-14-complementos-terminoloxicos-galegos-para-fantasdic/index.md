@@ -29,7 +29,7 @@ O aplicativo <a href="http://www.gnome.org/projects/fantasdic">Fantasdic</a> é 
 <p style="text-align: left;">A principal vantaxa que presenta é o sistema de complementos, o que permite de forma sinxela extender o programa para que poida “consumir” datos dende as fontes que desexemos. O único necesario é programar o complemento axeitado.</p>
 <p style="text-align: left;">Podedes obter a tradución ao galego dende: <a href="http://l10n.gnome.org/vertimus/fantasdic/master/po/gl">http://l10n.gnome.org/vertimus/fantasdic/master/po/gl</a></p>
 <p style="text-align: left;">Aquí explicarei como instalar os dous complementos que programei para estender o aplicativo e así permitir que poida consumir datos dende <a href="http://open-tran.eu">http://open-tran.eu</a> e máis do <a href="http://corpus.mancomun.org">Corpus de Mancomun</a> (<a href="www.mancomun.org">www.mancomun.org</a>).</p>
-<p style="text-align: left;"><!--more--></p>
+<p style="text-align: left;"></p>
 
 <h4 style="text-align: left;">Instalación de plugins</h4>
 <p style="text-align: left;">Iniciar unha vez o fantasdic para que cree o cartafol de configuración do usuario e pechalo.</p>
@@ -40,11 +40,11 @@ O aplicativo <a href="http://www.gnome.org/projects/fantasdic">Fantasdic</a> é 
 <p style="text-align: left;">Iniciar o Fantasdic.</p>
 
 <h4 style="text-align: left;">Configuración da orixe</h4>
-<p style="text-align: left;">Ir ao menú Editar-&gt;Preferencias.</p>
+<p style="text-align: left;">Ir ao menú Editar->Preferencias.</p>
 <img class="size-full wp-image-244 alignnone" title="Fantasdic-1" alt="Fantasdic-1" src="/assets/2009/07/Fantasdic-1.png" width="434" height="394" align="center" />
 <p style="text-align: left;">Pulsar no botón Engadir no separador Dicionarios.</p>
 <p style="text-align: left;"><img class="size-full wp-image-245 alignnone" title="Fantasdic-2" alt="Fantasdic-2" src="/assets/2009/07/Fantasdic-2.png" width="354" height="354" /></p>
-<p style="text-align: left;">Abrese un diálogo para meter unha orixe. Seleccionamos en orixe o “Corpus Mancomun” e inserimos un nome para poder diferencialo do resto (p.ex. “Manc. en-&gt;gl”),</p>
+<p style="text-align: left;">Abrese un diálogo para meter unha orixe. Seleccionamos en orixe o “Corpus Mancomun” e inserimos un nome para poder diferencialo do resto (p.ex. “Manc. en->gl”),</p>
 <p style="text-align: left;"><img class="size-full wp-image-246 alignnone" title="Fantasdic-3" alt="Fantasdic-3" src="/assets/2009/07/Fantasdic-3.png" width="355" height="460" /></p>
 <p style="text-align: left;">Vamos ao separador “Bases de datos”, e activamos a que queremos (seleccionamos unha e damoslle ao botón Baixar).</p>
 <p style="text-align: left;"><img class="size-full wp-image-247 alignnone" title="Fantasdic-4" alt="Fantasdic-4" src="/assets/2009/07/Fantasdic-4.png" width="336" height="436" />

@@ -25,7 +25,7 @@ You can find more information about all the lectures at <a href="http://trasno.
 <div style="text-align:center">
 <object id="__sse5923948" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="555" height="450" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=06revision-linguistica-e-qa-en-l10n-swl-101126111031-phpapp02&amp;rel=0&amp;stripped_title=revis&amp;userName=frandieguez" /><param name="name" value="__sse5923948" /><param name="allowfullscreen" value="true" /><embed id="__sse5923948" type="application/x-shockwave-flash" width="555" height="450" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=06revision-linguistica-e-qa-en-l10n-swl-101126111031-phpapp02&amp;rel=0&amp;stripped_title=revis&amp;userName=frandieguez" name="__sse5923948" allowscriptaccess="always" allowfullscreen="true"></embed></object>
 </div>
-<!--more-->
+
 
 <br/>
 <div style="text-align:center">

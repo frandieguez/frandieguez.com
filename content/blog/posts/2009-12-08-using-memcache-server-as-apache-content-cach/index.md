@@ -26,7 +26,7 @@ Into Apache is available the mod_cache module, that allows to realice this task 
 	<li>mod_mem_cache: cache's data in the running httpd process memory</li>
 </ul>
 But at this article I want to introduce <a title="Google Code - mod_memcache_cache" href="http://code.google.com/p/modmemcachecache/">mod_memcache_cache</a>, that uses an <a title="Memcache web site" href="http://memcached.org/">memcached</a> server to store data, so the available memory is the sum of all the nodes this daemon has. Thus, by increasing the memory size of Memcached server, Apache will has more memory to cache contents. The main topic is that this Memcache server can be placed on other machine with a lot of memory and serving contents to more than 1 server, acting as a central repository of cached content listening to clients that want to store something in key-value structure.
-<!--more-->
+
 I assume you have an memcached server listening on port 11211 on the same machine so let's install all the stack to test. First of all we need to have installed Apache 2.2 with mod_cache installed. So download the apache 2.2 source code and compile it with the next steps:
 <pre># ./configure --prefix=/usr/local/apache22 \
               --exec-prefix=/usr/local/apache22 \
@@ -49,7 +49,7 @@ We can now install the memcache module so:
 # make &amp;&amp; make install</pre>
 Finally we must include into our Virtualhost the next configurations to use the apache's memcache module
 <pre>LoadModule memcached_cache_module modules/mod_memcached_cache.so
-&lt;IfModule mod_memcached_cache.c&gt;
+&lt;IfModule mod_memcached_cache.c>
         CacheEnable memcached /
         MemcachedCacheServer localhost:11211
         MemcachedMaxServers 10
@@ -61,4 +61,4 @@ Finally we must include into our Virtualhost the next configurations to use the 
         MemcachedCacheMaxFileSize 2097152
 
         CacheDisable /admin/
-&lt;/IfModule&gt;</pre>
+&lt;/IfModule></pre>

@@ -22,7 +22,7 @@ tags:
 ---
 Todos los que trabajamos asiduamente con un terminal no podemos evitar en algún momento lidiar con la tarea de búsqueda de archivos por nombre o incluso por contenido, incluso podemos querer ejecutar comandos con los resultados obtenidos.
 
-Utilizaremos estos dos comandos: find, locate, grep.<!--more-->
+Utilizaremos estos dos comandos: find, locate, grep.
 <h3>Find</h3>
 Busca en un directorio seleccionado segun unos modificadores proporcionados entre los que podemos destacar
 <ul>

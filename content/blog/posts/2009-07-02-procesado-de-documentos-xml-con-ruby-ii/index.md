@@ -31,7 +31,7 @@ Document.parse_stream(
   Net::HTTP.get("www.mabishu.com", "/blog/feed/rss/"),
   NovasListener.new
 )</pre>
-<!--more-->
+
 Esto produce algo como:
 <pre lang="ruby">El método xmldecl fue llamado
 El método comment fue llamado

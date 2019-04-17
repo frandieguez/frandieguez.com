@@ -31,7 +31,7 @@ This will restore the directory from the given “commit with ID” in the <cod
 
 But, let me show you a mistake I made in a commit into the gnome-system-tools repository:
 
-<!--more-->I send a translation for a GNOME app in Galician and (I don't know how) accidentally, I deleted the directory icons. For make this more complicated there were a lot of commits ahead of my commit. In the previous image the highlighted commit is where I deleted the directory.
+I send a translation for a GNOME app in Galician and (I don't know how) accidentally, I deleted the directory icons. For make this more complicated there were a lot of commits ahead of my commit. In the previous image the highlighted commit is where I deleted the directory.
 
 If you issue at you terminal within the app directory:
 <pre><code>
@@ -126,7 +126,7 @@ I add the icons directory to the repository
 And I send it to my index and after that I make it public in the central repository:
 <pre><code>
 ➜  gnome-system-tools git:(master) ✗ git commit -m "Restore deleted icons directory, deleted by a mistake.
-dquote&gt; This should fix the failed builds"
+dquote> This should fix the failed builds"
 [master cc9cead] Restore deleted icons directory, deleted by a mistake. This should fix the failed builds
  26 files changed, 2723 insertions(+), 0 deletions(-)
  create mode 100644 icons/16x16/Makefile.am
@@ -164,5 +164,5 @@ Compressing objects: 100% (28/28), done.
 Writing objects: 100% (38/38), 32.73 KiB, done.
 Total 38 (delta 10), reused 33 (delta 9)
 To ssh://frandieguez@git.gnome.org/git/gnome-system-tools
-   77f6382..cc9cead  master -&gt; master</code></pre>
+   77f6382..cc9cead  master -> master</code></pre>
 I hope this helps you! Happy playing with git

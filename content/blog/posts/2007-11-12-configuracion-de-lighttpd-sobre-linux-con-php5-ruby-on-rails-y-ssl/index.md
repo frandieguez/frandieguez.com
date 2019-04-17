@@ -22,7 +22,7 @@ Recientemente he migrado mi server casero de Apache a Lighttpd, con la eterna pr
 
 Primer comentar que mi principal objetivo era conseguir una configuración lo más simplificada y menos estresante de cara a minimizar el tiempo de configuracion. Lighttpd es inmediato en GNU/Linux, y con pocos pasos tenemos un server para desarrollo muy bueno.
 
-Vamos allá.<!--more-->
+Vamos allá.
 ## Instalación
 Partimos de una Debian estable en la que ya había corriendo, como digo, un apache 2.0 del que últimamente no estaba muy contento ya que, mi server está muy limitado en recursos de memoria. Recientemente he encontrado un módulo de 64 Mb más, por lo que el server se quedaría con 200 mb de memoria física, que para un server casero no está nada mal.
 

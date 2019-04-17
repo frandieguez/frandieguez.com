@@ -27,7 +27,7 @@ Smarty as you can read in<a title="Smarty documentation" href="http://www.smarty
 
 So you can modify your final HTML code with those extentions point without a any pain.
 
-<!--more-->
+
 <h3>The code</h3>
 <pre><code>/**
 * Output Filter for indent HTML code after sending it to the end user.
@@ -39,20 +39,20 @@ function smarty_outputfilter_indent_html($output, &amp;$smarty)
  {
 
      $config = array(
-           'indent'         =&gt; true,
-           'output-xhtml'   =&gt; true,
-           'wrap'           =&gt; 200,
-           'drop-proprietary-attributes'    =&gt;    false,
-           'indent-cdata' =&gt; true,
-           'indent-spaces' =&gt; 4,
+           'indent'         => true,
+           'output-xhtml'   => true,
+           'wrap'           => 200,
+           'drop-proprietary-attributes'    =>    false,
+           'indent-cdata' => true,
+           'indent-spaces' => 4,
     );
 
     try {
 
         // Use tidy library to make up the HTML code
         $tidy = new tidy;
-        $tidy-&gt;parseString($output, $config, 'utf8');
-        $tidy-&gt;cleanRepair();
+        $tidy->parseString($output, $config, 'utf8');
+        $tidy->cleanRepair();
 
     } catch (Exception $e) {
         // If something went wrong just output the original HTML code
@@ -73,7 +73,7 @@ after that you can drop the file in your smarty plugins directory and register i
 {
     function __construct($theme, $filters=array())
     {
-        $this-&gt;loadFilter("output","indent_html");
+        $this->loadFilter("output","indent_html");
     }
 }</code></pre>
 This code is under the BSD license, so feel free to use it

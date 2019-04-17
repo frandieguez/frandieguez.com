@@ -23,10 +23,10 @@ No sabeis el trabajiño que me dio solventar el problema de las URLs limpias con
 $HTTP["host"] =~ "^(slide.dominio.com)$" {
    server.document-root = "/var/www/host-virtual"
    url.rewrite-final = (
-      "^/system/test/(.*)$" =&gt;  "/index.php?q=system/test/$1",
-      "^/([^.?]*)\?(.*)$" =&gt; "/index.php?q=$1&amp;$2",
-      "^/([^.?]*)$" =&gt; "/index.php?q=$1",
-      "^/search/node/(.*)$" =&gt; "/index.php?q=search/node/$1"
+      "^/system/test/(.*)$" =>  "/index.php?q=system/test/$1",
+      "^/([^.?]*)\?(.*)$" => "/index.php?q=$1&amp;$2",
+      "^/([^.?]*)$" => "/index.php?q=$1",
+      "^/search/node/(.*)$" => "/index.php?q=search/node/$1"
    )
 }
 ```

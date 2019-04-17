@@ -22,7 +22,7 @@ tags:
 
 Recently I have purchased a new MacBook Pro 15" and the first thing I do was install <a title="Ubuntu Lucid Lynx" href="https://wiki.ubuntu.com/LucidLynx">Ubuntu Lucid Lynx</a> on it. After <a href="https://help.ubuntu.com/community/MacBookPro6-2/Lucid">some readying</a> I have all the hardware working properly but the keyboard backlight wasn’t integrated into system and unfortunately after searching on the web for something that could do this, I decide to write a simple script with Bash and use Ubuntu-tweak to bind the keyboard keys to invoke the script. So let’s go...
 
-<!--more-->
+
 <h3>Preparing our system</h3>
 Well, before try to install my script on your computer you must have installed the applesmc module on your computer. Don’t worry, if you go to <a href="https://help.ubuntu.com/community/MacBookPro6-2/Lucid#Basic%20Installation%20Instructions">help.ubuntu.com</a> you’ll find specific instructions to install it.
 <h3>Installing my script at your system</h3>
@@ -57,7 +57,7 @@ case $1 in
 	while [ $TEMP_VALUE -lt "255" ]; do
 		TEMP_VALUE=`expr $TEMP_VALUE + 1`
 		if [ $TEMP_VALUE -gt "255" ]; then TEMP_VALUE=255; fi
-		echo $TEMP_VALUE &gt; /sys/class/leds/smc::kbd_backlight/brightness
+		echo $TEMP_VALUE > /sys/class/leds/smc::kbd_backlight/brightness
 	done
         ;;
     off)
@@ -65,7 +65,7 @@ case $1 in
 	while [ $TEMP_VALUE -gt "0" ]; do
 		TEMP_VALUE=`expr $TEMP_VALUE - 1`
 		if [ $TEMP_VALUE -lt "0" ]; then TEMP_VALUE=0; fi
-		echo $TEMP_VALUE &gt; /sys/class/leds/smc::kbd_backlight/brightness
+		echo $TEMP_VALUE > /sys/class/leds/smc::kbd_backlight/brightness
 	done
         ;;
     *)
@@ -74,7 +74,7 @@ case $1 in
 esac
 
 if [ $SET_VALUE -eq "1" ]; then
-    echo $TOTAL &gt; /sys/class/leds/smc::kbd_backlight/brightness
+    echo $TOTAL > /sys/class/leds/smc::kbd_backlight/brightness
 fi</code></pre>
 <h3>Using keyboard-backlight from command-line</h3>
 This script could have 4 different uses:
@@ -95,7 +95,7 @@ This impedes us to execute it without being prompted for the superuser password 
 <h3>Binding keyboard keys to this script</h3>
 Now that the script works from command line without password prompting we could bind keyboard keys to this script. I’ll use Ubuntu-Tweak but you can use "compiz-manager" or gconf directly.
 
-In ubuntu-tweak we can tune our keyboard special keys under Personal &gt; Shortcuts Commands, there just set up shortcuts as you can see in the image below.
+In ubuntu-tweak we can tune our keyboard special keys under Personal > Shortcuts Commands, there just set up shortcuts as you can see in the image below.
 
 <a href="/assets/2010/06/ubuntu-tweak-macbook-backlight.png"><img class="aligncenter size-medium wp-image-709" title="ubuntu-tweak-macbook-backlight" alt="" src="/assets/2010/06/ubuntu-tweak-macbook-backlight-300x176.png" width="300" height="176" /></a>
 

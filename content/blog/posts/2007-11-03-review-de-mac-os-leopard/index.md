@@ -24,7 +24,7 @@ Pasemos entonces a valorar el nuevo "Leopard" que tanto esperaban los maqueros.
 
 <img class="sinborde" style="float:right; margin-left: 15px" src="/assets/2007/11/nuevo-finder-en-leopard.png" alt="Nuevo Finder en Leopard" width="157" height="177" align="right" />Principalmente podemos destacar el cambio de diseño de la interfaz, que dan una experiencia al usuario mucho más confortable, cosa que envidio mucho para GNU/Linux, mucho más usable, y lo más importante mucho más homogénea. Es decir, todas las aplicaciones comparte el mismo diseño e interfaz, ahora mucho más estilizado.
 
-El rediseño del Dock, junto con las funcionalidades de creación de stacks, que como dice la palabra son archivos los cuales son visionados como pilas, muy productivo para el dia a día.<!--more-->
+El rediseño del Dock, junto con las funcionalidades de creación de stacks, que como dice la palabra son archivos los cuales son visionados como pilas, muy productivo para el dia a día.
 
 ## Rendimiento
 

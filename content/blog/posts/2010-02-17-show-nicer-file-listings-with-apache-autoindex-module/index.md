@@ -25,9 +25,9 @@ $ git clone http://github.com/frandieguez/mabishu-apache-autoindex.git
 </code></pre>
 This should create an ‘include’ folder in the parent of your document root. Next, you need to configure Apache to use the "includes" files to style your directory listings.
 
-<!--more-->I use the following config, which you’ll need to adjust to match your particular setup – the ‘icons’ and 'includes' alias and the ‘mod_autoindex’ section are the main areas to pay attention to:
+I use the following config, which you’ll need to adjust to match your particular setup – the ‘icons’ and 'includes' alias and the ‘mod_autoindex’ section are the main areas to pay attention to:
 <pre># Virtualhost example configuration file with autoindex theme support
- &lt;VirtualHost *:80&gt;
+ &lt;VirtualHost *:80>
   ServerName your.vhost.local
 
   DocumentRoot /var/www/your.vhost.local/public_html
@@ -36,13 +36,13 @@ This should create an ‘include’ folder in the parent of your document root. 
   Alias /icons/ /var/www/your.vhost.local/include/icons/
   Alias /include/ /var/www/your.vhost.local/include/
 
-  &lt;Directory "/var/www/your.vhost.local/public_html"&gt;
+  &lt;Directory "/var/www/your.vhost.local/public_html">
     AllowOverride All
     Order allow,deny
     Allow from all
 
     # Tell Apache to add theme support to autoindex
-    &lt;IfModule mod_autoindex.c&gt;
+    &lt;IfModule mod_autoindex.c>
       Options Indexes FollowSymLinks
       IndexOptions +FancyIndexing
       IndexOptions +VersionSort
@@ -59,10 +59,10 @@ This should create an ‘include’ folder in the parent of your document root. 
       IndexOrderDefault Descending Name
       HeaderName /include/header.html
       ReadmeName /include/footer.html
-    &lt;/ifModule&gt;
+    &lt;/ifModule>
 
-  &lt;/Directory&gt;
- &lt;/VirtualHost&gt;</pre>
+  &lt;/Directory>
+ &lt;/VirtualHost></pre>
 You’ll need mod_autoindex for any of this to work – it should be installed by default with Apache in most linux distributions.
 <h3>Disclaimer</h3>
 The formatting relies on a few javascript hacks which may or may not work exactly as intended if the output of your apache directory listings differs a lot from what is expected. If the output appears strange, try playing around with the javascript formatting in header.html, or drop me a line if you need a hand.

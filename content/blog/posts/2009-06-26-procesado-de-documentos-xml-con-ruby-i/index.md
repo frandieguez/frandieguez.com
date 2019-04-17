@@ -19,7 +19,7 @@ La forma más sencilla de convertir un documento XML en un árbol no prodría se
 <pre lang="ruby">require "rexml/document"
 include REXML
 
-doc = Document.new("&lt;verdad-verdadera&gt;Ya llega el veranito&lt;/verdad-verdadera&gt;")
+doc = Document.new("&lt;verdad-verdadera>Ya llega el veranito&lt;/verdad-verdadera>")
 print doc.root.name, ": ", doc.root.text, "\n"</pre>
 Esto produce:
 <pre lang="plain">verdad-verdadera: Ya llega el veranito</pre>

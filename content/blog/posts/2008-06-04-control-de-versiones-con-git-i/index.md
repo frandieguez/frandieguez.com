@@ -22,7 +22,7 @@ En este post relataré mi experiencia con un sistema de control de versiones que
 Yo venía utilizando Subversion y como todos veía muy pobre su sistema de gestión de tags y branches y el intercambio entre ellos, obligandote a mantener varias copias de todo un proyecto para cada branch y para tag.
 <a title="Git - version control system" href="http://git.or.cz/">Git</a> a diferencia de otros SCMs permite commits locales y remotos, no hace falta conexión permanente con un repositorio central, porque simplemente ese repositorio no existe, en cambio la funcionalidad del mismo se distribuye en distintos equipos sin una jerarquía especial.
 
-<a href="http://mabishu.com/wp-content/uploads/2008/07/github.png"><img class="size-medium wp-image-153 alignright" title="github" alt="" src="http://mabishu.com/wp-content/uploads/2008/07/github.png" width="154" height="49" /></a>Si bien no existe un servidor central, si tenemos la posibilidad de definir varios repositorios remotos desde los cuales sincronizar todos los commits entre distintas personas, para tal ejemplo tenemos github.com que ofrece servicio gratuito para proyectos de fuente abierta o servicios de pago para repositorios privados.<!--more-->
+<a href="http://mabishu.com/wp-content/uploads/2008/07/github.png"><img class="size-medium wp-image-153 alignright" title="github" alt="" src="http://mabishu.com/wp-content/uploads/2008/07/github.png" width="154" height="49" /></a>Si bien no existe un servidor central, si tenemos la posibilidad de definir varios repositorios remotos desde los cuales sincronizar todos los commits entre distintas personas, para tal ejemplo tenemos github.com que ofrece servicio gratuito para proyectos de fuente abierta o servicios de pago para repositorios privados.
 <h3>Uso de Git</h3>
 El primer paso despues de instalar Git es configurarlo para identificarnos, para eso con un simple
 <pre>$ git config --global user.name "Tu nombre"
@@ -55,7 +55,7 @@ Para configurar un poco el comportamiento de git y sus diferentes acciones podei
 Para la creación de un repositorio git simlemente tenemos que ejecutar en consola el siguiente comando dentro de la carpeta que queremos controlar:
 <pre lang="bash">$mkdir repositorio; cd repositorio;
 $ git init</pre>
-<!--more-->
+
 
 A continuación podemos editar o generar los archivos dentro de dicho directorio que luego añadiremos al repositorio:
 <pre>$ touch fichero.example
@@ -77,7 +77,7 @@ $git status
 # Initial commit
 #
 # Changes to be committed:
-#   (use "git rm --cached &lt; file &gt;..." to unstage)
+#   (use "git rm --cached &lt; file >..." to unstage)
 #
 #	new file: fichero.txt
 #
@@ -92,7 +92,7 @@ Gracias a este fichero habilitamos unos filtros que necesitan pasar todos y cada
 <h3>Quiero commitear!</h3>
 Llegados a este punto queremos hacer un commit al repositorio local, para eso simplemente se ejecuta:
 <pre>$ git commit</pre>
-Podemos evitarnos el tener que hacer el "git add &lt; elemento &gt;" para eso el commit podemos hacerlo así:
+Podemos evitarnos el tener que hacer el "git add &lt; elemento >" para eso el commit podemos hacerlo así:
 <pre>$ $git commit -a
 Created initial commit 5a5b3af: initial import
 0 files changed, 0 insertions(+), 0 deletions(-)

@@ -21,5 +21,5 @@ categories:
 		paint(YELLOW);
 		gun.shoot(this);
 	}
-	this-&gt;~Elephant();
+	this->~Elephant();
 }</pre>

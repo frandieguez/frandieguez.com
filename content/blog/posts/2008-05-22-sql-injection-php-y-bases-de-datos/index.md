@@ -43,29 +43,29 @@ Ejemplo de la extensión mysqli PHP (para m&aacute;s información lee la funció
 <pre lang="php">/* recoger los datos del usuario */
 $nombreUsuario = $_GET['nombreUsuario'];
 /* preparar la consulta */
-$stmt = $mysqli-&gt;prepare('SELECT * FROM users WHERE user = ?');
+$stmt = $mysqli->prepare('SELECT * FROM users WHERE user = ?');
 /* vincular el valor */
-$stmt-&gt;bind_param('s', $nombreUsuario);
+$stmt->bind_param('s', $nombreUsuario);
 /* ejecutar la declaración preparada */
-$stmt-&gt;execute();
+$stmt->execute();
 
-$stmt-&gt;bind_result($name, $surname);
+$stmt->bind_result($name, $surname);
 /* recoger los datos de usuario*/
-while ($stmt-&gt;fetch())
+while ($stmt->fetch())
 {
   //imprimir los datos del usuario
-  echo $nombre, ' =&gt;  ', $apellido , "\n";
+  echo $nombre, ' =>  ', $apellido , "\n";
 }
 /* cerrar la operación */
-$stmt-&gt;close();</pre>
+$stmt->close();</pre>
 Ejemplo con la extensión PHP PDO (para m&aacute;s información lee la función prepare de PDO
 <pre lang="php">/* recoger los datos del usuario */
 $nombreUsuario = $_GET['nombreUsuario'];
 /* preparar la consulta */
-$sth = $dbh-&gt;prepare('SELECT * FROM users WHERE user = ?');
+$sth = $dbh->prepare('SELECT * FROM users WHERE user = ?');
 /* vincultar y ejecutar la consulta */
-$sth-&gt;execute($userName);
-$row = $sth-&gt;fetchAll();</pre>
+$sth->execute($userName);
+$row = $sth->fetchAll();</pre>
 Por lo tanto es muy facil para nosotros evitar la reescritura evitando que concatenar los datos proporcionados por el usuario con nuestra consulta, pero hay escenarios donde debes generar una consulta con los datos del usuario, no solo enviando una consulta. Por ejemplo, quieres mostrar diferentes tipos de libros basados en lo que inserta el usuario. El usuario puede elegir ver libros de ciencia ficción, literatura o libros de cocina.
 
 Podrías estar tentado a escribir algo como esto:

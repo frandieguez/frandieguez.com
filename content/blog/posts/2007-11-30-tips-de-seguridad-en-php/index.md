@@ -27,7 +27,7 @@ Ejemplo:
 
 4. Usa <a href="http://us2.php.net/manual/es/function.escapeshellarg.php" target="_blank">escapeshellarg</a>/<a href="http://us2.php.net/manual/es/function.escapeshellcmd.php" target="_blank">escapeshellcmd</a> cuando llames comandos exec para así evitar injección de comandos.
 
-5. Quita los linebreaks<span> (BR, P y BLOCKQUOTE tags)</span> de headers entrantes para prevenir la terminación y la inyección de códigos. Fixed &gt;PHP5.1
+5. Quita los linebreaks<span> (BR, P y BLOCKQUOTE tags)</span> de headers entrantes para prevenir la terminación y la inyección de códigos. Fixed >PHP5.1
 
 6. Utiliza comprobación md5 en valores y sessionid serializados para validar su integridad.
 

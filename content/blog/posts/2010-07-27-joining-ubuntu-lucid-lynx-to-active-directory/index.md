@@ -30,7 +30,7 @@ Before all take notice that your DNS are pointing to your corporative DNS and th
 	<li>When prompted, enter the password of your adminstrator account. A dialogue box will appear asking for your domain name, enter your AD fully qualified domain name in upper case letters, i.e YOUR.DOMAIN.COM</li>
 	<li>Finally reboot.</li>
 </ol>
-<!--more-->Want sudo privileges on a group from AD into your linux boxes? Go to your Active Directory and create a group. I called mine linux-admins, but you can use any group you like. A word of advice though, you’ll have less problems if you don’t use spaces in your group name.
+Want sudo privileges on a group from AD into your linux boxes? Go to your Active Directory and create a group. I called mine linux-admins, but you can use any group you like. A word of advice though, you’ll have less problems if you don’t use spaces in your group name.
 
 Now in your linux clients switch to a local user account with sudo privleges and at the terminal type the command:
 <pre><code>sudo visudo</code></pre>

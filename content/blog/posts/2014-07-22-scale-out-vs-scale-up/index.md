@@ -26,16 +26,15 @@ This dissertation comes from the recent new that <a href="http://highscalability
 Our main aim to move to cloud servers was to <strong>reduce our costs</strong> when our infrastructure is not having a lot of load, which always use to be at nights, and to <strong>quickly replace malfunctioning servers</strong> with new servers by provisioning them with puppet.
 
 Just to clarify the terms, below I will describe both:
-<ul>
-	<li><span style="font-weight: bold;">Scale-up: </span>it is as simple as adding more computational power and RAM to your server, by buying a more expensive and robust server.</li>
-	<li><span style="font-weight: bold;">Scale-out: </span>Refers to adding more servers with less processors and RAM.</li>
-</ul>
+
+* **Scale-up:** it is as simple as adding more computational power and RAM to your server, by buying a more expensive and robust server.
+* **Scale-out:** Refers to adding more servers with less processors and RAM.
+
 There are common pros and cons for scale-up and scale-out which are:
-<ul>
-	<li><strong>Scale-up: </strong>they are less challenging to implement, and given that they can use all the <a href="https://www.youtube.com/watch?v=FFnc4qDg4-k">power of the "metal"</a> you will retrieve far better performance from the same machine in cloud. As a counterpart, using metal tends to be a risky business due to greater risk of hardware failure that causes bigger outages (yes we have learned this by heart).</li>
-	<li style="color: #343434;"><span style="font-weight: bold;">Scale-out: </span>as the opposite solution, using cloud based solutions tends to be easier to run fault-tolerance and easy to upgrade, but it will have a bigger footprint which raises some doubts about scale-up being harder to implement.</li>
-</ul>
-Scale out is usually cheaper overall and can literally scale theoretically infinitely (although we know that there are usually limits imposed by software or the environment’s infrastructure).
+
+* **Scale-up:** they are less challenging to implement, and given that they can use all the <a href="https://www.youtube.com/watch?v=FFnc4qDg4-k">power of the "metal"</a> you will retrieve far better performance from the same machine in cloud. As a counterpart, using metal tends to be a risky business due to greater risk of hardware failure that causes bigger outages (yes we have learned this by heart).
+
+* **Scale out:** is usually cheaper overall and can literally scale theoretically infinitely (although we know that there are usually limits imposed by software or the environment’s infrastructure).
 
 Our experience says that you will need more servers due to the fact that those VMs will have far less performance against metal-ones, but they have helped us to autoscale when our infrastructure had a huge demand. And we have mitigated a lot of outages caused by server failures.
 

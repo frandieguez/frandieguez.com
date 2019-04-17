@@ -26,7 +26,7 @@ Antes de nada decir que tengo un Macbook Core 2 Duo, es decir con un Intel con d
 
 Haremos funcionar desde el TouchPad con soporte para taps y scroll, hasta el modo suspend, pasando por el ahorro de energía de los procesadores, el mapeo de teclas del teclado (incluída la tecla fn), el Firewire, la tarjeta wireless atheros, y la aceleración 3D.
 
-El método que utilizo yo es para Debian y derivados (siii... Ubuntu está aquí) y al final del artículo incluyo el .deb para los señores vagos así como el .config necesario para configurar vuestro kernel, pero para este último teneis que aplicar los parches del kernel de <a href="http://www.mactel-linux.org"> Mactel-linux.org</a><!--more-->
+El método que utilizo yo es para Debian y derivados (siii... Ubuntu está aquí) y al final del artículo incluyo el .deb para los señores vagos así como el .config necesario para configurar vuestro kernel, pero para este último teneis que aplicar los parches del kernel de <a href="http://www.mactel-linux.org"> Mactel-linux.org</a>
 
 Vamos por pasos:
 <ul>

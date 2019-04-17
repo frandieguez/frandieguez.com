@@ -29,7 +29,7 @@ Using wildly unreliable readings from glxgears:
 <blockquote>– 8.10 (Intrepid Ibex): ~1100 fps
 – 9.04 (Jaunty Jackalope): ~900 fps (and I’m being generous here)
 – 9.10 (Karmic Koala): ~3200 fps!</blockquote>
-I’ve got 3x more frames per second than I did in 8.10. Now graphics feel smoother and I think I could almost run a 3D accelerated game on it.<!--more-->
+I’ve got 3x more frames per second than I did in 8.10. Now graphics feel smoother and I think I could almost run a 3D accelerated game on it.
 
 Apart from the hotness that is the new Intel video driver, there are loads of other improvements over previous releases. Boot time has improved significantly, and the same goes for login time, which is really nice. GDM has been completely rewritten, which results in a smoother and nicer login experience but by loosing a lot of customization. This rewrite also means that I can now suspend my laptop while being logged out.
 
@@ -41,7 +41,7 @@ Almost everything worked out of the box with some minor exceptions though. So fa
 
 With this version what needs tampering with is mainly the keyboard layout and maybe the sound. If you want to use the built-in iSight, you probably got a little work ahead of you, but otherwise fixing these minor issues will take you maybe 5–10 minutes.
 <h4>Touchpad Behaviour</h4>
-Since I’m installing on a MacBook, I want the touchpad to behave like it does in OS X, and it pretty much does. I only had to open the mouse preferences (System &gt; Preferences &gt; Mouse) and tell it to enable two-finger scrolling and that was that. If you’re using tapping for clicking, I’m guessing 2 finger tap is right click and 3 finger tap is middle click.
+Since I’m installing on a MacBook, I want the touchpad to behave like it does in OS X, and it pretty much does. I only had to open the mouse preferences (System > Preferences > Mouse) and tell it to enable two-finger scrolling and that was that. If you’re using tapping for clicking, I’m guessing 2 finger tap is right click and 3 finger tap is middle click.
 <h4>Keyboard Setup</h4>
 After selecting the appropriate keyboard layout (Apple / MacBook/MacBookPro (intl.)) I wasn’t able to write @, $, {, [, ], }, ~ or |, or any other key that required me to press Alt Gr. Fortunately I could for unknown reasons write those characters in my Gnome Terminal (but not anywhere else) and copy/paste from there, but that is no fun in the long run and it certainly proves problematic when you try to log in with a password containing any of those characters.
 
@@ -51,11 +51,11 @@ For solve this issue just hit Alt-F2 (or Alt-Fn-F2 if you haven’t switched Fn-
 </blockquote>
 Make sure these two lines in /usr/share/X11/xkb/symbols/pc looks like this (i.e. add “<code>//</code>” at the beginning of the lines):
 <blockquote>
-<pre>//    modifier_map Mod4   { &lt;LWIN&gt; };
+<pre>//    modifier_map Mod4   { &lt;LWIN> };
 ...
-//    modifier_map Mod4   { &lt;RWIN&gt; };</pre>
+//    modifier_map Mod4   { &lt;RWIN> };</pre>
 </blockquote>
-When you’re done editing the file and your changes are saved, go to System &gt; Preferences &gt; Keyboard, select the Layouts tab and click Layout Options. Expand “Key to choose 3rd level” and put a check mark next to the key you want to be your Alt Gr. Personally I’m using “Right Win” (i.e. the Cmd/Apple key to the right of the space bar).
+When you’re done editing the file and your changes are saved, go to System > Preferences > Keyboard, select the Layouts tab and click Layout Options. Expand “Key to choose 3rd level” and put a check mark next to the key you want to be your Alt Gr. Personally I’m using “Right Win” (i.e. the Cmd/Apple key to the right of the space bar).
 <h5>Function Keys</h5>
 The Mute/Volume keys (on F3, F4 and F5) and the eject key works out of the box, but the brightness keys (on F1 and F2) needs a little attention — nothing big, just install the package <code>pommed</code> and that’s it.
 

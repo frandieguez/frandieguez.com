@@ -42,7 +42,7 @@ Añade estas clases CSS a tus elementos HTML para rotarlos en pasos de 90 grados
 	-moz-transform: rotate(270deg);
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }</pre>
-<!--more-->
+
 También puedes establecer el origen de la rotación para Firefox y Safari utilizando lo siguiente:
 <pre lang="css">.rotate-me {
        -moz-transform-origin: 0 0;

@@ -14,7 +14,7 @@ categories:
 ---
 Si vives y trabajas entre diferentes servidores remotos, probablemente estes accediendo mediante SSH y autenticando mediante llaves RSA. Pero cuando el número de servidores crece, los nombres de host y usuarios respectivos también se incrementa, por lo que no estaría mal un sistema que recordara esos parametros.
 
-<!--more-->Quizás no supieras que en tu carpeta  $HOME/.ssh/ puedes configurar algunos atajos para tus servidores habituales. Es tan fácil como crear un fichero ‘config’ en $HOME/.ssh/ y añadir esto:
+Quizás no supieras que en tu carpeta  $HOME/.ssh/ puedes configurar algunos atajos para tus servidores habituales. Es tan fácil como crear un fichero ‘config’ en $HOME/.ssh/ y añadir esto:
 ```bash
 Host mabi
 HostName mabishu.com

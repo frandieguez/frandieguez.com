@@ -24,7 +24,7 @@ In other words, now is quite simple to send «play», «pause», «move next/pre
 
 I will explain how to introspect D-Bus interface and make some proof-concepts.
 
-<!--more-->
+
 
 Take care that Spotify Linux client now implements to MPRIS2 Dbus support and almost the entire available libraries of D-Bus could interact with it.
 
@@ -36,8 +36,8 @@ com.spotify.qt
 <strong>org.mpris.MediaPlayer2.spotify</strong></pre>
 So, as you could see there are two interfaces to talk with, but looks like the second one is our desired central point. Let's introspect it...
 <pre>$ mdbus2 org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2
-[METHOD]    org.mpris.MediaPlayer2.Raise() -&gt; ()
-[METHOD]    org.mpris.MediaPlayer2.Quit() -&gt; ()
+[METHOD]    org.mpris.MediaPlayer2.Raise() -> ()
+[METHOD]    org.mpris.MediaPlayer2.Quit() -> ()
 [PROPERTY]  org.mpris.MediaPlayer2.read( b:CanQuit )
 [PROPERTY]  org.mpris.MediaPlayer2.read( b:CanRaise )
 [PROPERTY]  org.mpris.MediaPlayer2.read( b:HasTrackList )
@@ -45,15 +45,15 @@ So, as you could see there are two interfaces to talk with, but looks like the s
 [PROPERTY]  org.mpris.MediaPlayer2.read( s:DesktopEntry )
 [PROPERTY]  org.mpris.MediaPlayer2.read( as:SupportedUriSchemes )
 [PROPERTY]  org.mpris.MediaPlayer2.read( as:SupportedMimeTypes )
-[METHOD]    org.mpris.MediaPlayer2.Player.Next() -&gt; ()
-[METHOD]    org.mpris.MediaPlayer2.Player.Previous() -&gt; ()
-[METHOD]    org.mpris.MediaPlayer2.Player.Pause() -&gt; ()
-[METHOD]    org.mpris.MediaPlayer2.Player.PlayPause() -&gt; ()
-[METHOD]    org.mpris.MediaPlayer2.Player.Stop() -&gt; ()
-[METHOD]    org.mpris.MediaPlayer2.Player.Play() -&gt; ()
-[METHOD]    org.mpris.MediaPlayer2.Player.Seek( x:Offset ) -&gt; ()
-[METHOD]    org.mpris.MediaPlayer2.Player.SetPosition( o:TrackId, x:Position ) -&gt; ()
-[METHOD]    org.mpris.MediaPlayer2.Player.OpenUri( s:none ) -&gt; ()
+[METHOD]    org.mpris.MediaPlayer2.Player.Next() -> ()
+[METHOD]    org.mpris.MediaPlayer2.Player.Previous() -> ()
+[METHOD]    org.mpris.MediaPlayer2.Player.Pause() -> ()
+[METHOD]    org.mpris.MediaPlayer2.Player.PlayPause() -> ()
+[METHOD]    org.mpris.MediaPlayer2.Player.Stop() -> ()
+[METHOD]    org.mpris.MediaPlayer2.Player.Play() -> ()
+[METHOD]    org.mpris.MediaPlayer2.Player.Seek( x:Offset ) -> ()
+[METHOD]    org.mpris.MediaPlayer2.Player.SetPosition( o:TrackId, x:Position ) -> ()
+[METHOD]    org.mpris.MediaPlayer2.Player.OpenUri( s:none ) -> ()
 [SIGNAL]    org.mpris.MediaPlayer2.Player.Seeked( x:Position )
 [PROPERTY]  org.mpris.MediaPlayer2.Player.read( s:PlaybackStatus )
 [PROPERTY]  org.mpris.MediaPlayer2.Player.readwrite( s:LoopStatus )
@@ -70,10 +70,10 @@ So, as you could see there are two interfaces to talk with, but looks like the s
 [PROPERTY]  org.mpris.MediaPlayer2.Player.read( b:CanPause )
 [PROPERTY]  org.mpris.MediaPlayer2.Player.read( b:CanSeek )
 [PROPERTY]  org.mpris.MediaPlayer2.Player.read( b:CanControl )
-[METHOD]    org.freedesktop.DBus.Properties.Get( s:interface_name, s:property_name ) -&gt; ( v:value )
-[METHOD]    org.freedesktop.DBus.Properties.Set( s:interface_name, s:property_name, v:value ) -&gt; ()
-[METHOD]    org.freedesktop.DBus.Properties.GetAll( s:interface_name ) -&gt; ( a{sv}:values )
-[METHOD]    org.freedesktop.DBus.Introspectable.Introspect() -&gt; ( s:xml_data )</pre>
+[METHOD]    org.freedesktop.DBus.Properties.Get( s:interface_name, s:property_name ) -> ( v:value )
+[METHOD]    org.freedesktop.DBus.Properties.Set( s:interface_name, s:property_name, v:value ) -> ()
+[METHOD]    org.freedesktop.DBus.Properties.GetAll( s:interface_name ) -> ( a{sv}:values )
+[METHOD]    org.freedesktop.DBus.Introspectable.Introspect() -> ( s:xml_data )</pre>
 Interesting, isn't it? It have a large D-Bus API to send events to Spotify. Among methods to control the playlist, one of my favourites is get MetaData from the playing song.
 So now if you want to pause your actual song of Spotify you can issue at your terminal:
 <pre>dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause</pre>

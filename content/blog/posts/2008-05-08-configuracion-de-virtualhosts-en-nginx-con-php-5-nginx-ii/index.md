@@ -57,7 +57,7 @@ http {
 LLegados a este punto ya tenemos nuestro nginx preparado para servir cualquiera de los distintos tipos de servidores que soporta (web, proxy web inverso, mail, balanceo de carga). Como aquí nos centraremos en configurar un servidor web con virtualhosts, sigo relatando las operaciones.
 
 
-<!--more-->
+
 
 Como dije suelo poner mis webs en /opt por lo que crearé el "raiz" del servidor con toda su estructura interna
 <pre><code>#Creamos carpeta general y la default donde alvergar los est&aacute;ticos por defecto del servidor

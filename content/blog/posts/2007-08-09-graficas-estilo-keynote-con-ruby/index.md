@@ -42,7 +42,7 @@ g.data("Casados", [24, 25, 15])
 g.data("Divorciados", [17.5, 17, 22.5])
 g.data("Solteros", [5, 6.5, 9.5])
 
-g.labels = {0 =&gt; '2003', 1 =&gt; '2004', 2 =&gt; '2005'}
+g.labels = {0 => '2003', 1 => '2004', 2 => '2005'}
 
 g.write('sexo-edad.png')
 ```

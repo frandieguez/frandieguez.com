@@ -39,7 +39,7 @@ Como yo lo entiendo, el problema viene de el echo de que mysqldump utiliza utf8 
 Que sucede cuando ejecutas el comando:
 
 ```
-mysqldump -u mysql_usuario -p ejemplo_db &gt; dump_ejemplo_db.sql
+mysqldump -u mysql_usuario -p ejemplo_db > dump_ejemplo_db.sql
 ```
 
 esta instrucción ejecuta mysqldump que recoge las tablas codificadas en latin1 (conteniendo caracteres utf8) y las traduce a la codificación utf8 (por lo que los caracteres utf8 ya no serán los mismos que se supone que tienen que ser) antes de escribirlos en un archivo en el disco. En teoría, importando los datos en mysql debería trabajar desde mysql 4.1 y superiores ya que tienen soporte para utf8, pero desafortunadamente, la doble codificación de estos caracteres revuelve todo y tienen un buen churro de caracteres. Cuando ejecutas lo siguiente:

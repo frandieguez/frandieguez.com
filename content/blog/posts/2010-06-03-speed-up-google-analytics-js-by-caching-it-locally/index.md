@@ -23,13 +23,13 @@ tags:
 The big problem of use Google Analytics is that you have to get its javascript to get to work statistics. For me this causes that my sites takes a lot of time to end the load. For this reason I always recommend put the GAnalytics code at the bottom of the page, but for me this is not enought.
 
 One solution to this is to cache the external javascript locally but what if the external javascript changes? Here I go to explain how to store GAnalytics javascript locally and peridiocally check that is the lastest version.
-<!--more-->
+
 Paste this code at the bottom of your website:
-<pre><code>&lt;script src="http://domain/path/to/your/javascripts/ga.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;script type="text/javascript"&gt;
+<pre><code>&lt;script src="http://domain/path/to/your/javascripts/ga.js" type="text/javascript">&lt;/script>
+&lt;script type="text/javascript">
 var pageTracker = _gat._getTracker("PASTE YOUR GANALYTICS CODE HERE");
 pageTracker._initData();pageTracker._trackPageview();
-&lt;/script&gt;
+&lt;/script>
 </code></pre>
 Now you're site is ready to use your cached file but we have to get that file so to do this I use the next script. Its downloads the ga.js file and place it on the desired place, just modify it to your requirements:
 <pre><code>#!/bin/sh
@@ -50,4 +50,4 @@ chmod 644 $INSTALL_IN/ga.js
 
 exit 0;</code></pre>
 But what if Google updates that script and we don’t take notice of this? This will cause statistics loss so we have to do a workaround to fetch every day that javascript file using crontab. Just type "crontab -e" and insert the next snippet:
-<pre><code>@daily /path/to/the/script/google-analytics-update.sh &gt;/dev/null 2&gt;&amp;1</code></pre>
+<pre><code>@daily /path/to/the/script/google-analytics-update.sh >/dev/null 2>&amp;1</code></pre>

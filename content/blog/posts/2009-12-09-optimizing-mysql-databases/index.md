@@ -28,7 +28,7 @@ The main disvantage is that you can only optimize MyISAM, InnoDB, and ARCHIVE ta
 
 
 
-<!--more-->
+
 <h3>Optimizing just one table</h3>
 Optimizing a single table is very easy. Here is the command that how we can optimize MySQL database single table with command line.
 <pre>OPTIMIZE TABLE  my_table;</pre>

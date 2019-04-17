@@ -23,7 +23,7 @@ En este caso y como reza el título explico como hacer la migración de sqlite3 
 
 * Se hace un dump de la bbdd que queremos
 
-<pre lang="bash">sqlite3 BasedeDatosaExportar .dump .quit &gt;fichero-dump.sql</pre>
+<pre lang="bash">sqlite3 BasedeDatosaExportar .dump .quit >fichero-dump.sql</pre>
 
 * Ahora toca adaptarla a la sintaxis expecial de MySQL
 

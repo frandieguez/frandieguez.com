@@ -36,7 +36,7 @@ sudo aptitude install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev
 ```
 
 Hecho esto, ahora procedemos a recoger los fuentes, compilar y configurar.
-<!--more-->
+
 Por defecto nginx se instala en /usr/local/nginx, aunque es un buen sitio, esto significa que el binario principal de nginx se podrá encontrar en /usr/local/nginx/sbin/nginx, la cual no es un lugar común del path por defecto en *nix.
 
 ```bash
@@ -116,7 +116,7 @@ case "$1" in
       ;;
   *)
         N=/etc/init.d/$NAME
-        echo "Usage: $N {start|stop|restart|force-reload}" &gt;&amp;2
+        echo "Usage: $N {start|stop|restart|force-reload}" >&amp;2
         exit 1
         ;;
 esac
@@ -132,12 +132,12 @@ sudo /usr/sbin/update-rc.d -f nginx defaults
 ```
 ```
 Adding system startup for /etc/init.d/nginx ...
-   /etc/rc0.d/K20nginx -&gt; ../init.d/nginx
-   /etc/rc1.d/K20nginx -&gt; ../init.d/nginx
-   /etc/rc6.d/K20nginx -&gt; ../init.d/nginx
-   /etc/rc2.d/S20nginx -&gt; ../init.d/nginx
-   /etc/rc3.d/S20nginx -&gt; ../init.d/nginx
-   /etc/rc4.d/S20nginx -&gt; ../init.d/nginx
-   /etc/rc5.d/S20nginx -&gt; ../init.d/nginx
+   /etc/rc0.d/K20nginx -> ../init.d/nginx
+   /etc/rc1.d/K20nginx -> ../init.d/nginx
+   /etc/rc6.d/K20nginx -> ../init.d/nginx
+   /etc/rc2.d/S20nginx -> ../init.d/nginx
+   /etc/rc3.d/S20nginx -> ../init.d/nginx
+   /etc/rc4.d/S20nginx -> ../init.d/nginx
+   /etc/rc5.d/S20nginx -> ../init.d/nginx
 ```
 Con esto ya tendremos nginx totalmente integrado en nuestro server Debian. El siguiente post hablaré de configurar virtualhosts y configurar php

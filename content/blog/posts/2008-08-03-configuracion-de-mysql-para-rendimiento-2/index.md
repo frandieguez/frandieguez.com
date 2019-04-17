@@ -34,7 +34,7 @@ Proporciona información en tiempo real de cuantos clientes están conectados co
 <h4>Created_tmp_disk_tables</h4>
 Esta variable indica el número de tablas temporales que han sido creadas en disco frente a hacerlo en memoria.
 El acceso a tablas en disco normalmente es más lento que acceder a ellas en memoria. Por tanto las consultas que usan la sintaxis <em>CREATE TEMPORARY TABLE</em> son más lentas si el valor de la esta variable es superior.
-<h4><!--more-->Handler_read_first</h4>
+<h4>Handler_read_first</h4>
 Esta variable indica el número de veces que un gestor de tabla hace una petición de lectura a la primera fila del índice de la tabla.
 Si MySQL accede frecuentemente a la primera fila de un índice de tabla, sugiere que está llevando a cabo un escaneo secuencial al índice completo. Esto indica que la tabla correspondiente no está correctamente indexada.
 <h4>Innodb_buffer_pool_wait_free</h4>

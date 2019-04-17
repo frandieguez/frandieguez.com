@@ -3,7 +3,7 @@ id: 1638
 title: 'Ask, What would the user do?'
 date: 2013-08-01T23:36:53+00:00
 author: Fran Diéguez
-layout: post
+layout: phrase
 published: true
 guid: http://www.mabishu.com/?p=1638
 permalink: /blog/2013/08/ask-what-would-the-user-do/

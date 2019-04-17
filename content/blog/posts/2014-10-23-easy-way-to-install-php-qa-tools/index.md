@@ -16,7 +16,7 @@ categories:
 If you need an easy and quick way to install your <a title="PHP QA tools website" href="http://phpqatools.org/" target="_blank">PHP QA tools</a>, you can use the next bash snippet.
 ```bash
 # Install composer based tools
-cat &gt; ~/.composer/composer.json &lt;&lt;EOF
+cat > ~/.composer/composer.json <<EOF
 {
     "require": {
         "halleck45/phpmetrics": "@dev",
