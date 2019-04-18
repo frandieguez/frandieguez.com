@@ -19,24 +19,23 @@ If you have been playing for some time with [heroku](https://www.heroku.com) or 
 
 <div class="aligncenter">
 
-![Dokku initial configuration form page](/assets/2019/04/dokku-logo.png)
-
+![Dokku initial configuration form page](./dokku-logo.png)
 </div>
 
 # 🚀 Deploying a DO droplet with Dokku
 Due to addition of the [Marketplace](https://blog.digitalocean.com/introducing-digitalocean-marketplace/) to Digital Ocean you can easily deploy prebuilt droplets from your DO dashboard. So let's search for dokku and create a droplet with their 1-click install.
 
-![Dokku on Digital Ocean Marketplace](/assets/2019/04/dokku-do-marketplace.png)
+![Dokku on Digital Ocean Marketplace](./dokku-do-marketplace.png)
 
 After clicking the install button you have to configure your droplet size and region. Do not enable IPv6 for now as seems that dokku has some problems with it.
 
-![Dokku droplet configuration](/assets/2019/04/do-droplet-configuration.png)
+![Dokku droplet configuration](./do-droplet-configuration.png)
 
 Then you have to copy the IP address of your droplet. And open a new browser tab with it. you will see an administration form that will let you configure the Admin SSH key and the base domain name.
 
 One feature that mimics heroku or even netlify is *Use virtualhost naming for apps*, this option will allow you to run one application per subdomain. If you do not enable this option each application will be exposed on the base domain but on different HTTP ports.
 
-![Dokku initial configuration form page](/assets/2019/04/dokku-server-config.png)
+![Dokku initial configuration form page](./dokku-server-config.png)
 
 Click _Finish setup_, and after that you will have your dokku server up and running.
 
@@ -223,5 +222,6 @@ And go to [http://nodejs-app-sample.frandieguez-dokku-server](http://nodejs-app-
 Quite impressive! Your own heroku!
 
 <div class="aligncenter">
-  <img src="/assets/2019/04/bacon-yoda.png" width=250px alt="Bacon Smell"/>
+
+![Bacon Smell Yoda](./bacon-yoda.png)
 </div>
