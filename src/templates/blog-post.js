@@ -1,26 +1,32 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
 // import Bio from "../components/bio"
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import NextPrevious from "../components/NextPrevious";
-import PostInfo from "../components/postinfo";
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import NextPrevious from '../components/NextPrevious';
+import PostInfo from '../components/postinfo';
+import Bio from '../components/bio';
 
-import postStyles from "../styles/post.module.scss";
+import postStyles from '../styles/post.module.scss';
 
-import { DiscussionEmbed } from "disqus-react";
+import { DiscussionEmbed } from 'disqus-react';
 
 class BlogPostTemplate extends React.Component {
   render() {
+    const location = this.props.location;
     const post = this.props.data.markdownRemark;
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
-    const disqusShortname = "mabishu";
-    const disqusConfig = {
-      identifier: post.dsq_thread_id || post.id,
-      title: post.frontmatter.title
-    };
+    // const disqusShortname = "mabishu";
+    // const disqusConfig = {
+    //   identifier: post.dsq_thread_id || post.id,
+    //   title: post.frontmatter.title
+    // };
+
+    const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
+      `https://www.frandieguez.dev${location.pathname}`
+    )}`;
 
     return (
       <Layout
@@ -29,32 +35,43 @@ class BlogPostTemplate extends React.Component {
         className="postStyles.post"
       >
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <div className={postStyles.post}>
-          {post.frontmatter.layout !== "phrase" ? (
-            <div className={postStyles.meta}>
-              <h1 className={postStyles.title}>{post.frontmatter.title}</h1>
+        <main className={postStyles.post}>
+          <header>
+            {post.frontmatter.layout !== 'phrase' ? (
+              <div className={postStyles.meta}>
+                <h1 className={postStyles.title}>{post.frontmatter.title}</h1>
 
-              <time className={postStyles.date}> {post.frontmatter.date} </time>
+                <time className={postStyles.date}>
+                  {' '}
+                  {post.frontmatter.date}{' '}
+                </time>
 
-              <div className={postStyles.author}>
-                Inked by <a href="/about">{post.author || "Fran Dieguez"}</a>
+                <div className={postStyles.author}>
+                  Inked by <a href="/about">{post.author || 'Fran Dieguez'}</a>
+                </div>
               </div>
-            </div>
-          ) : null}
-
+            ) : null}
+          </header>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
-
-          <div className={postStyles.postInfo}>
-            <PostInfo
-              categories={post.frontmatter.categories}
-              tags={post.frontmatter.tags}
-            />
-          </div>
-        </div>
-
-        {/* <Bio /> */}
-        <NextPrevious previous={previous} next={next} />
-        <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+          <footer>
+            <div className={postStyles.postInfo}>
+              <PostInfo
+                categories={post.frontmatter.categories}
+                tags={post.frontmatter.tags}
+              />
+            </div>
+            <p>
+              <a href={discussUrl} target="_blank" rel="noopener noreferrer">
+                Discuss on Twitter
+              </a>
+            </p>
+            {/* <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} /> */}
+          </footer>
+        </main>
+        <aside>
+          <Bio />
+          <NextPrevious previous={previous} next={next} />
+        </aside>
       </Layout>
     );
   }
