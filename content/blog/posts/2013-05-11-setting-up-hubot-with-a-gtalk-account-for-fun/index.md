@@ -71,7 +71,7 @@ As I said before, Hubot has a quite good extendability by what's called scripts.
 
 ### Here is our bender bot
 
-<a href="/assets/2013/05/Captura-de-pantalla-de-2013-05-09-184137.png"><img class="alignnone size-full wp-image-1566" alt="Captura de pantalla de 2013-05-09 18:41:37" src="/assets/2013/05/Captura-de-pantalla-de-2013-05-09-184137.png" width="721" height="569" /></a>
+![Captura de pantalla de 2013-05-09 18:41:37](Captura-de-pantalla-de-2013-05-09-184137.png)
 
 ### Future findings
 

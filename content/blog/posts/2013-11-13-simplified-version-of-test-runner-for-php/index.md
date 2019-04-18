@@ -18,7 +18,21 @@ tags:
 ---
 In my course of getting continuous <a title="Test your code with every change in your PHP files" href="http://www.mabishu.com/blog/2012/04/15/test-your-code-with-every-change-in-your-php-files/">testing in practice</a> I have improved my test runner by using less dependencies.
 
-<script src="https://gist.github.com/frandieguez/7447297.js" async></script>
+```bash
+#!/bin/bash
+if ! which inotifywait > /dev/null; then
+    echo "You must install the inotify-tools package to use this script";
+
+    exit 1;
+fi
+
+while true; do
+    inotifywait -r -e modify src/ tests/ --excludei "(tpl|js|css|jpg|png|yml|yaml)$" &&
+    clear &&
+    ant phpunit;
+done
+```
+[Check it out on GitHub](https://gist.github.com/frandieguez/7447297)
 
 Previously I have implemented this by using Ruby and its Watchr gem, but now this script only relies on <em>inotifywait</em> binary available in major distributions.
 
