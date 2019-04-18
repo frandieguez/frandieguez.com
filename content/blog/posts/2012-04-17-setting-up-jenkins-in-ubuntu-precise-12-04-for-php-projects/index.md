@@ -20,7 +20,7 @@ tags:
   - setup
   - ubuntu
 ---
-<img class="alignright  wp-image-1155" title="jenkins_logo" alt="" src="/assets/2012/04/jenkins_logo.png" width="318" height="102" />
+<img class="alignright  wp-image-1155" title="jenkins_logo" alt="" src="/assets/jenkins_logo.png" width="318" height="102" />
 
 This howto tries to clarify all the steps for setting up a Ubuntu Precise box as Continuous Integration server for PHP projects by using Jenkins.  In the next days I'll write another post about how to configure a PHP project inside Jenkins. So let's go. ## Installing Jenkins server Ubuntu Precise now has inside its repository the Jenkins server packaged for an easy installation. So installing jenkins now is as simple as running the next command:
 
@@ -30,7 +30,7 @@ sudo apt-get install jenkins
 
 after the installation jenkins will be running in the 8080 port. For accessing it you must go to [http://localhost:8080](http://localhost:8080)
 
-[![](/assets/2012/04/1-jenkins-ready.png "1-jenkins-ready")](/assets/2012/04/1-jenkins-ready.png)
+![](./1-jenkins-ready.png)
 
 If you want to allow Jenkins to send mails after the builds, for informing of build reports to your team, you have to install a MTA:
 
@@ -38,20 +38,24 @@ If you want to allow Jenkins to send mails after the builds, for informing of bu
 sudo apt-get install postfix
 ```
 
-## Installing required Jenkins Plugins For building PHP projects you need some Jenkins plugins. These are the needed:
+## Installing required Jenkins Plugins
 
-*   [Checkstyle](http://wiki.jenkins-ci.org/display/JENKINS/Checkstyle+Plugin) (for processing [PHP\_CodeSniffer](http://pear.php.net/PHP_CodeSniffer) logfiles in Checkstyle format)
+For building PHP projects you need some Jenkins plugins. These are the needed:
+
+*   [Checkstyle](http://wiki.jenkins-ci.org/display/JENKINS/Checkstyle+Plugin) (for processing [PHP_CodeSniffer](http://pear.php.net/PHP_CodeSniffer) logfiles in Checkstyle format)
 *   [Clover PHP](http://wiki.jenkins-ci.org/display/JENKINS/Clover+PHP+Plugin) (for processing [PHPUnit](http://www.phpunit.de/) code coverage xml output)
 *   [DRY](http://wiki.jenkins-ci.org/display/JENKINS/DRY+Plugin) (for processing [phpcpd](https://github.com/sebastianbergmann/phpcpd) logfiles in PMD-CPD format)
 *   [HTML Publisher](http://wiki.jenkins-ci.org/display/JENKINS/HTML+Publisher+Plugin) (for publishing the [PHPUnit](http://www.phpunit.de/) code coverage report, for instance)
-*   [JDepend](http://wiki.jenkins-ci.org/display/JENKINS/JDepend+Plugin) (for processing [PHP\_Depend](http://pdepend.org/) logfiles in JDepend format)
+*   [JDepend](http://wiki.jenkins-ci.org/display/JENKINS/JDepend+Plugin) (for processing [PHP_Depend](http://pdepend.org/) logfiles in JDepend format)
 *   [Plot](http://wiki.jenkins-ci.org/display/JENKINS/Plot+Plugin) (for processing [phploc](https://github.com/sebastianbergmann/phploc) CSV output)
 *   [PMD](http://wiki.jenkins-ci.org/display/JENKINS/PMD+Plugin) (for processing [PHPMD](http://phpmd.org/) logfiles in PMD format)
 *   [Violations](http://wiki.jenkins-ci.org/display/JENKINS/Violations) (for processing various logfiles)
 *   [xUnit](http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin) (for processing [PHPUnit](http://www.phpunit.de/) logfiles in JUnit format)
 *   [Git](https://wiki.jenkins-ci.org/display/JENKINS/Git%20Plugin) (for accessing Git repositories, if you use Git in your project)
 
-You can install these plugins using the web frontend at http://localhost:8080/pluginManager/available Just check them all and click the «Install» button. You will see the plugin installation progress: ![](/assets/2012/04/2-installing-plugins.png "2-installing-plugins")
+You can install these plugins using the web frontend at http://localhost:8080/pluginManager/available Just check them all and click the «Install» button. You will see the plugin installation progress:
+
+![](./2-installing-plugins.png)
 
 If you can't find the Jenkins plugin from the Jenkins interface you can install them from command line. Go to [http://updates.jenkins-ci.org/download/plugins/](http://updates.jenkins-ci.org/download/plugins/) and copy the hpi file URL of your desired plugin and execute the next commands from your jenkins server commandline:
 

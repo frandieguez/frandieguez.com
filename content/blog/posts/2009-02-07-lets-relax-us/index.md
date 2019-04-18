@@ -10,9 +10,11 @@ permalink: /blog/2009/02/lets-relax-us/
 dsq_thread_id:
   - "692246559"
 categories:
-  - Uncategorized
+  - Curiosity
+tags:
+  - video
+  - under the sea
 format: video
 ---
-http://vimeo.com/2751390
-
-<a href="http://vimeo.com/2751390">Macroworld of Bali</a> from <a href="http://vimeo.com/alexbe">Alex.Be.</a> on <a href="http://vimeo.com">Vimeo</a>.
+<iframe src="https://player.vimeo.com/video/2751390" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/2751390">Macroworld of Bali</a> from <a href="https://vimeo.com/globaldivemedia">Global Dive Media</a> on <a href="https://vimeo.com">Vimeo</a>.</p>

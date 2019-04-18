@@ -24,7 +24,8 @@ As I wrote on tittle since grub's 2529 svn revision we can use "Basic authentica
 This solution is still on initial development but after probe it I have to say that works perfectly for me. Here I'll explain how to activate authentication support on grub2 and with this avoid that unprivileged users change grub entries or boot from memory sticks or similar.
 
 Just edit file /boot/grub/grub.cfg and prepend the next text:
-<pre>set superusers="user1"
+```
+set superusers="user1"
 password user1 password1
 password user2 password2
 
@@ -36,14 +37,18 @@ menuentry "GNU/Linux" {
 menuentry "Windows" --users user2 {
         set root=(hd0,2)
         chainloader +1
-}</pre>
+}
+```
 as you can see this syntax is very simple and self-explainable. Take a lot at second menu entry, with that only user2 can boot on "Windows"  and only user1 and user2 can edit grub entries..
 
 By other side, this introduces a huge security bug 'cause password is written on plain text. At this moment password command only has  support for pain passwords so if we want encrypted passwords we have to create a config file at /etc/grub.d/ and using
 
-<tt>grub-mkpasswd-pbkdf2
-</tt>
+```
+grub-mkpasswd-pbkdf2
+```
 
 we can generate a block with user and pass like the next one (trimmed 'cause brakes the layout page):
-<pre>password_pbkdf2 user3 grub.pbkdf2.sha512.10000.9290F727ED06C....38BA45</pre>
+```
+password_pbkdf2 user3 grub.pbkdf2.sha512.10000.9290F727ED06C....38BA45
+```
 For more, and possibly more actualized, information go to http://grub.enbug.org/Authentication

@@ -20,7 +20,7 @@ tags:
 ---
 <div class="aligncenter">
 
-![](/assets/2011/05/Gnome3launchParty.jpg "Gnome3launchParty")
+![](./Gnome3launchParty.jpg)
 
 </div>
 
@@ -32,14 +32,14 @@ As nosas espectatívas de asistencia vironse sobrepasadas. Fomos perto de 50 per
 
 <div class="aligncenter">
 
-![](/assets/2011/05/Foto0288.jpg "Chema Casanova na GNOME Launch Party")
+![](./Foto0288.jpg "Chema Casanova na GNOME Launch Party")
 </div>
 
 Comezou [Chema Casanova](http://blogs.igalia.com/chema/ "Blog de Chema Casanova") ([en Twitter](http://twitter.com/#!/txenoo)) explicándonos como naceu o GNOME e como foi evoluíndo cada esta nova versión. Con información de primeira mán xa que él é membro da dirección de [GNOME Hispano](http://www.es.gnome.org/ "GNOME Hispano") (comunidade castelán-falante de GNOME que engloba España e LatinoAmérica).
 ## Demo de GNOME 3
 <div class="aligncenter">
 
-![](/assets/2011/05/Foto0293.jpg "Diego Fernández na súa charla de GNOME 3 na GNOME Launch party")
+![](./Foto0293.jpg "Diego Fernández na súa charla de GNOME 3 na GNOME Launch party")
 </div>
 
 Aquí entrou en acción Diego Fernández ([en Twitter](http://twitter.com/#!/delavegaelzorro)) facendo unha demostración do novo escritorio do GNOME 3. Momento no cal descubrimos que había trolls de KDE entre o público tentanto (de forma amigábel iso sí) boicotear a presentación. O público respondeu moi ben, dando as súas opinions favorábeis, e non tanto, do novo fluxo de traballo do escritorio e incluso dando suxestións e ideas para mellorar. En xeral todos estamos un pouco reacios a este importante cambio pero tamén converxemos en que era moi necesario e que pode ser moi bo para avance do Soft Libre en xeral.
@@ -48,7 +48,7 @@ Aquí entrou en acción Diego Fernández ([en Twitter](http://twitter.com/#!/de
 
 <div class="aligncenter">
 
-![](/assets/2011/05/Foto0297.jpg "Foto0297")
+![](./Foto0297.jpg "Fran Dieguez repasando a traducion de GNOME 3 ao galego")
 
 </div>
 
@@ -58,9 +58,9 @@ Aquí entrou en acción Diego Fernández ([en Twitter](http://twitter.com/#!/de
 
 <div class="aligncenter">
 
-![](/assets/2011/05/2011-04-28-20.13.35.jpg "Ganhador do portátil con GNOME 3 da GNOME Launch Party")
+!["Ganhador do portátil con GNOME 3 da GNOME Launch Party"](./ganhador-portatil.jpg)
 </div>
 
 Finalmente sorteamos un portatil EeePC con GNOME 3 instalado aínda que eu sigo pensando que houbo algo de tongo porque xusto lle tocou ao amigo da «man blanca» que elixiu a papeleta gañadora.... Tongo? Quen sabe... Tódolos asistentes levaron agasallos: camisolas de GNOME, tazas de almorzo de GNOME, pegatinas e chapas co logo-pé estampado. En fin que todos pasamos unha gran tarde e marchamos cun sorriso na faciana.
 
-[![](/assets/2011/05/220013_10150221475232090_708177089_8491535_721822_o-300x179.jpg "220013_10150221475232090_708177089_8491535_721822_o")](/assets/2011/05/220013_10150221475232090_708177089_8491535_721822_o.jpg)
+[![](./220013_10150221475232090_708177089_8491535_721822_o.jpg)

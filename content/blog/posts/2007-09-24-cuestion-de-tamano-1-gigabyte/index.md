@@ -14,7 +14,7 @@ categories:
 format: image
 ---
 <p style="text-align: center;" align="left">
-    <img class="size-medium wp-image-201 aligncenter" alt="Evolución de los discos duros" src="/assets/2007/09/evolucion1gb.jpg" width="300" height="226" />
+    <img class="size-medium wp-image-201 aligncenter" alt="Evolución de los discos duros" src="/assets/evolucion1gb.jpg" width="300" height="226" />
 </p>
 
 Lo que cambian las cosas, aquí podemos ver un disco duro de hace 20 años de la marca IBM frente a una tarjeta SD actual. Para que despues digan que el tamaño no importa.

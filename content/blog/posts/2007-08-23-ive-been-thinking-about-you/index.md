@@ -16,6 +16,6 @@ tags:
 ---
 <div style="text-align:center;">
 
-![Madre naturaleza](/assets/2007/08/1214778223_5757738e5e.jpg)
+![Madre naturaleza](/assets/1214778223_5757738e5e.jpg)
 
 </div>

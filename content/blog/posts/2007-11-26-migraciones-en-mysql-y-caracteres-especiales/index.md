@@ -38,14 +38,14 @@ La mayoría de las soluciones encontradas en la red acaban en un complicado "fin
 Como yo lo entiendo, el problema viene de el echo de que mysqldump utiliza utf8 como codificación de caracteres mientras, algunas veces no, las tablas mysql están por defecto en codificación latin1. Vamos a poner una base de datos de ejemplo ejemplo_db con tablas con columnas varchar y text. Si hay caracteres especiales almacentados realmente están en codificación UTF-8, que trabajan genial mientras que no se mueve la base de datos a otro server.
 Que sucede cuando ejecutas el comando:
 
-```
+```shell
 mysqldump -u mysql_usuario -p ejemplo_db > dump_ejemplo_db.sql
 ```
 
 esta instrucción ejecuta mysqldump que recoge las tablas codificadas en latin1 (conteniendo caracteres utf8) y las traduce a la codificación utf8 (por lo que los caracteres utf8 ya no serán los mismos que se supone que tienen que ser) antes de escribirlos en un archivo en el disco. En teoría, importando los datos en mysql debería trabajar desde mysql 4.1 y superiores ya que tienen soporte para utf8, pero desafortunadamente, la doble codificación de estos caracteres revuelve todo y tienen un buen churro de caracteres. Cuando ejecutas lo siguiente:
 
-```
-mysql -u mysql_usuario -p nueva_db &lt; dump_ejemplo_db.sql
+```shell
+mysql -u mysql_usuario -p nueva_db > dump_ejemplo_db.sql
 ```
 
 mysql lee los datos (que están en utf8) y los convierte en su codificación de caracteres. Los caracteres especiales que son mal interpretados por mysqldump y codificados son ahora decodificados en caracteres mal interpretados y tienes una buena ristra de simbolos.
@@ -57,14 +57,14 @@ Con esta solución, solo tienes que llevar a cabo un mysqldump como lo haces nor
 
 Para una columna varchar(255) llamada "nombre_columna" en la tabla llamada "tabla_ejemplo":
 
-```
+```sql
 ALTER TABLE tabla_ejemplo MODIFY nombre_columna BINARY(255);
 ALTER TABLE tabla_ejemplo MODIFY nombre_columna VARCHAR(255) CHARACTER SET utf8;
 ```
 
 Para una columna llamada "nombre_columna_text" en la tabla llamada "tabla_ejemplo":
 
-```
+```sql
 ALTER TABLE tabla_ejemplo MODIFY nombre_columna_text BLOB;
 ALTER TABLE tabla_ejemplo MODIFY nombre_columna_name TEXT CHARACTER SET utf8;
 ```
@@ -76,26 +76,26 @@ Los datos de la taba deberían estár ahora bien interpretados. Si no es así, t
 Si tienes muchas columnas y prefieres arreglarlas mientras se está importando, una solución que funciona la *mayoría de las veces* es llevar a cabo un mysqldump forzándolo a guardar los datos en latin1. Luego al importar engañamos a mysql a pensar que los datos están en utf8.
 Para una base de datos llamada bd_ejemplo (como por ejemplo la que sigue):
 
-```
+```shell
 mysqldump -u mysql_username -p --default-character-set=latin1 example_db > bd_ejemplo.mysql
 ```
 
 Ahora abre el fichero de backup y editalo. Debe haber una linea que sea como esta:
 
-```
+```sql
 /*!40101 SET NAMES latin1 */;
 ```
 
 Cambiala de latin1 a utf8:
 
-```
+```sql
 /*!40101 SET NAMES utf8 */;
 ```
 
 Ahora, importa el fichero en mysql:
 
-```
-mysql -u mysql_username -p nueva_db &lt; bd_ejemplo.mysql
+```shell
+mysql -u mysql_username -p nueva_db > bd_ejemplo.mysql
 ```
 
 En la mayoría de los casos todo se importará correctamente. En algunos casos extremos, los datos decodificados resultarán en el mismo texto como otra pieza de datos decodificados y esto puede resultar en un conflicot si esto ocurre en registros que deben tener entradas únicas. En este caso, necesitarás recodificar manualmente empleando la primera solución.

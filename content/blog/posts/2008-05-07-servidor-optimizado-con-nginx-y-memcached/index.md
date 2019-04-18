@@ -19,16 +19,35 @@ tags:
   - servidor
   - web server
 ---
-<a href="/assets/2008/05/nginx-black-logo.jpg"><img class="alignright alignnone size-medium wp-image-133 sinborde" style="float: right;" title="Nginx Server" src="/assets/2008/05/nginx-black-logo.jpg" alt="" width="277" height="92" /></a>Este post inicia una serie de post sobre <a title="Wiki de Nginx en Español" href="http://wiki.codemongers.com/NginxEs">Nginx</a>, instalación, configuración y optimización todo fruto de el trasteo, la búsqueda de la máxima optimización, en parte impulsada por la limitación de recursos en general de el servidor en el que tengo alojada este humilde site.
-En mi incursión en optimizar tanto el rendimiento como el consumo de memoria en mi servidor casero he estado probando <a title="Wiki de Nginx en Español" href="http://wiki.codemongers.com/NginxEs">Nginx</a>. Despues de muchas pruebas y de escuchar en la red que era el mejor servidor.
+<div class="aligncenter">
 
-Pero vayamos y echemos un ojo a todo de esta maravilla rusa. <a title="Wiki de Nginx en Español" href="http://wiki.codemongers.com/NginxEs">Nginx</a> ("engine x") es un servidor HTTP y proxy inverso de alto rendimiento, y un servidor proxy para IMAP/POP3/SMTP. Nginx fue desarrollado por Igor Sysoev para Rambler.ru, el segundo sitio web más visitado de Rusia, donde ha estado, y sigue, funcionando en producción más de dos años y medio. Igor ha lanzado el código fuente bajo una licencia estilo BSD. Nginx es conocido por su estabilidad, gran conjunto de características, configuración simple, y bajo consumo de recursos.
-Nginx en estos momentos está haciendo mucho ruído precisamente porque para el caso de montar servidores web es muy rápido, sino el mejor, sirviendo estáticos, esto sumado a la posibilidad de configurar servidores proxy web inversos, nos permite tener un servidor con un rendimiento increíble y lo más importante y lo que más me impactó, en sólo 4 mben runtime.
+[![](/assets/nginx-black-logo.jpg "Nginx Server")](/assets/nginx-black-logo.jpg)
+</div>
 
-Nginx es usualmente utilizado como reemplazo de apache que gestiona muchas conexiones concurrentes, como servidor proxy de balanceo de carga, como servidor proxy de mail, entre otros.
+Este post inicia una serie de post sobre [Nginx](http://wiki.codemongers.com/NginxEs "Wiki de Nginx en Español"),
+instalación, configuración y optimización todo fruto de el trasteo, la
+búsqueda de la máxima optimización, en parte impulsada por la
+limitación de recursos en general de el servidor en el que tengo
+alojada este humilde site. En mi incursión en optimizar tanto el
+rendimiento como el consumo de memoria en mi servidor casero he estado
+probando [Nginx](http://wiki.codemongers.com/NginxEs "Wiki de Nginx en Español"). Despues de muchas pruebas y de escuchar en la red que era el mejor servidor.
 
-Dejemonos de alabanzas y procedamos a la instalación del mismo:  En el momento que escribo tanto <a title="Installation Nginx on Deban Testing and Unstable" href="http://wiki.codemongers.com/InstallingFromDebianRepositories?highlight=(debian)">Debian Testing como Sid</a> tienen unas versiones desfasadas  tiene nginx en su repositorio pero es una versión algo desfasada, 0.4.13, por lo que vamos a compilar e instalar la última versión:
+Pero vayamos y echemos un ojo a todo de esta maravilla rusa.
+[Nginx](http://wiki.codemongers.com/NginxEs "Wiki de Nginx en Español")
+("engine x") es un servidor HTTP y proxy inverso de alto rendimiento, y
+un servidor proxy para IMAP/POP3/SMTP. Nginx fue desarrollado por Igor
+Sysoev para Rambler.ru, el segundo sitio web más visitado de Rusia,
+donde ha estado, y sigue, funcionando en producción más de dos años y
+medio. Igor ha lanzado el código fuente bajo una licencia estilo BSD.
+Nginx es conocido por su estabilidad, gran conjunto de características,
+configuración simple, y bajo consumo de recursos. Nginx en estos
+momentos está haciendo mucho ruído precisamente porque para el caso de
+montar servidores web es muy rápido, sino el mejor, sirviendo estáticos,
+esto sumado a la posibilidad de configurar servidores proxy web
+inversos, nos permite tener un servidor con un rendimiento increíble y
+lo más importante y lo que más me impactó, en sólo 4 mben runtime.
 
+Nginx es usualmente utilizado como reemplazo de apache que gestiona muchas conexiones concurrentes, como servidor proxy de balanceo de carga, como servidor proxy de mail, entre otros. Dejemonos de alabanzas y procedamos a la instalación del mismo. En el momento que escribo tanto [Debian Testing como Sid](http://wiki.codemongers.com/InstallingFromDebianRepositories?highlight=\(debian\) "Installation Nginx on Deban Testing and Unstable") tienen unas versiones desfasadas  tiene nginx en su repositorio pero es una versión algo desfasada, 0.4.13, por lo que vamos a compilar e instalar la última versión.
 Antes de nada instalaremos unas cuantas dependencias:
 
 ```bash
@@ -124,13 +143,15 @@ esac
 exit 0
 ```
 Le damos permisos de ejecución al script anterior y hacemos que arranque con el sistema por defecto en todos los runlevels:
-```
+```shell
 sudo chmod +x /etc/init.d/nginx
 ```
-```
+
+```shell
 sudo /usr/sbin/update-rc.d -f nginx defaults
 ```
-```
+
+```shell
 Adding system startup for /etc/init.d/nginx ...
    /etc/rc0.d/K20nginx -> ../init.d/nginx
    /etc/rc1.d/K20nginx -> ../init.d/nginx
@@ -140,4 +161,5 @@ Adding system startup for /etc/init.d/nginx ...
    /etc/rc4.d/S20nginx -> ../init.d/nginx
    /etc/rc5.d/S20nginx -> ../init.d/nginx
 ```
+
 Con esto ya tendremos nginx totalmente integrado en nuestro server Debian. El siguiente post hablaré de configurar virtualhosts y configurar php

@@ -20,15 +20,18 @@ tags:
   - server
   - setup
 ---
-<img class="alignright size-full wp-image-735" title="lamp" alt="" src="/assets/2010/07/lamp.png" width="336" height="175" />
+<div class="alignright">
+<img title="lamp" alt="" src="/assets/lamp.png" />
+</div>
 
-One of the reasons cause I love the GNU/Linux for developing is its easy and quick setup.
+One of the reasons cause I love the GNU/Linux for developing is its easy
+and quick setup. So if you're a LAMP-dev you can setup a LAMP server
+with less than 100 chars. With the next command you will have a
+apache2+php5+mysql on Debian based systems with the bonus of phpmyadmin
+for administer your databases.
 
-So if you're a LAMP-dev you can setup a LAMP server with less than 100 chars.
-With the next command you will have a apache2+php5+mysql on Debian based systems with the bonus of phpmyadmin for administer your databases.
+```
+sudo apt-get install phpmyadmin lamp-server^
+```
 
-<pre><code>sudo apt-get install phpmyadmin lamp-server^</code></pre>
-
-Dont forget the trailing '^' char.
-
-Quick post, quick solution. Isn't it?
+Dont forget the trailing '^' char. Quick post, quick solution. Isn't it?

@@ -23,10 +23,13 @@ Echa la compilación de nuestro nginx ahora voy a explicar mas o menos mi sistem
 
 Configuramos nginx para virtualhosts utilizando ficheros separados para cada uno de ellos:
 
-```mkdir -p /usr/local/nginx/conf/{sites-available,sites-enabled}```
+```shell
+mkdir -p /usr/local/nginx/conf/{sites-available,sites-enabled}
+```
 
 Substituímos con lo siguiente en el fichero /usr/local/nginx/conf/nginx.conf, para que lea todos los ficheros en sites-enabled y de paso lo limpiamos:
-<pre lang="php">user www-data;
+```perl
+user www-data;
 worker_processes  1; #Nú;mero de workers configurable segú;n necesidades
 
 error_log  /var/log/nginx/error.log;
@@ -53,23 +56,31 @@ http {
 
     include /etc/nginx/sites-enabled/*;
 
-}</pre>
+}
+```
+
 LLegados a este punto ya tenemos nuestro nginx preparado para servir cualquiera de los distintos tipos de servidores que soporta (web, proxy web inverso, mail, balanceo de carga). Como aquí nos centraremos en configurar un servidor web con virtualhosts, sigo relatando las operaciones.
 
 
 
 
 Como dije suelo poner mis webs en /opt por lo que crearé el "raiz" del servidor con toda su estructura interna
-<pre><code>#Creamos carpeta general y la default donde alvergar los est&aacute;ticos por defecto del servidor
+```shell
+# Creamos carpeta general y la default donde alvergar los est&aacute;ticos por defecto del servidor
 mkdir -p /opt/sites/default
 #Creamos la estructura interna virtualhost default
-mkdir -p /opt/sites/default/{public,private,logs,cgi-bin,backup}</code></pre>
+mkdir -p /opt/sites/default/{public,private,logs,cgi-bin,backup}
+```
+
 Ahora tenemos que configurar el virtualhost con sus par&aacute;metros y configuracion, he aquí el mio con soporte para php5:
-<pre lang="php">server {
+
+```perl
+server {
 	listen 80;
 	server_name virtualhost.com;
 	rewrite ^/(.*) http://www.virtualhost.com/$1 permanent;
 }
+
 server {
     listen       80;
     server_name www.virtualhost.com;
@@ -103,4 +114,5 @@ server {
     location ~ /\.ht {
         deny  all;
     }
-}</pre>
+}
+```

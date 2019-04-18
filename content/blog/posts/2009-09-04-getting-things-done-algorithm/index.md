@@ -12,7 +12,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<pre lang="ruby"># Make sure all inboxes are empty.
+```ruby
+# Make sure all inboxes are empty.
 def process (inboxes)
   inboxes.each { |inbox|
     inbox.each { |item|
@@ -34,6 +35,8 @@ def process (inboxes)
       end
     }
   }
-end</pre>
-
+end
+```
+<div class="aligncenter">
 Taked from http://paste.ubuntu.com/263929/ and translated to <a title="Ruby Language Web site" href="http://www.ruby-lang.org/es/">Ruby language</a>.
+</div>

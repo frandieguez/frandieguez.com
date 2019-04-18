@@ -23,16 +23,16 @@ En este caso y como reza el título explico como hacer la migración de sqlite3 
 
 * Se hace un dump de la bbdd que queremos
 
-<pre lang="bash">sqlite3 BasedeDatosaExportar .dump .quit >fichero-dump.sql</pre>
+```shell
+sqlite3 BasedeDatosaExportar .dump .quit >fichero-dump.sql
+```
 
-* Ahora toca adaptarla a la sintaxis expecial de MySQL
+- Ahora toca adaptarla a la sintaxis expecial de MySQL
 
-<ol>
-	<li>Reemplazar " (comillas dobles) por ` (acento grave)</li>
-	<li>Elimina "<em>BEGIN TRANSACTION;</em>" "<em>COMMIT;</em>", y las líneas "<em>sqlite_sequence</em>"</li>
-	<li>Substituye "<em>autoincrement</em>" con "<em>auto_increment</em>"</li>
-</ol>
+1. Reemplazar " (comillas dobles) por \` (acento grave)
+2. Elimina "*BEGIN TRANSACTION;*" "*COMMIT;*", y las líneas "*sqlite\_sequence*"
+3. Substituye "*autoincrement*" con "*auto\_increment*"
 
-* Y el fichero ya está listo para importar en MySQL.
+- Y el fichero ya está listo para importar en MySQL.
 
 Facil y bonito oye.

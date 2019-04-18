@@ -11,7 +11,7 @@ slug: code
 <div>
   <div style="text-align:center; margin-top:2em;">
 
-  ![Galiza ID](/assets/2009/11/logo-galizaid.png "Logo de GalizaID")
+  ![Galiza ID](/assets/logo-galizaid.png "Logo de GalizaID")
 
   </div>
 
@@ -25,7 +25,7 @@ slug: code
 <div>
   <div style="text-align:center; margin-top:2em;">
 
-  ![Tiboxe](/assets/2009/11/tiboxe1.png)
+  ![Tiboxe](/assets/tiboxe1.png)
 
   </div>
 
@@ -39,7 +39,7 @@ slug: code
 <div>
   <div style="text-align:center; margin-top:2em;">
 
-  ![UbuntuUSC](/assets/2009/11/ubuntuusc-logo.png)
+  ![UbuntuUSC](/assets/ubuntuusc-logo.png)
 
   </div>
 
@@ -52,7 +52,7 @@ slug: code
 <div>
   <div style="text-align:center; margin-top:2em;">
 
-  ![Google PageRank](/assets/2009/11/GooglePageRank-300x93.png)
+  ![Google PageRank](/assets/GooglePageRank-300x93.png)
 
   </div>
 

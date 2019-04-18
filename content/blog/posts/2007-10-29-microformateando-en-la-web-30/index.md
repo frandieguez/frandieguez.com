@@ -16,7 +16,7 @@ tags:
   - usabilidad
   - web 3.0
 ---
-<img class="alignright" style="text-align: center;" alt="Microformatos" src="/assets/2007/10/wiki.png" width="120" height="127" />
+<img class="alignright" style="text-align: center;" alt="Microformatos" src="/assets/wiki.png" width="120" height="127" />
 
 No teníamos con suficiente con la revolución 2.0 que nos ha acercado la web más al escritorio, con aplicaciones mucho más amigables y accesibles, e infinitamente más sociables, véase <a title="microformats" href="http://microformats.org/">Facebook</a>, <a title="Bienvenido a Flickr: Intercambio de fotos" href="http://flickr.com/">flickr</a>, <a title="Google Maps" href="http://maps.google.com/">Google Maps</a>; lo que ya está llamando a las puertas la web 3.
 

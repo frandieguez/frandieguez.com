@@ -18,7 +18,7 @@ tags:
   - Linux
   - macbook
 ---
-<img class="sinborde alignright" title="Kernel Linux tux" alt="Kernel Linux tux" src="/assets/2007/09/korg10yr.gif" width="128" height="147" align="left" border="0" />
+<img class="sinborde alignright" title="Kernel Linux tux" alt="Kernel Linux tux" src="/assets/korg10yr.gif" width="128" height="147" align="left" border="0" />
 
 Hoy toca compilar, aquí relato como compilar el kernel Linux para que todo en nuestra Mac funcione a la perfección.
 
@@ -29,9 +29,7 @@ Haremos funcionar desde el TouchPad con soporte para taps y scroll, hasta el mod
 El método que utilizo yo es para Debian y derivados (siii... Ubuntu está aquí) y al final del artículo incluyo el .deb para los señores vagos así como el .config necesario para configurar vuestro kernel, pero para este último teneis que aplicar los parches del kernel de <a href="http://www.mactel-linux.org"> Mactel-linux.org</a>
 
 Vamos por pasos:
-<ul>
-	<li>Primero miraremos que hardware tenemos, para ello tiraremos de un
-
+- Primero miraremos que hardware tenemos, para ello tiraremos de un
 ```bash
 $ lspci -nn
 00:00.0 Host bridge [0600]: Intel Corporation Mobile 945GM/PM/GMS/940GML and 945GT Express Memory Controller Hub [8086:27a0] (rev 03)
@@ -55,43 +53,24 @@ $ lspci -nn
 02:00.0 Network controller [0280]: Atheros Communications, Inc. Unknown device [168c:0024] (rev 01)
 03:03.0 FireWire (IEEE 1394) [0c00]: Agere Systems FW323 [11c1:5811] (rev 61)
 ```
-
 Con este comando sabremos todo el hardware que tenemos en nuestro sistema y para analizándolo un poco tendremos la suerte de observar que TODO ESTA SOPORTADO salvo la tarjeta inalámbrica Atheros, aunque tiene solución.
-</li>
-	<li>Una vez hayamos tenido todo el hardware identificado empezaremos a recolectar el software que necesitamos:
-<ul>
-	<li>Kernel: en los momentos que escribo el último kernel estable liberado es el 2.6.22 pero aunque lo he probado todavía está muy verde como para que soporte todo el hardware por lo que cogeré el anterior, 2.6.21.7 .Por lo que lo descargaremos desde <a title="Kernel.org" href="http://www.kernel.org">www.kernel.org</a>. Lo descomprimiremos en /usr/src y crearemos un enlace simbólico hacia la carpeta descomprimida que llamaremos /usr/src/linux</li>
-	<li>Parches: ya que queremos que todo el hardware estea soportado al 100% utilizaremos los parches que nos brindan la gente de <a title="Mactel Linux" href="http://www.mactel-linux.org">www.mactel-linux.org</a>: para lo cual utilizaremos un:
-
+- Una vez hayamos tenido todo el hardware identificado empezaremos a recolectar el software que necesitamos:
+  - Kernel: en los momentos que escribo el último kernel estable liberado es el 2.6.22 pero aunque lo he probado todavía está muy verde como para que soporte todo el hardware por lo que cogeré el anterior, 2.6.21.7 .Por lo que lo descargaremos desde <a title="Kernel.org" href="http://www.kernel.org">www.kernel.org</a>. Lo descomprimiremos en /usr/src y crearemos un enlace simbólico hacia la carpeta descomprimida que llamaremos /usr/src/linux
+  - Parches: ya que queremos que todo el hardware estea soportado al 100% utilizaremos los parches que nos brindan la gente de <a title="Mactel Linux" href="http://www.mactel-linux.org">www.mactel-linux.org</a>: para lo cual utilizaremos un:
 	```bash
 	svn co https://svn.sourceforge.net/svnroot/mactel-linux/trunk mactel-linux
 	```
-
 Lo siguiente será aplicar los parches de mactel a nuestro kernel. Entramos en la carpeta mactel-linux/kernel/mactel-patches-2.6.21 y ejecutaremos ```# ./apply /usr/src/linux``` y ya tenemos nuestro kernel optimizado para nuestro equipo.
-</li>
-<li>
-	Uno de los archivos que nos hará falta para cocinar el kernel es el archivo .config que es un archivo que almacena una especie de receta de como debe cocinar el ordenador nuestro kernel. Podeis configurarlo vosotros mismos haciendo un
-    ```make menuconfig``` o podeis utilizar <a title="Archivo .config para compilación de kernel Linux en Macbook c2d" href="http://mabishu.com/temp/wordpress/wp-content/uploads/2007/09/config1.txt">el mio</a>. El cual solo habría que copiar en /usr/src/linux y listo.Tened cuidado con mi archivo ya que yo solo le he metido soporte para particiones ext3, así como de HFS+, FAT y NTFS, pero nada de reiserfs, xfs o jfs. Si no sabes lo que son estas cosillas posiblemente no tengas que tocar nada ya que la mayoría de las distribuciones toman como formato por defecto el ext3. Además si utilizas kvm también he incluído como módulo el kvm especial para este procesador Intel
-</li>
-</ul>
-</li>
-<li>
-	Bien, tenemos todos los ingredientes preparados para cocinar, vayamos al fogón. Entramos en la carpeta /usr/src/linux y hacemos un
+- Uno de los archivos que nos hará falta para cocinar el kernel es el archivo .config que es un archivo que almacena una especie de receta de como debe cocinar el ordenador nuestro kernel. Podeis configurarlo vosotros mismos haciendo un ```make menuconfig``` o podeis utilizar <a title="Archivo .config para compilación de kernel Linux en Macbook c2d" href="./config1.txt">el mio</a>. El cual solo habría que copiar en /usr/src/linux y listo.Tened cuidado con mi archivo ya que yo solo le he metido soporte para particiones ext3, así como de HFS+, FAT y NTFS, pero nada de reiserfs, xfs o jfs. Si no sabes lo que son estas cosillas posiblemente no tengas que tocar nada ya que la mayoría de las distribuciones toman como formato por defecto el ext3. Además si utilizas kvm también he incluído como módulo el kvm especial para este procesador Intel
 
+- Bien, tenemos todos los ingredientes preparados para cocinar, vayamos al fogón. Entramos en la carpeta /usr/src/linux y hacemos un
 ```bash
 fakeroot make-kpkg --initrd kernel_linux
 ```
+- Ahora toca esperar, a mi en la Mac me tarda sobre unos 4 minutillos pero todo depende desde donde lo compileis, recuerdo hace tiempo donde compilar un kernel tardaba más de 30 minutos, que nostalgia y que cafelotes me tomaba.
+- Si todo acaba bien tendreis generado u paquete .deb que contiene el nuevo kernel optimizado para las MacBooks C2D de 64 bits, y que a la hora de instalarlo generará el initramfs y lo pondrá como kernel por defecto al inicial el sistema.
+- Ahora solo bastaría instalarlo en el equipo que querais con un</li>
 
-</li>
-
-<li>
-	Ahora toca esperar, a mi en la Mac me tarda sobre unos 4 minutillos pero todo depende desde donde lo compileis, recuerdo hace tiempo donde compilar un kernel tardaba más de 30 minutos, que nostalgia y que cafelotes me tomaba.
-</li>
-<li>
-	Si todo acaba bien tendreis generado u paquete .deb que contiene el nuevo kernel optimizado para las MacBooks C2D de 64 bits, y que a la hora de instalarlo generará el initramfs y lo pondrá como kernel por defecto al inicial el sistema.
-</li>
-<li>Ahora solo bastaría instalarlo en el equipo que querais con un</li>
-</ul>
 Pero si os sentís un poco vagos hoy podeis coger <a href="/blog/uploads/2007/09/linux-image-26217-mactel-macbook-c2d-v11.deb"><em><strong>mi paquete generado del kernel</strong></em></a> que solo tendréis que instalar con el último comando
 
 ```bash

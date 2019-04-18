@@ -19,61 +19,87 @@ tags:
   - server
   - smarty
 ---
-<img class="alignright" title="XHTML code" src="/assets/2011/01/images.jpg" alt="XHTML code" width="259" height="194" />
+<img class="alignright" title="XHTML code" src="/assets/images.jpg" alt="XHTML code" width="259" height="194" />
 
-If you are using Smarty as a template system in your PHP project you will be very pleased to use this tiny-but-very-useful outputfilter that I made.
+If you are using Smarty as a template system in your PHP project you
+will be very pleased to use this tiny-but-very-useful outputfilter that
+I made. Smarty as you can read in [its
+documentation](http://www.smarty.net/docs/en/ "Smarty documentation")
+has [some](http://www.smarty.net/docs/en/plugins.block.functions.tpl)
+[extension](http://www.smarty.net/docs/en/plugins.block.functions.tpl)
+[points](http://www.smarty.net/docs/en/plugins.compiler.functions.tpl)
+where you can create plugins into to extend its functionality. One of
+them are
+[outputfilters](http://www.smarty.net/docs/en/plugins.outputfilters.tpl),
+that allow us to operate on a template's output, after the template is
+loaded and executed, but before the output is displayed. So you can
+modify your final HTML code with those extentions point without a any
+pain.
 
-Smarty as you can read in<a title="Smarty documentation" href="http://www.smarty.net/docs/en/"> its documentation </a>has <a href="http://www.smarty.net/docs/en/plugins.block.functions.tpl">some</a> <a href="http://www.smarty.net/docs/en/plugins.block.functions.tpl">extension</a> <a href="http://www.smarty.net/docs/en/plugins.compiler.functions.tpl">points</a> where you can create plugins into to extend its functionality. One of them are <a href="http://www.smarty.net/docs/en/plugins.outputfilters.tpl">outputfilters</a>, that allow us to operate on a template's output, after the template is loaded and executed, but before the output is displayed.
+### The code
 
-So you can modify your final HTML code with those extentions point without a any pain.
-
-
-<h3>The code</h3>
-<pre><code>/**
-* Output Filter for indent HTML code after sending it to the end user.
-*
-* @param string $output, the HTML code without proper indentation
-* @return string, the HTML code with proper indentation
-*/
+```php
+/**
+  * Output Filter for indent HTML code after sending it to the end user.
+  *
+  * @param string $output, the HTML code without proper indentation
+  * @return string, the HTML code with proper indentation
+  */
 function smarty_outputfilter_indent_html($output, &amp;$smarty)
- {
+{
 
-     $config = array(
-           'indent'         => true,
-           'output-xhtml'   => true,
-           'wrap'           => 200,
-           'drop-proprietary-attributes'    =>    false,
-           'indent-cdata' => true,
-           'indent-spaces' => 4,
-    );
+  $config = [
+    'indent'         => true,
+    'output-xhtml'   => true,
+    'wrap'           => 200,
+    'drop-proprietary-attributes'    =>    false,
+    'indent-cdata' => true,
+    'indent-spaces' => 4,
+  ];
 
-    try {
+  try {
 
-        // Use tidy library to make up the HTML code
-        $tidy = new tidy;
-        $tidy->parseString($output, $config, 'utf8');
-        $tidy->cleanRepair();
+    // Use tidy library to make up the HTML code
+    $tidy = new tidy;
+    $tidy->parseString($output, $config, 'utf8');
+    $tidy->cleanRepair();
 
-    } catch (Exception $e) {
-        // If something went wrong just output the original HTML code
-        $tidy = $output;
-    }
+  } catch (Exception $e) {
+      // If something went wrong just output the original HTML code
+      $tidy = $output;
+  }
 
-    // Output the HTML code
-    return $tidy;
+  // Output the HTML code
+  return $tidy;
 
- }</code></pre>
-<h3>Installation</h3>
-For use this plugin you must have installed in your server the tidy PHP module. If you have a Debian based server it's quite simple. Just issue in your terminal:
-<pre><code> sudo apt-get install php5-tidy</code></pre>
+}
+```
+### Installation
+or use this plugin you must have installed in your server the tidy PHP
+module. If you have a Debian based server it's quite simple. Just issue
+in your terminal:
+
+```
+sudo apt-get install php5-tidy
+```
+
 and after that remember to restart the server, in my case Apache 2:
-<pre><code> sudo service apache2 restart</code></pre>
-after that you can drop the file in your smarty plugins directory and register into the Smarty object.
-<pre><code>class Template extends Smarty
+
+```
+sudo service apache2 restart
+```
+
+after that you can drop the file in your smarty plugins directory and
+register into the Smarty object.
+
+```php
+class Template extends Smarty
 {
     function __construct($theme, $filters=array())
     {
         $this->loadFilter("output","indent_html");
     }
-}</code></pre>
+}
+```
+
 This code is under the BSD license, so feel free to use it

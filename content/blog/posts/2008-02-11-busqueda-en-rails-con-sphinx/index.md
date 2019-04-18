@@ -31,7 +31,7 @@ Sphinx se divide de 2 componentes:
 
 Para instalarlo en GNU/Linux o en cualquier sabor de *nix necesitamos compilar desde las fuentes par eso hacemos:
 
-```
+```shell
 $ wget http://www.sphinxsearch.com/downloads/sphinx-0.9.7.tar.gz
 $ tar xvzf sphinx-0.9.7.tar.gz
 $ cd sphinx-0.9.7
@@ -55,14 +55,14 @@ Habiendo probado varios plugins para Sphinx me decanté por probar <a title="Act
 
 Ahora sobre nuestra aplicación Rails corremos:
 
-```
+```shell
 $ rake sphinx:index
 $ rake sphinx:start
 ```
 
 Indexando en mi MacBook…
 
-```
+```shell
 $ time rake sphinx:index
 using config file 'sphinx.conf'...
 indexing index 'items'...
@@ -79,12 +79,14 @@ sys     0m17.578s
 
 Vamos a probar con el plugin <em>acts_as_sphinx</em> via consola (ruby script/console) el término ‘Rails’, ordenando por fecha de publicación.
 
-```
->> search = Item.find_with_sphinx 'Rails',
-           :sphinx => {
-                       :sort_mode => [:attr_desc, 'pub_date'], :page => 1
-            },
-            :order => 'items.pub_date DESC'; 0
+```ruby
+>> search =
+    Item.find_with_sphinx
+      'Rails',
+      :sphinx => {
+        :sort_mode => [:attr_desc, 'pub_date'], :page => 1
+      },
+      :order => 'items.pub_date DESC';
 => 0
 >> search.total
 => 1000
@@ -98,16 +100,23 @@ Esto es, un índice de 943Mb de almenos 1.5 millones de elementos. Nótese que l
 
 En el controlador de Rails, la búsqueda se hace a través de:
 
-```
-@items = Item.find_with_sphinx(params[:query],
-:sphinx => {:sort_mode => [:attr_desc, 'pub_date'], :limit => 50, :page => (params[:page] || 1)},
-:order => 'items.pub_date DESC')
+```ruby
+@items = Item.find_with_sphinx(
+  params[:query],
+  :sphinx => {
+    :sort_mode => [:attr_desc, 'pub_date'],
+    :limit => 50,
+    :page => (params[:page] || 1)
+  },
+  :order => 'items.pub_date DESC'
+)
 ```
 
 ### Actualizando el índice de Sphinx
 
 Como para cada casi toda taréa en Rails, existe una tarea de _rake_ para actualizar el índice de Sphinx que puede ser llamado mediante una entrada en cron, frente a las actualizaciones en 'vivo'.
 El comando rotate nos permite reindexar el índice mientras el demonio de Sphinx está corriendo, forzando el reinicio una vez se haya completado
-```
+
+```shell
 $ rake sphinx:rotate
 ```

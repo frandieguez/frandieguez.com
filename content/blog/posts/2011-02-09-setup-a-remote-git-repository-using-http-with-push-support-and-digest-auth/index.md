@@ -17,7 +17,7 @@ tags:
   - http
   - push
 ---
-<img class=" alignright" title="Git over HTTP" src="/assets/2011/02/git_over_http.png" alt="" width="324" height="185" />
+<img class=" alignright" title="Git over HTTP" src="/assets/git_over_http.png" alt="" width="324" height="185" />
 
 And here is another post about my daily job with git, this time talking about how to setting up a remote git repository with digest authentication and support for pushing changes using http protocol.
 There is a lot of options to setup a git repository: git-daemon, gitosis, ssh, and more.

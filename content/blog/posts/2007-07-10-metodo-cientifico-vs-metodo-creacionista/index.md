@@ -16,6 +16,6 @@ format: image
 
 <p style="text-align: center;">
 
-<img class="aligncenter" alt="Cientifismo vs. Creacionismo" src="/assets/2007/07/trever_small.gif" width="100%" /></a>
+<img class="aligncenter" alt="Cientifismo vs. Creacionismo" src="/assets/trever_small.gif" width="100%" /></a>
 
 </p>

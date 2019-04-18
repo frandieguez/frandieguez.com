@@ -12,4 +12,4 @@ dsq_thread_id:
 categories:
   - Curiosity
 ---
-<img class="aligncenter" src="/assets/2008/01/briefcase-portability1.jpg" alt="Briefcase Portability" align="center" />
+<img class="aligncenter" src="/assets/briefcase-portability1.jpg" alt="Briefcase Portability" align="center" />

@@ -19,7 +19,7 @@ tags:
 ---
 No sabeis el trabajiño que me dio solventar el problema de las URLs limpias con el binomio Drupal, Lighttpd. Como no soi de mucha falacia os enseño el código que tenéis que pegar dentro de `/etc/lighttpd.conf` o dentro del archivo de configuración de cada slide virtual.
 
-```
+```perl
 $HTTP["host"] =~ "^(slide.dominio.com)$" {
    server.document-root = "/var/www/host-virtual"
    url.rewrite-final = (

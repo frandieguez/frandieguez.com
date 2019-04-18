@@ -59,7 +59,7 @@ class IntegerNumber
 {
     private $number;
 
-    public function \_\_construct($number)
+    public function __construct($number)
     {
         $this->number = $number;
     }

@@ -13,7 +13,7 @@ categories:
   - Uncategorized
 ---
 <p style="text-align: left">
-<img src="/assets/2007/07/logo.gif" align="right" height="59" width="143" class="sin-borde" />
+<img src="/assets/logo.gif" align="right" height="59" width="143" class="sin-borde" />
 
 1. Mi cuenta de Gmail ofrece, ahora mismo, 2879 MB de espacio para almacenar mis mensajes. ¡Mas de 2 gigas y medio! Uno pensaria que con este espacio ya hay suficiente… pero no: Gmail no hace mas que crecer y crecer (a razón de 0,5 MB al día, mas o menos). Hotmail solo ofrece 250 MB de capacidad. Gmail es mas de diez veces mayor.
 <p style="text-align: justify">Los 61 MB que en Gmail me ocupan un 2%, en hotmail se iría la cosa hacia un 25%. Si te mandan un archivo de 10 MB, en Gmail no llegaría ni a llenar 0,4%… pero en hotmail ya te ocuparía un 4%.

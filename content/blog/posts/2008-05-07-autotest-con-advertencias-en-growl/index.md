@@ -23,7 +23,7 @@ He buscado en la red un método para "enganchar" la utilidad de testeo Autotest 
 Una vez modificado el archivo .autotest en mi $home ya funciona a la perfección. Relato a continuación como obtener esta maravilla.
 Basta instalar Growl en Mac OS tal que así:
 
-```
+```shell
 wget http://growl.info/files/Growl-1.1.2.dmg
 open Growl-1.1.2.dmg
 cd /Volumes/Growl 1.1.2/Extras/growlnotify
@@ -34,7 +34,8 @@ hdiutil detach /Volumes/Growl 1.1.2
 ```
 
 y luego descargarte un par de im&aacute;genes para hacer los mensajes un poco m&aacute;s bonitos
-```bash
+
+```shell
 cd ~
 wget http://blog.internautdesign.com/files/rails_fail.png
 wget http://blog.internautdesign.com/files/rails_ok.png
@@ -83,4 +84,4 @@ end
 ```
 
 y listo ya podemos correr test en apps ruby y que se nos notifique en growl
-<img class="aligncenter size-full wp-image-131" title="Autotest con Growl" src="/assets/2008/05/imagen-11.png" alt="Autotest con Growl" width="344" height="105" />
+<img class="aligncenter size-full wp-image-131" title="Autotest con Growl" src="/assets/imagen-11.png" alt="Autotest con Growl" width="344" height="105" />

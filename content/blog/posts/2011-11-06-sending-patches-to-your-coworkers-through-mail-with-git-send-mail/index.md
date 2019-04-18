@@ -18,7 +18,7 @@ tags:
   - git
   - send-email
 ---
-<img class="alignright" title="email-git" alt="" src="/assets/2011/11/email-git.png" width="151" height="149" align="right" />
+<img class="alignright" title="email-git" alt="" src="/assets/email-git.png" width="151" height="149" align="right" />
 
 If you want to send code patches to your coworkers you don't need to do strange things with different tools. [Git](http://www.mabishu.com/blog/2008/06/04/control-de-versiones-con-git-i/ "Git") has all the neccesary tools for handling this in a pretty way. The idea is generate a patch from git and send to your coworker via email. After received the message they can import those messages directly into git. Let's see how all this works.
 

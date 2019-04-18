@@ -13,5 +13,5 @@ categories:
   - Uncategorized
 ---
 <p style="text-align: center;">
-<img class="aligncenter" alt="harddrive.jpg" src="/assets/2007/08/harddrive.jpg" width="400" height="558" />
+<img class="aligncenter" alt="harddrive.jpg" src="/assets/harddrive.jpg" width="400" height="558" />
 </p>

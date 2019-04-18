@@ -51,5 +51,5 @@ y aquí está nuestra gran keynote:
 
 
 <div style="text-align:center;">
-<img src="/assets/2007/11/sexo-edad.png" alt="Grafica echa con Gruff en Ruby" width="480" height="360" />
+<img src="/assets/sexo-edad.png" alt="Grafica echa con Gruff en Ruby" width="480" height="360" />
 </div>

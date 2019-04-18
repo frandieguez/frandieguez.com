@@ -13,8 +13,10 @@ categories:
   - System Administration
 tags:
   - tricks
-# featuredImage: "../assets/2013/05/vagrant_header_background-482a12a7.png"
+
 ---
+![Vagrant logo](./vagrant_header_background.png)
+
 Since some months I've been working with <a title="Vagrant project web site" href="vagrantup.com">Vagrant</a> as a tool for provisioning my production-like environment to develop <a title="Opennemas, the CMS for your online newspaper" href="http://www.opennemas.com">Opennemas</a>. Vagrant is a really powerful tool for automating the creation of environment that mimic your production stack without having to deal with configuration files.
 
 In fact this task, automatic provisioning machines, was one of the most important tasks in order to reduce our technical debt. But anyway, let's move to the topic of this article.

@@ -12,4 +12,4 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<img src="/assets/2007/07/pubsoyusuariode39864099xk7.png" alt="Soy Usuario de…" />
+<img src="/assets/pubsoyusuariode39864099xk7.png" alt="Soy Usuario de…" />

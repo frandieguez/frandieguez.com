@@ -18,21 +18,29 @@ tags:
   - javascript
   - Linux
 ---
-<img class="size-full wp-image-640 alignright" style="margin-left: 10px;" title="Google Analytics screenshot" alt="" src="/assets/2010/06/rect2818.png" width="431" height="206" align="right" />
+<img class="size-full wp-image-640 alignright" style="margin-left: 10px;" title="Google Analytics screenshot" alt="" src="/assets/rect2818.png" width="431" height="206" align="right" />
 
-The big problem of use Google Analytics is that you have to get its javascript to get to work statistics. For me this causes that my sites takes a lot of time to end the load. For this reason I always recommend put the GAnalytics code at the bottom of the page, but for me this is not enought.
-
-One solution to this is to cache the external javascript locally but what if the external javascript changes? Here I go to explain how to store GAnalytics javascript locally and peridiocally check that is the lastest version.
-
-Paste this code at the bottom of your website:
-<pre><code>&lt;script src="http://domain/path/to/your/javascripts/ga.js" type="text/javascript">&lt;/script>
-&lt;script type="text/javascript">
-var pageTracker = _gat._getTracker("PASTE YOUR GANALYTICS CODE HERE");
-pageTracker._initData();pageTracker._trackPageview();
-&lt;/script>
-</code></pre>
-Now you're site is ready to use your cached file but we have to get that file so to do this I use the next script. Its downloads the ga.js file and place it on the desired place, just modify it to your requirements:
-<pre><code>#!/bin/sh
+The big problem of use Google Analytics is that you have to get its
+javascript to get to work statistics. For me this causes that my sites
+takes a lot of time to end the load. For this reason I always recommend
+put the GAnalytics code at the bottom of the page, but for me this is
+not enought. One solution to this is to cache the external javascript
+locally but what if the external javascript changes? Here I go to
+explain how to store GAnalytics javascript locally and peridiocally
+check that is the lastest version. Paste this code at the bottom of your
+website:
+```html
+<script src="http://domain/path/to/your/javascripts/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("PASTE YOUR GANALYTICS CODE HERE");
+  pageTracker._initData();pageTracker._trackPageview();
+</script>
+```
+Now you're site is ready to use your cached file but we have to get that
+file so to do this I use the next script. Its downloads the ga.js file
+and place it on the desired place, just modify it to your requirements:
+```bash
+#!/bin/sh
 # DIRECTORY WHERE to SAVE ga.js
 INSTALL_IN=/path/to/public/directory/of/your/site/and/path/to/your/javascripts/
 
@@ -48,6 +56,13 @@ curl --header "Pragma:" -f -s -A "${UA}" -m 1800 --retry 15 --retry-delay 15 --m
 # GIVE FILE CORRECT PERMISSIONS
 chmod 644 $INSTALL_IN/ga.js
 
-exit 0;</code></pre>
-But what if Google updates that script and we don’t take notice of this? This will cause statistics loss so we have to do a workaround to fetch every day that javascript file using crontab. Just type "crontab -e" and insert the next snippet:
-<pre><code>@daily /path/to/the/script/google-analytics-update.sh >/dev/null 2>&amp;1</code></pre>
+exit 0;
+```
+But what if Google updates that script and we don’t take notice of this?
+This will cause statistics loss so we have to do a workaround to fetch
+every day that javascript file using crontab. Just type "crontab -e" and
+insert the next snippet:
+
+```
+@daily /path/to/the/script/google-analytics-update.sh >/dev/null 2>&1
+```
