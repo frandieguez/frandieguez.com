@@ -16,7 +16,11 @@ tags:
   - ruby
   - coding
 ---
-<img class="alignright" alt="Ruby CookBook" src="/assets/51sv7fby32l_aa240_.jpg" width="240" height="240" align="left" />
+
+<div class="alignright">
+
+![Ruby Cookbook](./ruby-cookbook.jpg "Ruby Cookbook")
+</div>
 
 Recientemente me han regalado este librejo, son 1000 páginas sin ningún desperdicio.
 

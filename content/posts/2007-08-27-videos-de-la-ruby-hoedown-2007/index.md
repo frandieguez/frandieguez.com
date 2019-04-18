@@ -15,8 +15,9 @@ tags:
   - conferences
   - ruby
 ---
-<p style="text-align: center">
-<img src="/assets/hoedownlogo.png" title="Ruby Hoedown 2007" alt="Ruby Hoedown 2007" height="266" width="300" />
-</p>
+<div style="text-align:center;">
 
-Esta misma tarde han publicado los videos de la Ruby Hoedown 2007, jornadas para desarrolladores en Ruby que versan sobre diferentes temas desde las diferentes técnicas de testeo en Ruby on Rails, Vo-IP, creación de juegos con Ruby, emplear C en tus aplicaciones Rails, entre otras. La p&aacute;gina para la descarga de los videos o visionado online est&aacute; <a href="http://rubyhoedown2007.confreaks.com/" title="Download Ruby Hoedown 2007 conference's Videos">aquí</a>
+![Ruby Hoedown 2007](./hoedownlogo.png "Ruby Hoedown 2007")
+</div>
+
+Esta misma tarde han publicado los videos de la Ruby Hoedown 2007, jornadas para desarrolladores en Ruby que versan sobre diferentes temas desde las diferentes técnicas de testeo en Ruby on Rails, Vo-IP, creación de juegos con Ruby, emplear C en tus aplicaciones Rails, entre otras. La p&aacute;gina para la descarga de los videos o visionado online est&aacute; [aquí](http://rubyhoedown2007.confreaks.com/ "Download Ruby Hoedown 2007 conference's Videos")

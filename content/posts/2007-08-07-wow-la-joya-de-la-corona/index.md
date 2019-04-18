@@ -21,11 +21,9 @@ Creo que ya estoy contaminado del todo  del <a title="Espíritu Maquero en la Wi
 Os dejo unas foticos para que echeis un vistazo a la maquinita en cuestión:
 
 <div style="text-align:center;">
-<img class="sinborde" src="/assets/imac1.jpg" alt="" />
 
-<img class="sinborde" src="/assets/imac3.jpg" alt="iMac detalle lateral" />
-
-<img class="sinborde" src="/assets/teclado.gif" alt="Nuevo Teclado Apple" />
-
-<img class="sinborde" src="/assets/teclado2.jpg" alt="Nuevo Teclado Apple lateral" />
+![1](./imac1.jpg "iMac")
+![3](./imac3.jpg "Nuevo Teclado Apple")
+![t1](./teclado.gif "Nuevo Teclado Apple lateral")
+![t2](./teclado2.jpg "iMac")
 </div>

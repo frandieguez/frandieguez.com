@@ -10,7 +10,7 @@ permalink: /blog/2007/08/graficas-estilo-keynote-con-ruby/
 dsq_thread_id:
   - "654483064"
 categories:
-  - Uncategorized
+  - Programming
 tags:
   - grafica
   - gruff
@@ -49,7 +49,7 @@ g.write('sexo-edad.png')
 
 y aquí está nuestra gran keynote:
 
+<div class="aligncenter" style="max-width:500px">
 
-<div style="text-align:center;">
-<img src="/assets/sexo-edad.png" alt="Grafica echa con Gruff en Ruby" width="480" height="360" />
+![Ruby-graphs](./sexo-edad.png "Grafica hecha con Gruff en Ruby")
 </div>

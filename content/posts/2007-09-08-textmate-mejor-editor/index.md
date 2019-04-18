@@ -6,14 +6,20 @@ author: Fran Diéguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/09/08/textm/
-permalink: /blog/2007/09/textm/
+permalink: /blog/2007/09/textmate-mejor-editor/
 dsq_thread_id:
   - "655584061"
 categories:
   - Uncategorized
 ---
 <blockquote>TextMate brings Apple's approach to operating systems into the world of text editors. By bridging UNIX underpinnings and GUI, TextMate cherry-picks the best of both worlds to the benefit of expert scripters and novice users alike.</blockquote>
-<img class="alignleft size-medium wp-image-441" title="project_window_with_tabs" alt="project_window_with_tabs" src="/assets/project_window_with_tabs.png" width="300" height="205" />
+
+<div class="alignright"style="width:300px">
+<div>
+
+![project_window_with_tabs](./project_window_with_tabs.png)
+</div>
+</div>
 
 ¿Porqué me gusta tanto Textmate? Pues realmente es una pregunta complicada ya que para mi es el mejor editor de código/texto/lo_que_quieras que he probado hasta la fecha. Por un precio ridículo (39$ aúnque en la red siempre <a title="MacHeist.com" href="http://www.macheist.com">hay promociones</a>) tienes unos de los mejores editores de texto que habrás probado.
 Si lo sé, ¿Fran no eras tú el que defendía el software libre y accesible a todos? Bueno ahí te doy la razón pero en este caso hago una excepción, porque no todo va a ser soft libre.

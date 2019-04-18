@@ -12,7 +12,7 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<img class="alignright" alt="“Beautiful Code” Let Programmers explain how they think" src="/assets/imagen-1.png" width="200" height="264" align="left" />
+![Beautiful Code” Let Programmers explain how they think](./imagen.jpg "“Beautiful Code” Let Programmers explain how they think")
 
 Vengo de recibir este novisimo librejo que todavía está en la pila de libros para leer. He mirado mucho por la red y la verdad es que lo ponen en un pedestal (no se si producto de bloguers con marketing viral). Despues de echarle un vistazo al TOC puedo decir que está muy interesante tocando temas diversos desde Subversion, Frameworks, comunicación segura, Expresiones regulares, programación distribuida, modelado de de drivers para el kernel Linux, concurrencia, entre otros. Y los lenguajes que utiliza, que he podido ver, Perl, Python, C.
 

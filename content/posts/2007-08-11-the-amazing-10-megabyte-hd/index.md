@@ -12,6 +12,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<p style="text-align: center;">
-<img class="aligncenter" alt="harddrive.jpg" src="/assets/harddrive.jpg" width="400" height="558" />
-</p>
+
+<div class="aligncenter" style="max-width:400px">
+
+![10 Megabyte Hard Disk](./harddrive.jpg "10 Megabyte Hard Disk")
+</div>

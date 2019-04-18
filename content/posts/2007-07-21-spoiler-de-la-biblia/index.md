@@ -12,4 +12,9 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<p style="text-align: center;"><a href="/assets/spoiler.jpg"><img class="size-medium wp-image-164 aligncenter" alt="Jesus dies at page ..." src="/assets/spoiler.jpg" width="300" height="292" /></a></p>
+
+<div class="aligncenter">
+
+![JPod](./spoiler.jpg "Holy bible")
+
+</div>

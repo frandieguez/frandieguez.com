@@ -14,8 +14,8 @@ categories:
 format: image
 ---
 
-<p style="text-align: center;">
+<div class="aligncenter">
 
-<img class="aligncenter" alt="Cientifismo vs. Creacionismo" src="/assets/trever_small.gif" width="100%" /></a>
+![JPod](./trever_small.gif "Cientifismo vs. Creacionismo")
 
-</p>
+</div>
