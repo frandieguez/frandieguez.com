@@ -97,7 +97,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#00aeef`,
         display: `minimal-ui`,
-        icon: `static/assets/logos/glasses.png`,
+        icon: `static/favicon.png`,
       },
     },
     `gatsby-plugin-offline`,
