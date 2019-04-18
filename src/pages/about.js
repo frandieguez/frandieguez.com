@@ -15,7 +15,7 @@ class AboutPage extends React.Component {
 
         <img
           className="alignleft"
-          src="/assets/2009/10/859795_10200638722191374_162643047_o.jpg"
+          src="/assets/fran_dieguez.jpg"
           width="300"
           height="300"
           alt="Fran Dieguez"

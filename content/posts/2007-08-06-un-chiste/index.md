@@ -13,7 +13,8 @@ categories:
   - Uncategorized
 ---
 ¿ Cómo matarías a un elefante amarillo ?
-<pre lang="C++">void Elephant::Kill() {
+```c
+void Elephant::Kill() {
 	YellowElephantsExterminatorGun gun;
 	if(color == YELLOW) {
 		gun.shoot(this);
@@ -22,4 +23,5 @@ categories:
 		gun.shoot(this);
 	}
 	this->~Elephant();
-}</pre>
+}
+```
