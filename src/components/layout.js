@@ -1,16 +1,17 @@
-import React from "react"
-import { StaticQuery, graphql, Link } from "gatsby"
+import React from "react";
+import { StaticQuery, graphql, Link } from "gatsby";
 // import Image from "gatsby-image"
-import Menu from "./menu"
-import Logo from "../../static/assets/logos/header.svg"
+import Menu from "./menu";
+import Logo from "../../static/assets/logos/header.svg";
 
-import layoutStyles from "../styles/layout.module.scss"
+import layoutStyles from "../styles/layout.module.scss";
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+    const { location, title, children } = this.props;
+    const rootPath = `${__PATH_PREFIX__}/`;
+
+    let header;
     let HeaderContent = (
       <StaticQuery
         query={SiteQuery}
@@ -24,42 +25,31 @@ class Layout extends React.Component {
                 alt={title}
               /> */}
             </Link>
-          )
-        }
-      }
+          );
+        }}
       />
-    )
+    );
 
     if (location.pathname === rootPath) {
-      header = (
-        <h1 className={layoutStyles.siteTitle}>
-          {HeaderContent}
-        </h1>
-      )
+      header = <h1 className={layoutStyles.siteTitle}>{HeaderContent}</h1>;
     } else {
-      header = (
-        <h3 className={layoutStyles.siteTitle}>
-          {HeaderContent}
-        </h3>
-      )
+      header = <h3 className={layoutStyles.siteTitle}>{HeaderContent}</h3>;
     }
+
     return (
       <div className={layoutStyles.pageWrapper}>
-
         <header className={` ${layoutStyles.Header} ${layoutStyles.wrapper}`}>
-
           {header}
 
           <Menu />
         </header>
 
-
         <div className={layoutStyles.wrapper} role="main">
           <main>{children}</main>
           <footer className={layoutStyles.Footer}>
-            © {new Date().getFullYear()}, Web app designed and coded
-            by <strong>Fran Dieguez</strong> using <a href="https://www.gatsbyjs.org">Gatsby</a>
-
+            © {new Date().getFullYear()}, Web app designed and coded by{" "}
+            <strong>Fran Dieguez</strong> using{" "}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
             {/* <ul id="menu-social" class="social-nav-anchors">
               <li id="menu-item-1367" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1367"><a title="Fran’s Twitter profile" href="http://twitter.com/frandieguez"><span>T</span></a></li>
               <li id="menu-item-1368" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1368"><a title="Fran’s Facebook profile" href="http://facebook.com/frandieguez"><span>F</span></a></li>
@@ -70,7 +60,7 @@ class Layout extends React.Component {
           </footer>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -84,5 +74,6 @@ const SiteQuery = graphql`
       }
     }
   }
-`
-export default Layout
+`;
+
+export default Layout;

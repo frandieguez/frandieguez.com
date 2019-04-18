@@ -3,11 +3,11 @@ module.exports = {
     title: `Fran Dieguez`,
     author: `Fran Dieguez`,
     description: `Yet another software craftmanship. Node.js, PHP, Angular, React, Golang, ...`,
-    keywords: ['Fran Dieguez', 'Software Craftmanship', 'Agile'],
+    keywords: ["Fran Dieguez", "Software Craftmanship", "Agile"],
     siteUrl: `https://www.frandieguez.dev`,
     social: {
-      twitter: `@frandieguez`,
-    },
+      twitter: `@frandieguez`
+    }
   },
   plugins: [
     // `gatsby-plugin-styled-component`,
@@ -15,58 +15,58 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
+        name: `blog`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/static/assets`,
-        name: `assets`,
-      },
+        name: `assets`
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-prismjs`,
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 970,
-            },
+              maxWidth: 970
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
           },
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          'gatsby-remark-smartypants',
+          "gatsby-remark-smartypants",
           {
-            resolve: 'gatsby-remark-external-links',
+            resolve: "gatsby-remark-external-links",
             options: {
-              target: '_blank',
-            },
+              target: "_blank"
+            }
           },
-          'gatsby-remark-autolink-headers',
+          "gatsby-remark-autolink-headers",
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: "gatsby-remark-prismjs",
             options: {
-              inlineCodeMarker: '÷',
-            },
-          },
-        ],
-      },
+              inlineCodeMarker: "÷"
+            }
+          }
+        ]
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-36718505-1`,
-      },
+        trackingId: `UA-36718505-1`
+      }
     },
     `gatsby-plugin-react-svg`,
     `gatsby-plugin-feed`,
@@ -79,16 +79,16 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#00aeef`,
         display: `minimal-ui`,
-        icon: `static/assets/logos/glasses.png`,
-      },
+        icon: `static/assets/logos/glasses.png`
+      }
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
+        pathToConfigModule: `src/utils/typography`
+      }
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
@@ -116,9 +116,9 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
-                })
-              })
+                  custom_elements: [{ "content:encoded": edge.node.html }]
+                });
+              });
             },
             query: `
               {
@@ -142,10 +142,10 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "Gatsby RSS Feed",
-          },
-        ],
-      },
+            title: "Gatsby RSS Feed"
+          }
+        ]
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -165,5 +165,5 @@ module.exports = {
         ]
       }
     }
-  ],
-}
+  ]
+};

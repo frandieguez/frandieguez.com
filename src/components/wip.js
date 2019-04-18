@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wip = styled.div`
   font-size: 16px;
@@ -11,7 +11,9 @@ const Wip = styled.div`
 `;
 
 export default () => {
-  return <Wip>
-    This site is under construction. Sorry for those things that look wrong.
-  </Wip>
+  return (
+    <Wip>
+      This site is under construction. Sorry for those things that look wrong.
+    </Wip>
+  );
 };

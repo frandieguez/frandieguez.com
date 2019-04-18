@@ -1,8 +1,8 @@
-import React from "react"
-import { StaticQuery, graphql, Link } from "gatsby"
-import Image from "gatsby-image"
+import React from "react";
+import { StaticQuery, graphql, Link } from "gatsby";
+import Image from "gatsby-image";
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from "../utils/typography";
 
 import bioStyles from "../styles/bio.module.scss";
 
@@ -11,12 +11,12 @@ function Bio() {
     <StaticQuery
       query={bioQuery}
       render={data => {
-        const { author, social } = data.site.siteMetadata
+        const { author, social } = data.site.siteMetadata;
         return (
           <div
             style={{
               display: `flex`,
-              marginBottom: rhythm(2.5),
+              marginBottom: rhythm(2.5)
             }}
           >
             <Image
@@ -26,23 +26,24 @@ function Bio() {
                 marginRight: rhythm(1 / 2),
                 marginBottom: 0,
                 minWidth: 100,
-                maxWidth:100,
-                maxHeight:100,
-                borderRadius: `100%`,
+                maxWidth: 100,
+                maxHeight: 100,
+                borderRadius: `100%`
               }}
               imgStyle={{
-                borderRadius: `50%`,
+                borderRadius: `50%`
               }}
             />
             <div className={bioStyles.message}>
-              Hi!
-
-              I'm <strong>{author}</strong>, I'm a software developer who lives and works in Spain building useful things.
+              Hi! I'm <strong>{author}</strong>, I'm a software developer who
+              lives and works in Spain building useful things.
               <Link className={bioStyles.subscribeLink} to="/rss.xml">
-                <svg viewBox="0 0 800 800"><path d="M493 652H392c0-134-111-244-244-244V307c189 0 345 156 345 345zm71 0c0-228-188-416-416-416V132c285 0 520 235 520 520z"></path><circle cx="219" cy="581" r="71"></circle></svg>
+                <svg viewBox="0 0 800 800">
+                  <path d="M493 652H392c0-134-111-244-244-244V307c189 0 345 156 345 345zm71 0c0-228-188-416-416-416V132c285 0 520 235 520 520z" />
+                  <circle cx="219" cy="581" r="71" />
+                </svg>
                 Subscribe
               </Link>
-
               <p>
                 <a href={`https://twitter.com/${social.twitter}`}>
                   Follow me on Twitter
@@ -50,10 +51,10 @@ function Bio() {
               </p>
             </div>
           </div>
-        )
+        );
       }}
     />
-  )
+  );
 }
 
 const bioQuery = graphql`
@@ -74,6 +75,6 @@ const bioQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Bio
+export default Bio;

@@ -1,58 +1,64 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from "react";
+import { graphql } from "gatsby";
 
 // import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import NextPrevious from "../components/NextPrevious"
-import PostInfo from "../components/postinfo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import NextPrevious from "../components/NextPrevious";
+import PostInfo from "../components/postinfo";
 
-import postStyles from "../styles/post.module.scss"
+import postStyles from "../styles/post.module.scss";
 
-import { DiscussionEmbed } from "disqus-react"
+import { DiscussionEmbed } from "disqus-react";
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+    const post = this.props.data.markdownRemark;
+    const siteTitle = this.props.data.site.siteMetadata.title;
+    const { previous, next } = this.props.pageContext;
     const disqusShortname = "mabishu";
     const disqusConfig = {
       identifier: post.dsq_thread_id || post.id,
-      title: post.frontmatter.title,
+      title: post.frontmatter.title
     };
 
     return (
-      <Layout location={this.props.location} title={siteTitle} className="postStyles.post">
+      <Layout
+        location={this.props.location}
+        title={siteTitle}
+        className="postStyles.post"
+      >
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <div className={postStyles.post}>
-        {post.frontmatter.layout !== 'phrase' ?
-          (<div className={postStyles.meta}>
+          {post.frontmatter.layout !== "phrase" ? (
+            <div className={postStyles.meta}>
               <h1 className={postStyles.title}>{post.frontmatter.title}</h1>
 
-            <time className={postStyles.date}> {post.frontmatter.date} </time>
+              <time className={postStyles.date}> {post.frontmatter.date} </time>
 
-            <div className={postStyles.author}>
-              Inked by <a href="/about">{post.author || 'Fran Dieguez'}</a>
+              <div className={postStyles.author}>
+                Inked by <a href="/about">{post.author || "Fran Dieguez"}</a>
+              </div>
             </div>
-          </div>) : null}
+          ) : null}
 
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
           <div className={postStyles.postInfo}>
-            <PostInfo categories={post.frontmatter.categories} tags={post.frontmatter.tags} />
+            <PostInfo
+              categories={post.frontmatter.categories}
+              tags={post.frontmatter.tags}
+            />
           </div>
-
         </div>
 
         {/* <Bio /> */}
         <NextPrevious previous={previous} next={next} />
         <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
       </Layout>
-    )
+    );
   }
 }
-
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -65,17 +71,17 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html,
+      html
       frontmatter {
         layout
         title
-        date(formatString: "MMMM DD, YYYY"),
-        dsq_thread_id,
-        author,
-        tags,
+        date(formatString: "MMMM DD, YYYY")
+        dsq_thread_id
+        author
+        tags
         categories
-      },
+      }
     }
   }
-`
-export default BlogPostTemplate
+`;
+export default BlogPostTemplate;
