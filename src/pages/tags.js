@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 // import { Layout } from "../components/layout";
 
 // Components
-import { Link, graphql } from "gatsby";
+import { Link, graphql } from 'gatsby';
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext;
   const { edges, totalCount } = data.allMarkdownRemark;
   const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
+    totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`;
 
   return (
@@ -37,7 +37,7 @@ const Tags = ({ pageContext, data }) => {
 
 Tags.propTypes = {
   pageContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired
+    tag: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
@@ -46,16 +46,16 @@ Tags.propTypes = {
         PropTypes.shape({
           node: PropTypes.shape({
             frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired
+              title: PropTypes.string.isRequired,
             }),
             fields: PropTypes.shape({
-              slug: PropTypes.string.isRequired
-            })
-          })
+              slug: PropTypes.string.isRequired,
+            }),
+          }),
         }).isRequired
-      )
-    })
-  })
+      ),
+    }),
+  }),
 };
 
 export default Tags;

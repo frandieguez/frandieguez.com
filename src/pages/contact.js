@@ -1,8 +1,8 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 class AboutPage extends React.Component {
   render() {
@@ -15,7 +15,7 @@ class AboutPage extends React.Component {
 
         <div className="aligncenter">
           <p>
-            If you have anything to say to me. Use the form below.{" "}
+            If you have anything to say to me. Use the form below.{' '}
             <span role="img" aria-label="down">
               👇
             </span>

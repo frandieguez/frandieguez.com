@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "gatsby";
-import postStyles from "../styles/post.module.scss";
+import React from 'react';
+import { Link } from 'gatsby';
+import postStyles from '../styles/post.module.scss';
 
 const PostInfo = ({ tags, categories }) => {
   let categoriesHTML =
@@ -10,7 +10,7 @@ const PostInfo = ({ tags, categories }) => {
             <Link
               key={category}
               className={postStyles.categoryLink}
-              to={"/category/" + category}
+              to={'/category/' + category}
             >
               {category}
             </Link>
@@ -21,7 +21,7 @@ const PostInfo = ({ tags, categories }) => {
   let tagsHTML = tags
     ? tags.map(tag => {
         return (
-          <Link key={tag} className={postStyles.tagLink} to={"/tag/" + tag}>
+          <Link key={tag} className={postStyles.tagLink} to={'/tag/' + tag}>
             {tag}
           </Link>
         );

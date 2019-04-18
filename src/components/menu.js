@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import menuStyles from "../styles/menu.module.scss";
-import { Link } from "gatsby";
+import React, { useState } from 'react';
+import menuStyles from '../styles/menu.module.scss';
+import { Link } from 'gatsby';
 
 const Menu = props => {
   const [open, setOpen] = useState(false);
@@ -9,7 +9,7 @@ const Menu = props => {
     <div className={menuStyles.MenuWrapper}>
       <div className={menuStyles.MenuToggler} onClick={() => setOpen(!open)}>
         <a
-          className={`${open ? menuStyles.MenuOpenButton : ""} ${
+          className={`${open ? menuStyles.MenuOpenButton : ''} ${
             menuStyles.showMenu
           }`}
           href="#menu"
@@ -19,11 +19,11 @@ const Menu = props => {
       </div>
 
       <section
-        className={`${open ? menuStyles.MenuOpen : ""} ${menuStyles.Menu}`}
+        className={`${open ? menuStyles.MenuOpen : ''} ${menuStyles.Menu}`}
       >
         <ul>
           <li>
-            <Link to={"/about"} className={menuStyles.item}>
+            <Link to={'/about'} className={menuStyles.item}>
               The author
             </Link>
           </li>
@@ -31,12 +31,12 @@ const Menu = props => {
             <Link to={'/code'} className={menuStyles.item}>Work</Link>
           </li> */}
           <li>
-            <Link to={"/archives"} className={menuStyles.item}>
+            <Link to={'/archives'} className={menuStyles.item}>
               Arquive
             </Link>
           </li>
           <li>
-            <Link to={"/contact"} className={menuStyles.item}>
+            <Link to={'/contact'} className={menuStyles.item}>
               Contact
             </Link>
           </li>

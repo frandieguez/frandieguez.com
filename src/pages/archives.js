@@ -1,13 +1,13 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
+import React from 'react';
+import { graphql, Link } from 'gatsby';
 
 // import Bio from "../components/bio"
-import Layout from "../components/layout";
+import Layout from '../components/layout';
 // import Wip from "../components/wip"
-import SEO from "../components/seo";
+import SEO from '../components/seo';
 // import Post from "../components/Post"
 
-import indexStyles from "../styles/archive.module.scss";
+import indexStyles from '../styles/archive.module.scss';
 
 class BlogIndex extends React.Component {
   render() {

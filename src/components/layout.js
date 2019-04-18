@@ -1,10 +1,10 @@
-import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import React from 'react';
+import { StaticQuery, graphql, Link } from 'gatsby';
 // import Image from "gatsby-image"
-import Menu from "./menu";
-import Logo from "../../static/assets/logos/header.svg";
+import Menu from './menu';
+import Logo from '../../static/assets/logos/header.svg';
 
-import layoutStyles from "../styles/layout.module.scss";
+import layoutStyles from '../styles/layout.module.scss';
 
 class Layout extends React.Component {
   render() {
@@ -47,8 +47,8 @@ class Layout extends React.Component {
         <div className={layoutStyles.wrapper} role="main">
           <main>{children}</main>
           <footer className={layoutStyles.Footer}>
-            © {new Date().getFullYear()}, Web app designed and coded by{" "}
-            <strong>Fran Dieguez</strong> using{" "}
+            © {new Date().getFullYear()}, Web app designed and coded by{' '}
+            <strong>Fran Dieguez</strong> using{' '}
             <a href="https://www.gatsbyjs.org">Gatsby</a>
             {/* <ul id="menu-social" class="social-nav-anchors">
               <li id="menu-item-1367" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1367"><a title="Fran’s Twitter profile" href="http://twitter.com/frandieguez"><span>T</span></a></li>

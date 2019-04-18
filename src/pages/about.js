@@ -1,8 +1,8 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 class AboutPage extends React.Component {
   render() {
@@ -25,7 +25,7 @@ class AboutPage extends React.Component {
           Hi! I'm <strong>Fran Diéguez</strong> and I've been developing web
           applications as a Full Stack Developer since 2006. I've been in
           multiple positions thoughtout my career, from a software developer,
-          lead developer, CTO, and{" "}
+          lead developer, CTO, and{' '}
           <strong>Head of Research and Development</strong>. My main focus is to
           create useful tools that make impact on users.
         </p>
@@ -46,7 +46,7 @@ class AboutPage extends React.Component {
         <p>
           Later years I've being proudly creating different tools focused in
           high performance and heavy loaded systems that help journalists to
-          maintain online newspapers,{" "}
+          maintain online newspapers,{' '}
           <a
             href="http://www.opennemas.com/"
             rel="noopener noreferrer"
@@ -58,7 +58,7 @@ class AboutPage extends React.Component {
         </p>
 
         <p>
-          But now I help to create the visual part of{" "}
+          But now I help to create the visual part of{' '}
           <a
             href="https://situm.es/es"
             rel="noopener noreferrer"
@@ -85,7 +85,7 @@ class AboutPage extends React.Component {
         <p>
           Prior to focusing on online newspapers I've been working as a
           open-source software consultant at the University of Santiago de
-          Compostela, where I've{" "}
+          Compostela, where I've{' '}
           <strong>developed a custom Linux-based desktop</strong> in order to
           simplify administrative tasks and also doing massive migrations to
           open source sofware in educational settings. This project 
@@ -108,7 +108,7 @@ class AboutPage extends React.Component {
             target="_blank"
           >
             open-source projects
-          </a>{" "}
+          </a>{' '}
           👨‍💻 like <strong>GNOME</strong> (as a member of the GNOME
           Foundation) or in Ubuntu as Galician translators coordinator, 
           <a
