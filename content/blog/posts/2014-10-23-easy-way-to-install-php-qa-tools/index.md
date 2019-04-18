@@ -32,11 +32,12 @@ cat > ~/.composer/composer.json <<EOF
     }
 }
 EOF
-curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+curl -sS https://getcomposer.org/installer | sudo php -- \
+ --install-dir=/usr/local/bin --filename=composer
 /usr/local/bin/composer global install
 chown -R $SUDO_USER.$SUDO_USER ~/.composer
 ```
 
-And all your required tools (phpunit, phploc, phpmd, pdepend, ...) are now located at ~/.composer/vendor/bin, so set your $PATH environment variable to include it.
+And all your required tools (phpunit, phploc, phpmd, pdepend, ...) are now located at `~/.composer/vendor/bin`, so set your $PATH environment variable to include it.
 
 If you find it useful please share it.
