@@ -1,7 +1,7 @@
 {
-  "name": "frandieguez-site",
+  "name": "frandieguez-dev",
   "private": true,
-  "description": "The code below frandieguez.dev",
+  "description": "The code behind frandieguez.dev",
   "version": "0.1.0",
   "author": "Fran Dieguez <fran.dieguez@mabishu.com>",
   "bugs": {
@@ -31,10 +31,10 @@
     "gatsby-remark-responsive-iframe": "^2.0.9",
     "gatsby-remark-smartypants": "^2.0.8",
     "gatsby-source-filesystem": "^2.0.20",
-    "gatsby-transformer-remark": "^2.2.5",
+    "gatsby-transformer-remark": "^2.3.8",
     "gatsby-transformer-sharp": "^2.1.13",
-    "prism-themes": "^1.1.0",
-    "prismjs": "^1.15.0",
+    "lodash": "^4.17.11",
+    "prismjs": "^1.16.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
@@ -43,6 +43,15 @@
     "typeface-lato": "^0.0.54",
     "typography": "^0.16.18",
     "typography-theme-wordpress-2016": "^0.16.18"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4",
+    "gh-pages": "^2.0.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "node-sass": "^4.11.0",
+    "prettier": "^1.17.0"
   },
   "homepage": "https://frandieguez.dev",
   "keywords": [
@@ -55,17 +64,27 @@
     "url": "git+https://github.com/frandieguez/frandieguez.com"
   },
   "scripts": {
+    "dev": "gatsby develop",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "yarn develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "format": "prettier --write '{gatsby-*.js,src/**/*.{js,jsx,json,css}}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "browserslist": [
     ">0.25%",
     "not dead"
   ],
-  "devDependencies": {
-    "node-sass": "^4.11.0"
+  "lint-staged": {
+    "{gatsby-*.js,src/**/*.{js,jsx,json,css}}": [
+      "yarn format",
+      "git add"
+    ]
   }
 }
