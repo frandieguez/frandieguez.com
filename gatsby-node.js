@@ -1,5 +1,6 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+// import _ from 'lodash';
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -45,32 +46,32 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           slug: post.node.fields.slug,
           previous,
-          next
-        }
+          next,
+        },
       });
     });
 
     // Tag pages:
-    let tags = [];
-    // Iterate through each post, putting all found tags into `tags`
-    _.each(posts, edge => {
-      if (_.get(edge, "node.frontmatter.tags")) {
-        tags = tags.concat(edge.node.frontmatter.tags);
-      }
-    });
-    // Eliminate duplicate tags
-    tags = _.uniq(tags);
+    // let tags = [];
+    // // Iterate through each post, putting all found tags into `tags`
+    // _.each(posts, edge => {
+    //   if (_.get(edge, "node.frontmatter.tags")) {
+    //     tags = tags.concat(edge.node.frontmatter.tags);
+    //   }
+    // });
+    // // Eliminate duplicate tags
+    // tags = _.uniq(tags);
 
-    // Make tag pages
-    tags.forEach(tag => {
-      createPage({
-        path: `/tags/${_.kebabCase(tag)}/`,
-        component: tagTemplate,
-        context: {
-          tag
-        }
-      });
-    });
+    // // Make tag pages
+    // tags.forEach(tag => {
+    //   createPage({
+    //     path: `/tags/${_.kebabCase(tag)}/`,
+    //     component: tagTemplate,
+    //     context: {
+    //       tag
+    //     }
+    //   });
+    // });
   });
 };
 
@@ -82,7 +83,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value
+      value,
     });
   }
 };
