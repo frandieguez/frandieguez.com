@@ -14,7 +14,7 @@ class AboutPage extends React.Component {
         <SEO title="About" />
 
         <img
-          className="alignleft"
+          className="alignright"
           src="/assets/fran_dieguez.jpg"
           width="300"
           height="300"
