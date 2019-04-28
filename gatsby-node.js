@@ -3,7 +3,14 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 // import _ from 'lodash';
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+
+  createRedirect({
+    fromPath: `/posts/2019-04-15-dokku-create-your-own-paas/`,
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: `/posts/dokku-create-your-own-paas/`,
+  });
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`);
   return graphql(
