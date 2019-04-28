@@ -12,7 +12,6 @@ class AboutPage extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="About" />
-
         <img
           className="alignright"
           src="/assets/fran_dieguez.jpg"
@@ -20,7 +19,6 @@ class AboutPage extends React.Component {
           height="300"
           alt="Fran Dieguez"
         />
-
         <p>
           Hi! I'm <strong>Fran Diéguez</strong> and I've been developing web
           applications as a Full Stack Developer since 2006. I've been in
@@ -29,9 +27,8 @@ class AboutPage extends React.Component {
           <strong>Head of Research and Development</strong>. My main focus is to
           create useful tools that make impact on users.
         </p>
-
+        I've being using different technologies over the time:
         <ul>
-          I've being using different technologies over the time:
           <li>
             on the server side I have created products with Ruby, PHP, Node.js
             and roughtly with Golang on Microservices,
@@ -42,7 +39,6 @@ class AboutPage extends React.Component {
             React.
           </li>
         </ul>
-
         <p>
           Later years I've being proudly creating different tools focused in
           high performance and heavy loaded systems that help journalists to
@@ -56,7 +52,6 @@ class AboutPage extends React.Component {
           </a>
           .
         </p>
-
         <p>
           But now I help to create the visual part of{' '}
           <a
@@ -81,7 +76,6 @@ class AboutPage extends React.Component {
           </a>
            and open source technology.
         </p>
-
         <p>
           Prior to focusing on online newspapers I've been working as a
           open-source software consultant at the University of Santiago de
@@ -98,7 +92,6 @@ class AboutPage extends React.Component {
           </a>
            in Galicia, Spain.
         </p>
-
         <p>
           Whenever not thinking on web development, I can be found contributing
           to 
@@ -120,7 +113,6 @@ class AboutPage extends React.Component {
           </a>
            or doing sports like Crossfit and snowboard 🏂.
         </p>
-
         <p>
           Currently I'm <strong>not available for hire</strong> but you can
           write me to propose me future and innovative projects.
