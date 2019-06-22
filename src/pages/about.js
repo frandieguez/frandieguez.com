@@ -24,8 +24,8 @@ class AboutPage extends React.Component {
           applications as a Full Stack Developer since 2006. I've been in
           multiple positions thoughtout my career, from a software developer,
           lead developer, CTO, and{' '}
-          <strong>Head of Research and Development</strong>. My main focus is to
-          create useful tools that make impact on users.
+          <strong>Head of Research and Development</strong>. The objective on
+          each project is to create useful tools that make impact on users.
         </p>
         I've being using different technologies over the time:
         <ul>
@@ -40,20 +40,18 @@ class AboutPage extends React.Component {
           </li>
         </ul>
         <p>
-          Later years I've being proudly creating different tools focused in
-          high performance and heavy loaded systems that help journalists to
-          maintain online newspapers,{' '}
+          From the technical perspective my main focus is web performance, 
           <a
-            href="http://www.opennemas.com/"
+            href="https://github.com/frandieguez"
             rel="noopener noreferrer"
             target="_blank"
           >
-            OpenNemas
+            sustainable engineering
           </a>
-          .
+           and open source technology.
         </p>
         <p>
-          But now I help to create the visual part of{' '}
+          Currently I'm helping to create the visual part of{' '}
           <a
             href="https://situm.es/es"
             rel="noopener noreferrer"
@@ -63,18 +61,21 @@ class AboutPage extends React.Component {
             Situm
           </a>
           , an awesome company that helps multiple industries to position their
-          users (robots and people) indoors.
+          users (robots and people) indoors while doing Bussiness Intelligence on 
+          gathered data.
         </p>
         <p>
-          For a long time my main focus was web performance, 
+          Before I've being proudly creating different tools focused in
+          high performance and heavy loaded systems that helped journalists to
+          maintain online newspapers,{' '} developing 
           <a
-            href="https://github.com/frandieguez"
+            href="http://www.opennemas.com/"
             rel="noopener noreferrer"
             target="_blank"
           >
-            engineering
+            OpenNemas
           </a>
-           and open source technology.
+          .
         </p>
         <p>
           Prior to focusing on online newspapers I've been working as a
