@@ -65,9 +65,9 @@ class AboutPage extends React.Component {
           gathered data.
         </p>
         <p>
-          Before I've being proudly creating different tools focused in
+          Before I've being proudly creating different tools focused on
           high performance and heavy loaded systems that helped journalists to
-          maintain online newspapers,{' '} developing 
+          maintain online newspapers,{' '} developing {' '}
           <a
             href="http://www.opennemas.com/"
             rel="noopener noreferrer"
