@@ -1,4 +1,4 @@
-![Fran Dieguez site logo](https://raw.githubusercontent.com/frandieguez/frandieguez.com/master/content/assets/logos/glasses.png)
+![Fran Dieguez site logo](https://raw.githubusercontent.com/frandieguez/frandieguez.com/master/static/assets/logos/glasses.png)
 <hr>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/df049c12-f7f4-4bf7-9115-90fce9d3a37e/deploy-status)](https://app.netlify.com/sites/frandieguezcom/deploys) 
