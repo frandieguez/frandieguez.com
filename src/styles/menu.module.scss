@@ -7,11 +7,11 @@ $linkHover: #00aeef;
 .MenuWrapper {
 
   .MenuToggler {
-    width:100%;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
-    display:inline-block;
-    border:1px solid transparent;
+    display: inline-block;
+    border: 1px solid transparent;
     border-radius: 30px;
 
     .showMenu {
@@ -20,7 +20,7 @@ $linkHover: #00aeef;
       background: #dcdcd9;
       border-radius: 50px;
       color: #222;
-      padding:10px 15px;
+      padding: 10px 15px;
       border-bottom: 0 none;
 
       &:hover {
@@ -41,7 +41,7 @@ $linkHover: #00aeef;
     margin: 0;
     text-align: center;
     text-transform: uppercase;
-    display:none;
+    display: none;
     transition: opacity 600ms, visibility 600ms;
 
     ul {
@@ -66,7 +66,7 @@ $linkHover: #00aeef;
     }
 
     a:hover {
-      color:$linkHover;
+      color: $linkHover;
     }
   }
 }
@@ -79,7 +79,7 @@ $linkHover: #00aeef;
   background-color: #18181e;
   color: #fff !important;
   border-radius: 50% 50% 0 0 !important;
-  margin-bottom:-2px;
+  margin-bottom: -2px;
 }
 
 @media only screen and (min-width: 33.75em) {
@@ -92,8 +92,8 @@ $linkHover: #00aeef;
     display: block !important;
 
     ul {
-      margin:0;
-      padding:0;
+      margin: 0;
+      padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -108,13 +108,13 @@ $linkHover: #00aeef;
     ul li a {
       border-bottom: 0 none;
       text-decoration: none;
-      font-stretch:100%;
+      font-stretch: 100%;
       color: #32323a !important;
       padding: 1em 0;
     }
 
     a:hover {
-      color:$linkHover !important;
+      color: $linkHover !important;
     }
 
   }

@@ -8,46 +8,52 @@ blockquote {
 }
 
 .secondary-content {
-  margin-top:1em;
-	background-color: #f2f2fc;
+  margin-top: 1em;
+  background-color: #f2f2fc;
 }
 
 blockquote.quote-format {
   background: transparent;
-	border: none;
-	margin-bottom: 1.563em;
-	padding: 0;
+  border: none;
+  margin-bottom: 1.563em;
+  padding: 0;
 }
+
 blockquote.quote-format p {
-	color: #18181e;
-	font-size: 1.875em;
-	font-style: normal;
-	line-height: 1.167;
-	margin-bottom: 0.667em;
-	text-align: center;
-	text-indent: 0;
+  color: #18181e;
+  font-size: 1.875em;
+  font-style: normal;
+  line-height: 1.167;
+  margin-bottom: 0.667em;
+  text-align: center;
+  text-indent: 0;
 }
+
 blockquote.quote-format p.quote-author {
-	color: #696975;
-	font: normal 700 0.75em/1.667 'Lato', sans-serif;
-	letter-spacing: 0.167em;
-	margin-bottom: 0;
-	text-transform: uppercase;
+  color: #696975;
+  font: normal 700 0.75em/1.667 'Lato', sans-serif;
+  letter-spacing: 0.167em;
+  margin-bottom: 0;
+  text-transform: uppercase;
 }
+
 blockquote.quote-format p.quote-author:before {
-	content: "\2014 ";
+  content: "\2014 ";
 }
+
 blockquote.quote-format p.quote-author:after {
-	content: "";
+  content: "";
 }
 
 
-@media only screen and ( min-width: 33.75em ) {
+@media only screen and (min-width: 33.75em) {
+
   /* === Quote Format === */
   blockquote.quote-format {
     margin-left: 0;
     margin-right: 0;
   }
+
   blockquote.quote-format p {
     font-size: 3.125em;
     line-height: 1.26;
@@ -55,6 +61,7 @@ blockquote.quote-format p.quote-author:after {
     margin-right: 0;
     margin-bottom: 0.42em;
   }
+
   blockquote.quote-format p.quote-author {
     font-size: 1em;
     line-height: 1.313;
@@ -62,9 +69,10 @@ blockquote.quote-format p.quote-author:after {
   }
 }
 
-@media only screen and ( min-width: 56.25em ) {
-	/* === Quote Format === */
-	blockquote.quote-format {
-		margin-bottom: 1.75em;
-	}
+@media only screen and (min-width: 56.25em) {
+
+  /* === Quote Format === */
+  blockquote.quote-format {
+    margin-bottom: 1.75em;
+  }
 }

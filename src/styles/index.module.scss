@@ -1,8 +1,8 @@
 $linkHover: #00aeef;
 
 .post {
-  display:block;
-  margin-bottom:2em;
+  display: block;
+  margin-bottom: 2em;
 
   &:hover .date {
     opacity: 1;
@@ -12,9 +12,9 @@ $linkHover: #00aeef;
     font-family: 'Crimson Text', serif;
     display: inline-block;
     padding-right: .5rem;
-    font-size:1.3rem;
+    font-size: 1.3rem;
     font-weight: 200;
-    margin-bottom:.2rem;
+    margin-bottom: .2rem;
 
     a {
       text-decoration: none;
@@ -31,23 +31,23 @@ $linkHover: #00aeef;
   .date {
     font-family: Lato;
     letter-spacing: 1px;
-    font-size:.7em;
+    font-size: .7em;
     text-transform: uppercase;
     display: inline-block;
-    opacity:.9;
+    opacity: .9;
   }
 }
 
 @media (max-width: 767px) {
 
   .post {
-    margin:0 .8em 1em .8em;
+    margin: 0 .8em 1em .8em;
   }
 
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
- .post {
-   margin:0 0 1em 6em;
- }
+  .post {
+    margin: 0 0 1em 6em;
+  }
 }
