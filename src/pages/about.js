@@ -60,14 +60,17 @@ class AboutPage extends React.Component {
           >
             Situm
           </a>
-          , an awesome company that helps multiple industries to <strong>position their
-          users (robots and people) indoors while doing Bussiness Intelligence</strong> on 
-          gathered data.
+          , an awesome company that helps multiple industries to{' '}
+          <strong>
+            position their users (robots and people) indoors while doing
+            Bussiness Intelligence
+          </strong>{' '}
+          on gathered data.
         </p>
         <p>
-          Before I've being proudly creating different tools focused on
-          high performance and heavy loaded systems that helped journalists to
-          maintain <strong>online newspapers</strong>,{' '} developing {' '}
+          Before I've being proudly creating different tools focused on high
+          performance and heavy loaded systems that helped journalists to
+          maintain <strong>online newspapers</strong>, developing{' '}
           <a
             href="http://www.opennemas.com/"
             rel="noopener noreferrer"
@@ -78,11 +81,10 @@ class AboutPage extends React.Component {
           .
         </p>
         <p>
-          Prior that I've been working as a
-          open-source software consultant at the University of Santiago de
-          Compostela, where <strong>I've{' '}
-          developed a custom Linux-based desktop</strong> in order to
-          simplify administrative tasks and also doing massive migrations to
+          Prior that I've been working as a open-source software consultant at
+          the University of Santiago de Compostela, where{' '}
+          <strong>I've developed a custom Linux-based desktop</strong> in order
+          to simplify administrative tasks and also doing massive migrations to
           open source sofware in educational settings. This project 
           <a
             href="http://www.mancomun.org/es/no_cache/actualidade/detalledenova/nova/a-osl-da-usc-gana-o-premio-eganet-2009-na-categoria-software-libre/"

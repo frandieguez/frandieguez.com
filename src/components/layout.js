@@ -15,7 +15,7 @@ class Layout extends React.Component {
     let HeaderContent = (
       <StaticQuery
         query={SiteQuery}
-        render={data => {
+        render={(data) => {
           return (
             <Link to={`/`} title={title}>
               <Logo />

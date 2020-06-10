@@ -5,7 +5,7 @@ import postStyles from '../styles/post.module.scss';
 const PostInfo = ({ tags, categories }) => {
   let categoriesHTML =
     categories.length > 0
-      ? categories.map(category => {
+      ? categories.map((category) => {
           return (
             <Link
               key={category}
@@ -19,7 +19,7 @@ const PostInfo = ({ tags, categories }) => {
       : `Uncategorized`;
 
   let tagsHTML = tags
-    ? tags.map(tag => {
+    ? tags.map((tag) => {
         return (
           <Link key={tag} className={postStyles.tagLink} to={'/tag/' + tag}>
             {tag}
