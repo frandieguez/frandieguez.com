@@ -8,7 +8,7 @@
     "url": "https://github.com/frandieguez/frandieguez.com/issues"
   },
   "dependencies": {
-    "@raae/gatsby-remark-oembed": "^0.0.4",
+    "@raae/gatsby-remark-oembed": "^0.1.1",
     "babel-plugin-styled-components": "^1.10.0",
     "disqus-react": "^1.0.5",
     "gatsby": "^2.3.23",
