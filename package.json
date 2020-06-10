@@ -7,6 +7,9 @@
   "bugs": {
     "url": "https://github.com/frandieguez/frandieguez.com/issues"
   },
+  "engines": {
+    "node": ">=10.13"
+  },
   "dependencies": {
     "@raae/gatsby-remark-oembed": "^0.1.1",
     "babel-plugin-styled-components": "^1.10.0",
