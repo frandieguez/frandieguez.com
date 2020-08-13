@@ -18,7 +18,7 @@ tags:
 ---
 <div class="alignright">
 
-<a href="http://www.flickr.com/photos/65699349@N00/3210086353"><img title="Tower of Babel" src="http://farm4.static.flickr.com/3428/3210086353_87818a1be5_m.jpg" border="0" alt="Tower of Babel" hspace="5" /></a>
+<a href="http://www.flickr.com/photos/65699349@N00/3210086353"><img title="Tower of Babel" src="https://farm4.static.flickr.com/3428/3210086353_87818a1be5_m.jpg" border="0" alt="Tower of Babel" hspace="5" /></a>
 </div>
 This Wednesday, November 24th, we made a lecture at the University of Coruña to tech and linguistic people, related with the projects that our galician opensource community are managing and what are their states, and for the other hand how to improve translations by using different techniques we are currently applying in GNOME and Ubuntu.
 
