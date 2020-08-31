@@ -7,6 +7,7 @@ layout: post
 published: true
 guid: http://www.mabishu.com/?p=1711
 permalink: /blog/2014/10/easy-way-to-install-php-qa-tools/
+summary: My quick installation script to install php QA tools
 dsq_thread_id:
   - "3309631580"
 categories:

@@ -17,7 +17,9 @@ tags:
   - SSD
   - tips
 ---
-<img class="alignright size-medium wp-image-1298" alt="OCZ Vertex 4" src="/assets/ocz-vertex-4-256gb-ssd-sata-iii-3-6gbps-120k-max-iops-adapt_MLA-F-3249716722_102012.jpg" width="300" height="296" />
+
+<img alt="OCZ Vertex 4" src="./ocz-vertex-4-256gb-ssd-sata-iii-3-6gbps-120k-max-iops-adapt_MLA-F-3249716722_102012.jpg" style="max-width: 300px" />
+
 Recently I acquired an OCZ Vertex 4 SSD as my old hard drive was about to die as SMART were reporting. Definitely I would suggest you to go for a SSD as this upgrade will be the most significant and noticeable upgrade you can do for you computer. Moving on. In this article I will write down some tips/rules for get the best performance out of your Linux-based system while giving some explanations about them.
 
 ### Rule 1: Special flags for your mounts

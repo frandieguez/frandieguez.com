@@ -12,6 +12,9 @@ dsq_thread_id:
 categories:
   - Curiosity
 ---
-<p align="center"><img src="/assets/anagrama-cafes1.png" alt="anagrama-cafes" width="450" height="445" /></p>
+
+<picture>
+  <img src="./anagrama-cafes1.png" title="Grafica hecha con Gruff en Ruby" />
+</picture>
 
 Con la taza siempre en la mano, Cafe-man, nunca me separo de este preciado líquido que tanto me relaja. En mi casa cuando estoy yo se hace una cafetera al día, eso sí grano molido en le momento y sin azucar, como los buenos cafeteros.
