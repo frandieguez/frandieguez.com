@@ -4,12 +4,11 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const AboutPage = () => {
-  const { data } = this.props;
+const AboutPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
 
   return (
-    <Layout location={this.props.location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <SEO title="Contact" />
 
       <div className="aligncenter">

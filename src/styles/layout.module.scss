@@ -1,24 +1,24 @@
 $headerColor: #161618;
 $headerTitleColor: #ddd;
-$textColor : #32323a;
-$textColorHover : Black;
+$textColor: #32323a;
+$textColorHover: Black;
 $linkHover: #00aeef;
 
-div[role=main] {
+div[role='main'] {
   padding: 0.938em 0.938em 0.313em;
 }
 
 @media only screen and (min-width: 56.25em) {
-  div[role=main] {
-    padding: .5em 3.7% 0.938em;
+  div[role='main'] {
+    padding: 0.5em 3.7% 0.938em;
   }
 }
 
 .pageWrapper {
   margin: 0 auto;
   position: relative;
+  max-width: 95%;
 }
-
 
 @media only screen and (min-width: 56.25em) {
   .pageWrapper {
@@ -45,6 +45,6 @@ div[role=main] {
 
 .Footer {
   margin-top: 2rem;
-  font-size: .8rem;
+  font-size: 0.8rem;
   text-align: center;
 }

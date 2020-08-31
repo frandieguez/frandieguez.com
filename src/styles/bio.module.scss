@@ -1,5 +1,5 @@
 .message {
-  margin-top: .6em;
+  margin-top: 0.6em;
 }
 
 .subscribeLink {
@@ -23,5 +23,16 @@
     height: 21px;
     vertical-align: bottom;
     margin: 0 2px 0 -5px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (min-width: 13.75em) {
+  .wrapper {
+    display: flex;
   }
 }

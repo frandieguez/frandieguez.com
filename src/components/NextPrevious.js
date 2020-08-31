@@ -4,23 +4,29 @@ import NextPreviousStyles from '../styles/nextPrevious.module.scss';
 
 const NextPrevious = ({ previous, next }) => {
   return (
-    <ul className={NextPreviousStyles.wrapper}>
-      {previous && (
-        <li className={NextPreviousStyles.prev}>
-          <Link to={previous.fields.slug} rel="prev">
-            ← {previous.frontmatter.title}
-          </Link>
-        </li>
-      )}
+    <nav className={NextPreviousStyles.wrapper}>
+      <hr className={NextPreviousStyles.separator} />
 
-      {next && (
-        <li className={NextPreviousStyles.next}>
-          <Link to={next.fields.slug} rel="next">
-            {next.frontmatter.title} →
-          </Link>
-        </li>
-      )}
-    </ul>
+      <div className={NextPreviousStyles.links}>
+        {previous && (
+          <div className={NextPreviousStyles.prev}>
+            <Link to={previous.fields.slug} rel="prev">
+              ← {previous.frontmatter.title}
+            </Link>
+          </div>
+        )}
+
+        {next && (
+          <div className={NextPreviousStyles.next}>
+            <Link to={next.fields.slug} rel="next">
+              {next.frontmatter.title} →
+            </Link>
+          </div>
+        )}
+      </div>
+
+      <hr className={NextPreviousStyles.separator} />
+    </nav>
   );
 };
 

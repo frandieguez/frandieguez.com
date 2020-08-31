@@ -9,8 +9,11 @@
   h4,
   h5,
   h6 {
-    font-family: 'Crimson Text', serif;
-    font-weight: 400;
+    font-weight: 800;
+    margin-top: 1em;
+    font-feature-settings: 'lnum';
+    font-weight: 800;
+    letter-spacing: -2.66px;
   }
 
   .postInfo {
@@ -21,7 +24,18 @@
       margin-left: 5px;
     }
   }
+}
 
+.content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Crimson Text', serif;
+    letter-spacing: 0;
+  }
 }
 
 .meta {
@@ -31,29 +45,39 @@
 
   .title {
     color: #222;
-    font-family: 'Crimson Text', serif;
-    font-weight: normal;
     text-align: center;
     margin-bottom: 1em;
-    // margin-top: 1em;
     padding-bottom: 0;
     line-height: 1.316;
-    font-size: 1.9em;
-    margin: 0 -.2em 1em -.2em;
+    margin: 0 -0.2em 1em -0.2em;
+
+    @media only screen and (min-width: 33.75em) {
+      font-size: 64px;
+    }
+
+    @media only screen and (min-width: 28.75em) {
+      font-size: 54px;
+    }
   }
 
   .author {
     margin-bottom: 1.5rem;
-    font-size: .8em;
+    font-size: 0.8em;
   }
 
   .date {
+    .icon {
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    color: #696975;
     font-family: Lato, sans-serif;
     font-weight: 700;
-    font-size: .6em;
+    font-size: 0.6em;
     text-transform: uppercase;
     letter-spacing: 0.167em;
-    border-bottom: 1px solid rgb(217, 217, 220);
+    // border-bottom: 1px solid rgb(217, 217, 220);
     display: inline-block;
 
     margin: 0 0 1.167em;
@@ -62,9 +86,7 @@
 }
 
 @media only screen and (min-width: 33.75em) {
-
   .post {
-
     h3 {
       font-size: 1.5em;
       line-height: 1.129;
@@ -78,7 +100,5 @@
     table {
       line-height: 1.474;
     }
-
   }
-
 }

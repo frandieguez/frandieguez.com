@@ -7,12 +7,13 @@ import SEO from '../components/seo';
 import NextPrevious from '../components/NextPrevious';
 import PostInfo from '../components/postinfo';
 import Bio from '../components/bio';
+import Calendar from '../../static/assets/icons/calendar.svg';
 
 import postStyles from '../styles/post.module.scss';
 
 import { DiscussionEmbed } from 'disqus-react';
 
-const BlogPostTemplate = ({ location, data, pageContent }) => {
+const BlogPostTemplate = ({ location, data, pageContext }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
@@ -29,36 +30,44 @@ const BlogPostTemplate = ({ location, data, pageContent }) => {
   return (
     <Layout location={location} title={siteTitle} className="postStyles.post">
       <SEO title={post.frontmatter.title} description={post.excerpt} />
-      <main className={postStyles.post}>
-        <header>
-          {post.frontmatter.layout !== 'phrase' ? (
-            <div className={postStyles.meta}>
-              <h1 className={postStyles.title}>{post.frontmatter.title}</h1>
+      <div className={postStyles.post}>
+        {post.frontmatter.layout !== 'phrase' ? (
+          <header className={postStyles.meta}>
+            <h1 className={postStyles.title}>{post.frontmatter.title}</h1>
 
-              <time className={postStyles.date}> {post.frontmatter.date} </time>
+            <div>{post.frontmatter.excerpt}</div>
 
-              <div className={postStyles.author}>
+            <time className={postStyles.date}>
+              {' '}
+              <Calendar className="icon" /> {post.frontmatter.date}{' '}
+            </time>
+
+            {/* <div className={postStyles.author}>
                 Inked by <a href="/about">{post.author || 'Fran Dieguez'}</a>
-              </div>
+              </div> */}
+          </header>
+        ) : null}
+        <div className={postStyles.contentWrapper}>
+          <div
+            className={postStyles.content}
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+          <footer>
+            <div className={postStyles.postInfo}>
+              <PostInfo
+                categories={post.frontmatter.categories}
+                tags={post.frontmatter.tags}
+              />
             </div>
-          ) : null}
-        </header>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <footer>
-          <div className={postStyles.postInfo}>
-            <PostInfo
-              categories={post.frontmatter.categories}
-              tags={post.frontmatter.tags}
-            />
-          </div>
-          <p>
-            <a href={discussUrl} target="_blank" rel="noopener noreferrer">
-              Discuss on Twitter
-            </a>
-          </p>
-          {/* <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} /> */}
-        </footer>
-      </main>
+            <p>
+              <a href={discussUrl} target="_blank" rel="noopener noreferrer">
+                Discuss on Twitter
+              </a>
+            </p>
+            {/* <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} /> */}
+          </footer>
+        </div>
+      </div>
       <aside>
         <Bio />
         <NextPrevious previous={previous} next={next} />

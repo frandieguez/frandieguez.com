@@ -12,7 +12,7 @@ const typography = new Typography({
     },
   ],
   bodyFontFamily: ['Crimson Text', 'sans-serif'],
-  headerFontFamily: ['Lato', 'sans-serif'],
+  // headerFontFamily: ['sans', 'Lato', 'sans-serif'],
 });
 
 // Hot reload typography in development.
