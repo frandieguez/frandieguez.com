@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import menuStyles from '../styles/menu.module.scss';
 import { Link } from 'gatsby';
 
-const Menu = (props) => {
+const Menu = () => {
   const [open, setOpen] = useState(false);
 
   return (

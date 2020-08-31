@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import NextPreviousStyles from '../styles/nextPrevious.module.scss';
-// import PropTypes from "prop-types"
 
-function NextPrevious({ previous, next }) {
+const NextPrevious = ({ previous, next }) => {
   return (
     <ul className={NextPreviousStyles.wrapper}>
       {previous && (
@@ -23,11 +22,6 @@ function NextPrevious({ previous, next }) {
       )}
     </ul>
   );
-}
-
-// NextPrevious.propTypes = {
-//   next: PropTypes.optionalFunc,
-//   previous: PropTypes.optionalFunc
-// }
+};
 
 export default NextPrevious;

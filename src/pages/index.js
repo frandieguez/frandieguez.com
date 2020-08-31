@@ -10,33 +10,33 @@ import Bio from '../components/bio';
 
 import indexStyles from '../styles/index.module.scss';
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props;
-    const siteTitle = data.site.siteMetadata.title;
-    const posts = data.allMarkdownRemark.edges;
+const BlogIndex = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title;
+  const posts = data.allMarkdownRemark.edges;
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" keywords={data.site.siteMetadata.keywords} />
-        <Bio />
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title="All posts" keywords={data.site.siteMetadata.keywords} />
+      <Bio />
 
-        {posts.map(({ node }) => {
-          let title = node.frontmatter.title || node.fields.slug;
-          return (
-            <div key={node.fields.slug} className={indexStyles.post}>
-              <h3 className={indexStyles.title}>
-                <Link to={node.fields.slug}>{title}</Link>
-              </h3>
-              <span className={indexStyles.date}>{node.frontmatter.date}</span>
-              {/* <div className={indexStyles.excerpt} dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
-            </div>
-          );
-        })}
-      </Layout>
-    );
-  }
-}
+      {posts.map(({ node }) => {
+        let title = node.frontmatter.title || node.fields.slug;
+        return (
+          <div key={node.fields.slug} className={indexStyles.post}>
+            <h3 className={indexStyles.title}>
+              <Link to={node.fields.slug}>{title}</Link>
+            </h3>
+            <span className={indexStyles.date}>{node.frontmatter.date}</span>
+            {/* <div
+              className={indexStyles.excerpt}
+              dangerouslySetInnerHTML={{ __html: node.excerpt }}
+            /> */}
+          </div>
+        );
+      })}
+    </Layout>
+  );
+};
 
 export const pageQuery = graphql`
   query {

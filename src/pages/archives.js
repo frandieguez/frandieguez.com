@@ -9,38 +9,35 @@ import SEO from '../components/seo';
 
 import indexStyles from '../styles/archive.module.scss';
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props;
-    const siteTitle = data.site.siteMetadata.title;
-    const posts = data.allMarkdownRemark.edges;
+const BlogIndex = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title;
+  const posts = data.allMarkdownRemark.edges;
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" keywords={data.site.siteMetadata.keywords} />
-        {/* <Bio /> */}
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title="All posts" keywords={data.site.siteMetadata.keywords} />
+      {/* <Bio /> */}
 
-        <h3>Recently Published</h3>
-        <ul>
-          {posts.map(({ node }) => {
-            let title = node.frontmatter.title || node.fields.slug;
-            return (
-              <li key={node.fields.slug} className={indexStyles.post}>
-                <Link to={node.fields.slug}>{title}</Link>
-              </li>
-            );
-          })}
-        </ul>
-        <h3>Archives by Month</h3>
-        <div>In construction</div>
-        <p />
+      <h3>Recently Published</h3>
+      <ul>
+        {posts.map(({ node }) => {
+          let title = node.frontmatter.title || node.fields.slug;
+          return (
+            <li key={node.fields.slug} className={indexStyles.post}>
+              <Link to={node.fields.slug}>{title}</Link>
+            </li>
+          );
+        })}
+      </ul>
+      <h3>Archives by Month</h3>
+      <div>In construction</div>
+      <p />
 
-        <h3>Archives by year</h3>
-        <div>In construction</div>
-      </Layout>
-    );
-  }
-}
+      <h3>Archives by year</h3>
+      <div>In construction</div>
+    </Layout>
+  );
+};
 
 export const pageQuery = graphql`
   query {
