@@ -73,6 +73,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "yarn develop",
+    "start-m": "yarn develop -H 0.0.0.0 -p 8000",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "format": "prettier --write '{gatsby-*.js,src/**/*.{js,jsx,json,css}}'"
