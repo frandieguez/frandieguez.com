@@ -7,7 +7,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 // import Post from "../components/Post"
 
-import indexStyles from '../styles/archive.module.scss';
+import indexStyles from '../styles/index.module.scss';
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
@@ -20,18 +20,21 @@ const BlogIndex = ({ data, location }) => {
 
       <div className={`wrapper page ${indexStyles.postsWrapper}`}>
         <h2 className={indexStyles.postsWrapperTitle}>Recently Published</h2>
-        <ul>
-          {posts.map(({ node }) => {
-            let title = node.frontmatter.title || node.fields.slug;
-            return (
-              <li key={node.fields.slug} className={indexStyles.post}>
-                <h3 className={indexStyles.title}>
-                  <Link to={node.fields.slug}>{title}</Link>
-                </h3>
-              </li>
-            );
-          })}
-        </ul>
+        {posts.map(({ node }) => {
+          let title = node.frontmatter.title || node.fields.slug;
+          return (
+            <div key={node.fields.slug} className={indexStyles.post}>
+              <h3 className={indexStyles.title}>
+                <Link to={node.fields.slug}>{title}</Link>
+              </h3>
+              <span className={indexStyles.date}>{node.frontmatter.date}</span>
+              {/* <div
+                className={indexStyles.excerpt}
+                dangerouslySetInnerHTML={{ __html: node.excerpt }}
+              /> */}
+            </div>
+          );
+        })}
         <h3>Archives by Month</h3>
         <div>In construction</div>
         <p />
