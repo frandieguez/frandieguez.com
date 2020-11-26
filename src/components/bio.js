@@ -26,8 +26,8 @@ const Bio = ({ variant = 'simple' }) => (
                   />
                 </div>
                 <div className={bioStyles.heroText}>
-                  <h1 class={bioStyles.hero}>Hey, I'm Fran !</h1>
-                  <h2 class={bioStyles.subhero}>
+                  <h1 className={bioStyles.hero}>Hey, I'm Fran !</h1>
+                  <h2 className={bioStyles.subhero}>
                     A <strong>software developer</strong> who lives and works in
                     Spain building useful things.
                     <br />

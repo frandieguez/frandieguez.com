@@ -48,20 +48,23 @@
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 2em;
+  padding-top: 2em;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  @media (max-width: 767px) {
-    margin: 0.5em;
+  @media (min-width: 1000px) {
+    padding: 0;
   }
+
   @media (min-width: 768px) {
     flex-direction: row;
   }
 
-  > * {
-    flex: 0 0 50%;
-  }
+  // > * {
+  //   flex: 0 0 50%;
+  // }
 }
 
 .moreContacts {

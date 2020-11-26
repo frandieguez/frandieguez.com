@@ -26,7 +26,7 @@ const BlogIndex = ({ data, location }) => {
       <Waves theme={darkMode.value ? 'dark' : 'light'}></Waves>
 
       <div className={indexStyles.contentWrapper} role="main">
-        <div>
+        {/* <div>
           <h2>Things to put here</h2>
           <ul>
             <ol>one thing</ol>
@@ -39,7 +39,7 @@ const BlogIndex = ({ data, location }) => {
             <ol>another thing</ol>
             <ol>and even more things...</ol>
           </ul>
-        </div>
+        </div> */}
 
         <div className={indexStyles.postsWrapper}>
           <h2 className={indexStyles.postsWrapperTitle}>My latests posts</h2>
@@ -66,16 +66,21 @@ const BlogIndex = ({ data, location }) => {
           </div>
         </div>
       </div>
-      <div className={indexStyles.moreContacts}>
+      {/* <div className={indexStyles.moreContacts}>
         <div className={indexStyles.moreContactsPhotos}>Photos</div>
         <div className={indexStyles.moreContactsText}>
           If you want to know what other amazing professionals that I admire and
           I have worked with think about me , check my{' '}
-          <a target="_blank" href="https://www.linkedin.com/in/frandieguez/">
+          <a
+            target="_blank"
+            rel="noopener"
+            rel="noreferrer"
+            href="https://www.linkedin.com/in/frandieguez/"
+          >
             Linkedin
           </a>
         </div>
-      </div>
+      </div> */}
     </Layout>
   );
 };

@@ -26,15 +26,17 @@ const Menu = () => {
         <ul>
           <li>
             <Link to={'/about'} className={menuStyles.item}>
-              The author
+              About me
             </Link>
           </li>
           {/* <li>
-            <Link to={'/code'} className={menuStyles.item}>Work</Link>
+            <Link to={'/code'} className={menuStyles.item}>
+              Work
+            </Link>
           </li> */}
           <li>
             <Link to={'/archives'} className={menuStyles.item}>
-              Arquive
+              Posts
             </Link>
           </li>
           <li>

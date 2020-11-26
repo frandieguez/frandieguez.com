@@ -16,7 +16,7 @@ $linkHover: var(--brand-color-peach);
     .showMenu {
       margin: 0 auto;
       display: inline-block;
-      background: #dcdcd9;
+      background: var(--brand-color-peach);
       border-radius: 50px;
       padding: 10px 15px;
       border-bottom: 0 none;
@@ -28,7 +28,11 @@ $linkHover: var(--brand-color-peach);
   }
 
   .Menu {
-    background: #18181e;
+    position: absolute;
+    top: 90%;
+    left: 0;
+    width: 100%;
+    background: var(--brand-color-cream);
     font-family: 'Lato', sans-serif;
     font-size: 0.6em;
     font-style: normal;
@@ -40,6 +44,10 @@ $linkHover: var(--brand-color-peach);
     text-transform: uppercase;
     display: none;
     transition: opacity 600ms, visibility 600ms;
+
+    @media only screen and (min-width: 767px) {
+      position: initial;
+    }
 
     ul {
       list-style: none;
@@ -63,7 +71,8 @@ $linkHover: var(--brand-color-peach);
     }
 
     a:hover {
-      color: $linkHover;
+      color: var(--brand-color-blackberry);
+      background: var(--brand-color-peach);
     }
   }
 }
@@ -79,7 +88,7 @@ $linkHover: var(--brand-color-peach);
   margin-bottom: -2px;
 }
 
-@media only screen and (min-width: 33.75em) {
+@media only screen and (min-width: 767px) {
   .MenuToggler {
     display: none !important;
   }
@@ -117,10 +126,11 @@ $linkHover: var(--brand-color-peach);
 .darkModeButton {
   background: none;
   border: 0 none;
-  font-size: 1.4em;
+  font-size: 1.6em !important;
   color: var(--text-base-color);
   cursor: pointer;
   outline: none;
+  padding: 1em;
   &:hover {
     transform: rotate(-30deg);
     transition: transform 100ms;

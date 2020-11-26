@@ -2,6 +2,11 @@
   padding-top: 4em;
   max-width: 1000px;
   margin: 0 auto;
+
+  @media (max-width: 1000px) {
+    margin: 0 1em;
+  }
+
   p {
     line-height: 2rem;
   }

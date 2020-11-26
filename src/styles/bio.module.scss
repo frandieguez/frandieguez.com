@@ -84,18 +84,22 @@
 .heroImage {
   width: 100%;
 
-  :hover {
+  &:hover {
+    transition: transform 300ms ease-in-out;
+    transform: rotate3d(0, 0, 3, 5deg);
   }
 
   @media only screen and (max-width: 767px) {
     padding: 1em;
     max-height: 250px;
+    display: none;
   }
 
   @media only screen and (min-width: 768px) {
     max-height: initial;
     text-align: right;
     order: 2;
+    margin-top: 1em;
   }
 }
 
