@@ -1,4 +1,12 @@
 .post {
+  padding-top: 4em;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  @media (max-width: 1000px) {
+    margin: 0 1em;
+  }
+
   p {
     line-height: 2rem;
   }
@@ -9,11 +17,9 @@
   h4,
   h5,
   h6 {
-    font-weight: 800;
+    font-weight: 700;
     margin-top: 1em;
-    font-feature-settings: 'lnum';
-    font-weight: 800;
-    letter-spacing: -2.66px;
+    letter-spacing: -1.995px;
   }
 
   .postInfo {
@@ -27,15 +33,49 @@
 }
 
 .content {
+  line-height: 31px;
+  @media (min-width: 1000px) {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1180px;
+    max-width: var(--width-base);
+    grid-template-areas: '. . content content content content content content content content . . ';
+  }
+  @media (min-width: 760px) {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(0, 1fr)) [12];
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    -ms-grid-rows: auto;
+    grid-template-rows: auto;
+    grid-column-gap: 20px;
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: 'Crimson Text', serif;
     letter-spacing: 0;
   }
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.contentBlock {
+  display: grid;
+  @media (min-width: 1000px) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 8;
+  }
+  @media (min-width: 1000px) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 10;
+  }
+  grid-area: content;
 }
 
 .meta {
@@ -46,18 +86,27 @@
   .title {
     color: #222;
     text-align: center;
-    margin-bottom: 1em;
     padding-bottom: 0;
     line-height: 1.316;
     margin: 0 -0.2em 1em -0.2em;
 
     @media only screen and (min-width: 33.75em) {
-      font-size: 64px;
+      font-size: var(--text-xxxl);
     }
 
     @media only screen and (min-width: 28.75em) {
-      font-size: 54px;
+      font-size: var(--text-xxl);
     }
+  }
+
+  .subtitle {
+    letter-spacing: -0.882px;
+    line-height: 1.4;
+    font-weight: bold;
+    font-size: 2.1em;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 38px;
   }
 
   .author {
@@ -72,9 +121,7 @@
     }
 
     color: #696975;
-    font-family: Lato, sans-serif;
-    font-weight: 700;
-    font-size: 0.6em;
+    font-size: 0.7em;
     text-transform: uppercase;
     letter-spacing: 0.167em;
     // border-bottom: 1px solid rgb(217, 217, 220);
@@ -101,4 +148,9 @@
       line-height: 1.474;
     }
   }
+}
+
+.aside {
+  max-width: 1000px;
+  margin: 0 auto;
 }

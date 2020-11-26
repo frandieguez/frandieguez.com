@@ -30,6 +30,15 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-plugin-use-dark-mode',
+            options: {
+              classNameDark: 'dark-mode',
+              classNameLight: 'light-mode',
+              storageKey: 'darkMode',
+              minify: true,
+            },
+          },
+          {
             resolve: 'gatsby-remark-prismjs',
             options: {
               inlineCodeMarker: '÷',

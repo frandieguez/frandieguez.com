@@ -3,16 +3,16 @@ import Typography from 'typography';
 const typography = new Typography({
   googleFonts: [
     {
-      name: 'Lato',
+      name: 'IBM Plex Sans',
       styles: ['200', '400', '400italic', '700', '700italic'],
     },
     {
-      name: 'Crimson Text',
-      styles: ['400italic', '400'],
+      name: 'Playfair Display',
+      styles: ['400italic', '400', '900'],
     },
   ],
-  bodyFontFamily: ['Crimson Text', 'sans-serif'],
-  // headerFontFamily: ['sans', 'Lato', 'sans-serif'],
+  bodyFontFamily: ['IBM Plex Sans', 'sans-serif'],
+  headerFontFamily: ['Playfair Display', 'sans-serif'],
 });
 
 // Hot reload typography in development.
