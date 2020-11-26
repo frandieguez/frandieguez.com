@@ -33,13 +33,13 @@
     opacity: 0.9;
   }
 
-  @media (max-width: 767px) {
-    margin: 0 0.8em 1em 0.8em;
-  }
+  // @media (max-width: 767px) {
+  //   margin: 0 0.8em 1em 0.8em;
+  // }
 
-  @media (min-width: 768px) and (max-width: 1024px) {
-    margin: 0 0 1em 6em;
-  }
+  // @media (min-width: 768px) and (max-width: 1024px) {
+  //   margin: 0 0 1em 6em;
+  // }
 }
 .postsWrapperTitle {
 }
@@ -62,4 +62,18 @@
   > * {
     flex: 0 0 50%;
   }
+}
+
+.moreContacts {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.moreContactsPhotos,
+.moreContactsText {
+  padding: 4em 0;
+  flex: 0 0 50%;
+}
+.moreContactsPhotos {
+  text-align: right;
 }

@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 // import Image from "gatsby-image"
 import Menu from './menu';
-import Logo from '../../static/assets/logos/header.svg';
+// import Logo from '../../static/assets/logos/header.svg';
+import Logo from './Logo';
 // import Toggle from '../../static/assets/icons/toggle.svg';
+import useDarkMode from 'use-dark-mode';
 
 import layoutStyles from '../styles/layout.module.scss';
 
 const Layout = ({ location, title, children }) => {
-  const [dark, toggleDark] = useState(false);
+  const darkMode = useDarkMode(false);
   const rootPath = `${__PATH_PREFIX__}/`;
 
   let header;
@@ -18,12 +20,7 @@ const Layout = ({ location, title, children }) => {
       render={(data) => {
         return (
           <Link to={`/`} title={title}>
-            <Logo />
-            {/* <img src="/assets/logos/glasses.png" /> */}
-            {/* <Image
-                fixed={data.siteLogo.childImageSharp.fixed}
-                alt={title}
-              /> */}
+            <Logo fill={darkMode.value ? '#fff' : '#000'} />
           </Link>
         );
       }}
@@ -37,15 +34,16 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <div className={`${layoutStyles.pageWrapper} ${dark ? 'dark-mode' : ''}`}>
+    <div className={`${layoutStyles.pageWrapper}`}>
       <header className={` ${layoutStyles.Header} ${layoutStyles.wrapper}`}>
-        {/* <Toggle /> */}
-        {header}
+        <div className={`${layoutStyles.HeaderWrapper}`}>
+          {header}
 
-        <Menu />
+          <Menu />
+        </div>
       </header>
 
-      <div className={layoutStyles.wrapper} role="main">
+      <div className={layoutStyles.wrapper}>
         <main>{children}</main>
       </div>
       <footer className={layoutStyles.Footer}>

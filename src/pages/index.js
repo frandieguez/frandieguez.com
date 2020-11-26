@@ -7,20 +7,25 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 // import Post from "../components/Post"
 import Bio from '../components/bio';
+import useDarkMode from 'use-dark-mode';
+
+import Waves from '../components/Waves';
 
 import indexStyles from '../styles/index.module.scss';
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMarkdownRemark.edges;
+  const darkMode = useDarkMode(false);
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" keywords={data.site.siteMetadata.keywords} />
 
       <Bio variant="big" />
+      <Waves theme={darkMode.value ? 'dark' : 'light'}></Waves>
 
-      <div className={indexStyles.contentWrapper}>
+      <div className={indexStyles.contentWrapper} role="main">
         <div>
           <h2>Things to put here</h2>
           <ul>
@@ -59,6 +64,16 @@ const BlogIndex = ({ data, location }) => {
           <div className="more">
             <a href="/archives">Read previous posts...</a>
           </div>
+        </div>
+      </div>
+      <div className={indexStyles.moreContacts}>
+        <div className={indexStyles.moreContactsPhotos}>Photos</div>
+        <div className={indexStyles.moreContactsText}>
+          If you want to know what other amazing professionals that I admire and
+          I have worked with think about me , check my{' '}
+          <a target="_blank" href="https://www.linkedin.com/in/frandieguez/">
+            Linkedin
+          </a>
         </div>
       </div>
     </Layout>

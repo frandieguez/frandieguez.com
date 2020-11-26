@@ -7,10 +7,6 @@ const Menu = () => {
   const [open, setOpen] = useState(false);
   const darkMode = useDarkMode(false);
 
-  useEffect(() => {
-    console.log(darkMode);
-  }, [darkMode]);
-
   return (
     <div className={menuStyles.MenuWrapper}>
       <div className={menuStyles.MenuToggler} onClick={() => setOpen(!open)}>

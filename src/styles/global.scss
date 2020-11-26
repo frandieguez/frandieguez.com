@@ -137,10 +137,11 @@ body {
   line-height: 1.75;
   line-height: var(--line-height-body);
   background-image: src('/assets/logos/work-top-bg-shape.svg');
-  margin-top: 2em;
+  // margin-top: 2em;
   background-color: var(--body-bg-color);
   transition-duration: 500ms;
   transition-property: all;
+  scroll-margin-top: 15em;
 }
 
 cite {
@@ -471,4 +472,61 @@ pre[data-line] {
   color: #000019;
   color: var(--brand-color-black);
   background-color: var(--brand-color-peach);
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px; /*Fix for safari gap*/
+  min-height: 50px;
+  max-height: 100px;
+  transform: rotate(180deg) scaleX(-1);
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 200s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -20s;
+  animation-duration: 30s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -100s;
+  animation-duration: 100s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 180s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 90s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height: 10px;
+    min-height: 10px;
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+.page {
+  margin-top: 4.5em;
 }

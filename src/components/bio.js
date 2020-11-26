@@ -33,14 +33,14 @@ const Bio = ({ variant = 'simple' }) => (
                     <br />
                   </h2>
                   <p>
-                    Thoughtout my carreer I've been in multiple positions, from
-                    a software developer, lead developer, Head of Research and
-                    Development and CTO. My objective on each project is to
-                    create useful tools that make impact on users.
+                    No matter the position I've been in my carreer, software
+                    developer, Tech Lead, Head of Research and Development or
+                    CTO, my main focus always is to create useful tools that
+                    make impact on users.
                   </p>
                 </div>
               </div>
-              <div className={bioStyles.bioExplanation}></div>
+              {/* <div className={bioStyles.bioExplanation}></div> */}
             </div>
           ) : (
             <div className={bioStyles.wrapper}>
