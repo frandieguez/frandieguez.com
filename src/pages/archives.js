@@ -18,23 +18,27 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="All posts" keywords={data.site.siteMetadata.keywords} />
       {/* <Bio /> */}
 
-      <h3>Recently Published</h3>
-      <ul>
-        {posts.map(({ node }) => {
-          let title = node.frontmatter.title || node.fields.slug;
-          return (
-            <li key={node.fields.slug} className={indexStyles.post}>
-              <Link to={node.fields.slug}>{title}</Link>
-            </li>
-          );
-        })}
-      </ul>
-      <h3>Archives by Month</h3>
-      <div>In construction</div>
-      <p />
+      <div className={`wrapper page ${indexStyles.postsWrapper}`}>
+        <h2 className={indexStyles.postsWrapperTitle}>Recently Published</h2>
+        <ul>
+          {posts.map(({ node }) => {
+            let title = node.frontmatter.title || node.fields.slug;
+            return (
+              <li key={node.fields.slug} className={indexStyles.post}>
+                <h3 className={indexStyles.title}>
+                  <Link to={node.fields.slug}>{title}</Link>
+                </h3>
+              </li>
+            );
+          })}
+        </ul>
+        <h3>Archives by Month</h3>
+        <div>In construction</div>
+        <p />
 
-      <h3>Archives by year</h3>
-      <div>In construction</div>
+        <h3>Archives by year</h3>
+        <div>In construction</div>
+      </div>
     </Layout>
   );
 };
