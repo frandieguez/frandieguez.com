@@ -34,8 +34,12 @@ const BlogPostTemplate = ({ location, data, pageContext }) => {
         {post.frontmatter.layout !== 'phrase' ? (
           <header className={postStyles.meta}>
             <h1 className={postStyles.title}>{post.frontmatter.title}</h1>
+            {/* <h2 className={postStyles.subtitle}>
+              We’ve all seen them. They drive the rest of the team crazy. How
+              can we use them to our advantage?
+            </h2> */}
 
-            <div>{post.frontmatter.excerpt}</div>
+            {/* <div>{post.frontmatter.excerpt}</div> */}
 
             <time className={postStyles.date}>
               {' '}
@@ -48,10 +52,12 @@ const BlogPostTemplate = ({ location, data, pageContext }) => {
           </header>
         ) : null}
         <div className={postStyles.contentWrapper}>
-          <div
-            className={postStyles.content}
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
+          <div className={postStyles.content}>
+            <div
+              className={postStyles.contentBlock}
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
+          </div>
           <footer>
             <div className={postStyles.postInfo}>
               <PostInfo
@@ -68,7 +74,7 @@ const BlogPostTemplate = ({ location, data, pageContext }) => {
           </footer>
         </div>
       </div>
-      <aside>
+      <aside className={postStyles.aside}>
         <Bio />
         <NextPrevious previous={previous} next={next} />
       </aside>

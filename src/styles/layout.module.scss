@@ -4,26 +4,24 @@ $textColor: #32323a;
 $textColorHover: Black;
 $linkHover: #00aeef;
 
-div[role='main'] {
-  padding: 0.938em 0.938em 0.313em;
-}
+// div[role='main'] {
+//   padding: 0.938em 0.938em 0.313em;
+// }
 
-@media only screen and (min-width: 56.25em) {
-  div[role='main'] {
-    padding: 0.5em 3.7% 0.938em;
-  }
-}
+// @media only screen and (min-width: 56.25em) {
+//   div[role='main'] {
+//     padding: 0.5em 3.7% 0.938em;
+//   }
+// }
 
 .pageWrapper {
   margin: 0 auto;
   position: relative;
-  max-width: 95%;
 }
 
 @media only screen and (min-width: 56.25em) {
   .pageWrapper {
     margin: 0 auto;
-    max-width: 47em;
   }
 }
 
@@ -41,10 +39,81 @@ div[role='main'] {
 
 .Header {
   margin-bottom: 2rem;
+  background-color: var(--bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  @media only screen and (min-width: 56.25em) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em 3.7% 0.938em;
+  }
 }
 
 .Footer {
+  --pad-vt: 32px;
+
   margin-top: 2rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-align: center;
+  background: var(--bg-color-blackberry);
+  color: var(--color-white);
+  padding-top: var(--pad-vt);
+  padding-bottom: var(--pad-vt);
+}
+.footerContent {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .btn {
+    font-weight: bold;
+    width: max-content;
+    padding: 1em;
+    :hover {
+      border-bottom: 1px dashed transparent;
+      border-bottom: var(--brand-color-peach);
+    }
+  }
+}
+
+.moreInfo {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0;
+  text-align: right;
+  strong {
+    font-size: 2em;
+    color: var(--color-white);
+  }
+  a {
+    font-weight: bold;
+    padding: 1em;
+    :hover {
+      color: var(--color-white);
+    }
+    display: inline-block;
+  }
+  @media (max-width: 767px) {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+.copyright {
+  margin-top: 3em;
+  margin-bottom: 5em;
+  a,
+  strong {
+    color: white;
+  }
+  a {
+    :hover {
+      border-bottom-color: var(--brand-color-peach);
+    }
+  }
 }
