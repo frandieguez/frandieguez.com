@@ -67,6 +67,7 @@ body {
   --height-header: 64px;
   --space-base: 1rem;
   --space-xxxxs: calc(0.125 * var(--space-base));
+  --body-bg-color: white;
 
   @media (min-width: 760px) {
     --text-md: 1.3125rem;
@@ -74,6 +75,16 @@ body {
     --text-xl: 2.125rem;
     --text-xxl: 2.75rem;
     --text-xxxl: 3.5625rem;
+  }
+
+  &.dark-mode {
+    --bg-color-cream: var(--brand-color-blackberry);
+    --bg-color-grape: var(--brand-color-peach);
+    --bg-color-peach: var(--brand-color-peach);
+    --bg-color: hsl(210deg, 30%, 8%);
+    --default-text-color: White;
+    --gray: #fff;
+    --body-bg-color: var(--bg-color);
   }
 }
 
@@ -102,14 +113,13 @@ a {
 }
 
 body {
-  font-size: var(--text-base);
   line-height: 1.474;
   // background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAQSURBVHgBAQUA+v8A/dsp/wfbAwFy+CMuAAAAAElFTkSuQmCC);
   /* #FDDB29 */
   // background-color: hsl(51, 100%, 59%);
   // background-color: white;
   /* fallback */
-  color: #000;
+  color: var(--default-text-color);
   -webkit-font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   -moz-font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
@@ -128,6 +138,9 @@ body {
   line-height: var(--line-height-body);
   background-image: src('/assets/logos/work-top-bg-shape.svg');
   margin-top: 2em;
+  background-color: var(--body-bg-color);
+  transition-duration: 500ms;
+  transition-property: all;
 }
 
 cite {
@@ -136,10 +149,6 @@ cite {
 
 h3 {
   line-height: 2rem;
-}
-
-body {
-  color: var(--default-text-color);
 }
 
 h1,

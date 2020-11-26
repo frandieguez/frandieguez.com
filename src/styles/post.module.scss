@@ -29,7 +29,6 @@
 
 .content {
   line-height: 31px;
-  font-size: 0.95em;
   @media (min-width: 1000px) {
     margin-right: auto;
     margin-left: auto;
@@ -144,9 +143,4 @@
       line-height: 1.474;
     }
   }
-}
-
-.aside {
-  max-width: 1000px;
-  margin: 0 auto;
 }
