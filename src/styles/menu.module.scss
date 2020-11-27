@@ -71,7 +71,7 @@ $linkHover: var(--brand-color-peach);
     }
 
     a:hover {
-      color: var(--brand-color-blackberry);
+      color: var(--brand-color-grape);
       background: var(--brand-color-peach);
     }
   }
@@ -116,10 +116,6 @@ $linkHover: var(--brand-color-peach);
       text-decoration: none;
       font-stretch: 100%;
       padding: 1em 0;
-    }
-
-    a:hover {
-      color: $linkHover !important;
     }
   }
 }

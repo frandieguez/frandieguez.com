@@ -42,7 +42,6 @@ const BlogPostTemplate = ({ location, data, pageContext }) => {
             {/* <div>{post.frontmatter.excerpt}</div> */}
 
             <time className={postStyles.date}>
-              {' '}
               <Calendar className="icon" /> {post.frontmatter.date}{' '}
             </time>
 
@@ -75,7 +74,7 @@ const BlogPostTemplate = ({ location, data, pageContext }) => {
         </div>
       </div>
       <aside className={postStyles.aside}>
-        <Bio />
+        {/* <Bio /> */}
         <NextPrevious previous={previous} next={next} />
       </aside>
     </Layout>

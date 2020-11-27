@@ -139,8 +139,8 @@ body {
   line-height: 1.75;
   line-height: var(--line-height-body);
   background-color: var(--body-bg-color);
-  // transition-duration: 500ms;
-  // transition-property: all;
+  transition-duration: 500ms;
+  transition-property: all;
   scroll-margin-top: 15em;
 }
 

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import useDarkMode from 'use-dark-mode';
 
-function Waves({ theme = 'light' }) {
-  const color = theme == 'light' ? '255,241,232' : '31,37,61';
+function Waves() {
+  const darkMode = useDarkMode(false);
+  const color = !darkMode.value ? '255,241,232' : '31,37,61';
 
   return (
     <svg

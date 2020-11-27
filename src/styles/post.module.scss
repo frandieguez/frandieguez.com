@@ -79,12 +79,11 @@
 }
 
 .meta {
-  color: #696975;
+  // color: #696975;
   margin: 0 auto;
   text-align: center;
 
   .title {
-    color: #222;
     text-align: center;
     padding-bottom: 0;
     line-height: 1.316;
@@ -118,9 +117,10 @@
     .icon {
       vertical-align: middle;
       display: inline-block;
+      color: var(--default-text-color);
     }
 
-    color: #696975;
+    // color: #696975;
     font-size: 0.7em;
     text-transform: uppercase;
     letter-spacing: 0.167em;
