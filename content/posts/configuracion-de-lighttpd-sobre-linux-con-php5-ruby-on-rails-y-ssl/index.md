@@ -38,7 +38,8 @@ Aquí configuraremos el soporte de PHP y Ruby para despues configurar nuestros v
 
 El php5 ya lo tenemos instalado de antes, por lo que no voy a explicar como se hace, pero la decisión de instalar PHP5 es simple, ahora no hay soporte para PHP4 y además la versión PHP5 tiene muchisimas mejoras respecto a su antecesor. Si alguno de vosotros prefiere PHP4 la instalación es muy parecida a esta y resulta trivial.
 Editamos el archivo /etc/lighttpd/lighttpd.conf y añadimos el soporte para fastcgi
-```server.modules = (
+```
+server.modules = (
             "mod_access",
             "mod_alias",
             "mod_accesslog",
