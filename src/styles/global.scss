@@ -116,12 +116,7 @@ a {
 
 body {
   line-height: 1.474;
-  // background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAQSURBVHgBAQUA+v8A/dsp/wfbAwFy+CMuAAAAAElFTkSuQmCC);
-  /* #FDDB29 */
-  // background-color: hsl(51, 100%, 59%);
-  // background-color: white;
-  /* fallback */
-  color: var(--default-text-color);
+  color: var(--brand-color-black);
   -webkit-font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   -moz-font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
@@ -320,4 +315,8 @@ textarea {
 }
 .page {
   margin-top: 4.5em;
+}
+
+.large-quote {
+  font-family: 'Playfair Display';
 }

@@ -33,7 +33,7 @@ const Bio = ({ variant = 'simple' }) => (
                     <br />
                   </h2>
                   <p>
-                    No matter the position I've been in my carreer, software
+                    No matter the position I've been in my career, software
                     developer, Tech Lead, Head of Research and Development or
                     CTO, my main focus always is to create useful tools that
                     make impact on users.
