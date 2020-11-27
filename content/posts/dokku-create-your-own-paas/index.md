@@ -5,7 +5,7 @@ date: 2019-04-15
 author: Fran Diéguez
 layout: post
 published: true
-guid: 1690
+guid: http://www.frandieguez.dev/?p=1690
 permalink: /blog/2019/04/dokku-create-your-own-paas/
 categories:
   - Software

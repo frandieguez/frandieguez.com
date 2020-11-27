@@ -5,7 +5,7 @@ date: 2019-04-27
 author: Fran Diéguez
 layout: post
 published: true
-guid: 1691
+guid: http://www.frandieguez.dev/?p=1691
 permalink: /blog/2019/04/speed-up-archlinux-aur-package-building/
 categories:
   - Operating Systems
