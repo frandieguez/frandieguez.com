@@ -51,7 +51,7 @@
     text-transform: uppercase;
     transition: opacity 300ms, visibility 300ms;
     visibility: hidden;
-    opacity: 0%;
+    opacity: 0;
     height: 100vh;
 
     :hover {
@@ -60,7 +60,7 @@
 
     &.MenuOpen {
       visibility: visible;
-      opacity: 100%;
+      opacity: 1;
     }
 
     @media only screen and (min-width: 767px) {
@@ -69,7 +69,7 @@
       order: 2;
       background: transparent !important;
       display: flex !important;
-      opacity: 100%;
+      opacity: 1;
       visibility: visible;
 
       ul {
