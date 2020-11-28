@@ -1,17 +1,17 @@
-$headerColor: #161618;
-$headerTitleColor: #ddd;
-$textColor: #32323a;
-$textColorHover: Black;
-$linkHover: var(--brand-color-peach);
-
 .MenuWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   .MenuToggler {
+    color: orangered;
     width: 100%;
     margin: 0 auto;
     text-align: center;
     display: inline-block;
     border: 1px solid transparent;
     border-radius: 30px;
+    order: 2;
 
     .showMenu {
       margin: 0 auto;
@@ -25,11 +25,18 @@ $linkHover: var(--brand-color-peach);
         background: #18181e;
       }
     }
+
+    @media only screen and (min-width: 767px) {
+      & {
+        display: none !important;
+        order: 1;
+      }
+    }
   }
 
   .Menu {
     position: absolute;
-    top: 90%;
+    top: 80%;
     left: 0;
     width: 100%;
     background: var(--brand-color-cream);
@@ -42,11 +49,49 @@ $linkHover: var(--brand-color-peach);
     margin: 0;
     text-align: center;
     text-transform: uppercase;
-    display: none;
-    transition: opacity 600ms, visibility 600ms;
+    transition: opacity 300ms, visibility 300ms;
+    visibility: hidden;
+    opacity: 0%;
+    height: 100vh;
+
+    :hover {
+      background: var(--brand-color-cream);
+    }
+
+    &.MenuOpen {
+      visibility: visible;
+      opacity: 100%;
+    }
 
     @media only screen and (min-width: 767px) {
       position: initial;
+      height: initial;
+      order: 2;
+      background: transparent !important;
+      display: flex !important;
+      opacity: 100%;
+      visibility: visible;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      ul li {
+        list-style: none;
+        margin: 0 1em;
+        border: 0 none !important;
+      }
+
+      ul li a {
+        border-bottom: 0 none;
+        text-decoration: none;
+        font-stretch: 100%;
+        padding: 1em;
+      }
     }
 
     ul {
@@ -71,14 +116,29 @@ $linkHover: var(--brand-color-peach);
     }
 
     a:hover {
-      color: var(--brand-color-grape);
-      background: var(--brand-color-peach);
+      color: var(--brand-color-peach);
     }
   }
-}
 
-.MenuOpen {
-  display: block !important;
+  .darkModeButton {
+    background: none;
+    border: 0 none;
+    font-size: 1.1em;
+    color: var(--text-base-color);
+    cursor: pointer;
+    outline: none;
+    padding: 1em;
+    order: 3;
+
+    &:hover {
+      transform: rotate(-30deg);
+      transition: transform 100ms;
+    }
+
+    @media only screen and (max-width: 767px) {
+      order: 1;
+    }
+  }
 }
 
 .MenuOpenButton {
@@ -86,49 +146,4 @@ $linkHover: var(--brand-color-peach);
   color: #fff !important;
   border-radius: 50% 50% 0 0 !important;
   margin-bottom: -2px;
-}
-
-@media only screen and (min-width: 767px) {
-  .MenuToggler {
-    display: none !important;
-  }
-
-  .Menu {
-    background: transparent !important;
-    display: block !important;
-
-    ul {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    ul li {
-      list-style: none;
-      margin: 0 1em;
-      border: 0 none !important;
-    }
-
-    ul li a {
-      border-bottom: 0 none;
-      text-decoration: none;
-      font-stretch: 100%;
-      padding: 1em 0;
-    }
-  }
-}
-.darkModeButton {
-  background: none;
-  border: 0 none;
-  font-size: 1.6em !important;
-  color: var(--text-base-color);
-  cursor: pointer;
-  outline: none;
-  padding: 1em;
-  &:hover {
-    transform: rotate(-30deg);
-    transition: transform 100ms;
-  }
 }

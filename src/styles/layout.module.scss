@@ -74,6 +74,10 @@ div[role='main'] {
   color: var(--color-white);
   padding-top: var(--pad-vt);
   padding-bottom: var(--pad-vt);
+
+  @media (max-width: 1000px) {
+    padding: 1em;
+  }
 }
 .footerContent {
   max-width: 1000px;

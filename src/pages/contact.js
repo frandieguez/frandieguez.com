@@ -11,7 +11,7 @@ const AboutPage = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Contact" />
 
-      <div className="aligncenter">
+      <div className="aligncenter page wrapper">
         <p>
           If you have anything to say to me. Use the form below.{' '}
           <span role="img" aria-label="down">

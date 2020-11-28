@@ -80,10 +80,9 @@ body {
   }
 
   &.dark-mode {
+    --bg-color: hsl(210deg, 30%, 8%);
     --bg-color-cream: var(--brand-color-blackberry);
     --bg-color-grape: var(--brand-color-peach);
-    --bg-color-peach: var(--brand-color-peach);
-    --bg-color: hsl(210deg, 30%, 8%);
     --default-text-color: White;
     --gray: #fff;
     --body-bg-color: var(--bg-color);
@@ -116,7 +115,7 @@ a {
 
 body {
   line-height: 1.474;
-  color: var(--brand-color-black);
+  color: var(--default-text-color);
   -webkit-font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   -moz-font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;

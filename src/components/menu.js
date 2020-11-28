@@ -19,7 +19,6 @@ const Menu = () => {
           <span>☰</span>
         </a>
       </div>
-
       <section
         className={`${open ? menuStyles.MenuOpen : ''} ${menuStyles.Menu}`}
       >
@@ -44,18 +43,16 @@ const Menu = () => {
               Contact
             </Link>
           </li>
-          <li>
-            <button
-              type="button"
-              className={menuStyles.darkModeButton}
-              onClick={darkMode.toggle}
-              title="Toggle dark mode"
-            >
-              {darkMode.value ? '☾' : '☀'}
-            </button>
-          </li>
         </ul>
-      </section>
+      </section>{' '}
+      <button
+        type="button"
+        className={menuStyles.darkModeButton}
+        onClick={darkMode.toggle}
+        title="Toggle dark mode"
+      >
+        {darkMode.value ? '☾' : '☀'}
+      </button>
     </div>
   );
 };
