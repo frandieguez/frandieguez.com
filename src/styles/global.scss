@@ -178,13 +178,13 @@ a:active {
 .aligncenter,
 .alignright,
 .alignleft {
-  text-align: center;
   display: block;
   margin: 1em auto;
 }
 
 .aligncenter {
   text-align: center;
+  width: 100%;
 }
 
 .alignright {
