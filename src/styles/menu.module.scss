@@ -54,8 +54,10 @@
     opacity: 0;
     height: 100vh;
 
-    :hover {
-      background: var(--brand-color-cream);
+    @media only screen and (max-width: 767px) {
+      &:hover {
+        background: var(--brand-color-cream);
+      }
     }
 
     &.MenuOpen {
@@ -63,7 +65,7 @@
       opacity: 1;
     }
 
-    @media only screen and (min-width: 767px) {
+    @media only screen and (min-width: 768px) {
       position: initial;
       height: initial;
       order: 2;
