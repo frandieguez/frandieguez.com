@@ -10,7 +10,16 @@ module.exports = {
     },
   },
   plugins: [
-    // `gatsby-plugin-styled-component`,
+    // `gatsby-plugin-styled-component`
+    {
+      resolve: 'gatsby-plugin-use-dark-mode',
+      options: {
+        classNameDark: 'dark-mode',
+        classNameLight: 'light-mode',
+        storageKey: 'darkMode',
+        minify: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,19 +34,11 @@ module.exports = {
         name: `assets`,
       },
     },
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          {
-            resolve: 'gatsby-plugin-use-dark-mode',
-            options: {
-              classNameDark: 'dark-mode',
-              classNameLight: 'light-mode',
-              storageKey: 'darkMode',
-              minify: true,
-            },
-          },
           {
             resolve: 'gatsby-remark-prismjs',
             options: {
