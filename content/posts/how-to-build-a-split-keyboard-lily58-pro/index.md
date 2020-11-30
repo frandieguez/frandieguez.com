@@ -78,7 +78,7 @@ move to a **ortolinear split** keyboard layout; size around **60% and use MX-lik
 | 3D printed legs | [3D printed legs from thingiverse](https://www.thingiverse.com/thing:4493691) To tilt the keyboard a little bit                                                                                                                    |
 | Switches lube   | [Krytox GPL 205 grade 0 lube](https://divinikey.com/products/krytox-gpl-205-grade-0-switch-lubricant)                                                                                                                              |
 
-As you can see the list of components could be a little overwhelming if you are not in this world. 
+As you can see the list of components could be a little overwhelming if you are not in this world.
 To summarize it, you have a electronic place that the rest of components attach to. You have one little switch for each key and on top it you put a keycap. All those switches are connected to a electric board and in that board you put the a chip that controls everything.
 
 ### The building process
@@ -87,7 +87,6 @@ I'm not going to be fully specific on how to build it as the are fully detailed 
 All the process could be separated into 3 sections: 1) soldering electronic parts 2) Lubing the switches 3) putting all together
 
 #### The soldering part
-
 
 - First of all you need to solder SMD diodes alongside each switch socket, on my Lily58 PCB
   there are 58 switches so ton of work to do. As a little advice don't overheat your soldering iron, 150 C if enough.
@@ -103,9 +102,9 @@ I want to give my kudos to [the documentation from keeb.io](https://docs.keeb.io
 
 #### Lubing
 
-On of the revealing parts for me was lubing. Usually switches come prelubed, which basically consist on opening each switch and apply some special lubricant on the [insides of it, on the spring and the stem](https://www.youtube.com/watch?v=qSgPKPoFo2k). In mainstream switches the quality of this lube is not 
+One of the revealing parts for me was lubing. Usually switches come prelubed, which basically consist on opening each switch and apply some special lubricant on [its insides, on the spring and the stem](https://www.youtube.com/watch?v=qSgPKPoFo2k). In mainstream switches the quality of this lube is not 
 good, and in the community of DIY custom keyboards you try to apply a higher 
-quality lube. 
+quality lube.
 
 In my case I choose **Krytox GPL 205 grade 0**, the best I could buy online at the moment. As mentioned before keyboard parts are usually sold out as they are not manufactured in large chunks.
 
@@ -115,7 +114,7 @@ In my case I choose **Krytox GPL 205 grade 0**, the best I could buy online at t
 
 The sensation between from a non-lubed against a lubed switch is like day and night, you will feel a smoother activation point and quieter sounds, as this process eliminates all the roughness of the plastic material.
 
-#### Puting all together
+#### Putting all together
 
 From this part on things will get easier:
 
@@ -172,7 +171,6 @@ Below you can find some photos taken during the process of building it and the f
   <img title="lily58" alt="" src="./DSCF3226.JPG" />
   <img title="lily58" alt="" src="./DSCF3209.JPG" />
 </div>
-
 
 ## References
 
