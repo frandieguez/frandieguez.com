@@ -103,16 +103,17 @@ I want to give my kudos to [the documentation from keeb.io](https://docs.keeb.io
 
 #### Lubing
 
-On of the revealing parts for me was the lubing part. This step consist on opening each switch and apply some special lubricant on the [insides of it, on the spring and the stem](https://www.youtube.com/watch?v=qSgPKPoFo2k). In the image below you can see that my procedure was doing them in batches of 5. 
+On of the revealing parts for me was lubing. Usually switches come prelubed, which basically consist on opening each switch and apply some special lubricant on the [insides of it, on the spring and the stem](https://www.youtube.com/watch?v=qSgPKPoFo2k). In mainstream switches the quality of this lube is not 
+good, and in the community of DIY custom keyboards you try to apply a higher 
+quality lube. 
 
-The chosen lube was **Krytox GPL 205 grade 0**, the best I could buy online at the moment. As mentioned before keyboard parts are usually sold out as they are not manufactured in large chunks.
+In my case I choose **Krytox GPL 205 grade 0**, the best I could buy online at the moment. As mentioned before keyboard parts are usually sold out as they are not manufactured in large chunks.
 
 <div class="aligncenter">
-<img title="lily58" src="./DSCF3235.JPG" />
+  <img title="lily58" src="./DSCF3235.JPG" />
 </div>
 
-The sensation differs between from a non-lubed against a lubed switch are like day and night, you will feel a smoother activation point and quieter sounds, as this process eliminates all the roughness of the plastic material.
-
+The sensation between from a non-lubed against a lubed switch is like day and night, you will feel a smoother activation point and quieter sounds, as this process eliminates all the roughness of the plastic material.
 
 #### Puting all together
 
