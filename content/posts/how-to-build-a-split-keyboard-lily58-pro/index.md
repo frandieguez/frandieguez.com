@@ -46,7 +46,7 @@ and experimentation desire with orthogonal, split keyboards which are the strang
 
 ## Building it
 
-A keyboard is formed by a **matrix of switches wired to main chip** which converts those row/columns activations into keystroke events (KEY_A, KEY_F2,...) and sends them to the computer.
+A keyboard is formed by a **matrix of switches wired to main chip** which converts those row/columns activations into keystroke events (KEY\_A, KEY\_F2,...) and sends them to the computer.
 
 But in a split keyboard, each half has its own chip that controls it. The "main" half acts as a master that forwards events produced from its sibling to the computer. This behavior can be switched programmatically without any problem.
 
@@ -69,7 +69,7 @@ move to **ortholinear split** keyboard layout; size around **60% and use MX-like
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | PCB             | [Lily58 Pro - MX socket pack](https://keyhive.xyz/shop/lily58)     <br/> This includes PCBs, Plates, Sockets, TRRS jacks, screws and standoffs                                                                                     |
 | Keycaps         | [DROP + MATT3O MT3 SUSUWATARI](https://drop.com/buy/drop-matt3o-mt3-susuwatari-custom-keycap-set) <br> With the ergonomic variant                                                                                                  |
-| Switches        | [DROP + INVYR HOLY PANDA MECHANICAL SWITCHES](https://drop.com/buy/drop-invyr-holy-panda-mechanical-switches) <br> Famous switches in the keep community similar to clear MX                                                       |
+| Switches        | [DROP + INVYR HOLY PANDA MECHANICAL SWITCHES](https://drop.com/buy/drop-invyr-holy-panda-mechanical-switches) <br> Famous switches in the keeb community similar to clear MX                                                       |
 | Chips           | 2 x [Arduino Pro micros](https://www.sparkfun.com/products/12640)  <br> The brain of the keyboard detects all keystrokes in the PCB matrix, interprets and sends them to the computer                                              |
 | LCD             | 2 x [Arduino nano]()  <br> The brain of the keyboard, detects all keystrokes in the PCB matrix, interprets and sends them to the computer                                                                                          |
 | USB cable       | [Magnetic USB cable](https://www.amazon.es/conector-magn%C3%A9tico-NetDot-Generation-conectores/dp/B07RZ6F47G/?th=1) <br> Check the [problems post](/posts/problems-faced-while-building-my-lily58-split-keyboard//) for more info |
