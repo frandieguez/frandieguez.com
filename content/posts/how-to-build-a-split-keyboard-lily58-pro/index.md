@@ -90,10 +90,10 @@ All the process could be separated into 3 sections: 1) soldering electronic part
 - First of all, you need to solder SMD diodes alongside each switch socket, on my Lily58 PCB
   there are 58 switches so a ton of work to do. As a little advice don't overheat your soldering iron, 150 C if enough.
 - To continue you must connect the brain, the Arduino Pro Micro of your keyboard to the main PCB, **PLEASE do not solder it directly using pin headers**, just use [Millmax sockets](https://www.40percent.club/2018/03/sockets.html). This type of connector allows you to remove the chip from the board as it is hot-swappable. Using them make your life easier, as you will see in the "Problems faced" section down below.
-- Sold the LCP panel on top of each Arduino using long 
+- Sold the LCP panel on top of each Arduino using long rigid copper cable
 - And to finish with the soldering part you must solder the JACK sockets and the RESET buttons to the PCB.
 
-![PCB with hotswap sockets and diodes soldered, photo from https://imgur.com/gallery/eM0zWS9](./51967230-2250a580-24b2-11e9-94ce-591746c49f50.jpg)
+![PCB with hotswap sockets and diodes soldered, photo from https://imgur.com/gallery/eM0zWS9](./51967230-2250a580-24b2-11e9-94ce-591746c49f50.JPG)
 
 In the image above you can see the matrix on the PCB where diodes and switch sockets are already soldered.
 
@@ -158,16 +158,19 @@ The process involves a lot of research: you will learn a lot about electronics ð
 
 But hey! **__Was this long process worth it?__** I could assure you that **Yes, not only that I learned a lot but my wrist pain has gone away!** Double combo ðŸŽ°
 
-Below you can find some photos taken during the process of building it and the final product. Hope you like them!
+Below you can find some photos taken during the process of bui  lding it and the final product. Hope you like them!
 
 <div class="aligncenter">
-  <img title="lily58" alt="" src="./DSCF3193.JPG" />
+  <img title="lily58" alt="" src="./51967230-2250a580-24b2-11e9-94ce-591746c49f50.JPG" />
+  <img title="PCB with OLED protector standoffs" alt="" src="./DSCF3193.JPG" />
+  <img title="lily58" alt="" src="./lily58_pro_right_side_not_assembled.JPG" />
+  <img title="lily58" alt="" src="./lily58_pro_left_side.JPG" />
   <img title="lily58" alt="" src="./DSCF3199.JPG" />
   <img title="lily58" alt="" src="./DSCF3235.JPG" />
   <img title="lily58" alt="" src="./DSCF3211.JPG" />
-  <img title="lily58" alt="" src="./DSCF3230.JPG" />
-  <img title="lily58" alt="" src="./DSCF3226.JPG" />
+    <img title="lily58" alt="" src="./DSCF3226.JPG" />
   <img title="lily58" alt="" src="./DSCF3209.JPG" />
+  <img title="lily58" alt="" src="./DSCF3230.JPG" />
 </div>
 
 ## References
