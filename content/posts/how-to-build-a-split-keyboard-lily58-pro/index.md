@@ -71,7 +71,7 @@ move to **ortholinear split** keyboard layout; size around **60% and use MX-like
 | Keycaps         | [DROP + MATT3O MT3 SUSUWATARI](https://drop.com/buy/drop-matt3o-mt3-susuwatari-custom-keycap-set) <br> With the ergonomic variant                                                                                                  |
 | Switches        | [DROP + INVYR HOLY PANDA MECHANICAL SWITCHES](https://drop.com/buy/drop-invyr-holy-panda-mechanical-switches) <br> Famous switches in the keeb community similar to clear MX                                                       |
 | Chips           | 2 x [Arduino Pro micros](https://www.sparkfun.com/products/12640)  <br> The brain of the keyboard detects all keystrokes in the PCB matrix, interprets and sends them to the computer                                              |
-| LCD             | 2 x [Arduino nano]()  <br> The brain of the keyboard, detects all keystrokes in the PCB matrix, interprets and sends them to the computer                                                                                          |
+| OLED            | 2 x [OLEDs](https://www.littlekeyboards.com/collections/oled-screens/products/oled-screen)  <br> Used to display realtime information about the keyboard. There are no limits as you can code whatever you want to display on them.|
 | USB cable       | [Magnetic USB cable](https://www.amazon.es/conector-magn%C3%A9tico-NetDot-Generation-conectores/dp/B07RZ6F47G/?th=1) <br> Check the [problems post](/posts/problems-faced-while-building-my-lily58-split-keyboard//) for more info |
 | TRRS cable      | [Braided TRRS cable](https://splitkb.com/products/braided-trrs-cable?_pos=1&_psq=braided%20cable&_ss=e&_v=1.0&variant=31226379501645) <br> Ok, this is just for flexing but looks so cool with it                                  |
 | 3D printed legs | [3D printed legs from Thingiverse](https://www.thingiverse.com/thing:4493691) To tilt the keyboard a little bit                                                                                                                    |
@@ -89,8 +89,8 @@ All the process could be separated into 3 sections: 1) soldering electronic part
 
 - First of all, you need to solder SMD diodes alongside each switch socket, on my Lily58 PCB
   there are 58 switches so a ton of work to do. As a little advice don't overheat your soldering iron, 150 C if enough.
-- To continue you must connect the brain, the Arduino Pro Micro of your keyboard to the main PCB, **PLEASE do not solder it directly using pin headers**, just use [Millmax sockets](https://www.40percent.club/2018/03/sockets.html). This type of connector allows you to remove the chip from the board as it is hot-swappable. Using them make your life easier, as you will see in the "Problems faced" section down below.
-- Sold the LCP panel on top of each Arduino using long rigid copper cable
+- To continue you must connect the brain of your keyboard to the main PCB, the Arduino Pro Micro. **PLEASE do not solder the Arduino directly to the PCB**, just use [Millmax sockets](https://www.40percent.club/2018/03/sockets.html). This type of connector makes your life easier [in case of any problem with the chip](/posts/problems-faced-while-building-my-lily58-split-keyboard//), as with it you can remove the chip from the board without desoldering.
+- Sold the OLED panel on top of each Arduino using long rigid copper cable soldering to the PCB headers.
 - And to finish with the soldering part you must solder the JACK sockets and the RESET buttons to the PCB.
 
 ![PCB with hotswap sockets and diodes soldered, photo from https://imgur.com/gallery/eM0zWS9](./51967230-2250a580-24b2-11e9-94ce-591746c49f50.JPG)
