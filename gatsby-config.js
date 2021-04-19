@@ -74,26 +74,26 @@ module.exports = {
               inlineCodeMarker: '÷',
             },
           },
-          {
-            resolve: `@raae/gatsby-remark-oembed`,
-            options: {
-              usePrefix: true,
-              providers: {
-                // Important to exclude providers
-                // that adds js to the page.
-                // If you do not need them.
-                exclude: ['Reddit'],
+//           {
+//             resolve: `@raae/gatsby-remark-oembed`,
+//             options: {
+//               usePrefix: true,
+//               providers: {
+//                 // Important to exclude providers
+//                 // that adds js to the page.
+//                 // If you do not need them.
+//                 exclude: ['Reddit'],
                 
-                settings: {
-                  // Ex. Show all Twitter embeds with the dark theme, and disables ad tracking
-                  Twitter: {
-                    theme: 'dark',
-                    dnt: true
-                  },
-                },
-              },
-            },
-          },
+//                 settings: {
+//                   // Ex. Show all Twitter embeds with the dark theme, and disables ad tracking
+//                   Twitter: {
+//                     theme: 'dark',
+//                     dnt: true
+//                   },
+//                 },
+//               },
+//             },
+//           },
         ],
       },
     },
