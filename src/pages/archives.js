@@ -7,7 +7,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 // import Post from "../components/Post"
 
-import indexStyles from '../styles/index.module.scss';
+import * as indexStyles from '../styles/index.module.scss';
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;

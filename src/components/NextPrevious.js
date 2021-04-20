@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import NextPreviousStyles from '../styles/nextPrevious.module.scss';
+import * as NextPreviousStyles from '../styles/nextPrevious.module.scss';
 
 const NextPrevious = ({ previous, next }) => {
   return (

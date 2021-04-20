@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import postStyles from '../styles/post.module.scss';
+import * as postStyles from '../styles/post.module.scss';
 
 const PostInfo = ({ tags, categories }) => {
   let categoriesHTML =

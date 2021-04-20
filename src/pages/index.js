@@ -11,7 +11,7 @@ import useDarkMode from 'use-dark-mode';
 
 import Waves from '../components/Waves';
 
-import indexStyles from '../styles/index.module.scss';
+import * as indexStyles from '../styles/index.module.scss';
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;

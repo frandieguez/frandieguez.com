@@ -7,7 +7,7 @@ import Logo from './Logo';
 // import Toggle from '../../static/assets/icons/toggle.svg';
 import useDarkMode from 'use-dark-mode';
 
-import layoutStyles from '../styles/layout.module.scss';
+import * as layoutStyles from '../styles/layout.module.scss';
 
 const Layout = ({ location, title, children }) => {
   const darkMode = useDarkMode(false);
@@ -43,7 +43,7 @@ const Layout = ({ location, title, children }) => {
         </div>
       </header>
 
-      <div className={layoutStyles.wrapper}>
+      <div className={layoutStyles.pageWrapper}>
         <main>{children}</main>
       </div>
       <footer className={layoutStyles.Footer}>

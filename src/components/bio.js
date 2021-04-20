@@ -4,7 +4,7 @@ import Image from 'gatsby-image';
 
 import { rhythm } from '../utils/typography';
 
-import bioStyles from '../styles/bio.module.scss';
+import * as bioStyles from '../styles/bio.module.scss';
 
 const Bio = ({ variant = 'simple' }) => (
   <StaticQuery

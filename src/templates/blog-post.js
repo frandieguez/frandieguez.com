@@ -9,7 +9,7 @@ import PostInfo from '../components/postinfo';
 import Bio from '../components/bio';
 import Calendar from '../../static/assets/icons/calendar.svg';
 
-import postStyles from '../styles/post.module.scss';
+import * as postStyles from '../styles/post.module.scss';
 
 import { DiscussionEmbed } from 'disqus-react';
 

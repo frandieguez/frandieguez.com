@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import menuStyles from '../styles/menu.module.scss';
+import * as menuStyles from '../styles/menu.module.scss';
 import { Link } from 'gatsby';
 import useDarkMode from 'use-dark-mode';
 
