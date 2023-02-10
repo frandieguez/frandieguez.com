@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 
-const Tags = ({ pageContext }) => {
+const Tags = ({ pageContext, location }) => {
   const { allMarkdownRemark, site } = useStaticQuery(graphql`
     query ($tag: String) {
       site {
