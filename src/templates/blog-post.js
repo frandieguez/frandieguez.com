@@ -11,8 +11,30 @@ import Calendar from '../../static/assets/icons/calendar.svg';
 
 import * as postStyles from '../styles/post.module.scss';
 
-import { DiscussionEmbed } from 'disqus-react';
-
+export const pageQuery = graphql`
+  query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        layout
+        title
+        date(formatString: "MMMM DD, YYYY")
+        dsq_thread_id
+        author
+        tags
+        categories
+      }
+    }
+  }
+`;
 const BlogPostTemplate = ({ location, data, pageContext }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
@@ -69,7 +91,6 @@ const BlogPostTemplate = ({ location, data, pageContext }) => {
                 Discuss on Twitter
               </a>
             </p>
-            {/* <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} /> */}
           </footer>
         </div>
       </div>
@@ -81,28 +102,4 @@ const BlogPostTemplate = ({ location, data, pageContext }) => {
   );
 };
 
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        layout
-        title
-        date(formatString: "MMMM DD, YYYY")
-        dsq_thread_id
-        author
-        tags
-        categories
-      }
-    }
-  }
-`;
 export default BlogPostTemplate;

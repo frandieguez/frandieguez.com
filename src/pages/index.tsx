@@ -1,29 +1,51 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 
-// import Bio from "../components/bio"
 import Layout from '../components/layout';
-// import Wip from "../components/wip"
 import SEO from '../components/seo';
-// import Post from "../components/Post"
 import Bio from '../components/bio';
-import useDarkMode from 'use-dark-mode';
-
 import Waves from '../components/Waves';
 
 import * as indexStyles from '../styles/index.module.scss';
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title;
-  const posts = data.allMarkdownRemark.edges;
-  const darkMode = useDarkMode(false);
+const BlogIndex = ({ location }) => {
+  const { site, allMarkdownRemark } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          keywords
+        }
+      }
+      allMarkdownRemark(
+        filter: { frontmatter: { published: { eq: true } } }
+        sort: { frontmatter: { date: DESC } }
+        limit: 10
+      ) {
+        edges {
+          node {
+            excerpt
+            fields {
+              slug
+            }
+            frontmatter {
+              date(formatString: "MMMM DD, YYYY")
+              title
+            }
+          }
+        }
+      }
+    }
+  `);
+  const siteTitle = site.siteMetadata.title;
+  const posts = allMarkdownRemark.edges;
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" keywords={data.site.siteMetadata.keywords} />
+      <SEO title="All posts" keywords={site.siteMetadata.keywords} />
 
       <Bio variant="big" />
-      <Waves theme={darkMode.value ? 'dark' : 'light'}></Waves>
+      <Waves />
 
       <div className={indexStyles.contentWrapper} role="main">
         {/* <div>
@@ -85,32 +107,4 @@ const BlogIndex = ({ data, location }) => {
   );
 };
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        keywords
-      }
-    }
-    allMarkdownRemark(
-      filter: { frontmatter: { published: { eq: true } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 10
-    ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-          }
-        }
-      }
-    }
-  }
-`;
 export default BlogIndex;

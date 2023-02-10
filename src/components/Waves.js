@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import useDarkMode from 'use-dark-mode';
 
 function Waves() {

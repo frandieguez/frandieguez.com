@@ -1,13 +1,38 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 
-// import Bio from "../components/bio"
 import Layout from '../components/layout';
-// import Wip from "../components/wip"
 import SEO from '../components/seo';
-// import Post from "../components/Post"
 
 import * as indexStyles from '../styles/index.module.scss';
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        keywords
+      }
+    }
+    allMarkdownRemark(
+      filter: { frontmatter: { published: { eq: true } } }
+      sort: { frontmatter: { date: DESC } }
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+          }
+        }
+      }
+    }
+  }
+`;
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
@@ -46,31 +71,4 @@ const BlogIndex = ({ data, location }) => {
   );
 };
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        keywords
-      }
-    }
-    allMarkdownRemark(
-      filter: { frontmatter: { published: { eq: true } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-          }
-        }
-      }
-    }
-  }
-`;
 export default BlogIndex;

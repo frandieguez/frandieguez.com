@@ -17,7 +17,9 @@ tags:
   - keeb
 ---
 <div class="aligncenter">
-<img title="lily58" alt="" src="./DSCF3271.JPG" />
+
+![lily58](./DSCF3271.JPG)
+
 </div>
 In this article, I'll explain some of the steps and tips that will help you while building my own split keyboard with Lily58 Pro.
 
@@ -57,11 +59,11 @@ The communication between both halves is done via TRRS interface, which is an au
 
 ### My parts selection
 
-In [this world](https://www.reddit.com/r/ErgoMechKeyboards/), there are [tons of options](https://www.youtube.com/watch?v=SkNGxM4LRKQ) 
+In [this world](https://www.reddit.com/r/ErgoMechKeyboards/), there are [tons of options](https://www.youtube.com/watch?v=SkNGxM4LRKQ)
 but the supply chain is scarce. If you plan to build one you can fall
 into a rabbit hole while choosing parts, you only have to visit the [Mechanical Keyboard subreddit](https://www.reddit.com/r/MechanicalKeyboards/) to realize that. Luckily if you are interested in a custom keyboard but you're a little afraid of doing it there is a [second-hand market in Reddit](https://www.reddit.com/r/mechmarket/) that has a lot of options on fully built keebs.
 
-Given the context I've presented in the previous section, I chose some parts that fit the most 
+Given the context I've presented in the previous section, I chose some parts that fit the most
 my requirements: build on top of **open-source hardware and software** so I could modify it;
 move to **ortholinear split** keyboard layout; size around **60% and use MX-like** tactile switches.
 
@@ -101,8 +103,8 @@ I want to give my kudos to [the documentation from keeb.io](https://docs.keeb.io
 
 #### Lubing
 
-One of the revealing parts for me was lubing. Usually, switches come prelubed, which basically consist on opening each switch and apply some special lubricant on [its insides, on the spring, and the stem](https://www.youtube.com/watch?v=qSgPKPoFo2k). In mainstream switches the quality of this lube is not 
-good, and in the community of DIY custom keyboards, you try to apply a higher 
+One of the revealing parts for me was lubing. Usually, switches come prelubed, which basically consist on opening each switch and apply some special lubricant on [its insides, on the spring, and the stem](https://www.youtube.com/watch?v=qSgPKPoFo2k). In mainstream switches the quality of this lube is not
+good, and in the community of DIY custom keyboards, you try to apply a higher
 quality lube.
 
 In my case, I choose **Krytox GPL 205 grade 0**, the best I could buy online at the moment. As mentioned before keyboard parts are usually sold out as they are not manufactured in large chunks.
@@ -179,4 +181,3 @@ Below you can find some photos taken during the process of bui  lding it and the
 * "Official" build guide https://github.com/kata0510/Lily58/blob/master/Pro/Doc/buildguide_en.md
 * One of my favorite professional keebs builder: https://www.youtube.com/watch?v=Qr3nYR15wxU
 * Daniel Ting has a series of posts about this keyboard and the problems he faced https://dp12.github.io/posts/adventures-with-the-lily58-part-1/
-

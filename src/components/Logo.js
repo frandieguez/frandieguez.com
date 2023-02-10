@@ -1,4 +1,5 @@
 import React from 'react';
+
 // Original font 'Jost' https://fonts.google.com/specimen/Jost
 export default function Logo({ fill = '#000' }) {
   return (

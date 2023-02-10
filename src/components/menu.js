@@ -3,7 +3,7 @@ import * as menuStyles from '../styles/menu.module.scss';
 import { Link } from 'gatsby';
 import useDarkMode from 'use-dark-mode';
 
-const Menu = () => {
+export default function () {
   const [open, setOpen] = useState(false);
   const darkMode = useDarkMode(false);
 
@@ -55,6 +55,4 @@ const Menu = () => {
       </button>
     </div>
   );
-};
-
-export default Menu;
+}

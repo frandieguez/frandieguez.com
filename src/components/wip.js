@@ -10,10 +10,12 @@ const Wip = styled.div`
   margin: 0 auto 40px auto;
 `;
 
-export default () => {
+function wipElement() {
   return (
     <Wip>
       This site is under construction. Sorry for those things that look wrong.
     </Wip>
   );
-};
+}
+
+export default wipElement;

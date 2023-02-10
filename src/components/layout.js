@@ -9,7 +9,7 @@ import useDarkMode from 'use-dark-mode';
 
 import * as layoutStyles from '../styles/layout.module.scss';
 
-const Layout = ({ location, title, children }) => {
+export default ({ location, title, children }) => {
   const darkMode = useDarkMode(false);
   const rootPath = `${__PATH_PREFIX__}/`;
 
@@ -84,5 +84,3 @@ const SiteQuery = graphql`
     }
   }
 `;
-
-export default Layout;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import * as NextPreviousStyles from '../styles/nextPrevious.module.scss';
 
-const NextPrevious = ({ previous, next }) => {
+export default function ({ previous, next }) {
   return (
     <nav className={NextPreviousStyles.wrapper}>
       <hr className={NextPreviousStyles.separator} />
@@ -28,6 +28,4 @@ const NextPrevious = ({ previous, next }) => {
       <hr className={NextPreviousStyles.separator} />
     </nav>
   );
-};
-
-export default NextPrevious;
+}

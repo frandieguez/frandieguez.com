@@ -1,11 +1,20 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 const AboutPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title;
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+  const siteTitle = site.siteMetadata.title;
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -36,8 +45,8 @@ const AboutPage = ({ data, location }) => {
               placeholder="Your message"
               name="message"
               id="message"
-              cols="30"
-              rows="10"
+              cols={30}
+              rows={10}
               required
             />
           </p>
@@ -49,15 +58,5 @@ const AboutPage = ({ data, location }) => {
     </Layout>
   );
 };
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;
 
 export default AboutPage;

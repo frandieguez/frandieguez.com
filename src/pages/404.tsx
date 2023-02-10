@@ -1,25 +1,31 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Vader from '../../static/assets/logos/darth.svg';
 
-const NotFoundPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title;
+const NotFoundPage = ({ location }) => {
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={site.siteMetadata.title}>
       <SEO title="404: Not Found" />
       <h1 className="error404Title">Error #404</h1>
 
       <div className="wrapper404">
         <div className="error404Image">
-          {' '}
-          <Vader />{' '}
+          <Vader />
         </div>
         <div>
-          {' '}
           <div className="error404Message">
             I find your lack of navigation disturbing.
           </div>
@@ -30,13 +36,3 @@ const NotFoundPage = ({ data, location }) => {
 };
 
 export default NotFoundPage;
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;
