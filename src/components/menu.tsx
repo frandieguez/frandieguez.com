@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as menuStyles from '../styles/menu.module.scss';
 import { Link } from 'gatsby';
 import useDarkMode from 'use-dark-mode';
-import '@theme-toggles/react/css/classic.css';
+// import '@theme-toggles/react/css/classic.css';
 import { Classic } from '@theme-toggles/react';
 
 export default function () {

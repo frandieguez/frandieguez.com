@@ -92,9 +92,14 @@
 .heroImage {
   width: 100%;
   position: relative;
+  overflow: visible;
 
   img {
-    filter: drop-shadow(30px 10px 4px #4444dd);
+    filter: drop-shadow(1px 1px 0px);
+    filter: drop-shadow(0 0 0.75rem var(--bg-color-peach));
+  }
+  .gatsby-image-wrapper {
+    overflow: visible !important;
   }
 
   // .gatsby-image-wrapper {
