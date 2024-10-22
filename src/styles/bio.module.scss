@@ -40,10 +40,18 @@
 .hero {
   @media only screen and (min-width: 33.75em) {
     font-size: 64px;
+
+    span {
+      font-size: 50px;
+    }
   }
 
   @media only screen and (min-width: 28.75em) {
     font-size: 54px;
+
+    span {
+      font-size: 40px;
+    }
   }
 }
 
@@ -83,11 +91,26 @@
 
 .heroImage {
   width: 100%;
+  position: relative;
 
-  &:hover {
-    transition: transform 300ms ease-in-out;
-    transform: rotate3d(0, 0, 3, 5deg);
-  }
+  // .gatsby-image-wrapper {
+  //   position: relative;
+  //   overflow: hidden;
+  //   z-index: 2;
+  // }
+
+  // .visage {
+  //   position: absolute;
+  //   top: 0;
+  //   z-index: 1;
+  //   width: 150%;
+  //   margin-left: -119px;
+  // }
+
+  // &:hover {
+  //   transition: transform 300ms ease-in-out;
+  //   transform: rotate3d(0, 0, 3, 5deg);
+  // }
 
   @media only screen and (max-width: 767px) {
     padding: 1em;
@@ -113,4 +136,18 @@
   background: var(--bg-color-cream);
   padding: var(--text-md);
   transition: all;
+}
+.socialNetworks {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  margin-top: 2rem;
+  a {
+    border: 0 none;
+  }
+
+  svg {
+    width: 30px;
+  }
 }

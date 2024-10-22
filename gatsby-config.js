@@ -7,6 +7,8 @@ module.exports = {
     siteUrl: `https://www.frandieguez.dev`,
     social: {
       twitter: `@frandieguez`,
+      github: 'frandieguez',
+      linkedin: 'frandieguez',
     },
   },
   plugins: [
@@ -92,7 +94,7 @@ module.exports = {
         icon: `static/favicon.png`,
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
     // `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
@@ -100,7 +102,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    `gatsby-plugin-sass`,
+    'gatsby-plugin-sass',
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-feed`,

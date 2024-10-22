@@ -12,29 +12,27 @@ exports.createPages = ({ graphql, actions }) => {
     toPath: `/posts/dokku-create-your-own-paas/`,
   });
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`);
-  return graphql(
-    `
-      {
-        allMarkdownRemark(
-          filter: { frontmatter: { published: { eq: true } } }
-          sort: { frontmatter: { date: DESC } }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
+  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
+  return graphql(`
+    {
+      allMarkdownRemark(
+        filter: { frontmatter: { published: { eq: true } } }
+        sort: { frontmatter: { date: DESC } }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
             }
           }
         }
       }
-    `
-  ).then((result) => {
+    }
+  `).then((result) => {
     if (result.errors) {
       throw result.errors;
     }

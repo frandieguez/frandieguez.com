@@ -20,7 +20,7 @@ const BlogIndex = ({ location }) => {
       allMarkdownRemark(
         filter: { frontmatter: { published: { eq: true } } }
         sort: { frontmatter: { date: DESC } }
-        limit: 10
+        limit: 5
       ) {
         edges {
           node {
@@ -47,7 +47,7 @@ const BlogIndex = ({ location }) => {
       <Bio variant="big" />
       <Waves />
 
-      <div className={indexStyles.contentWrapper} role="main">
+      <div className={indexStyles['contentWrapper']} role="main">
         {/* <div>
           <h2>Things to put here</h2>
           <ul>
@@ -63,20 +63,20 @@ const BlogIndex = ({ location }) => {
           </ul>
         </div> */}
 
-        <div className={indexStyles.postsWrapper}>
-          <h2 className={indexStyles.postsWrapperTitle}>My latests posts</h2>
+        <div className={indexStyles['postsWrapper']}>
+          <h2 className={indexStyles['postsWrapperTitle']}>My latests posts</h2>
           {posts.map(({ node }) => {
             let title = node.frontmatter.title || node.fields.slug;
             return (
-              <div key={node.fields.slug} className={indexStyles.post}>
-                <h3 className={indexStyles.title}>
+              <div key={node.fields.slug} className={indexStyles['post']}>
+                <h3 className={indexStyles['title']}>
                   <Link to={node.fields.slug}>{title}</Link>
                 </h3>
-                <span className={indexStyles.date}>
+                <span className={indexStyles['date']}>
                   {node.frontmatter.date}
                 </span>
                 {/* <div
-                  className={indexStyles.excerpt}
+                  className={indexStyles['excerpt']}
                   dangerouslySetInnerHTML={{ __html: node.excerpt }}
                 /> */}
               </div>
@@ -88,9 +88,9 @@ const BlogIndex = ({ location }) => {
           </div>
         </div>
       </div>
-      {/* <div className={indexStyles.moreContacts}>
-        <div className={indexStyles.moreContactsPhotos}>Photos</div>
-        <div className={indexStyles.moreContactsText}>
+      {/* <div className={indexStyles['moreContacts']}>
+        <div className={indexStyles['moreContactsPhotos']}>Photos</div>
+        <div className={indexStyles['moreContactsText']}>
           If you want to know what other amazing professionals that I admire and
           I have worked with think about me , check my{' '}
           <a
