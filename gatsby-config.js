@@ -132,26 +132,27 @@ module.exports = {
                 });
               });
             },
-            query: `
-              {
-                allMarkdownRemark(
-                  limit: 1000,
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                  filter: {frontmatter: { published: { eq: true } }}
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields { slug }
-                      frontmatter {
-                        title
-                        date
-                      }
+            query: `{
+              allMarkdownRemark(
+                limit: 1000
+                sort: {frontmatter: {date: DESC}}
+                filter: {frontmatter: {published: {eq: true}}}
+              ) {
+                edges {
+                  node {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
                     }
                   }
                 }
               }
+            }
             `,
             output: '/rss.xml',
             title: 'frandieguez.com RSS Feed',
