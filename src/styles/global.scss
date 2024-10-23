@@ -1,6 +1,6 @@
-@import './partials/blockquote';
-@import './partials/wave';
-@import './partials/code';
+@use 'partials/blockquote';
+@use 'partials/wave';
+@use 'partials/code';
 
 body {
   --background-blue: #00aeef;
@@ -348,4 +348,8 @@ textarea {
   to {
     mask-size: 200vmax;
   }
+}
+
+.gatsby-image-wrapper {
+  overflow: visible !important;
 }

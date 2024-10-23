@@ -50,7 +50,11 @@ const BlogPostTemplate = ({ location, data, pageContext }) => {
   )}`;
 
   return (
-    <Layout location={location} title={siteTitle} className="postStyles.post">
+    <Layout
+      location={location}
+      title={siteTitle}
+      className={`${postStyles['post']}`}
+    >
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <div className={postStyles['post']}>
         {post.frontmatter.layout !== 'phrase' ? (

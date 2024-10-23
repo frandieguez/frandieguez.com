@@ -56,6 +56,10 @@
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
+    "@babel/helper-environment-visitor": "^7.24.7",
+    "@babel/helper-function-name": "^7.24.7",
+    "@babel/helper-hoist-variables": "^7.24.7",
+    "@babel/helper-split-export-declaration": "^7.24.7",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.1",
     "gh-pages": "^6.2.0",
