@@ -14,7 +14,7 @@ const Bio = ({ variant = 'simple' }) => {
     return (
       <div className={bioStyles['bioLargeWrapper']}>
         <div className={bioStyles['heroWrapper']}>
-          <div className={`${bioStyles['heroImage']} relative`}>
+          <div className={`${bioStyles['heroImage']} relative mb-4`}>
             <div
               style={{ backgroundColor: '#FFF8F3' }}
               className="size-72 animate-amoeba absolute md:-top-3 md:-left-3 top-1 left-1 z-0"
