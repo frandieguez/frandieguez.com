@@ -27,12 +27,11 @@ const Bio = ({ variant = 'simple' }) => {
             <h1 className={bioStyles['hero']}>
               Hey, I'm Fran <br />
               <span>
-                a{' '}
                 <Typewriter
                   words={[
-                    'Web Tech Lead',
-                    'open sourcerer',
-                    'full stack developer',
+                    'a Web Tech Lead',
+                    'an open sourcerer',
+                    'a full stack developer',
                   ]}
                 />
               </span>
@@ -42,10 +41,11 @@ const Bio = ({ variant = 'simple' }) => {
               <br />
             </h2> */}
             <p>
-              With over {new Date().getFullYear() - 2006} years of experience
-              creating impactful tools that benefit users, regardless of the
-              roles I've held throughout my career (Software Developer, Tech
-              Lead, Head of Research and Development, or CTO).
+              With over {new Date().getFullYear() - 2006} years of crafting
+              solutions that truly matter, from my early days as a Software
+              Developer to leading teams as Web Tech Lead, my passion has always
+              remained the same: turning ideas into tools that enhance users'
+              lives.
             </p>
             <ul className={bioStyles['socialNetworks']}>
               <li>
@@ -55,15 +55,15 @@ const Bio = ({ variant = 'simple' }) => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    shape-rendering="geometricPrecision"
-                    text-rendering="geometricPrecision"
-                    image-rendering="optimizeQuality"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    shapeRendering="geometricPrecision"
+                    textRendering="geometricPrecision"
+                    imageRendering="optimizeQuality"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     viewBox="0 0 512 462.799"
                   >
                     <path
-                      fill-rule="nonzero"
+                      fillRule="nonzero"
                       d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"
                     />
                   </svg>

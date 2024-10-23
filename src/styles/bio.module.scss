@@ -94,12 +94,19 @@
   position: relative;
   overflow: visible;
 
-  // img {
-  //   filter: drop-shadow(1px 1px 0px);
-  //   filter: drop-shadow(0 0 0.75rem var(--bg-color-peach));
-  // }
+  * {
+    // overflow: visible !important;
+  }
+
+  img {
+    filter: drop-shadow(3px 5px var(--bg-color-peach));
+    border-radius: 50%; // this make circle
+    overflow: hidden; //hiding image overflow
+    object-position: center;
+  }
   .gatsby-image-wrapper {
     overflow: visible !important;
+    position: initial !important;
   }
 
   // .gatsby-image-wrapper {
@@ -158,5 +165,12 @@
 
   svg {
     width: 30px;
+  }
+
+  // Estilos para el modo oscuro
+  .dark-mode & {
+    svg path {
+      color: white;
+    }
   }
 }

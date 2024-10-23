@@ -29,6 +29,7 @@
     "gatsby-plugin-sass": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-plugin-sitemap": "^6.13.1",
+    "gatsby-plugin-transition-link": "^1.20.5",
     "gatsby-plugin-typography": "^5.13.1",
     "gatsby-plugin-use-dark-mode": "^2.0.1",
     "gatsby-remark-autolink-headers": "^6.13.1",
