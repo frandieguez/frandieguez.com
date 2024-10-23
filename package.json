@@ -16,6 +16,7 @@
     "@raae/gatsby-remark-oembed": "^0.3.3",
     "@theme-toggles/react": "^4.1.0",
     "babel-plugin-styled-components": "^2.1.4",
+    "framer-motion": "^11.11.9",
     "gatsby": "^5.13.7",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-feed": "^5.13.1",
@@ -42,6 +43,7 @@
     "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
     "lodash": "^4.17.21",
+    "lucide-react": "^0.453.0",
     "prismjs": "^1.29.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -60,12 +62,16 @@
     "@babel/helper-function-name": "^7.24.7",
     "@babel/helper-hoist-variables": "^7.24.7",
     "@babel/helper-split-export-declaration": "^7.24.7",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.1",
+    "gatsby-plugin-postcss": "^6.13.1",
     "gh-pages": "^6.2.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
-    "prettier": "^3.3.3"
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.14"
   },
   "homepage": "https://frandieguez.dev",
   "keywords": [

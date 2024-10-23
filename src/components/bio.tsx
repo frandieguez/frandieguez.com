@@ -24,10 +24,11 @@ const Bio = ({ variant = 'simple' }) => {
             />
           </div>
           <div className={bioStyles['heroText']}>
-            <h1 className={bioStyles['hero']}>
+            <h1 className={`${bioStyles['hero']} font-bold mb-6`}>
               Hey, I'm Fran <br />
               <span>
                 <Typewriter
+                  loop={true}
                   words={[
                     'a Web Tech Lead',
                     'an open sourcerer',

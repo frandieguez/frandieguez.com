@@ -7,6 +7,7 @@ import Bio from '../components/bio';
 import Waves from '../components/Waves';
 
 import * as indexStyles from '../styles/index.module.scss';
+import WorkExperienceRightTimeline from '../components/WorkingExperience';
 
 const BlogIndex = ({ location }) => {
   const { site, allMarkdownRemark } = useStaticQuery(graphql`
@@ -20,7 +21,7 @@ const BlogIndex = ({ location }) => {
       allMarkdownRemark(
         filter: { frontmatter: { published: { eq: true } } }
         sort: { frontmatter: { date: DESC } }
-        limit: 5
+        limit: 6
       ) {
         edges {
           node {
@@ -48,23 +49,12 @@ const BlogIndex = ({ location }) => {
       <Waves />
 
       <div className={indexStyles['contentWrapper']} role="main">
-        {/* <div>
-          <h2>Things to put here</h2>
-          <ul>
-            <ol>one thing</ol>
-            <ol>another thing</ol>
-            <ol>and even more things...</ol>
-          </ul>
-          <h2>Things to put here</h2>
-          <ul>
-            <ol>one thing</ol>
-            <ol>another thing</ol>
-            <ol>and even more things...</ol>
-          </ul>
-        </div> */}
-
         <div className={indexStyles['postsWrapper']}>
-          <h2 className={indexStyles['postsWrapperTitle']}>My latests posts</h2>
+          <h2
+            className={`${indexStyles['postsWrapperTitle']} text-3xl font-bold text-center mb-6`}
+          >
+            My latests posts
+          </h2>
           {posts.map(({ node }) => {
             let title = node.frontmatter.title || node.fields.slug;
             return (
@@ -87,6 +77,9 @@ const BlogIndex = ({ location }) => {
             <a href="/archives">Read previous posts...</a>
           </div>
         </div>
+        <WorkExperienceRightTimeline
+          className={indexStyles['experienceWrapper']}
+        />
       </div>
       {/* <div className={indexStyles['moreContacts']}>
         <div className={indexStyles['moreContactsPhotos']}>Photos</div>

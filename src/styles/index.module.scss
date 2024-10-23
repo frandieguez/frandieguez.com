@@ -64,6 +64,9 @@
   @media (min-width: 768px) {
     flex-direction: row;
   }
+  > * {
+    flex: 1;
+  }
 
   // > * {
   //   flex: 0 0 50%;

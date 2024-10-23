@@ -13,6 +13,7 @@ module.exports = {
   },
   plugins: [
     // `gatsby-plugin-styled-component`
+    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-plugin-use-dark-mode',
       options: {
