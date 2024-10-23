@@ -14,8 +14,13 @@ const Bio = ({ variant = 'simple' }) => {
     return (
       <div className={bioStyles['bioLargeWrapper']}>
         <div className={bioStyles['heroWrapper']}>
-          <div className={bioStyles['heroImage']}>
+          <div className={`${bioStyles['heroImage']} relative`}>
+            <div
+              style={{ backgroundColor: '#FFF8F3' }}
+              className="size-72 animate-amoeba absolute -top-2 -left-2 z-0"
+            ></div>
             <Img
+              className="size-64 relative z-10"
               fluid={avatarBig.childImageSharp.fluid}
               alt={author}
               imgStyle={{

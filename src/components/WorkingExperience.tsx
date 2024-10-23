@@ -30,7 +30,7 @@ const workExperience = [
     location: 'Santiago de Compostela, Spain',
     description:
       "Started my career working creating open source tools and developing the GNU/Linux distribution for the university's internal services (authentication, personalization, automated installation).",
-    logo: 'https://assets.usc.gal/sites/default/files/styles/content_inner_image/public/image/2022-10/USC_0.png?itok=-VVCoWUl',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Logotype_of_Universidade_de_Santiago_de_Compostela.svg/154px-Logotype_of_Universidade_de_Santiago_de_Compostela.svg.png',
   },
 ];
 
@@ -40,11 +40,11 @@ const CompanyLogo: React.FC<{
   children?: ReactNode;
 }> = ({ company, logo, children }) => {
   return (
-    <div className={`absolute top-6 right-4 w-14 `}>
+    <div className={`absolute top-6 right-4 w-16`}>
       <img
         src={logo}
         alt={`${company} logo`}
-        className="w-full h-full object-contain rounded-full"
+        className="w-full h-full object-contain grayscale"
       />
     </div>
   );

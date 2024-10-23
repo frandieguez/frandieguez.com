@@ -91,7 +91,6 @@
 }
 
 .heroImage {
-  width: 100%;
   position: relative;
   overflow: visible;
 
@@ -100,7 +99,6 @@
   }
 
   img {
-    filter: drop-shadow(3px 5px var(--bg-color-peach));
     border-radius: 50%; // this make circle
     overflow: hidden; //hiding image overflow
     object-position: center;
