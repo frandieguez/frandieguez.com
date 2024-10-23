@@ -49,7 +49,7 @@ const BlogIndex = ({ location }) => {
       <Waves />
 
       <div className={indexStyles['contentWrapper']} role="main">
-        <div className={indexStyles['postsWrapper']}>
+        <div className={`mb-6 ${indexStyles['postsWrapper']}`}>
           <h2
             className={`${indexStyles['postsWrapperTitle']} text-3xl font-bold text-center mb-6`}
           >

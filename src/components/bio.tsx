@@ -17,10 +17,10 @@ const Bio = ({ variant = 'simple' }) => {
           <div className={`${bioStyles['heroImage']} relative`}>
             <div
               style={{ backgroundColor: '#FFF8F3' }}
-              className="size-72 animate-amoeba absolute -top-2 -left-2 z-0"
+              className="size-72 animate-amoeba absolute md:-top-3 md:-left-3 top-1 left-1 z-0"
             ></div>
             <Img
-              className="size-64 relative z-10"
+              className="size-64 relative z-10 md:mr-12"
               fluid={avatarBig.childImageSharp.fluid}
               alt={author}
               imgStyle={{
@@ -29,7 +29,7 @@ const Bio = ({ variant = 'simple' }) => {
             />
           </div>
           <div className={bioStyles['heroText']}>
-            <h1 className={`${bioStyles['hero']} font-bold mb-6`}>
+            <h1 className={`${bioStyles['hero']} text-4xl font-bold mb-6`}>
               Hey, I'm Fran <br />
               <span>
                 <Typewriter
@@ -53,7 +53,9 @@ const Bio = ({ variant = 'simple' }) => {
               remained the same: turning ideas into tools that enhance users'
               lives.
             </p>
-            <ul className={bioStyles['socialNetworks']}>
+            <ul
+              className={`w-full flex justify-center md:justify-start ${bioStyles['socialNetworks']}`}
+            >
               <li>
                 <a
                   target="_blank"
@@ -75,7 +77,6 @@ const Bio = ({ variant = 'simple' }) => {
                   </svg>
                 </a>
               </li>
-
               <li>
                 <a
                   target="_blank"

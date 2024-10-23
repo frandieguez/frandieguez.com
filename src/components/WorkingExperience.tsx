@@ -57,18 +57,18 @@ const WorkExperienceRightTimeline: React.FC<{ className: string }> = ({
 
   return (
     <section className="">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">
           My Working Experience
         </h2>
-        <div className="max-w-3xl mx-auto relative">
+        <div className="mx-auto relative">
           {/* Vertical line */}
           {/* <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-gray-200"></div> */}
 
           {workExperience.map((job, index) => (
             <motion.div
               key={index}
-              className="mb-8 ml-12 relative"
+              className="mb-8 lg:ml-12 relative"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.2 }}
