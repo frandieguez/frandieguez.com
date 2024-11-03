@@ -6,7 +6,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 // Note: Replace with your actual work experience data
 const workExperience = [
   {
-    company: 'Situm Technologies S.L.',
+    company: 'Situm Technologies',
     role: 'Web Tech Lead',
     period: '2019 - Present',
     location: 'Remote',
@@ -15,7 +15,7 @@ const workExperience = [
     logo: 'https://situm.com/wp-content/themes/situm/img/logo-situm.svg',
   },
   {
-    company: 'OpenHost S.L.',
+    company: 'OpenHost',
     role: 'Full Stack Developer',
     period: '2009 - 2019',
     location: 'Remote',
