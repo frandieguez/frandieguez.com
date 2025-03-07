@@ -17,13 +17,16 @@ tags:
   - developer mistakes
   - lessons learned
 ---
+<div class="aligncenter">
+
+![Performance](./performance.png)
+
+</div>
 Throughout my career as a developer, I have made mistakes and learned valuable lessons that have changed the way I work. At first, I thought the most important thing was to write code that worked as quickly as possible, but over time, I discovered that quality, communication, and planning are just as essential.
 
 In this article, I will share some common mistakes I have made (or seen others make) and the lessons I have learned from them.
 
-⸻
-
-1. Clean and Maintainable Code: More Important Than It Seems
+## 1. Clean and Maintainable Code: More Important Than It Seems
 
 Mistake:
 
@@ -41,9 +44,7 @@ Practical Advice:
 
 Always ask yourself: “If someone else had to understand this code without asking me anything, could they do it in just a few minutes?” If the answer is no, it’s time to refactor.
 
-⸻
-
-2. The Importance of Writing Tests (and How I Avoided It at First)
+## 2. The Importance of Writing Tests (and How I Avoided It at First)
 
 Mistake:
 
@@ -62,9 +63,7 @@ Practical Advice:
 	•	Use tools like Jest for React or JUnit for Java.
 	•	Prioritize writing tests for the system’s critical parts.
 
-⸻
-
-3. It’s Not Just About Code: Communication Is Key
+## 3. It’s Not Just About Code: Communication Is Key
 
 Mistake:
 
@@ -83,9 +82,7 @@ Practical Advice:
 	•	Learn to ask key questions to understand client requirements.
 	•	Document important decisions to avoid future confusion.
 
-⸻
-
-4. Architecture Matters More Than It Seems
+## 4. Architecture Matters More Than It Seems
 
 Mistake:
 
@@ -104,9 +101,7 @@ Practical Advice:
 	•	Divide code into independent modules to facilitate maintenance.
 	•	Don’t hesitate to refactor if the initial architecture starts to become a problem.
 
-⸻
-
-5. Continuous Learning Is Mandatory
+## 5. Continuous Learning Is Mandatory
 
 Mistake:
 
@@ -125,9 +120,7 @@ Practical Advice:
 	•	Follow blogs, online courses, and developer communities.
 	•	Don’t be afraid to try new tools, even if they feel uncomfortable at first.
 
-⸻
-
-Conclusion
+## Conclusion
 
 Over the years, I have learned that being a good developer is not just about writing code that works but about writing clean code, maintaining good communication, choosing the right architecture, and never stopping learning.
 
