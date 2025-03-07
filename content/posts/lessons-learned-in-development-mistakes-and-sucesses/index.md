@@ -1,6 +1,6 @@
 ---
 id: 1693
-title: Lessons Learned Over Years in Development: Mistakes and Successes
+title: Lessons Learned Over Years in Development - Mistakes and Successes
 date: 2025-04-07T22:42:07+00:00
 author: Fran Diéguez
 layout: post
