@@ -20,7 +20,7 @@ tags:
 
 <div class="aligncenter">
 
-![Performance](./performance.png)
+![Performance](./barita.png)
 
 </div>
 
@@ -34,15 +34,15 @@ In this article, I’ll share the main challenges of leading a development team 
 
 One of the biggest difficulties is balancing leadership responsibilities with hands-on development. Meetings, planning, and team coordination can consume most of your day, leaving little time for coding.
 
-## 2. Letting Go of Full Control
+### 2. Letting Go of Full Control
 
 As a developer, you’re used to solving problems yourself. As a lead, you need to trust your team and delegate tasks instead of trying to do everything alone.
 
-## 3. Keeping Up with Technology
+### 3. Keeping Up with Technology
 
 While managing a team, you might spend less time coding, making it harder to stay up to date with the latest frameworks, tools, and best practices.
 
-## 4. Maintaining Code Quality Without Micromanaging
+### 4. Maintaining Code Quality Without Micromanaging
 
 Ensuring high-quality code while giving your team autonomy is a delicate balance. Reviewing code without being overbearing is a skill in itself.
 
