@@ -10,9 +10,14 @@ const typography = new Typography({
       name: 'Playfair Display',
       styles: ['400italic', '400', '900'],
     },
+
+    {
+      name: 'Dosis',
+      styles: ['400italic', '400', '900'],
+    },
   ],
   bodyFontFamily: ['IBM Plex Sans', 'sans-serif'],
-  headerFontFamily: ['Playfair Display', 'sans-serif'],
+  headerFontFamily: ['Dosis', 'sans-serif'],
 });
 
 // Hot reload typography in development.

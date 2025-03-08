@@ -68,7 +68,7 @@ const BlogPostTemplate = ({ location, data, pageContext }) => {
             {/* <div>{post.frontmatter.excerpt}</div> */}
 
             <time className={postStyles['date']}>
-              <Calendar className="icon" /> {post.frontmatter.date}{' '}
+              <Calendar className="icon" /> <div>{post.frontmatter.date}</div>
             </time>
 
             {/* <div className={postStyles['author']}>

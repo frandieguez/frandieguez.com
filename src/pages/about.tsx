@@ -32,7 +32,10 @@ const AboutPage = ({ data, location }) => {
           applications as a Full Stack Developer since 2006. I've been in
           multiple positions thoughtout my career, from a software developer,
           lead developer, CTO, and{' '}
-          <strong>Head of Research and Development</strong>. The objective on
+          <strong>Head of Research and Development</strong>. 
+        </p>
+        <p>
+          The objective on
           each project is to create useful tools that make impact on users.
         </p>
         I've being using different technologies over the time:
