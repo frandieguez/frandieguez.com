@@ -51,7 +51,7 @@ const BlogIndex = ({ location }) => {
       <div className={indexStyles['contentWrapper']} role="main">
         <div className={`mb-6 ${indexStyles['postsWrapper']}`}>
           <h2
-            className={`${indexStyles['postsWrapperTitle']} text-3xl font-bold text-center mb-6`}
+            className={`${indexStyles['postsWrapperTitle']} text-2xl font-bold text-center mb-6`}
           >
             My latests posts
           </h2>

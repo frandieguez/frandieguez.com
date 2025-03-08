@@ -17,7 +17,7 @@ const typography = new Typography({
     // },
     {
       name: 'Lexend',
-      styles: ['400italic', '400', '900'],
+      styles: ['200italic', '200', '300', '400'],
     },
     
   ],

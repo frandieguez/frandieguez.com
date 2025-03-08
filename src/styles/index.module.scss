@@ -16,6 +16,8 @@
     a {
       text-decoration: none;
       border: 0 none;
+      font-weight: 300;
+      line-height: 1.7rem;
     }
 
     a:hover {
@@ -45,6 +47,7 @@
 }
 .postsWrapperTitle {
   margin-top: 0.5rem;
+  font-weight: 400;
 }
 
 .contentWrapper {

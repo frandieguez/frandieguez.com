@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, ChevronDown, ChevronUp } from 'lucide-react';
-import { StaticImage } from 'gatsby-plugin-image';
+import * as indexStyles from '../styles/index.module.scss';
 
 // Note: Replace with your actual work experience data
 const workExperience = [
@@ -40,7 +40,7 @@ const CompanyLogo: React.FC<{
   children?: ReactNode;
 }> = ({ company, logo, children }) => {
   return (
-    <div className={`absolute top-6 right-4 w-16`}>
+    <div className={`absolute top-6 right-4 w-20`}>
       <img
         src={logo}
         alt={`${company} logo`}
@@ -56,9 +56,9 @@ const WorkExperienceRightTimeline: React.FC<{ className: string }> = ({
   const [expandedIndex, setExpandedIndex] = useState<number>(null);
 
   return (
-    <section className="">
+    <section className={`${className}`}>
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">
+        <h2  className={`${indexStyles['postsWrapperTitle']}  text-2xl font-bold text-center mb-6`}>
           My Working Experience
         </h2>
         <div className="mx-auto relative">
