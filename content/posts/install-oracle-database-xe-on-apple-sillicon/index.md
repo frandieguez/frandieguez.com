@@ -27,6 +27,12 @@ But I had a problem… while tinkering with Oracle Database, **it wasn't possibl
 
 The issue is that **Docker Desktop on Mac with Apple Sillicon cannot run images that are not built for arm64 architectures**. While it can sometimes emulate amd64-based images, it comes with a warning that performance may be unstable.  
 
+<div style="text-align:center">
+
+![Colima logo](./colima.png)
+
+</div>
+
 Fortunately, open source comes in handy, and now there's a solution! The key is **[Colima](https://github.com/abiosoft/colima)**, a lightweight Linux virtual machine that runs on Apple Silicon Macs and enables compatibility with x86-based Docker images.  
 
 ## Install the required software
