@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import * as postStyles from '../styles/post.module.scss';
+import _ from 'lodash';
 
 const PostInfo = ({ tags, categories }) => {
   let categoriesHTML =
@@ -21,7 +22,7 @@ const PostInfo = ({ tags, categories }) => {
   let tagsHTML = tags
     ? tags.map((tag) => {
         return (
-          <Link key={tag} className={postStyles.tagLink} to={'/tag/' + tag}>
+          <Link key={tag} className={postStyles.tagLink} to={`/tag/${_.kebabCase(tag)}`}>
             {tag}
           </Link>
         );
