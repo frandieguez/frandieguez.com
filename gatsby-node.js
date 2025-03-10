@@ -1,6 +1,6 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
-// import _ from 'lodash';
+import _ from 'lodash';
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
