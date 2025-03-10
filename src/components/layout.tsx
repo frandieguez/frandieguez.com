@@ -6,10 +6,13 @@ import Menu from './menu';
 import Logo from './Logo';
 // import Toggle from '../../static/assets/icons/toggle.svg';
 import useDarkMode from 'use-dark-mode';
+import { Helmet } from "react-helmet";
 
 import * as layoutStyles from '../styles/layout.module.scss';
 
 export default ({ location, title, children }) => {
+  const canonicalUrl = `https://www.frandieguez.dev${location.pathname}`;
+
   const darkMode = useDarkMode(false);
   const rootPath = `${__PATH_PREFIX__}/`;
 
@@ -33,7 +36,13 @@ export default ({ location, title, children }) => {
     header = <h3 className={layoutStyles['siteTitle']}>{HeaderContent}</h3>;
   }
 
-  return (
+  return (<>
+    {location.host != 'www.frandieguez.dev' && (
+      <Helmet>
+        <link rel="canonical" href={canonicalUrl} />
+      </Helmet>
+
+    )}
     <div className={`${layoutStyles['pageWrapper']}`}>
       <header
         className={`${layoutStyles['Header']} ${layoutStyles['wrapper']}`}
@@ -72,6 +81,7 @@ export default ({ location, title, children }) => {
         </div>
       </footer>
     </div>
+  </>
   );
 };
 
