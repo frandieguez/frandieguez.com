@@ -64,7 +64,52 @@ const Bio = ({ variant = 'simple' }) => {
     );
   }
 
-  return <></>;
+  return (
+    <div className={bioStyles['bioLargeWrapper']}>
+      <div className={bioStyles['heroWrapper']}>
+        <div className={`${bioStyles['heroImage']} relative mb-4`}>
+          <ParallaxTilt
+            glareEnable={true}
+            glareMaxOpacity={0.4}
+            tiltMaxAngleX={25}
+            tiltMaxAngleY={15}
+            transitionSpeed={300}
+            className="rounded-full"
+          >
+            <div
+              style={{ backgroundColor: '#FFF8F3' }}
+              className="size-72 animate-amoeba absolute md:-top-3 md:-left-3 top-1 left-1 z-0"
+            ></div>
+            <Img
+              className="size-64 relative z-10 md:mr-12"
+              fluid={avatarBig.childImageSharp.fluid}
+              alt={author}
+              imgStyle={{
+                borderRadius: '50%',
+              }}
+            />
+          </ParallaxTilt>
+        </div>
+        <div className={bioStyles['heroText']}>
+          <h1 className="text-4xl font-bold mb-6">
+            Hey, I'm Fran
+          </h1>
+          <p>
+            I've been developing web
+            applications as a Full Stack Developer since 2006. I've been in
+            multiple positions thoughtout my career, from a software developer,
+            lead developer, CTO, and{' '}
+            <strong>Head of Research and Development</strong>.
+          </p>
+          <p>
+            The objective on
+            each project is to create useful tools that make impact on users.
+          </p>
+        </div>
+      </div>
+
+    </div >
+  );;
 };
 
 const bioQuery = graphql`
