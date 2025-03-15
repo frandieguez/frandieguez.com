@@ -59,8 +59,8 @@ const BlogIndex = ({ location }) => {
             let title = node.frontmatter.title || node.fields.slug;
             return (
               <div key={node.fields.slug} className={indexStyles['post']}>
-                <h3 className={indexStyles['title']}>
-                  <Link to={node.fields.slug}>{title}</Link>
+                <h3 className={`${indexStyles['title']}`}>
+                  <Link className="text-lg" to={node.fields.slug}>{title}</Link>
                 </h3>
                 <span className={indexStyles['date']}>
                   {node.frontmatter.date}

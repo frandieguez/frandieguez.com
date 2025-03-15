@@ -3,7 +3,8 @@ import { FaJava, FaReact, FaNodeJs, FaGit } from "react-icons/fa";
 import { SiTypescript, SiRedux, SiMaplibre, SiWebgl, SiFigma, SiPostgresql, SiSpringboot, SiGraphql, SiTailwindcss } from "react-icons/si";
 import { CiGlobe } from 'react-icons/ci';
 import { DiRuby } from "react-icons/di";
-import { motion, useAnimation } from "framer-motion";
+
+import * as bioStyles from '../styles/bio.module.scss';
 
 const technologies = [
   { name: "Java", icon: <FaJava />, link: "https://www.java.com/" },
@@ -34,15 +35,15 @@ const TechStackBanner = () => {
             href={tech.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center hover:text-blue-500"
+            className={`${bioStyles['techStackItem']} flex flex-col items-center hover:text-blue-500`}
             title={`Language I use: ${tech.name}`}
           >
-            <div className="text-gray-700 dark:text-gray-300 text-4xl">{tech.icon}</div>
-            <span className="text-gray-700 dark:text-gray-300 text-sm mt-2 whitespace-nowrap">{tech.name}</span>
+            <div className={`${bioStyles['techStackItem']} text-gray-600 text-4xl`}>{tech.icon}</div>
+            <span className={`${bioStyles['techStackItem']} text-gray-600 text-sm mt-2 whitespace-nowrap`}>{tech.name}</span>
           </a>
         ))}
       </div>
-    </div>
+    </div >
   );
 };
 
