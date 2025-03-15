@@ -26,6 +26,7 @@ const AboutPage = ({ data, location }) => {
         </p>
 
         <form
+          action="https://formspree.io/f/xrbpbpkq"
           name="contact"
           className="space-y-4"
           method="POST"
