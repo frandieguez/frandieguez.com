@@ -155,8 +155,6 @@ cite {
   font-style: italic;
 }
 
-
-
 h1,
 h2,
 h3,
@@ -172,7 +170,6 @@ captio,
 label {
   color: var(--gray);
 }
-
 
 a,
 a:visited {
@@ -246,15 +243,14 @@ textarea {
 }
 
 .wrapper404 {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .error404Title {
   text-transform: uppercase;
   font-size: 2em;
-  text-align: center;
   margin-bottom: 1em;
 }
 
@@ -285,7 +281,7 @@ textarea {
   font-family: sans;
   font-weight: bold;
   color: White;
-  padding: 0.5em;
+  padding: 0.5em 1em;
   display: inline-block;
 }
 

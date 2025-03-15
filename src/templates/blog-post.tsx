@@ -6,7 +6,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import NextPrevious from '../components/NextPrevious';
 import PostInfo from '../components/postinfo';
-import Bio from '../components/bio';
 import Calendar from '../../static/assets/icons/calendar.svg';
 
 import * as postStyles from '../styles/post.module.scss';
