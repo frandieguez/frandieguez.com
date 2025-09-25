@@ -47,22 +47,22 @@ const postSeries = content.data.seriesId
 				*/}
 				<Icon aria-hidden="true" class="flex-shrink-0 h-6 w-6" focusable="false" name="solar:notes-bold" />
 			</button>
-		) : null 
+		) : null
 	}
 
-	{
+	<!-- {
 		!!(content.rendered?.metadata?.headings as unknown[] | undefined)?.length && (
 			<button
 				id="toggle-toc"
 				class="hidden md:flex h-8 w-8 items-center flex-shrink-0 bg-accent-base/10 justify-center rounded-lg text-accent-base hover:brightness-110"
 				aria-label="Table of Contents"
-			>	
+			>
 				<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="solar:clipboard-list-bold" />
 			</button>
 		)
-	}
+	} -->
 
-	<h1 
+	<h1
 		class="title ml-2 md:sticky md:top-4 md:z-20 line-clamp-none md:line-clamp-1 md:max-w-[calc(100%-10rem)]"
 		title={content.data.title}
 		data-pagefind-body
@@ -78,7 +78,7 @@ const postSeries = content.data.seriesId
 	</span>
 	<Separator type="dot" />
 	<span class="flex items-center h-[1.75rem]">
-		<Icon aria-hidden="true" class="flex items-center inline-block h-4 w-4 me-1" focusable="false" name="hugeicons:book-open-01" />
+		<Icon aria-hidden="true" class=" items-center inline-block h-4 w-4 me-1" focusable="false" name="hugeicons:book-open-01" />
 		{/* @ts-ignore:next-line. TODO: add reading time to collection schema? */}
 		{content.rendered?.metadata?.frontmatter?.readingTime ? `${content.rendered.metadata.frontmatter.readingTime}` : "Less than one minute read"}
 	</span>
@@ -94,8 +94,7 @@ const postSeries = content.data.seriesId
 
 {content.data.draft ? <span class="text-base text-red-500 ml-2">(Draft)</span> : null}
 
-{
-	content.data.coverImage && (
+{content.data.coverImage && (
 		<div class="mb-4 mt-2 overflow-auto rounded-lg">
 			<Image
 				alt={content.data.coverImage.alt}
@@ -105,10 +104,9 @@ const postSeries = content.data.seriesId
 				src={content.data.coverImage.src}
 			/>
 		</div>
-	)
-}
+	)}
 
-<p 
+<p
 	class="prose max-w-none text-textColor mx-2"
 	data-pagefind-body
 >
@@ -119,7 +117,7 @@ const postSeries = content.data.seriesId
 	{/* Tags */}
 	{
 		content.data.tags?.length ? (
-			<Icon aria-hidden="true" class="flex-shrink-0 inline-block h-6 w-6 text-accent-base" focusable="false" name="solar:tag-line-duotone" />	
+			<Icon aria-hidden="true" class="flex-shrink-0 inline-block h-6 w-6 text-accent-base" focusable="false" name="solar:tag-line-duotone" />
 			<>
 				{content.data.tags.map((tag) => (
 					<a aria-label={`View all posts with the tag: ${tag}`} href={`/tags/${tag}`}>
@@ -138,19 +136,19 @@ const postSeries = content.data.seriesId
 		postSeries ? (
 			<div class="flex items-center gap-2">
 				<Icon aria-hidden="true" class="flex-shrink-0 inline-block h-6 w-6 text-accent-base" focusable="false" name="solar:notes-line-duotone" />
-				<a 
-					aria-label={`About ${postSeries.data.title} series`} 
+				<a
+					aria-label={`About ${postSeries.data.title} series`}
 					href={`/series/${postSeries.id}`}
 					class="flex items-center gap-2 flex-wrap"
 				>
 					<Badge variant="accent-base" showHash={false} title={postSeries.data.title} />
 				</a>
-			</div>	
-		) : (
-			<div class="flex items-center gap-2">
-				<Icon aria-hidden="true" class="flex-shrink-0 inline-block h-6 w-6 text-lightest" focusable="false" name="solar:notes-line-duotone" />
-				<span class="text-sm text-lightest">Not in series</span>
 			</div>
+		) : (<></>
+			// <div class="flex items-center gap-2">
+			// 	<Icon aria-hidden="true" class="flex-shrink-0 inline-block h-6 w-6 text-lightest" focusable="false" name="solar:notes-line-duotone" />
+			// 	<span class="text-sm text-lightest">Not in series</span>
+			// </div>
 		)
 	}
 </div>

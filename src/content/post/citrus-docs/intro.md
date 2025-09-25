@@ -1,12 +1,13 @@
 ---
 title: "Introducing Astro Citrus!"
-publishDate: "20 December 2024"
+publishDate: "20 December 2025"
 description: "Astro Citrus is a versatile template for managing blogs and creating comprehensive project documentation"
 seriesId: citrus-docs
 orderInSeries: 1
 featured: false
 tags: ["example", "series", "citrus"]
 ogImage: ""
+draft: true
 ---
 
 ## Introducing

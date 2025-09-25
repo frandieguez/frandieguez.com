@@ -1,0 +1,95 @@
+---
+interface WorkImage {
+  src: string;         // ruta pública (/work/xyz.png)
+  alt?: string;
+  class?: string;      // utilidades extra (ej: "rotate-1 md:rotate-0")
+}
+
+interface WorkItem {
+  eyebrow?: string;    // “CLIENT / PRODUCT” mini título
+  title: string;       // Título grande
+  subtitle?: string;   // Línea secundaria (rol, fecha, etc.)
+  description?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+  images: WorkImage[]; // entre 2 y 6 queda perfecto
+}
+
+const { items = [] } = Astro.props as { items: WorkItem[] };
+---
+
+<section class="relative mx-auto max-w-6xl">
+  <!-- línea de timeline -->
+  <div class="pointer-events-none absolute left-[1.15rem] top-0 h-full w-px bg-gradient-to-b from-emerald-400/40 via-emerald-400/20 to-transparent md:left-8"></div>
+
+  <h2 class="mb-12 pl-10 text-4xl font-extrabold tracking-tight md:pl-16">Work</h2>
+
+  <div class="space-y-24">
+    {items.map((w, i) => (
+      <article class="relative">
+        {/* marca del timeline */}
+        <div class="absolute -left-1 top-2 h-5 w-5 rounded-full bg-emerald-400 ring-8 ring-emerald-400/10 md:-left-0.5"></div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-12">
+          {/* texto */}
+          <header class="md:col-span-2 md:pl-16">
+            {w.eyebrow && (
+              <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-emerald-500">
+                {w.eyebrow}
+              </p>
+            )}
+            <h3 class="text-2xl font-bold leading-tight">{w.title}</h3>
+            {w.subtitle && <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{w.subtitle}</p>}
+            {w.description && (
+              <p class="mt-4 text-zinc-700 dark:text-zinc-300">{w.description}</p>
+            )}
+            {w.ctaHref && w.ctaLabel && (
+              <a
+                href={w.ctaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-flex items-center gap-2 rounded-xl border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:border-zinc-300 hover:shadow-md dark:border-zinc-700 dark:text-zinc-100"
+              >
+                {w.ctaLabel}
+                <svg width="14" height="14" viewBox="0 0 24 24" class="opacity-70">
+                  <path fill="currentColor" d="M14 3l7 7l-1.414 1.414L15 7.828V21h-2V7.828l-4.586 4.586L7 10l7-7z"/>
+                </svg>
+              </a>
+            )}
+          </header>
+
+          {/* mosaico de imágenes */}
+          <div class="md:col-span-3">
+            <div
+              class="relative grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-3"
+            >
+              {w.images.map((img, idx) => (
+                <figure
+                  class={[
+                    // tarjeta mockup
+                    "aspect-[4/3] overflow-hidden rounded-2xl border border-black/5 bg-white/70 shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur",
+                    "dark:bg-zinc-900/60 dark:border-white/5",
+                    // sutiles rotaciones como en el ejemplo
+                    idx % 3 === 0 ? "rotate-[-1.5deg]" : idx % 3 === 1 ? "rotate-[1deg]" : "rotate-[0.5deg]",
+                    "transition-transform hover:rotate-0"
+                  ].join(" ")}
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt ?? w.title}
+                    class={["h-full w-full object-cover", img.class ?? ""].join(" ")}
+                    loading="lazy"
+                  />
+                </figure>
+              ))}
+              {/* glow suave detrás del mosaico */}
+              <div class="pointer-events-none absolute inset-0 -z-10 rounded-[2rem] blur-2xl"
+                   style="background: radial-gradient(60% 50% at 50% 50%, rgba(16,185,129,0.15), transparent 70%);">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

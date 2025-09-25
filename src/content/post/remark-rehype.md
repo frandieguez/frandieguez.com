@@ -3,7 +3,7 @@ title: "Remark-Rehype"
 description: "This post is about Remark-Rehype plugin for Astro"
 publishDate: "26 January 2025"
 tags: ["rehype", "remark", "astro", "plugin"]
-draft: false
+draft: true
 ---
 
 ## What is this?
@@ -416,12 +416,12 @@ Yields:
 
 ```html
 <p>
-  Ceres ist nach der römischen Göttin des Ackerbaus benannt; 
+  Ceres ist nach der römischen Göttin des Ackerbaus benannt;
   ihr astronomisches Symbol ist daher eine stilisierte Sichel: ⚳.
   <sup>
-    <a 
-      href="#user-content-fn-nasa-2015" 
-      id="user-content-fnref-nasa-2015" 
+    <a
+      href="#user-content-fn-nasa-2015"
+      id="user-content-fnref-nasa-2015"
       data-footnote-ref aria-describedby="footnote-label"
     >
       1
@@ -440,10 +440,10 @@ Yields:
         In: Jet Propulsion Laboratory.
         22. April 2015,
         abgerufen am 19. Januar 2022 (englisch).
-        <a 
-          href="#user-content-fnref-nasa-2015" 
-          data-footnote-backref="" 
-          aria-label="Back to reference 1" 
+        <a
+          href="#user-content-fnref-nasa-2015"
+          data-footnote-backref=""
+          aria-label="Back to reference 1"
           class="data-footnote-backref"
         >
           ↩

@@ -23,12 +23,15 @@ import {
   transformerNotationDiff,
 } from "@shikijs/transformers";
 
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
   image: {
     domains: ["webmention.io"],
   },
   integrations: [
+    react(),
     icon(),
     tailwind({
       applyBaseStyles: false,

@@ -1,0 +1,19 @@
+---
+const { title, variant } = Astro.props;
+
+---
+
+<div class={`bio ${variant}`}>
+  <h2>{title}</h2>
+  <p>
+    Hello! I'm Fran Dieguez, a passionate developer who loves creating
+    beautiful and functional web applications. I enjoy working with modern
+    technologies and continuously learning new skills to improve my craft.
+  </p>
+  <p>
+    If you'd like to connect, feel free to reach out on{' '}
+    <a href="https://www.linkedin.com/in/frandieguez/" target="_blank" rel="noopener noreferrer">
+      LinkedIn
+    </a>.
+  </p>
+</div>

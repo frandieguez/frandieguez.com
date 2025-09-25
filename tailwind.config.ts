@@ -44,6 +44,47 @@ export default {
 
   theme: {
     extend: {
+      animation: {
+        amoeba: "amoeba 8s ease-in-out infinite",
+        noise: ".3s step-start infinite noise",
+      },
+      keyframes: {
+        amoeba: {
+          "0%": {
+            "border-radius": "40% 60% 60% 40% / 50% 30% 70% 50%",
+            transform: "scale(1)",
+          },
+          "50%": {
+            "border-radius": "40% 60% 60% 40% / 50% 30% 70% 50%",
+            transform: "scale(1.1)",
+          },
+          "80%": {
+            "border-radius": "60% 40% 40% 60% / 30% 50% 50% 70%",
+            transform: "scale(1)",
+          },
+          "100%": {
+            "border-radius": "40% 60% 60% 40% / 50% 30% 70% 50%",
+            transform: "scale(1)",
+          },
+        },
+        noise: {
+          "0% ": {
+            filter: "url(#noise-frame-1)",
+          },
+
+          "33%": {
+            filter: "url(#noise-frame-2)",
+          },
+
+          "66%": {
+            filter: "url(#noise-frame-3)",
+          },
+
+          to: {
+            filter: "url(#noise-frame-1)",
+          },
+        },
+      },
       screens: {
         xs: "320px", // Add xs size
         // xl: '1200px',
@@ -100,6 +141,7 @@ export default {
         sans: ["SFProRounded", ...fontFamily.sans],
         serif: ["CascadiaCode", ...fontFamily.serif],
       },
+
       transitionProperty: {
         height: "height",
       },

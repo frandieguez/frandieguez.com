@@ -5,6 +5,7 @@ publishDate: 03 Feb 2025
 seriesId: citrus-docs
 orderInSeries: 3
 tags: ["theming", "CSS", "citrus"]
+draft: true
 ---
 
 This approach to defining colors can be described as a **flexible theming system based on HSL (Hue, Saturation, Lightness) with the use of CSS variables**.
@@ -56,12 +57,12 @@ This approach to defining colors can be described as a **flexible theming system
 		--theme-link: var(--hue) 97% 31%; /* External link color */
 		--theme-accent: var(--theme-color-650); /* Neutral accent, calculated below based on --theme-fg */
 		--theme-quote: var(--theme-text); /* Quote color */
-		
+
 		/*** ADDITIONAL COLORS ***/
 		--theme-lightest: var(--theme-color-350);
 		--theme-lighter: var(--theme-color-400);
 		--theme-light: var(--theme-color-450);
-		
+
 		/*** SPECIAL THEME COLORS (Distinct settings for each theme) ***/
 		--theme-special-lightest: hsl(var(--hue), var(--saturation), 100%);
 		--theme-special-lighter: hsl(var(--hue), var(--saturation), 98%);

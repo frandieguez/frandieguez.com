@@ -5,35 +5,225 @@ const meta = {
 	description: "I'm a starter theme for Astro.build",
 	title: "About",
 };
+import { Image } from 'astro:assets';
+import profilePic from "../../public/profile-pic.jpg";
+
+import Workline from "@/components/Workline.astro";
+
+
+// 🔧 Datos de ejemplo: cambia rutas y textos
+const workItems = [
+  {
+    eyebrow: "SITUM • Indoor Maps",
+    title: "Map Viewer & 3D Layers",
+    subtitle: "Tech Lead — 2020–Now",
+    description:
+            "Currently I'm helping to create the visual part of Situm, an awesome company that helps multiple industries to position their users (robots and people) indoors while doing Business Intelligence on gathered data.",
+    ctaHref: "https://situm.com",
+    ctaLabel: "Ver producto",
+    images: [
+      { src: "/images/projects/situm/1.jpeg" },
+      { src: "/images/projects/situm/2.jpeg" },
+      { src: "/images/projects/situm/3.png" },
+      { src: "/images/projects/situm/4.png" },
+    ],
+  },
+
+  {
+    eyebrow: "OSS • GNOME",
+    title: "Contributions and Galician translations",
+    subtitle: "Maintainer / Contributor",
+    description:
+      "I've been contributing for more than 15 years to the GNOME project, focusing on i18n and tooling for translations.",
+    images: [
+      { src: "/images/projects/gnome-1.jpeg" },
+      { src: "/images/projects/gnome-2.jpeg" },
+      { src: "/images/projects/gnome-3.jpeg" },
+    ],
+  },
+  {
+      title: "OpenNemas",
+      description:
+          "Before I've been proudly creating different tools focused on high performance and heavy loaded systems that helped journalists to maintain online newspapers, developing OpenNemas.",
+      link: "http://www.opennemas.com/",
+      images: [
+          '/images/projects/opennemas/1.jpeg',
+          '/images/projects/opennemas/2.jpeg',
+      ]
+  },
+  {
+    eyebrow: "E-commerce",
+    title: "El tacón de oro",
+    subtitle: "Full-stack — 2025",
+    description:
+      "Diseño y desarrollo de plataforma de venta online con enfoque en performance.",
+    images: [
+      { src: "/work/tacon-1.png" },
+      { src: "/work/tacon-2.png" },
+      { src: "/work/tacon-3.png" },
+      { src: "/work/tacon-4.png" },
+    ],
+  },
+];
+const events = [
+    {
+        title: "Situm",
+        description:
+            "Currently I'm helping to create the visual part of Situm, an awesome company that helps multiple industries to position their users (robots and people) indoors while doing Business Intelligence on gathered data.",
+        link: "https://situm.es/es",
+        images: [
+            '/images/projects/situm/1.jpeg',
+            '/images/projects/situm/2.jpeg',
+            '/images/projects/situm/3.png',
+            '/images/projects/situm/4.png',
+        ]
+    },
+    {
+        title: "OpenNemas",
+        description:
+            "Before I've been proudly creating different tools focused on high performance and heavy loaded systems that helped journalists to maintain online newspapers, developing OpenNemas.",
+        link: "http://www.opennemas.com/",
+        images: [
+            '/images/projects/opennemas/1.jpeg',
+            '/images/projects/opennemas/2.jpeg',
+        ]
+    },
+    {
+        title: "University of Santiago de Compostela",
+        description:
+            "Prior to that I've been working as an open-source software consultant at the University of Santiago de Compostela, where I've developed a custom Linux-based desktop to simplify administrative tasks and also did massive migrations to open source software in educational settings. This project won the Libre Software contest in Galicia, Spain.",
+        link: "http://www.mancomun.org/es/no_cache/actualidade/detalledenova/nova/a-osl-da-usc-gana-o-premio-eganet-2009-na-categoria-software-libre/",
+        images: [
+            '/images/projects/oslusc/1.jpeg',
+            '/images/projects/oslusc/2.jpeg',
+            '/images/projects/oslusc/3.jpeg',
+        ]
+    },
+];
+
+
 ---
+
 
 <PageLayout meta={meta}>
 
-	<h1 class="title mb-6">About</h1>
+  	<section class="mx-auto relative mt-10 mb-24 ">
+		<div class="gap-8 flex flex-col md:flex-row-reverse items-center justify-center">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%"
+			class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-full max-w-none h-auto pointer-events-none" >
+				<defs>
+					<!-- patrón de cuadrícula -->
+					<pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+					<path d="M0 24 H24" fill="none" stroke="#38bdf8" stroke-opacity=".15" stroke-width="1"/>
+					<path d="M24 0 V24" fill="none" stroke="#38bdf8" stroke-opacity=".15" stroke-width="1"/>
+					</pattern>
+
+					<!-- degradado radial para difuminar bordes -->
+					<radialGradient id="fadeMask" cx="50%" cy="50%" r="70%">
+					<stop offset="70%" stop-color="white" stop-opacity="1"/>
+					<stop offset="100%" stop-color="white" stop-opacity="0"/>
+					</radialGradient>
+
+					<!-- máscara usando elipse con gradiente -->
+					<mask id="softMask">
+					<rect width="100%" height="100%" fill="black"/>
+					<ellipse cx="400" cy="200" rx="360" ry="140" fill="url(#fadeMask)" />
+					</mask>
+				</defs>
+
+				<!-- cuadrícula con máscara difuminada -->
+				<rect width="100%" height="100%" fill="url(#grid)" mask="url(#softMask)"/>
+			</svg>
+			<div class="w-full md:w-1/3 flex justify-center mb-6 md:mt-0 relative">
+				<div
+    				style={{ backgroundColor: 'color-mix(in srgb, #FFF8F3, transparent 50%)' }}
+					class="size-40 md:size-72 animate-amoeba absolute md:mr-12 -top-1 md:-top-3 z-0"></div>
+				<Image src={profilePic} alt="Fran Dieguez" class="size-36 md:size-64 relative z-10 md:mr-12 rounded-full" />
+			</div>
+			<div class="w-full md:w-2/3 text-center md:text-left">
+				<h1 class="text-4xl font-bold mb-6">
+					<div style="min-height:5rem;" class="title text-3xl md:text-4xl bg-gradient-to-r from-accent-two/85 via-accent-one/85 to-accent-two/85 dark:from-accent-two dark:via-accent-one dark:to-accent-two bg-clip-text text-transparent">
+						Hey, I'm Fran
+					</div>
+				</h1>
+				<p class="mt-4 mb-4 text-lg font-medium">
+        I've been developing web applications as a Full Stack Developer since 2006.
+        I've been in multiple positions thoughtout my career, from a software developer,
+        lead developer, CTO, and Head of Research and Development.
+        </p>
+        <p> The objective on each project is to create useful tools that make impact on users.  </p>
+
+			</div>
+		</div>
+	</section>
+
+
 	<div class="prose prose-citrus max-w-none">
-		<p>
-			Hi, I’m a starter Astro. I’m particularly great for getting you started with your own blogging
-			website.
-		</p>
-		<p>Here are my some of my awesome built in features:</p>
-		<ul class="list-inside list-disc" role="list">
-			<li>I'm ultra fast as I'm a static site</li>
-			<li>I'm fully responsive</li>
-			<li>I come with a light and dark mode</li>
-			<li>I'm easy to customise and add additional content</li>
-			<li>I have Tailwind CSS styling</li>
-			<li>Shiki code syntax highlighting</li>
-			<li>Satori for auto generating OG images for blog posts</li>
-		</ul>
-		<p>
-			Clone or fork my <a
-				aria-label="github repository"
-				class="citrus-link inline-block"
-				href="https://github.com/artemkutsan/astro-citrus"
-				rel="noreferrer"
-				target="_blank">repo</a
-			> if you like me!
-		</p>
+      I've being using different technologies over the time:
+        <ul>
+          <li>
+            on the server side I have created products with Ruby, PHP, Node.js
+            and roughtly with Golang on Microservices,
+          </li>
+          <li>
+            on the client side, I've passed from the origins of the web, using
+            VanillaJS, jQuery, to jump to AngularJS, Angular 2 and finally
+            React.
+          </li>
+        </ul>
+        <p>
+          From the technical perspective my main focus is web performance,
+          <a
+            href="https://github.com/frandieguez"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            sustainable engineering
+          </a>{' '}
+          and open source technology.
+        </p>
+
+        <Workline items={workItems} />
+
+        <p>
+          Whenever not thinking on software development:
+
+          <ul>
+            <li >
+
+              I can be found contributing
+              to{' '}
+              <a
+                href="https://www.ohloh.net/accounts/frandieguez"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                open-source projects
+              </a>{' '}
+              👨‍💻 like <strong>GNOME</strong> (as a member of the GNOME
+              Foundation) or in Ubuntu as Galician translators coordinator,
+              <a
+                href="https://www.amazon.com/gp/pdp/profile/A362F32UBZHEUR"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                reading
+              </a>
+            </li>
+
+            <li>
+
+              or doing sports like Crossfit and snowboard 🏂.
+            </li>
+          </ul>
+        </p>
+        <p>
+          Currently I'm <strong>not available for hire</strong> but you can
+          write me to propose me future and innovative projects.
+        </p>
+      </div>
+
+
 	</div>
 
 </PageLayout>

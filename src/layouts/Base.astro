@@ -27,11 +27,11 @@ const {
 		<ThemeProvider />
 		<SkipLink />
 
-		<!-- Background 
-			TODO: This approach is not optimal and requires improvements. 
-  			- Too many absolutely positioned elements can affect performance. 
-  		-->	
-		<div class="fixed top-0 left-1/2 -ml-[50vw] min-h-screen w-screen pointer-events-none blur-2xl">
+		<!-- Background
+			TODO: This approach is not optimal and requires improvements.
+  			- Too many absolutely positioned elements can affect performance.
+  		-->
+		<div class="fixed top-0 left-1/2 -ml-[50vw] min-h-screen w-screen blur-2xl">
 			<div class="absolute top-[-90%] right-[25%] w-[75%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
 			<div class="absolute top-[-90%] left-[25%] w-[75%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
 			<div class="absolute top-[-85%] right-[25%] w-[55%] h-full bg-gradient-to-b from-purple-300 via-blue-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
@@ -41,15 +41,18 @@ const {
 			<div class="absolute top-[-85%] left-[-30%] w-[85%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-60 dark:opacity-5"></div>
 			<div class="absolute top-[-85%] right-[-30%] w-[85%] h-full bg-gradient-to-b from-orange-300 via-indigo-300 to-transparent rounded-full opacity-60 dark:opacity-5"></div>
 		</div>
-	
+		<div class="fixed top-0 left-0 size-10 w-screen blur-2xl bg-[#fff1e8]">
+
+		</div>
+
 		<div class="relative flex min-h-screen w-full">
 			<!-- Sidebar for Docs Series -->
 			<slot name="sidebar" />
 			<!-- Main container for the page content -->
-			<div id="container" class="min-w-3xl relative m-auto max-w-4xl grow">
+			<div id="container" class="min-w-3xl relative m-auto max-w-6xl grow">
 				<div class="m-auto grid min-h-screen md:grid-rows-[auto_auto_1fr] px-4 md:px-8 md:pt-4">
 					<Header />
-					<main id="main" class="relative flex-grow mt-32 md:mt-[3.5rem]">
+					<main id="main" class="relative flex-grow mt-24 md:mt-[3.5rem]" transition:animate="initial">
 						<slot />
 					</main>
 					<Footer />
@@ -57,4 +60,36 @@ const {
 			</div>
 		</div>
 	</body>
+	<svg viewBox="0 0 180 100" class="fx-noise" aria-hidden="true" style="width: 0; height: 0; visibility: hidden;">
+
+		<filter id="noise1" x="0%" y="0%" width="100%" height="100%">
+			<feTurbulence type="fractalNoise" baseFrequency="0 0.2" result="NOISE" numOctaves="2"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISE" scale="30" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+		</filter>
+		<filter id="noise2" x="0%" y="0%" width="100%" height="100%">
+			<feTurbulence type="fractalNoise" baseFrequency="0 0.4" result="NOISE" numOctaves="2"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISE" scale="30" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+		</filter>
+		<filter id="noise3" x="0%" y="0%" width="100%" height="100%">
+			<feTurbulence type="fractalNoise" baseFrequency="0 0.3" result="NOISE" numOctaves="2"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISE" scale="100" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+		</filter>
+		<filter id="noise4" x="0%" y="0%" width="100%" height="100%">
+			<feTurbulence type="fractalNoise" baseFrequency="5 5" result="NOISE" numOctaves="2"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISE" scale="500" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+		</filter>
+
+		<filter id="noise-frame-1" x="0%" y="0%" width="100%" height="100%">
+			<feTurbulence type="fractalNoise" baseFrequency="0 0.3" result="NOISE" numOctaves="2"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISE" scale="30" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+		</filter>
+		<filter id="noise-frame-2" x="0%" y="0%" width="100%" height="100%">
+			<feTurbulence type="fractalNoise" baseFrequency="0 0.9" result="NOISE" numOctaves="2"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISE" scale="30" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+		</filter>
+		<filter id="noise-frame-3" x="0%" y="0%" width="100%" height="100%">
+			<feTurbulence type="fractalNoise" baseFrequency="0 0.4" result="NOISE" numOctaves="2"></feTurbulence>
+			<feDisplacementMap in="SourceGraphic" in2="NOISE" scale="30" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+		</filter>
+	</svg>
 </html>
