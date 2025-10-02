@@ -14,9 +14,9 @@ import Workline from "@/components/Workline.astro";
 // 🔧 Datos de ejemplo: cambia rutas y textos
 const workItems = [
   {
-    eyebrow: "SITUM • Indoor Maps",
-    title: "Map Viewer & 3D Layers",
-    subtitle: "Tech Lead — 2020–Now",
+    title: "SITUM • Indoor Maps",
+    eyebrow: "Map Viewer & 3D Layers",
+    subtitle: "Tech Lead — 2019–Now",
     description:
             "Currently I'm helping to create the visual part of Situm, an awesome company that helps multiple industries to position their users (robots and people) indoors while doing Business Intelligence on gathered data.",
     ctaHref: "https://situm.com",
@@ -30,40 +30,43 @@ const workItems = [
   },
 
   {
-    eyebrow: "OSS • GNOME",
-    title: "Contributions and Galician translations",
-    subtitle: "Maintainer / Contributor",
+    title: "OSS • GNOME",
+    eyebrow: "Contributions and Galician translations",
+    subtitle: "Maintainer / Contributor - 2006–Now",
     description:
       "I've been contributing for more than 15 years to the GNOME project, focusing on i18n and tooling for translations.",
+          ctaHref: "https://l10n.gnome.org/teams/gl",
+    ctaLabel: "Ver pagina",
     images: [
-      { src: "/images/projects/gnome-1.jpeg" },
-      { src: "/images/projects/gnome-2.jpeg" },
-      { src: "/images/projects/gnome-3.jpeg" },
+      { src: "/images/projects/gnome/1.png" },
+      { src: "/images/projects/gnome/2.png" },
     ],
   },
   {
       title: "OpenNemas",
+      eyebrow: "High performance news publishing platform",
+      subtitle: "Head of Research and Development — 2009–2019",
       description:
           "Before I've been proudly creating different tools focused on high performance and heavy loaded systems that helped journalists to maintain online newspapers, developing OpenNemas.",
-      link: "http://www.opennemas.com/",
+      ctaHref: "http://www.opennemas.com/",
+      ctaLabel: "Ver producto",
       images: [
-          '/images/projects/opennemas/1.jpeg',
-          '/images/projects/opennemas/2.jpeg',
+          { src: "/images/projects/opennemas/1.jpeg" },
+          { src: "/images/projects/opennemas/2.jpeg" },
       ]
   },
   {
-    eyebrow: "E-commerce",
-    title: "El tacón de oro",
-    subtitle: "Full-stack — 2025",
-    description:
-      "Diseño y desarrollo de plataforma de venta online con enfoque en performance.",
-    images: [
-      { src: "/work/tacon-1.png" },
-      { src: "/work/tacon-2.png" },
-      { src: "/work/tacon-3.png" },
-      { src: "/work/tacon-4.png" },
-    ],
-  },
+        eyebrow: "Open Source Consultant",
+        title: "University of Santiago de Compostela",
+        description:
+            "Prior to that I've been working as an open-source software consultant at the University of Santiago de Compostela, where I've developed a custom Linux-based desktop to simplify administrative tasks and also did massive migrations to open source software in educational settings. This project won the Libre Software contest in Galicia, Spain.",
+        link: "http://www.mancomun.org/es/no_cache/actualidade/detalledenova/nova/a-osl-da-usc-gana-o-premio-eganet-2009-na-categoria-software-libre/",
+        images: [
+            { src: '/images/projects/oslusc/1.jpeg' },
+            { src: '/images/projects/oslusc/2.jpeg' },
+            { src: '/images/projects/oslusc/3.jpeg' },
+        ]
+    },
 ];
 const events = [
     {
