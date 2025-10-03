@@ -79,33 +79,33 @@
 	:root[data-theme="light"] {
 		color-scheme: light;
 
-		/* Для того чтобы текст имел оттенок фона --fg-hue: var(--hue) и --bg-hue: var(--hue) */
-		/* Для того чтобы текст имел оттенок фона --fg-saturation: var(--saturation) и --bg-saturation: var(--saturation) */
+		/* For text to have a background tint, use --fg-hue: var(--hue) and --bg-hue: var(--hue) */
+		/* For text to have a background tint, use --fg-saturation: var(--saturation) and --bg-saturation: var(--saturation) */
 
-		/*** ОСНОВНЫЕ ЦВЕТА (Базовый, фон, акценты, текст) ***/
-		/* Базовый цвет-оттенок темы */
-		--hue: 0deg; /* Общий базовый цвет-оттенок элементов темы */
-		--saturation: 100%; /* Общая базовая насыщенность элементов темы, 0% - нет оттенка цвета */
+		/*** MAIN COLORS (Base, background, accents, text) ***/
+		/* Base theme color-hue */
+		--hue: 0deg; /* Common base color-hue for theme elements */
+		--saturation: 100%; /* Common base saturation for theme elements, 0% - no color tint */
 
-		/* Фон (background) */
-		--bg-hue: var(--hue); /* Цвет-оттенок фона */
-		--bg-saturation: var(--saturation); /* Насыщенность оттенка фона и некоторых др. элементов, 0% - нет оттенка */
-		--bg-brightness: 100%; /* Ярксть фона, 100% - абсолюнто белый */
+		/* Background */
+		--bg-hue: var(--hue); /* Background color-hue */
+		--bg-saturation: var(--saturation); /* Background tint saturation and some other elements, 0% - no tint */
+		--bg-brightness: 100%; /* Background brightness, 100% - absolute white */
 
-		/* Акценты */
-		--theme-accent-base: var(--bg-hue) 53% 27%; /* Основной акцентный цвет */
-		--theme-accent-one: var(--bg-hue) 53% 27%; /* Первый дополнительный акцентный цвет */
-		--theme-accent-two: 351deg 66% 48%; /* Второй дополнительный акцентный цвет */
+		/* Accents */
+		--theme-accent-base: var(--bg-hue) 153% 0%; /* Main accent color */
+		--theme-accent-one: var(--bg-hue) 0% 27%; /* First additional accent color */
+		--theme-accent-two: 351deg 20% 27%; /* Second additional accent color */
 
-		/* Вариант */ /* --theme-accent-two: 344deg 63% 45%; */
+		/* Variant */ /* --theme-accent-two: 344deg 63% 45%; */
 
-		/* Текст (foreground, цвет-яркость текста рассчитывается ниже на базе --theme-fg) */
-		--fg-hue: var(--hue); /* Общий цвет-оттенок для рассчета градаций цвета */
-		--fg-saturation: var(--saturation); /* Общая насыщенность для рассчета градаций цвета с оттенком, 0% - нет оттенка */
-		--fg-brightness: 9%; /* Яркость для рассчета градаций цвета с оттенком, 0% - начиная от абсолютно черного */
-		--theme-text: var(--theme-color-500); /* Цвет-яркость текста уже с адаптацией под цвет фона */
+		/* Text (foreground, text color-brightness is calculated below based on --theme-fg) */
+		--fg-hue: var(--hue); /* Common color-hue for calculating color gradations */
+		--fg-saturation: var(--saturation); /* Common saturation for calculating color gradations with tint, 0% - no tint */
+		--fg-brightness: 9%; /* Brightness for calculating color gradations with tint, 0% - starting from absolute black */
+		--theme-text: var(--theme-color-500); /* Text color-brightness already adapted to background color */
 
-		/*** ВТОРОСТЕПЕННЫЕ ЦВЕТА (Внешние ссылки, нейтральный акцент, цитаты) ***/
+		/*** SECONDARY COLORS (External links, neutral accent, quotes) ***/
 		--theme-link: var(--hue) 97% 31%; /* Цвет внешних ссылок */
 		--theme-accent: var(--theme-color-600); /* Нейтральный акцент, рассчитывается ниже на базе --theme-fg */
 		--theme-quote: var(--theme-text); /* Цвет цитат */
@@ -228,7 +228,7 @@
 	}
 
 	html {
-		letter-spacing: 0.025em;
+		letter-spacing: 0.005em;
 	}
 
 	h1 {
@@ -358,6 +358,52 @@
 		filter: brightness(var(--brightness)) saturate(0%);
 	}
 	*/
+
+	.waves {
+		position: relative;
+		width: 100%;
+		height: 50px;
+		transform: rotate(180deg) scaleX(-1) !important;
+	}
+
+	/* Animation */
+
+	.parallax > use {
+		animation: move-forever 45s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+	}
+	.parallax > use:nth-child(1) {
+		animation-delay: -20s;
+		animation-duration: 155s;
+	}
+	.parallax > use:nth-child(2) {
+		animation-delay: -100s;
+		animation-duration: 40s;
+	}
+	.parallax > use:nth-child(3) {
+		animation-delay: -4s;
+		animation-duration: 43s;
+	}
+	.parallax > use:nth-child(4) {
+		animation-delay: -5s;
+		animation-duration: 27s;
+	}
+
+	@keyframes move-forever {
+		0% {
+			transform: translate3d(-90px, 0, 0);
+		}
+		100% {
+			transform: translate3d(85px, 0, 0);
+		}
+	}
+
+	/*Shrinking for mobile*/
+	@media (max-width: 768px) {
+		.waves {
+			min-height: 20px;
+			max-height: 50px;
+		}
+	}
 }
 
 /* ПЕРЕПРОВЕРИТЬ !!! */

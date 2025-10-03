@@ -1,7 +1,7 @@
 ---
 id: 1693
 title: Lessons Learned Over Years in Development - Mistakes and Successes
-description: Lessons Learned Over Years in Development - Mistakes and Successes
+description: Key insights from years of software development experience, covering clean code practices, the importance of testing, effective communication, architectural decisions, and continuous learning - essential lessons that shaped my professional growth.
 publishDate: 2025-03-07T22:42:07+00:00
 author: Fran Diéguez
 layout: post
@@ -28,7 +28,6 @@ In this article, I will share some common mistakes I have made (or seen others m
 ## 1. Clean and Maintainable Code: More Important Than It Seems
 
 **Mistake:**
-
 
 When I started programming, my priority was making the code work, regardless of its structure. This led me to write code that was hard to read, with poorly named variables, huge functions, and chaotic organization. At first, it didn’t seem like a problem because I understood what I had written, but over time, maintaining and scaling those projects became a nightmare.
 
@@ -59,9 +58,9 @@ Tests not only prevent production errors but also allow you to refactor with con
 In a project, I made changes to a function without realizing I was breaking another part of the application. There were no tests to alert me to the problem, and the bug went live, affecting users. Since then, I always include unit, integration, and/or end-to-end tests as needed.
 
 **Practical Advice:**
-	•	Implement TDD (Test-Driven Development) if possible.
-	•	Use tools like Jest for React or JUnit for Java.
-	•	Prioritize writing tests for the system’s critical parts.
+ • Implement TDD (Test-Driven Development) if possible.
+ • Use tools like Jest for React or JUnit for Java.
+ • Prioritize writing tests for the system’s critical parts.
 
 ## 3. It’s Not Just About Code: Communication Is Key
 
@@ -98,6 +97,7 @@ Choosing the right architecture from the start makes the application more scalab
 I worked on a project where the entire backend was in a single massive file with no separation of layers (controller, service, repository). Over time, the code became unmanageable. I had to refactor the entire structure, applying the MVC (Model-View-Controller) pattern, which made the code much more organized and easier to extend.
 
 Practical Advice:
+
 - Use architectural patterns like MVC, Hexagonal Architecture, or Clean Architecture, depending on the type of application.
 - Divide code into independent modules to facilitate maintenance.
 - Don’t hesitate to refactor if the initial architecture starts to become a problem.
@@ -118,9 +118,9 @@ When I started with React, I initially resisted using Hooks because I was used t
 
 **Practical Advice:**
 
- - Dedicate time each week to learning something new (a language, framework, or concept).
- - Follow blogs, online courses, and developer communities.
- - Don’t be afraid to try new tools, even if they feel uncomfortable at first.
+- Dedicate time each week to learning something new (a language, framework, or concept).
+- Follow blogs, online courses, and developer communities.
+- Don’t be afraid to try new tools, even if they feel uncomfortable at first.
 
 ## Conclusion
 

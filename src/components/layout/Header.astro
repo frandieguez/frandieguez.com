@@ -3,7 +3,7 @@ import Search from "@/components/Search.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import { siteConfig, menuLinks } from "@/site.config";
 import { Icon } from "astro-icon/components";
-import logo from "../../assets/images/glasses.svg"
+import logo from "../../assets/images/header.svg"
 import { Image } from 'astro:assets';
 
 ---
@@ -32,12 +32,12 @@ import { Image } from 'astro:assets';
 			<a
 				aria-label={siteConfig.title}
 				aria-current={Astro.url.pathname === "/" ? "page" : false}
-				class="group flex items-center hover:filter-none sm:relative"
+				class="group flex items-center hover:filter-none sm:relative flex-grow-1"
 				href="/"
 			 >
 				<!-- Logo -->
 				<div title={siteConfig.title}>
-					<Image width={100} loading="eager" src={logo} alt={siteConfig.title} class="inline-block size-30 fill-current text-accent-base dark:text-accent-two dark:fill-white"/>
+					<Image width={200} loading="eager" src={logo} alt={siteConfig.title} class="inline-block size-30 fill-current text-accent-base dark:text-accent-two dark:fill-white"/>
 				</div>
 
 				<!-- <strong class="'max-[320px]:hidden' bg-clip-text text-transparent bg-gradient-to-r from-accent-one to-accent-two hidden xs:block z-10 mb-0.5 ms-2 text-2xl group-hover:text-accent-one">
@@ -46,7 +46,7 @@ import { Image } from 'astro:assets';
 			</a>
 			<nav
 				aria-label="Main menu"
-				class=" text-sm mx-auto ml-4 hidden flex-col items-center justify-around gap-x-4 rounded-md bg-bgColor font-medium text-accent-two shadow backdrop-blur group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:flex-row sm:items-center sm:rounded-none sm:bg-transparent sm:shadow-none sm:backdrop-blur-none md:flex"
+				class="text-sm mx-auto ml-4 hidden flex-col items-center justify-around gap-x-4 rounded-md bg-bgColor font-medium text-accent-two shadow backdrop-blur group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:flex-row sm:items-center sm:rounded-none sm:bg-transparent sm:shadow-none sm:backdrop-blur-none md:flex"
 				id="main-navigation-menu"
 			>
 				{

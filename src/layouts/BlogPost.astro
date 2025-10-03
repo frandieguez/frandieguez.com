@@ -6,6 +6,7 @@ import WebMentions from "@/components/blog/webmentions/index.astro";
 import BaseLayout from "./Base.astro";
 import SeriesPanel from "@/components/SeriesPanel.astro";
 import { Icon } from "astro-icon/components";
+import PostTags from "@/components/blog/PostTags.astro";
 
 interface Props {
 	post: CollectionEntry<"post">;
@@ -77,6 +78,11 @@ const { headings } = await render(post);
 				<slot />
 			</div>
 			<WebMentions />
+			{/* Tags */}
+			<div class="mt-4">
+				<hr class="mb-4" />
+    			<PostTags tags={post.data.tags} />
+			</div>
 		</article>
 		{!!headings.length && (
 			<aside

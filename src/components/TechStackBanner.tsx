@@ -7,19 +7,19 @@ import { DiRuby } from "react-icons/di";
 // import * as bioStyles from '../styles/bio.module.scss';
 
 const technologies = [
-    { name: "Java", icon: <FaJava />, link: "https://www.java.com/" },
-    { name: "Spring Boot", icon: <SiSpringboot />, link: "https://spring.io/projects/spring-boot" },
-    { name: "PostgreSQL", icon: <SiPostgresql />, link: "https://www.postgresql.org/" },
     // { name: "GraphQL", icon: <SiGraphql />, link: "https://graphql.org/" },
-    { name: "Ruby", icon: <DiRuby />, link: "https://www.ruby-lang.org/" },
+    // { name: "Ruby", icon: <DiRuby />, link: "https://www.ruby-lang.org/" },
     { name: "TypeScript", icon: <SiTypescript />, link: "https://www.typescriptlang.org/" },
     { name: "Node.js", icon: <FaNodeJs />, link: "https://nodejs.org/" },
+    { name: "Java", icon: <FaJava />, link: "https://www.java.com/" },
+    { name: "Spring Boot", icon: <SiSpringboot />, link: "https://spring.io/projects/spring-boot" },
+   { name: "PostgreSQL", icon: <SiPostgresql />, link: "https://www.postgresql.org/" },
     { name: "React", icon: <FaReact />, link: "https://react.dev/" },
     { name: "Redux", icon: <SiRedux />, link: "https://redux.js.org/" },
     { name: "MapLibre", icon: <SiMaplibre />, link: "https://maplibre.org/" },
     { name: "Deck.gl", icon: <CiGlobe />, link: "https://deck.gl/" },
     { name: "WebGL", icon: <SiWebgl />, link: "https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API" },
-    { name: "Tailwind CSS", icon: <SiTailwindcss />, link: "https://tailwindcss.com/" },
+    // { name: "Tailwind CSS", icon: <SiTailwindcss />, link: "https://tailwindcss.com/" },
     // { name: "Figma", icon: <SiFigma />, link: "https://www.figma.com/" },
     { name: "Git", icon: <FaGit />, link: "https://git-scm.com/" }
 ];

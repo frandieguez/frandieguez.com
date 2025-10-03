@@ -23,7 +23,7 @@ const MAX_NOTES = 2;
 const allNotes = await getCollection("note");
 const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 
----
+---6
 
 <PageLayout meta={{ title: "Home" }}>
 	<!-- Hero section -->
@@ -34,16 +34,17 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 		<div class="absolute top-[-20%] left-[-50%] w-[85%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-60 dark:opacity-10"></div>
 		<div class="absolute top-[-20%] right-[-50%] w-[85%] h-full bg-gradient-to-b from-orange-300 via-indigo-300 to-transparent rounded-full opacity-60 dark:opacity-10"></div>
 	</div> -->
+	<div class="absolute mt-[-150px] top-0 left-1/2 min-h-[600px] w-screen -ml-[50vw] bg-[#fff1e8] dark:bg-bgColor pointer-events-none overflow-hidden"></div>
 
-	<section class="mx-auto relative mt-10 mb-24 ">
+	<section class="mx-auto relative mt-10 mb-24">
 		<div class="gap-8 flex flex-col md:flex-row-reverse items-center justify-center">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%"
 			class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-full max-w-none h-auto pointer-events-none" >
 				<defs>
 					<!-- patrón de cuadrícula -->
 					<pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-					<path d="M0 24 H24" fill="none" stroke="#38bdf8" stroke-opacity=".15" stroke-width="1"/>
-					<path d="M24 0 V24" fill="none" stroke="#38bdf8" stroke-opacity=".15" stroke-width="1"/>
+						<path d="M0 24 H24" fill="none" stroke="#38bdf8" stroke-opacity=".15" stroke-width="1"/>
+						<path d="M24 0 V24" fill="none" stroke="#38bdf8" stroke-opacity=".15" stroke-width="1"/>
 					</pattern>
 
 					<!-- degradado radial para difuminar bordes -->
@@ -70,7 +71,7 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 			</div>
 			<div class="w-full md:w-2/3 text-center md:text-left">
 				<h1 class="text-4xl font-bold mb-6">
-					<div style="min-height:5rem;" class="title text-3xl md:text-4xl bg-gradient-to-r from-accent-two/85 via-accent-one/85 to-accent-two/85 dark:from-accent-two dark:via-accent-one dark:to-accent-two bg-clip-text text-transparent">
+					<div style="min-height:5rem;" class="title text-3xl md:text-4xl bg-accent-one  bg-clip-text text-transparent">
 						Hey, I'm Fran <br />
 						<span class="h-9" >
 							<WritingTypewriter client:load />
@@ -85,7 +86,7 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 				<!-- <div class="flex justify-center mb-4">
 					<SocialList />
 				</div> -->
-				<div class="flex justify-center md:justify-start space-x-4 mt-4 rounded-full">
+				<div class="flex justify-center md:justify-start space-x-4 mt-8 rounded-full">
 					<a href="/posts/" class="relative flex items-center justify-center md:h-8 px-4 rounded-lg shadow-lg hover:brightness-110 transition-all bg-gradient-to-r from-accent-one to-accent-two">
 						<span class="text-bgColor font-semibold">
 							Read my blog
@@ -101,7 +102,19 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 			</div>
 		</div>
 		<TechStackBanner className="mt-8" />
+		<svg class="absolute -bottom-30 left-1/2 -ml-[50vw] w-screen h-20 rotate-180" class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+			<defs>
+				<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+			</defs>
+			<g class="parallax">
+				<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,241,232,0.7)"></use>
+				<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,241,232,0.5)"></use>
+				<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,241,232,0.3)"></use>
+				<use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(255,241,232,1)"></use>
+			</g>
+		</svg>
 	</section>
+
 
 	<!-- Posts y Notes juntos en móvil/tablet -->
 	<div class="flex flex-col gap-8 md:flex-row align-top">
