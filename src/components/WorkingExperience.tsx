@@ -28,7 +28,7 @@ const workExperience = [
         company: 'University of Santiago de Compostela',
         role: 'Open Source Consultant',
         period: '2008 - 2011',
-        location: 'Santiago de Compostela, Spain',
+        location: 'Spain',
         description:
             "Started my career working creating open source tools and developing the GNU/Linux distribution for the university's internal services (authentication, personalization, automated installation).",
         logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Logotype_of_Universidade_de_Santiago_de_Compostela.svg/154px-Logotype_of_Universidade_de_Santiago_de_Compostela.svg.png',

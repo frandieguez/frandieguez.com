@@ -20,7 +20,7 @@ const { items = [] } = Astro.props as { items: WorkItem[] };
 
 <section class="relative mx-auto max-w-6xl">
   <!-- línea de timeline -->
-  <div class="pointer-events-none absolute left-[1.15rem] top-0 h-full w-px bg-gradient-to-b from-emerald-400/40 via-emerald-400/20 to-transparent md:left-8"></div>
+  <div class="pointer-events-none absolute left-[1.15rem] top-0 h-full w-px bg-gradient-to-b bg-[hsl(var(--theme-accent-two))]/40 via-[hsl(var(--theme-accent-two))]/20 to-transparent md:left-8"></div>
 
   <h2 class="mb-12 pl-10 text-4xl font-extrabold tracking-tight md:pl-16">Work</h2>
 
@@ -28,13 +28,13 @@ const { items = [] } = Astro.props as { items: WorkItem[] };
     {items.map((w, i) => (
       <article class="relative">
         {/* marca del timeline */}
-        <div class="absolute -left-1 top-2 h-5 w-5 rounded-full bg-emerald-400 ring-8 ring-emerald-400/10 md:-left-0.5"></div>
+        <div class="absolute left-2 top-2 h-5 w-5 rounded-full bg-[hsl(var(--theme-accent-two))] ring-8 ring-orange-400/10 md:left-6"></div>
 
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-12">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-12 pl-8 md:pl-0">
           {/* texto */}
           <header class="md:col-span-2 md:pl-16">
             {w.eyebrow && (
-              <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-emerald-500">
+              <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-[hsl(var(--theme-accent-two))]">
                 {w.eyebrow}
               </p>
             )}

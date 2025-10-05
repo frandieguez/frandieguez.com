@@ -95,7 +95,7 @@
 		/* Accents */
 		--theme-accent-base: var(--bg-hue) 153% 0%; /* Main accent color */
 		--theme-accent-one: var(--bg-hue) 0% 27%; /* First additional accent color */
-		--theme-accent-two: 351deg 20% 27%; /* Second additional accent color */
+		--theme-accent-two: 15 68% 48%; /* Second additional accent color */
 
 		/* Variant */ /* --theme-accent-two: 344deg 63% 45%; */
 
@@ -103,7 +103,7 @@
 		--fg-hue: var(--hue); /* Common color-hue for calculating color gradations */
 		--fg-saturation: var(--saturation); /* Common saturation for calculating color gradations with tint, 0% - no tint */
 		--fg-brightness: 9%; /* Brightness for calculating color gradations with tint, 0% - starting from absolute black */
-		--theme-text: var(--theme-color-500); /* Text color-brightness already adapted to background color */
+		--theme-text: var(--theme-color-600); /* Text color-brightness already adapted to background color */
 
 		/*** SECONDARY COLORS (External links, neutral accent, quotes) ***/
 		--theme-link: var(--hue) 97% 31%; /* Цвет внешних ссылок */
@@ -189,6 +189,19 @@
 			font-style: var(--shiki-dark-font-style) !important;
 			font-weight: var(--shiki-dark-font-weight) !important;
 			text-decoration: var(--shiki-dark-text-decoration) !important;
+		}
+
+		.parallax > use:nth-child(1) {
+			fill: hsla(var(--bg-hue), 30%, 30%, 60%);
+		}
+		.parallax > use:nth-child(2) {
+			fill: hsla(var(--bg-hue), 30%, 30%, 60%);
+		}
+		.parallax > use:nth-child(3) {
+			fill: hsla(var(--bg-hue), 30%, 30%, 60%);
+		}
+		.parallax > use:nth-child(4) {
+			fill: hsla(var(--bg-hue), 80%, 10%, 70%);
 		}
 	}
 
@@ -373,19 +386,19 @@
 	}
 	.parallax > use:nth-child(1) {
 		animation-delay: -20s;
-		animation-duration: 155s;
+		animation-duration: 125s;
 	}
 	.parallax > use:nth-child(2) {
 		animation-delay: -100s;
-		animation-duration: 40s;
+		animation-duration: 10s;
 	}
 	.parallax > use:nth-child(3) {
 		animation-delay: -4s;
-		animation-duration: 43s;
+		animation-duration: 23s;
 	}
 	.parallax > use:nth-child(4) {
 		animation-delay: -5s;
-		animation-duration: 27s;
+		animation-duration: 17s;
 	}
 
 	@keyframes move-forever {
@@ -404,6 +417,9 @@
 			max-height: 50px;
 		}
 	}
+}
+
+:root[data-theme="dark"] {
 }
 
 /* ПЕРЕПРОВЕРИТЬ !!! */
