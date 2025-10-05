@@ -3,7 +3,7 @@ import Search from "@/components/Search.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import { siteConfig, menuLinks } from "@/site.config";
 import { Icon } from "astro-icon/components";
-import logo from "../../assets/images/header.svg"
+import Logo from "../../assets/images/header.svg?react"
 import { Image } from 'astro:assets';
 
 ---
@@ -36,8 +36,9 @@ import { Image } from 'astro:assets';
 				href="/"
 			 >
 				<!-- Logo -->
-				<div title={siteConfig.title}>
-					<Image width={200} loading="eager" src={logo} alt={siteConfig.title} class="inline-block size-30 fill-current text-accent-base dark:text-accent-two dark:fill-white"/>
+				<div title={siteConfig.title} class="inline-block size-30 text-black dark:text-[hsl(var(--theme-accent-base))]">
+					<Logo />
+					<!-- <Image width={200} loading="eager" src={Logo} alt={siteConfig.title} class="inline-block size-30 fill-current text-accent-base dark:text-accent-two dark:fill-white"/> -->
 				</div>
 
 				<!-- <strong class="'max-[320px]:hidden' bg-clip-text text-transparent bg-gradient-to-r from-accent-one to-accent-two hidden xs:block z-10 mb-0.5 ms-2 text-2xl group-hover:text-accent-one">

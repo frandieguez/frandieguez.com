@@ -70,9 +70,13 @@ const WorkExperienceRightTimeline: React.FC<{ className: string }> = ({
                         <motion.div
                             key={job.period}
                             className="relative"
-                            initial={{ opacity: 0, x: 50 }}
+                            initial={{ opacity: 0, x: 20 }}  // Reduced x offset from 50 to 20
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.2 }}
+                            transition={{
+                                delay: index * 0.1,  // Reduced delay from 0.2 to 0.1
+                                duration: 0.5,      // Added duration
+                                ease: "easeOut"     // Added easing function
+                            }}
                         >
                             {/* Timeline dot */}
                             {/* <div className="absolute -left-10 top-5 w-3 h-3 bg-slate-500 rounded-full border-2 border-white shadow"></div> */}
@@ -114,21 +118,29 @@ const WorkExperienceRightTimeline: React.FC<{ className: string }> = ({
 
                                     </div>
                                     <motion.div
-                                        initial={{ maxHeight: 0 }}
-                                        animate={{ maxHeight: expandedIndex === index ? 500 : 0 }} // Ajusta 500 según el contenido máximo esperado
-                                        transition={{ duration: 0.3 }}
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{
+                                            height: expandedIndex === index ? "auto" : 0,
+                                            opacity: expandedIndex === index ? 1 : 0
+                                        }}
+                                        transition={{
+                                            duration: 0.3,
+                                            ease: [0.04, 0.62, 0.23, 0.98] // Custom easing curve
+                                        }}
                                         className="overflow-hidden"
                                     >
                                         <p className="text-sm mb-4">
                                             {job.description}
                                         </p>
                                     </motion.div>
+
                                     <div className="flex justify-center">
-                                        {expandedIndex === index ? (
-                                            <ChevronUp className="w-6 h-6" />
-                                        ) : (
+                                        <motion.div
+                                            animate={{ rotate: expandedIndex === index ? 180 : 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        >
                                             <ChevronDown className="w-6 h-6" />
-                                        )}
+                                        </motion.div>
                                     </div>
                                 </button>
                             </div>

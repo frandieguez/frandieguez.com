@@ -57,7 +57,7 @@ const postImage = post.data.image || post.data.cover || post.data.thumbnail || p
                 }}
             />
             <Tag class="citrus-link font-medium text-accent-base mt-2.5">
-                <a data-astro-prefetch href={`/posts/${post.id}/`} class={`${Astro.props.forPage === "posts" ? 'text-xl': ''}`}>
+                <a data-astro-prefetch href={`/posts/${post.id}/`} class={`${Astro.props.forPage === "posts" ? 'text-xl': ''}`} 	>
                     {post.data.draft && <span class="text-red-500">(Draft) </span>}
                     {post.data.title}
                 </a>

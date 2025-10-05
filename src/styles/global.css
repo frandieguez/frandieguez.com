@@ -191,16 +191,16 @@
 		}
 
 		.parallax > use:nth-child(1) {
-			fill: hsla(var(--bg-hue), 30%, 30%, 60%);
+			fill: hsla(var(--bg-hue), 30%, 10%, 60%);
 		}
 		.parallax > use:nth-child(2) {
-			fill: hsla(var(--bg-hue), 30%, 30%, 60%);
+			fill: hsla(var(--bg-hue), 30%, 40%, 60%);
 		}
 		.parallax > use:nth-child(3) {
 			fill: hsla(var(--bg-hue), 30%, 30%, 60%);
 		}
 		.parallax > use:nth-child(4) {
-			fill: hsla(var(--bg-hue), 80%, 10%, 70%);
+			fill: hsla(var(--bg-hue), 80%, 1%, 70%);
 		}
 	}
 
@@ -384,20 +384,20 @@
 		animation: move-forever 45s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 	}
 	.parallax > use:nth-child(1) {
-		animation-delay: -20s;
+		animation-delay: -40s;
 		animation-duration: 125s;
 	}
 	.parallax > use:nth-child(2) {
-		animation-delay: -100s;
-		animation-duration: 10s;
+		animation-delay: -10s;
+		animation-duration: 30s;
 	}
 	.parallax > use:nth-child(3) {
 		animation-delay: -4s;
-		animation-duration: 23s;
+		animation-duration: 40s;
 	}
 	.parallax > use:nth-child(4) {
-		animation-delay: -5s;
-		animation-duration: 17s;
+		animation-delay: -15s;
+		animation-duration: 10s;
 	}
 
 	@keyframes move-forever {
