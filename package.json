@@ -111,5 +111,6 @@
       "yarn format",
       "git add"
     ]
-  }
+  },
+  "packageManager": "yarn@1.22.20"
 }
