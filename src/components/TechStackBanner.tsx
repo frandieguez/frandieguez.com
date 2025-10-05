@@ -30,17 +30,14 @@ const TechStackBanner = ({ className }: { className?: string }) => {
         <div className={`w-full py-4 ${className}`}>
             <div className="flex flex-wrap gap-6 justify-center align-middle text-center md:flex-nowrap">
                 {technologies.map((tech, i) => (
-                    <a
+                    <div
                         key={tech.name}
-                        href={"#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="flex flex-col items-center  hover:text-accent-base/100"
                         title={`Language I use: ${tech.name}`}
                     >
                         <div className={" text-xl md:text-4xl"}>{tech.icon}</div>
                         <span className={"text-xs md:text-sm mt-1 md:mt-2 whitespace-nowrap"}>{tech.name}</span>
-                    </a>
+                    </div>
                 ))}
             </div>
         </div >
