@@ -54,7 +54,7 @@ const CompanyLogo: React.FC<{
 const WorkExperienceRightTimeline: React.FC<{ className: string }> = ({
     className,
 }) => {
-    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
     return (
         <section className={`${className}`}>

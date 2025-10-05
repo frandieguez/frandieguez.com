@@ -4,15 +4,17 @@ import { menuLinks, siteConfig } from "@/site.config";
 const year = new Date().getFullYear();
 ---
 
+
+	<!-- <div class="bg-accent-two/10 absolute bottom-0 left-1/2 min-h-100 z-0 md:min-h-[100px] w-screen -ml-[50vw] bg-red dark:bg-bgColor pointer-events-none overflow-hidden"></div> -->
 <footer
-	class="semibold mt-auto flex w-full flex-col items-center justify-center gap-y-2 pb-4 pt-8 text-center align-top text-accent sm:flex-row sm:justify-between sm:text-sm"
+	class="semibold  z-10 flex w-full flex-col items-center justify-center mt-10 space-y-10 gap-y-2 pb-4 pt-8 text-center align-top text-accent sm:flex-row sm:justify-between sm:text-sm"
 >
 	<div class="me-0 font-semibold sm:me-4">
 		 &copy; {year}, Created with ♥️ and <span class="inline-block">&nbsp;🚀&nbsp;Astro</span> by {siteConfig.author}.
 	</div>
 	<nav
 		aria-label="More on this site"
-		class="flex justify-between space-x-4 font-medium text-light md:w-[14rem] w-auto"
+		class="flex justify-between align-middle space-x-4 font-medium text-light md:w-[14rem] w-auto"
 	>
 		{
 			menuLinks.map((link) => (
