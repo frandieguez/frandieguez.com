@@ -22,23 +22,23 @@ const { items = [] } = Astro.props as { items: WorkItem[] };
   <!-- línea de timeline -->
   <div class="pointer-events-none absolute left-[1.15rem] top-0 h-full w-px bg-gradient-to-b bg-[hsl(var(--theme-accent-two))]/40 via-[hsl(var(--theme-accent-two))]/20 to-transparent md:left-8"></div>
 
-  <h2 class="mb-12 pl-10 text-4xl font-extrabold tracking-tight md:pl-16">Work</h2>
+  <h2 class="mb-12 pl-10 !text-3xl font-extrabold tracking-tight md:pl-16">Work</h2>
 
   <div class="space-y-24">
     {items.map((w, i) => (
       <article class="relative">
         {/* marca del timeline */}
-        <div class="absolute left-2 top-2 h-5 w-5 rounded-full bg-[hsl(var(--theme-accent-two))] ring-8 ring-orange-400/10 md:left-6"></div>
+        <div class="absolute left-2 top-2 h-5 w-5 rounded-full bg-[hsl(var(--theme-accent-two))] ring-8 ring-orange-400/10 md:left-5 ml-[2px]"></div>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-12 pl-8 md:pl-0">
           {/* texto */}
           <header class="md:col-span-2 md:pl-16">
             {w.eyebrow && (
-              <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-[hsl(var(--theme-accent-two))]">
+              <p class="mb-1 mt-2 text-xs font-semibold uppercase tracking-widest text-[hsl(var(--theme-accent-two))]">
                 {w.eyebrow}
               </p>
             )}
-            <h3 class="text-2xl font-bold leading-tight">{w.title}</h3>
+            <h3 class="!text-xl font-bold leading-tight mt-2">{w.title}</h3>
             {w.subtitle && <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{w.subtitle}</p>}
             {w.description && (
               <p class="mt-4 text-zinc-700 dark:text-zinc-300">{w.description}</p>

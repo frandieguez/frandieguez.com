@@ -30,7 +30,7 @@ const workItems = [
   },
 
   {
-    title: "OSS • GNOME",
+    title: "GNOME • Open Source Project",
     eyebrow: "Contributions and Galician translations",
     subtitle: "Maintainer / Contributor - 2006–Now",
     description:
@@ -110,7 +110,7 @@ const events = [
 
 <PageLayout meta={meta}>
 
-  	<section class="mx-auto relative mt-10 mb-24 ">
+  	<section class="mx-auto relative mt-10 ">
 		<div class="gap-8 flex flex-col md:flex-row-reverse items-center justify-center">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%"
 			class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-full max-w-none h-auto pointer-events-none" >
@@ -145,11 +145,11 @@ const events = [
 			</div>
 			<div class="w-full md:w-2/3 text-center md:text-left">
 				<h1 class="text-4xl font-bold mb-6">
-					<div style="min-height:5rem;" class="title text-3xl md:text-4xl bg-gradient-to-r text-[hsl(var(--theme-accent-two))] dark:from-accent-two dark:via-accent-one dark:to-accent-two bg-clip-text text-transparent">
+					<div style="min-height:5rem;" class="title text-3xl md:text-4xl bg-gradient-to-r -mt-6 from-accent-two via-accent-one to-accent-two bg-clip-text text-transparent">
 						Hey, I'm Fran
 					</div>
 				</h1>
-				<p class="mt-4 mb-4 text-lg font-medium">
+				<p class="mt-0 mb-4 text-lg font-medium">
         I've been developing web applications as a Full Stack Developer since 2006.
         I've been in multiple positions thoughtout my career, from a software developer,
         lead developer, CTO, and Head of Research and Development.
@@ -162,29 +162,26 @@ const events = [
 
 
 	<div class="prose prose-citrus max-w-none">
-      I've being using different technologies over the time:
-        <ul>
-          <li>
-            on the server side I have created products with Ruby, PHP, Node.js
-            and roughtly with Golang on Microservices,
-          </li>
-          <li>
-            on the client side, I've passed from the origins of the web, using
-            VanillaJS, jQuery, to jump to AngularJS, Angular 2 and finally
-            React.
-          </li>
-        </ul>
-        <p>
-          From the technical perspective my main focus is web performance,
-          <a
-            href="https://github.com/frandieguez"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            sustainable engineering
-          </a>{' '}
-          and open source technology.
-        </p>
+      I've worked with a wide range of technologies over the years:
+      <ul>
+        <li>
+          On the server side, I've built products using Ruby, PHP, and Node.js, and also explored Golang for developing scalable microservices and distributed systems.
+        </li>
+        <li>
+          On the client side, my journey started with the early days of the web — from VanillaJS and jQuery, through AngularJS and Angular 2, and finally to React, which has become my main focus for building modern, high-performance interfaces.
+        </li>
+      </ul>
+      <p>
+        From a technical standpoint, my main interests revolve around web performance optimization,
+        <a
+          href="https://github.com/frandieguez"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          sustainable engineering
+        </a>
+        , and the promotion of open-source technologies that foster collaboration and long-term maintainability.
+      </p>
 
         <Workline items={workItems} />
 

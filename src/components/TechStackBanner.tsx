@@ -32,7 +32,7 @@ const TechStackBanner = ({ className }: { className?: string }) => {
                 {technologies.map((tech, i) => (
                     <a
                         key={tech.name}
-                        href={tech.link}
+                        href={"#"}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex flex-col items-center  hover:text-accent-base/100"
