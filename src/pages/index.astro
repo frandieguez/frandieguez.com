@@ -64,9 +64,9 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 				<rect width="100%" height="100%" fill="url(#grid)" mask="url(#softMask)"/>
 			</svg>
 			<div class="w-full md:w-1/3 flex justify-center mb-6 md:mt-0 relative">
+				    <!-- style={{ backgroundColor: 'color-mix(in srgb, #FFF8F3, transparent 50%)' }} -->
 				<div
-    				style={{ backgroundColor: 'color-mix(in srgb, #FFF8F3, transparent 50%)' }}
-					class="size-40 md:size-72 animate-amoeba absolute md:mr-12 -top-1 md:-top-3 z-0"></div>
+					class="size-40 md:size-72 animate-amoeba absolute md:mr-12 -top-1 md:-top-3 z-0 bg-[#fff8f3aa] dark:bg-[#fff8f30f]"></div>
 				<Image src={profilePic} alt="Fran Dieguez" class="size-36 md:size-64 relative z-10 md:mr-12 rounded-full" />
 			</div>
 			<div class="w-full md:w-2/3 text-center md:text-left">
