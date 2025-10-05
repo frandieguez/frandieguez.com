@@ -7,9 +7,10 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
     post: CollectionEntry<"post">;
     withDesc?: boolean;
+    forPage?: "index" | "posts";
 };
 
-const { as: Tag = "div", post, withDesc = false } = Astro.props;
+const { as: Tag = "div", post, withDesc = false, forPage: string = "index" } = Astro.props;
 const postImage = post.data.image || post.data.cover || post.data.thumbnail || post.data.ogImage;
 ---
 
@@ -17,7 +18,7 @@ const postImage = post.data.image || post.data.cover || post.data.thumbnail || p
     {!withDesc ? (
         <>
             {false&& postImage && (
-                <a href={`/posts/${post.id}/`} class="block mr-4 shrink-0 w-20 h-20 rounded-lg overflow-hidden bg-gray-100">
+                <a href={`/posts/${post.id}/`} class={`block mr-4 shrink-0 w-20 h-20 rounded-lg overflow-hidden bg-gray-100 ${forPage ==="posts" ? 'text-xl': ''}`}>
 					{/* <Image width={48} height={48} src={postImage} alt={post.data.title} class="object-cover w-full h-full" loading="lazy" /> */}
                 </a>
             )}
@@ -42,7 +43,7 @@ const postImage = post.data.image || post.data.cover || post.data.thumbnail || p
     ) : (
         <>
             {false&& postImage && (
-                <a href={`/posts/${post.id}/`} class="block mb-2 w-40 h-40 rounded-lg overflow-hidden bg-gray-100">
+                <a href={`/posts/${post.id}/`} class={`block mb-2 w-40 h-40 rounded-lg overflow-hidden bg-gray-100 ${Astro.props.forPage === "posts" ? 'text-xl': ''}`}>
 					{/* <Image width={48} height={48} src={image.src} alt={post.data.title} class="object-cover w-full h-full" loading="lazy" /> */}
                 </a>
             )}
@@ -56,7 +57,7 @@ const postImage = post.data.image || post.data.cover || post.data.thumbnail || p
                 }}
             />
             <Tag class="citrus-link font-medium text-accent-base mt-2.5">
-                <a data-astro-prefetch href={`/posts/${post.id}/`}>
+                <a data-astro-prefetch href={`/posts/${post.id}/`} class={`${Astro.props.forPage === "posts" ? 'text-xl': ''}`}>
                     {post.data.draft && <span class="text-red-500">(Draft) </span>}
                     {post.data.title}
                 </a>
