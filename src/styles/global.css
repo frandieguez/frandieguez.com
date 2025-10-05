@@ -150,7 +150,7 @@
 		/* Фон (background) */
 		--bg-hue: var(--hue); /* Цвет-оттенок фона */
 		--bg-saturation: var(--saturation); /* Насыщенность оттенка фона и некоторых др. элементов, 0% - нет оттенка */
-		--bg-brightness: 15%; /* Ярксть фона, 0% - черный */
+		--bg-brightness: 10%; /* Ярксть фона, 0% - черный */
 		/* Вариант 204deg 51% 14% */
 		/* Вариант 210deg 25% 15% */
 
@@ -158,8 +158,7 @@
 		--theme-accent-base: var(--hue) 10% 85%;
 		--theme-accent-one: 50deg 49% 80%; /* Первый дополнительный акцентный цвет */
 		--theme-accent-two: 50deg 72% 63%; /* 50deg 72% 63% */ /* Второй дополнительный акцентный цвет (был 45deg 80% 50%) */
-		/* --theme-accent-two: 0deg 75% 89%; */
-		/* --theme-accent-base: var(--hue) 97% 71%; */
+		--theme-accent-two: 15 68% 48%; /* Second additional accent color */		/* --theme-accent-base: var(--hue) 97% 71%; */
 
 		/* Текст (foreground, цвет-яркость текста рассчитывается ниже на базе --theme-fg) */
 		--fg-hue: var(--hue); /* Общий цвет-оттенок для рассчета градаций цвета */
@@ -417,9 +416,6 @@
 			max-height: 50px;
 		}
 	}
-}
-
-:root[data-theme="dark"] {
 }
 
 /* ПЕРЕПРОВЕРИТЬ !!! */
