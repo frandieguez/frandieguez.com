@@ -1,4 +1,6 @@
 ---
+import { isNoSubstitutionTemplateLiteral } from "typescript";
+
 interface WorkImage {
   src: string;         // ruta pública (/work/xyz.png)
   alt?: string;
@@ -15,7 +17,65 @@ interface WorkItem {
   images: WorkImage[]; // entre 2 y 6 queda perfecto
 }
 
-const { items = [] } = Astro.props as { items: WorkItem[] };
+// 🔧 Datos de ejemplo: cambia rutas y textos
+const items = [
+  {
+    title: "SITUM • Indoor Maps",
+    eyebrow: "Map Viewer & 3D Layers",
+    subtitle: ["Tech Lead — 2020–Now", "Senior Software Developer — 2019–2020"],
+    description:
+      "Currently, I lead the web technology at Situm — an innovative company providing indoor positioning solutions for people and robots across multiple industries. My work focuses on designing and developing the visual layer of Situm’s products, transforming complex spatial data into intuitive, high-performance web experiences that power advanced Business Intelligence insights.",
+    ctaHref: "https://situm.com",
+    ctaLabel: "Visit the site",
+    images: [
+      { src: "/images/projects/situm/1.jpeg" },
+      { src: "/images/projects/situm/2.jpeg" },
+      { src: "/images/projects/situm/3.png" },
+      { src: "/images/projects/situm/4.png" },
+    ],
+  },
+
+  {
+    title: "GNOME • Open Source Project",
+    eyebrow: "Contributions and Galician translations",
+    subtitle: ["Maintainer / Contributor — 2006–Now"],
+    description:
+      "For over 20 years, I’ve been contributing to the GNOME project — not only translating its modules into Galician, but also developing and maintaining i18n tools that improve and streamline the translation workflow for contributors worldwide.",
+    ctaHref: "https://l10n.gnome.org/teams/gl",
+    ctaLabel: "Visit the site",
+    images: [
+      { src: "/images/projects/gnome/1.png" },
+      { src: "/images/projects/gnome/2.png" },
+    ],
+  },
+
+  {
+    title: "OpenHost",
+    eyebrow: "High-performance news publishing platform",
+    subtitle: ["Head of Research and Development — 2009–2019"],
+    description:
+      "Before joining Situm, I dedicated a decade to building high-performance tools and large-scale systems for the media industry. As Head of R&D, I led the development of OpenHost — a robust news publishing platform that empowered journalists to efficiently manage and deliver online content to millions of readers.",
+    ctaHref: "http://www.opennemas.com/",
+    ctaLabel: "Visit the site",
+    images: [
+      { src: "/images/projects/opennemas/1.jpeg" },
+      { src: "/images/projects/opennemas/2.jpeg" },
+    ],
+  },
+
+  {
+    title: "University of Santiago de Compostela",
+    eyebrow: "Open Source Consultant",
+    description:
+      "Earlier in my career, I worked as an open-source software consultant at the University of Santiago de Compostela, where I developed a custom Linux-based desktop to simplify administrative workflows and led large-scale migrations to open-source software in educational environments. This initiative earned the Libre Software Award in Galicia, Spain.",
+    link: "http://www.mancomun.org/es/no_cache/actualidade/detalledenova/nova/a-osl-da-usc-gana-o-premio-eganet-2009-na-categoria-software-libre/",
+    images: [
+      { src: "/images/projects/oslusc/1.jpeg" },
+      { src: "/images/projects/oslusc/2.jpeg" },
+      { src: "/images/projects/oslusc/3.jpeg" },
+    ],
+  },
+];
 ---
 
 <section class="relative mx-auto max-w-6xl">
@@ -39,7 +99,11 @@ const { items = [] } = Astro.props as { items: WorkItem[] };
               </p>
             )}
             <h3 class="!text-xl font-bold leading-tight mt-2">{w.title}</h3>
-            {w.subtitle && <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{w.subtitle}</p>}
+            <div>
+            {w.subtitle && w.subtitle.map((sub, idx) => (
+              <div key={idx} class="text-sm text-zinc-600 dark:text-zinc-400">{sub}</div>
+            ))}
+            </div>
             {w.description && (
               <p class="mt-4 text-zinc-700 dark:text-zinc-300">{w.description}</p>
             )}
@@ -52,7 +116,7 @@ const { items = [] } = Astro.props as { items: WorkItem[] };
               >
                 {w.ctaLabel}
                 <svg width="14" height="14" viewBox="0 0 24 24" class="opacity-70">
-                  <path fill="currentColor" d="M14 3l7 7l-1.414 1.414L15 7.828V21h-2V7.828l-4.586 4.586L7 10l7-7z"/>
+                  <path fill="currentColor" d="M21 14l-7 7l-1.414-1.414L17.172 15H4v-2h13.172l-4.586-4.586L14 7l7 7z"/>
                 </svg>
               </a>
             )}

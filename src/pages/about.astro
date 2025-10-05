@@ -10,101 +10,6 @@ import profilePic from "../../public/profile-pic.jpg";
 
 import Workline from "@/components/Workline.astro";
 
-
-// 🔧 Datos de ejemplo: cambia rutas y textos
-const workItems = [
-  {
-    title: "SITUM • Indoor Maps",
-    eyebrow: "Map Viewer & 3D Layers",
-    subtitle: "Tech Lead — 2019–Now",
-    description:
-            "Currently I'm helping to create the visual part of Situm, an awesome company that helps multiple industries to position their users (robots and people) indoors while doing Business Intelligence on gathered data.",
-    ctaHref: "https://situm.com",
-    ctaLabel: "Ver producto",
-    images: [
-      { src: "/images/projects/situm/1.jpeg" },
-      { src: "/images/projects/situm/2.jpeg" },
-      { src: "/images/projects/situm/3.png" },
-      { src: "/images/projects/situm/4.png" },
-    ],
-  },
-
-  {
-    title: "GNOME • Open Source Project",
-    eyebrow: "Contributions and Galician translations",
-    subtitle: "Maintainer / Contributor - 2006–Now",
-    description:
-      "I've been contributing for more than 15 years to the GNOME project, focusing on i18n and tooling for translations.",
-          ctaHref: "https://l10n.gnome.org/teams/gl",
-    ctaLabel: "Ver pagina",
-    images: [
-      { src: "/images/projects/gnome/1.png" },
-      { src: "/images/projects/gnome/2.png" },
-    ],
-  },
-  {
-      title: "OpenNemas",
-      eyebrow: "High performance news publishing platform",
-      subtitle: "Head of Research and Development — 2009–2019",
-      description:
-          "Before I've been proudly creating different tools focused on high performance and heavy loaded systems that helped journalists to maintain online newspapers, developing OpenNemas.",
-      ctaHref: "http://www.opennemas.com/",
-      ctaLabel: "Ver producto",
-      images: [
-          { src: "/images/projects/opennemas/1.jpeg" },
-          { src: "/images/projects/opennemas/2.jpeg" },
-      ]
-  },
-  {
-        eyebrow: "Open Source Consultant",
-        title: "University of Santiago de Compostela",
-        description:
-            "Prior to that I've been working as an open-source software consultant at the University of Santiago de Compostela, where I've developed a custom Linux-based desktop to simplify administrative tasks and also did massive migrations to open source software in educational settings. This project won the Libre Software contest in Galicia, Spain.",
-        link: "http://www.mancomun.org/es/no_cache/actualidade/detalledenova/nova/a-osl-da-usc-gana-o-premio-eganet-2009-na-categoria-software-libre/",
-        images: [
-            { src: '/images/projects/oslusc/1.jpeg' },
-            { src: '/images/projects/oslusc/2.jpeg' },
-            { src: '/images/projects/oslusc/3.jpeg' },
-        ]
-    },
-];
-const events = [
-    {
-        title: "Situm",
-        description:
-            "Currently I'm helping to create the visual part of Situm, an awesome company that helps multiple industries to position their users (robots and people) indoors while doing Business Intelligence on gathered data.",
-        link: "https://situm.es/es",
-        images: [
-            '/images/projects/situm/1.jpeg',
-            '/images/projects/situm/2.jpeg',
-            '/images/projects/situm/3.png',
-            '/images/projects/situm/4.png',
-        ]
-    },
-    {
-        title: "OpenNemas",
-        description:
-            "Before I've been proudly creating different tools focused on high performance and heavy loaded systems that helped journalists to maintain online newspapers, developing OpenNemas.",
-        link: "http://www.opennemas.com/",
-        images: [
-            '/images/projects/opennemas/1.jpeg',
-            '/images/projects/opennemas/2.jpeg',
-        ]
-    },
-    {
-        title: "University of Santiago de Compostela",
-        description:
-            "Prior to that I've been working as an open-source software consultant at the University of Santiago de Compostela, where I've developed a custom Linux-based desktop to simplify administrative tasks and also did massive migrations to open source software in educational settings. This project won the Libre Software contest in Galicia, Spain.",
-        link: "http://www.mancomun.org/es/no_cache/actualidade/detalledenova/nova/a-osl-da-usc-gana-o-premio-eganet-2009-na-categoria-software-libre/",
-        images: [
-            '/images/projects/oslusc/1.jpeg',
-            '/images/projects/oslusc/2.jpeg',
-            '/images/projects/oslusc/3.jpeg',
-        ]
-    },
-];
-
-
 ---
 
 
@@ -142,20 +47,21 @@ const events = [
 					class="size-40 md:size-72 animate-amoeba absolute -top-1 md:-top-3 z-0 bg-[#fff8f3aa] dark:bg-[#fff8f30f]"></div>
 				<Image src={profilePic} alt="Fran Dieguez" class="size-36 md:size-64 relative z-10  rounded-full" />
 			</div>
-			<div class="w-full md:w-2/3 text-center md:text-left">
-				<h1 class="text-4xl font-bold mb-6">
-					<div style="min-height:5rem;" class="title text-3xl md:text-4xl bg-gradient-to-r -mt-6 from-accent-two via-accent-one to-accent-two bg-clip-text text-transparent">
-						Hey, I'm Fran
-					</div>
-				</h1>
-				<p class="mt-0 mb-4 text-lg font-medium">
-        While developing web applications as a Full Stack Developer since 2006,
-        I've been in <span class="bg-accent-two px-1 !text-white ">multiple positions thoughtout my career</span>: from a software developer,
-        lead developer, and Head of Research and Development and CTO.
+      <div class="w-full md:w-2/3 text-center md:text-left">
+        <h1 class="text-4xl font-bold mb-6">
+          <div style="min-height:5rem;" class="title text-3xl md:text-4xl bg-gradient-to-r -mt-6 from-accent-two via-accent-one to-accent-two bg-clip-text text-transparent">
+            Hey, I'm Fran
+          </div>
+        </h1>
+        <p class="mt-0 mb-4 text-lg font-medium">
+          I've been developing web applications as a Full Stack Developer since 2006,
+          taking on <span class="bg-accent-two px-1 !text-white">various roles throughout my career</span> — from Software Developer
+          and Lead Developer to Head of Research and Development, and finally CTO.
         </p>
-        <p> The objective on each project is to create useful tools that make impact on users.  </p>
-
-			</div>
+        <p>
+          Across every project, my main goal has always been to build meaningful and reliable tools that have a real impact on people’s lives.
+        </p>
+      </div>
 		</div>
 	</section>
 
@@ -181,44 +87,51 @@ const events = [
         , and the promotion of open-source technologies that foster collaboration and long-term maintainability.
       </p>
 
-        <Workline items={workItems} />
+        <Workline />
 
-        <p>
-          Whenever not thinking on software development:
+ <p>
+  Whenever I’m not thinking about software development:
+  <ul>
+    <li>
+      I’m usually contributing to
+      <a
+        href="https://www.ohloh.net/accounts/frandieguez"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        open-source projects
+      </a>
+      👨‍💻 like <strong>GNOME</strong> (as a long-time member of the GNOME
+      Foundation) or coordinating the Galician translation team for Ubuntu.
+      I also enjoy
+      <a
+        href="https://www.amazon.com/gp/pdp/profile/A362F32UBZHEUR"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        reading
+      </a>
+      — mostly about technology, design, and personal growth — and exploring new
+      ideas to make tech more accessible and sustainable.
+    </li>
 
-          <ul>
-            <li >
+    <li>
+      When I’m away from the keyboard, you’ll probably find me training at the
+      gym 💪, practicing CrossFit, going hiking through the forests of Galicia 🌲,
+      or hitting the slopes on my snowboard 🏂.
+    </li>
 
-              I can be found contributing
-              to{' '}
-              <a
-                href="https://www.ohloh.net/accounts/frandieguez"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                open-source projects
-              </a>{' '}
-              👨‍💻 like <strong>GNOME</strong> (as a member of the GNOME
-              Foundation) or in Ubuntu as Galician translators coordinator,
-              <a
-                href="https://www.amazon.com/gp/pdp/profile/A362F32UBZHEUR"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                reading
-              </a>
-            </li>
-
-            <li>
-
-              or doing sports like Crossfit and snowboard 🏂.
-            </li>
-          </ul>
-        </p>
-        <p>
-          Currently I'm <strong>not available for hire</strong> but you can
-          write me to propose me future and innovative projects.
-        </p>
+    <li>
+      I’m also passionate about home automation and smart living — most of my
+      house is connected through Home Assistant and Zigbee2MQTT, with custom
+      automations that make daily life smoother (and geekier 😄).
+    </li>
+  </ul>
+</p>
+<p>
+  Currently, I’m <strong>not available for hire</strong>, but feel free to reach
+  out if you’d like to collaborate on innovative or meaningful future projects.
+</p>
       </div>
 
 
