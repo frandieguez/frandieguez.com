@@ -59,7 +59,7 @@ const WorkExperienceRightTimeline: React.FC<{ className: string }> = ({
     return (
         <section className={`${className}`}>
             <div className="">
-                <h2 className="title mb-6 text-accent-two">
+                <h2 className="title text-xl  mb-6 text-accent-two">
                     My Working Experience
                 </h2>
                 <div className="mx-auto flex flex-col gap-4 relative">

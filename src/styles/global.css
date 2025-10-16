@@ -1,461 +1,313 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Regular.latin.base.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-	/* font-display: swap; */
+/* =======================
+   THEME TOKENS (v4)
+   ======================= */
+@theme {
+  /* Colors (kebab-case => utilidades: text-*, bg-*, border-*) */
+  --color-bg-color: hsl(var(--theme-bg));
+  --color-text-color: var(--theme-text);
+  --color-accent-base: hsl(var(--theme-accent-base));
+  --color-accent-one: hsl(var(--theme-accent-one));
+  --color-accent-two: hsl(var(--theme-accent-two));
+  --color-link: hsl(var(--theme-link));
+  --color-accent: var(--theme-accent);
+  --color-quote: hsl(var(--theme-quote));
+  --color-lightest: var(--theme-lightest);
+  --color-lighter: var(--theme-lighter);
+  --color-light: var(--theme-light);
+  --color-special-lightest: var(--theme-special-lightest);
+  --color-special-lighter: var(--theme-special-lighter);
+  --color-special-light: var(--theme-special-light);
+
+  /* Fonts */
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "CascadiaCode", ui-serif, serif;
+  --font-heading: "Lexend", ui-sans-serif, system-ui, sans-serif;
+
+  /* Animations */
+  @keyframes amoeba {
+    0%,100% { border-radius: 40% 60% 60% 40% / 50% 30% 70% 50%; transform: scale(1); }
+    50% { transform: scale(1.1); }
+    80% { border-radius: 60% 40% 40% 60% / 30% 50% 50% 70%; }
+  }
+
+  @keyframes move-forever {
+    0% { transform: translate3d(-90px, 0, 0); }
+    100% { transform: translate3d(85px, 0, 0); }
+  }
+
+  @keyframes noise {
+    0% { filter: url(#noise-frame-1); }
+    33% { filter: url(#noise-frame-2); }
+    66% { filter: url(#noise-frame-3); }
+    100% { filter: url(#noise-frame-1); }
+  }
 }
 
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Medium.latin.base.ttf") format("truetype");
-	font-weight: 500;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Semibold.latin.base.ttf") format("truetype");
-	font-weight: 600;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Bold.latin.base.ttf") format("truetype");
-	font-weight: 700;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Regular.latin.extend.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Medium.latin.extend.ttf") format("truetype");
-	font-weight: 500;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Semibold.latin.extend.ttf") format("truetype");
-	font-weight: 600;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Bold.latin.extend.ttf") format("truetype");
-	font-weight: 700;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "CascadiaCode";
-	src: url("../assets/fonts/CascadiaCode.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
+/* =======================
+   BASE (light / dark y vars compartidas)
+   ======================= */
 @layer base {
-	:root,
-	:root[data-theme="light"] {
-		color-scheme: light;
+  :root,
+  :root[data-theme="light"] {
+    color-scheme: light;
 
-		/* For text to have a background tint, use --fg-hue: var(--hue) and --bg-hue: var(--hue) */
-		/* For text to have a background tint, use --fg-saturation: var(--saturation) and --bg-saturation: var(--saturation) */
+    /* base hue/sat */
+    --hue: 0deg;
+    --saturation: 100%;
 
-		/*** MAIN COLORS (Base, background, accents, text) ***/
-		/* Base theme color-hue */
-		--hue: 0deg; /* Common base color-hue for theme elements */
-		--saturation: 100%; /* Common base saturation for theme elements, 0% - no color tint */
+    /* background */
+    --bg-hue: var(--hue);
+    --bg-saturation: var(--saturation);
+    --bg-brightness: 100%;
 
-		/* Background */
-		--bg-hue: var(--hue); /* Background color-hue */
-		--bg-saturation: var(--saturation); /* Background tint saturation and some other elements, 0% - no tint */
-		--bg-brightness: 100%; /* Background brightness, 100% - absolute white */
+    /* accents */
+    --theme-accent-base: var(--bg-hue) 153% 0%;
+    --theme-accent-one: var(--bg-hue) 0% 27%;
+    --theme-accent-two: 15 68% 48%;
 
-		/* Accents */
-		--theme-accent-base: var(--bg-hue) 153% 0%; /* Main accent color */
-		--theme-accent-one: var(--bg-hue) 0% 27%; /* First additional accent color */
-		--theme-accent-two: 15 68% 48%; /* Second additional accent color */
+    /* text grading base */
+    --fg-hue: var(--hue);
+    --fg-saturation: var(--saturation);
+    --fg-brightness: 9%;
+    --theme-text: var(--theme-color-600);
 
-		/* Variant */ /* --theme-accent-two: 344deg 63% 45%; */
+    /* secondary */
+    --theme-link: var(--hue) 97% 31%;
+    --theme-accent: var(--theme-color-600);
+    --theme-quote: var(--theme-text);
 
-		/* Text (foreground, text color-brightness is calculated below based on --theme-fg) */
-		--fg-hue: var(--hue); /* Common color-hue for calculating color gradations */
-		--fg-saturation: var(--saturation); /* Common saturation for calculating color gradations with tint, 0% - no tint */
-		--fg-brightness: 9%; /* Brightness for calculating color gradations with tint, 0% - starting from absolute black */
-		--theme-text: var(--theme-color-600); /* Text color-brightness already adapted to background color */
+    /* extras */
+    --theme-lightest: var(--theme-color-350);
+    --theme-lighter: var(--theme-color-400);
+    --theme-light: var(--theme-color-450);
 
-		/*** SECONDARY COLORS (External links, neutral accent, quotes) ***/
-		--theme-link: var(--hue) 97% 31%; /* Цвет внешних ссылок */
-		--theme-accent: var(--theme-color-600); /* Нейтральный акцент, рассчитывается ниже на базе --theme-fg */
-		--theme-quote: var(--theme-text); /* Цвет цитат */
+    --theme-special-lightest: hsl(var(--hue), var(--saturation), 100%);
+    --theme-special-lighter: hsl(var(--hue), var(--saturation), 98%);
+    --theme-special-light: hsl(var(--theme-bg));
+    --theme-special: var(--theme-color-75);
 
-		/*** ДОПОЛНИТЕЛЬНЫЕ ЦВЕТА ***/
-		--theme-lightest: var(--theme-color-350);
-		--theme-lighter: var(--theme-color-400);
-		--theme-light: var(--theme-color-450);
+    /* rehype pretty code (light) */
+    pre code span {
+      color: var(--shiki-light) !important;
+      font-style: var(--shiki-light-font-style) !important;
+      font-weight: var(--shiki-light-font-weight) !important;
+      text-decoration: var(--shiki-light-text-decoration) !important;
+    }
 
-		/*** СПЕЦИАЛЬНЫЕ ДЛЯ КАЖДОЙ ТЕМЫ ЦВЕТА ***/
-		--theme-special-lightest: hsl(var(--hue), var(--saturation), 100%);
-		--theme-special-lighter: hsl(var(--hue), var(--saturation), 98%);
-		--theme-special-light: hsl(var(--theme-bg));
-		--theme-special: var(--theme-color-75);
+    /* waves / parallax */
+    .waves { position: relative; width: 100%; height: 50px; transform: rotate(180deg) scaleX(-1) !important; }
+    .parallax > use { animation: move-forever 45s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite; }
+    .parallax > use:nth-child(1) { animation-delay: -40s; animation-duration: 125s; }
+    .parallax > use:nth-child(2) { animation-delay: -10s; animation-duration: 30s; }
+    .parallax > use:nth-child(3) { animation-delay: -4s;  animation-duration: 40s; }
+    .parallax > use:nth-child(4) { animation-delay: -15s; animation-duration: 10s; }
 
-		/* Подсветка синтаксиса rehype-pretty-code */
-		pre code span {
-			color: var(--shiki-light) !important;
-			font-style: var(--shiki-light-font-style) !important;
-			font-weight: var(--shiki-light-font-weight) !important;
-			text-decoration: var(--shiki-light-text-decoration) !important;
-		}
-	}
+    @media (max-width: 768px) {
+      .waves { min-height: 20px; max-height: 50px; }
+    }
+  }
 
-	:root[data-theme="dark"] {
-		color-scheme: dark;
+  :root[data-theme="dark"] {
+    color-scheme: dark;
 
-		/* Для того чтобы текст имел оттенок фона --fg-hue: var(--hue) и --bg-hue: var(--hue) */
-		/* Для того чтобы текст имел оттенок фона --fg-saturation: var(--saturation) и --bg-saturation: var(--saturation) */
+    /* base hue/sat */
+    --hue: 200deg;
+    --saturation: 53%;
 
-		/* --theme-bg: 200deg 93% 10%; /* DeepBlue */
-		/* --theme-bg: 190deg 86% 8%; /* DeepGreen */
-		/* --theme-bg: 237deg 22% 20%; */
-		/* --theme-accent-one: 355deg 61% 88%; /* LightRose */
-		/* --theme-accent-two: 200deg 61% 71%; /* LightBlue */
+    /* background */
+    --bg-hue: var(--hue);
+    --bg-saturation: var(--saturation);
+    --bg-brightness: 10%;
 
-		/*** ОСНОВНЫЕ ЦВЕТА (Базовый, фон, акценты, текст) ***/
-		/* Базовый цвет-оттенок темы */
-		--hue: 200deg; /* Общий базовый цвет-оттенок элементов темы */
-		--saturation: 53%; /* Общая базовая насыщенность элементов темы, 0% - нет оттенка цвета */
+    /* accents */
+    --theme-accent-base: var(--hue) 10% 85%;
+    --theme-accent-one: 50deg 49% 80%;
+    --theme-accent-two: 15 68% 48%;
 
-		/* Фон (background) */
-		--bg-hue: var(--hue); /* Цвет-оттенок фона */
-		--bg-saturation: var(--saturation); /* Насыщенность оттенка фона и некоторых др. элементов, 0% - нет оттенка */
-		--bg-brightness: 10%; /* Ярксть фона, 0% - черный */
-		/* Вариант 204deg 51% 14% */
-		/* Вариант 210deg 25% 15% */
+    /* text grading base */
+    --fg-hue: var(--hue);
+    --fg-saturation: var(--saturation);
+    --fg-brightness: 98%;
+    --theme-text: var(--theme-color-500);
 
-		/* Акценты */
-		--theme-accent-base: var(--hue) 10% 85%;
-		--theme-accent-one: 50deg 49% 80%; /* Первый дополнительный акцентный цвет */
-		--theme-accent-two: 50deg 72% 63%; /* 50deg 72% 63% */ /* Второй дополнительный акцентный цвет (был 45deg 80% 50%) */
-		--theme-accent-two: 15 68% 48%; /* Second additional accent color */		/* --theme-accent-base: var(--hue) 97% 71%; */
+    /* secondary */
+    --theme-link: var(--hue) 61% 71%;
+    --theme-accent: var(--theme-color-600);
+    --theme-quote: var(--theme-text);
 
-		/* Текст (foreground, цвет-яркость текста рассчитывается ниже на базе --theme-fg) */
-		--fg-hue: var(--hue); /* Общий цвет-оттенок для рассчета градаций цвета */
-		--fg-saturation: var(--saturation); /* Общая насыщенность для рассчета градаций цвета с оттенком, 0% - нет оттенка */
-		--fg-brightness: 98%; /* Яркость для рассчета градаций цвета с оттенком, 100% - начиная от абсолютно белого */
-		--theme-text: var(--theme-color-500); /* Цвет-яркость текста адаптированного под цвет фона */
+    /* extras */
+    --theme-lightest: var(--theme-color-350);
+    --theme-lighter: var(--theme-color-400);
+    --theme-light: var(--theme-color-450);
 
-		/*** ВТОРОСТЕПЕННЫЕ ЦВЕТА (Внкшние ссылки, нейтральный акцент, цитаты) ***/
-		--theme-link: var(--hue) 61% 71%; /* Цвет внешних ссылок */
-		--theme-accent: var(--theme-color-600); /* Нейтральный акцент относительно текста */
-		--theme-quote: var(--theme-text); /* Цвет цитат */
+    --theme-special-lightest: var(--theme-color-250);
+    --theme-special-lighter: var(--theme-color-200);
+    --theme-special-light: var(--theme-color-150);
+    --theme-special: hsl(var(--hue) var(--saturation) 0% / 0.15);
 
-		/*** ДОПОЛНИТЕЛЬНЫЕ ЦВЕТА ***/
-		--theme-lightest: var(--theme-color-350);
-		--theme-lighter: var(--theme-color-400);
-		--theme-light: var(--theme-color-450);
+    /* rehype pretty code (dark) */
+    pre code span {
+      color: var(--shiki-dark) !important;
+      font-style: var(--shiki-dark-font-style) !important;
+      font-weight: var(--shiki-dark-font-weight) !important;
+      text-decoration: var(--shiki-dark-text-decoration) !important;
+    }
 
-		/*** СПЕЦИАЛЬНЫЕ ДЛЯ КАЖДОЙ ТЕМЫ ЦВЕТА (!отличающиеся настройки для разных тем) ***/
-		--theme-special-lightest: var(--theme-color-250);
-		--theme-special-lighter: var(--theme-color-200);
-		--theme-special-light: var(--theme-color-150);
-		--theme-special: hsl(var(--hue) var(--saturation) 0% / 0.15);
+    .parallax > use:nth-child(1) { fill: hsla(var(--bg-hue), 30%, 10%, 60%); }
+    .parallax > use:nth-child(2) { fill: hsla(var(--bg-hue), 30%, 40%, 60%); }
+    .parallax > use:nth-child(3) { fill: hsla(var(--bg-hue), 30%, 30%, 60%); }
+    .parallax > use:nth-child(4) { fill: hsla(var(--bg-hue), 80%, 1%, 70%); }
+  }
 
-		/* Подсветка синтаксиса */
-		pre code span {
-			color: var(--shiki-dark) !important;
-			font-style: var(--shiki-dark-font-style) !important;
-			font-weight: var(--shiki-dark-font-weight) !important;
-			text-decoration: var(--shiki-dark-text-decoration) !important;
-		}
+  /* Shared computed vars */
+  :root {
+    --theme-bg: var(--bg-hue) var(--bg-saturation) var(--bg-brightness);
+    --theme-fg: var(--fg-hue) var(--fg-saturation) var(--fg-brightness);
 
-		.parallax > use:nth-child(1) {
-			fill: hsla(var(--bg-hue), 30%, 10%, 60%);
-		}
-		.parallax > use:nth-child(2) {
-			fill: hsla(var(--bg-hue), 30%, 40%, 60%);
-		}
-		.parallax > use:nth-child(3) {
-			fill: hsla(var(--bg-hue), 30%, 30%, 60%);
-		}
-		.parallax > use:nth-child(4) {
-			fill: hsla(var(--bg-hue), 80%, 1%, 70%);
-		}
-	}
+    --theme-color-900: hsl(var(--theme-fg) / 1.0);
+    --theme-color-850: hsl(var(--theme-fg) / 0.9675);
+    --theme-color-800: hsl(var(--theme-fg) / 0.935);
+    --theme-color-750: hsl(var(--theme-fg) / 0.88);
+    --theme-color-700: hsl(var(--theme-fg) / 0.825);
+    --theme-color-650: hsl(var(--theme-fg) / 0.785);
+    --theme-color-600: hsl(var(--theme-fg) / 0.745);
+    --theme-color-550: hsl(var(--theme-fg) / 0.675);
+    --theme-color-500: hsl(var(--theme-fg) / 0.605);
+    --theme-color-450: hsl(var(--theme-fg) / 0.5);
+    --theme-color-400: hsl(var(--theme-fg) / 0.395);
+    --theme-color-350: hsl(var(--theme-fg) / 0.29);
+    --theme-color-300: hsl(var(--theme-fg) / 0.185);
+    --theme-color-250: hsl(var(--theme-fg) / 0.15);
+    --theme-color-200: hsl(var(--theme-fg) / 0.115);
+    --theme-color-150: hsl(var(--theme-fg) / 0.08);
+    --theme-color-100: hsl(var(--theme-fg) / 0.045);
+    --theme-color-75:  hsl(var(--theme-fg) / 0.03375);
+    --theme-color-50:  hsl(var(--theme-fg) / 0.0225);
 
-	/* Общие переменные */
-	:root {
-		--theme-bg: var(--bg-hue) var(--bg-saturation) var(--bg-brightness); /* Цвет фона */
-		--theme-fg: var(--fg-hue) var(--fg-saturation) var(--fg-brightness); /* Базовый цвет для рассчета градации цветов */
+    /* pretty code shared */
+    --code-inline-bg: var(--theme-color-150);
+    --code-bg: var(--theme-special);
+    --code-title-bg: var(--theme-color-200);
+    --code-line-highlight: var(--theme-color-150);
+    --code-line-diff-add: rgba(72, 191, 145, 0.15);
+    --code-line-diff-remove: rgba(248, 85, 82, 0.15);
+  }
 
-		/* Градации базового цвета для текста и элементов */
-		--theme-color-900: hsl(var(--theme-fg) / 1.0);
-		--theme-color-850: hsl(var(--theme-fg) / 0.9675);
-		--theme-color-800: hsl(var(--theme-fg) / 0.935);
-		--theme-color-750: hsl(var(--theme-fg) / 0.88);
-		--theme-color-700: hsl(var(--theme-fg) / 0.825);
-		--theme-color-650: hsl(var(--theme-fg) / 0.785);
-		--theme-color-600: hsl(var(--theme-fg) / 0.745);
-		--theme-color-550: hsl(var(--theme-fg) / 0.675);
-		--theme-color-500: hsl(var(--theme-fg) / 0.605);
-		--theme-color-450: hsl(var(--theme-fg) / 0.5);
-		--theme-color-400: hsl(var(--theme-fg) / 0.395);
-		--theme-color-350: hsl(var(--theme-fg) / 0.29);
-		--theme-color-300: hsl(var(--theme-fg) / 0.185);
-		--theme-color-250: hsl(var(--theme-fg) / 0.15);
-		--theme-color-200: hsl(var(--theme-fg) / 0.115);
-		--theme-color-150: hsl(var(--theme-fg) / 0.08);
-		--theme-color-100: hsl(var(--theme-fg) / 0.045);
-		--theme-color-75: hsl(var(--theme-fg) / 0.03375);
-		--theme-color-50: hsl(var(--theme-fg) / 0.0225);
+  html { letter-spacing: 0.005em; }
 
-		/* Переменные подсветки блоков кода rehype-pretty-code */
-		--code-inline-bg: var(--theme-color-150);
-		--code-bg: var(--theme-special);
-		--code-title-bg: var(--theme-color-200);
-		--code-line-highlight: var(--theme-color-150);
-		--code-line-diff-add: rgba(72, 191, 145, 0.15);
-		--code-line-diff-remove: rgba(248, 85, 82, 0.15);
-	}
+  h1 { @apply text-2xl md:pt-[0rem]; }
+  h2 { @apply text-xl  md:pt-[0.215rem]; }
+  h3 { @apply text-lg  md:pt-[0.25rem]; }
+  h4 { @apply text-base md:pt-[0.425rem]; }
+  h5 { @apply text-base md:pt-[0.425rem]; }
+  h6 { @apply text-base md:pt-[0.425rem]; }
 
-	html {
-		letter-spacing: 0.005em;
-	}
+  h1,h2,h3,h4,h5,h6 { @apply min-h-8 h-auto; }
 
-	h1 {
-		@apply text-2xl md:pt-[0.0rem] !important;
-	}
-	h2 {
-		@apply text-xl md:pt-[0.215rem] !important;
-	}
-	h3 {
-		@apply text-lg md:pt-[0.250rem] !important; /* было 0.260 проверить!!! */
-	}
-	h4 {
-		@apply text-base md:pt-[0.425rem] !important;
-	}
-	h5 {
-		@apply text-base md:pt-[0.425rem] !important;
-	}
-	h6 {
-		@apply text-base md:pt-[0.425rem] !important;
-	}
+  /* pretty code containers */
+  figure[data-rehype-pretty-code-figure] {
+    @apply relative m-0 rounded-lg overflow-auto;
+  }
+  figure[data-rehype-pretty-code-figure] figcaption { @apply m-0; }
+  figure[data-rehype-pretty-code-figure] [data-rehype-pretty-code-title] {
+    @apply break-words border-b border-bg-color text-text-color px-4 flex items-center text-sm h-10;
+    background: var(--code-title-bg);
+  }
+  figure[data-rehype-pretty-code-figure] [data-rehype-pretty-code-title] + pre { @apply m-0 rounded-t-none; }
+  figure[data-rehype-pretty-code-figure] pre { @apply m-0 static px-0 py-2 max-h-[612px] text-sm; }
+  figure[data-rehype-pretty-code-figure] pre > code { counter-reset: line; }
+  figure[data-rehype-pretty-code-figure] pre > code[data-line-numbers] > [data-line]::before {
+    counter-increment: line; content: counter(line); @apply mr-4 inline-block w-4 text-right text-lightest;
+  }
+  figure[data-rehype-pretty-code-figure] pre > code > [data-line] { @apply px-4 h-6 bg-transparent flex items-center; }
+  figure[data-rehype-pretty-code-figure] pre > code [data-highlighted-line] { background-color: var(--code-line-highlight); }
+  figure[data-rehype-pretty-code-figure] pre > code [data-highlighted-line-id="add"] { background-color: var(--code-line-diff-add); }
+  figure[data-rehype-pretty-code-figure] pre > code [data-highlighted-line-id="remove"] { background-color: var(--code-line-diff-remove); }
+  :not(pre) > code { @apply bg-[var(--code-inline-bg)] px-2 py-1 text-sm rounded-lg; }
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		@apply min-h-8 h-auto !important;
-	}
-
-	/* Нужно для кнопки копирования кода при отключенном rehype-pretty-code */
-	/*
-	pre {
-		@apply relative;
-	}
-	*/
+  /* Pagefind UI vars */
+  :root { --pagefind-ui-border-radius: 0.5rem; }
 }
 
-:root {
-	/* Стиль для блоков кода rehype-pretty-code */
-	figure[data-rehype-pretty-code-figure] {
-		@apply relative m-0 rounded-lg overflow-auto;
-
-		figcaption {
-			@apply m-0;
-		}
-
-		/* Стиль для заголовков в блоках кода */
-		[data-rehype-pretty-code-title] {
-			@apply break-words bg-[var(--code-title-bg)] border-b border-bgColor text-textColor px-4 flex items-center text-sm h-10;
-
-			& + pre {
-				@apply m-0 rounded-t-none; /* Убираем верхний отступ, если есть заголовок */
-			}
-		}
-
-		/* Стиль для блоков кода */
-		pre {
-			@apply m-0 static px-0 py-2 max-h-[612px] text-sm;
-
-			/* Стиль для содержимого кода */
-			> code {
-				counter-reset: line;
-
-				/* Для блоков с номерами строк */
-				&[data-line-numbers] {
-					> [data-line]::before {
-						counter-increment: line;
-						content: counter(line);
-						@apply mr-4 inline-block w-4 text-right text-lightest;
-					}
-				}
-
-				/* Для каждой строки в блоке кода */
-				> [data-line] {
-					@apply px-4 h-6 bg-transparent flex items-center;
-				}
-
-				/* Для выделенных строк */
-				[data-highlighted-line] {
-					background-color: var(--code-line-highlight);
-				}
-
-				[data-highlighted-line-id="add"] {
-					background-color: var(--code-line-diff-add);
-				}
-
-				[data-highlighted-line-id="remove"] {
-					background-color: var(--code-line-diff-remove);
-				}
-
-				/* Для выделенных символов */
-				[data-highlighted-chars] > span {
-					@apply py-[4px];
-				}
-
-				/* Для различий в строках (реализовано выше) */
-				/*
-				.diff {
-					&.add {
-						background-color: var(--code-line-diff-add);
-					}
-					&.remove {
-						background-color: var(--code-line-diff-remove);
-					}
-				}
-				*/
-			}
-		}
-	}
-
-	/* Основной стиль для блока pre */
-	pre {
-		@apply bg-[var(--code-bg)] text-[var(--theme-text)] rounded-lg leading-loose m-0;
-		/* @apply bg-[var(--code-bg)] text-[var(--theme-accent)] rounded-lg leading-loose m-0; */
-	}
-
-	/* Стиль для инлайнового кода (rehype pretty code переопределяет стили в tailwind.config.css) */
-	:not(pre) > code {
-		@apply bg-[var(--code-inline-bg)] px-2 py-1 text-sm rounded-lg;
-	}
-
-	/* Стиль для кнопки копирования кода rehype-pretty-copy (кнопка реализована отдельно) */
-	/*
-	button.rehype-pretty-copy {
-		@apply absolute top-1 right-1 bg-transparent m-auto size-8 rounded-md p-1 backdrop-blur-none;
-		filter: brightness(var(--brightness)) saturate(0%);
-	}
-	*/
-
-	.waves {
-		position: relative;
-		width: 100%;
-		height: 50px;
-		transform: rotate(180deg) scaleX(-1) !important;
-	}
-
-	/* Animation */
-
-	.parallax > use {
-		animation: move-forever 45s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
-	}
-	.parallax > use:nth-child(1) {
-		animation-delay: -40s;
-		animation-duration: 125s;
-	}
-	.parallax > use:nth-child(2) {
-		animation-delay: -10s;
-		animation-duration: 30s;
-	}
-	.parallax > use:nth-child(3) {
-		animation-delay: -4s;
-		animation-duration: 40s;
-	}
-	.parallax > use:nth-child(4) {
-		animation-delay: -15s;
-		animation-duration: 10s;
-	}
-
-	@keyframes move-forever {
-		0% {
-			transform: translate3d(-90px, 0, 0);
-		}
-		100% {
-			transform: translate3d(85px, 0, 0);
-		}
-	}
-
-	/*Shrinking for mobile*/
-	@media (max-width: 768px) {
-		.waves {
-			min-height: 20px;
-			max-height: 50px;
-		}
-	}
-}
-
-/* ПЕРЕПРОВЕРИТЬ !!! */
+/* =======================
+   COMPONENTS
+   ======================= */
 @layer components {
-	/* Переопределение стилей для <mark> в статье */
-	article mark {
-		@apply bg-transparent;
-	}
+  .citrus-link { @apply no-underline hover:underline hover:underline-offset-2; }
+
+  .title {
+    @apply font-semibold text-2xl md:text-3xl lg:text-4xl;
+    /* color por defecto con override via inline var */
+    color: var(--title-color, var(--color-accent-base));
+  }
+
+  .data-footnote-backref {
+    @apply inline-flex bg-accent-two text-bg-color text-xs h-4 w-4 rounded-sm items-center justify-center hover:no-underline hover:brightness-110;
+  }
+
+  /* Typography theme hook */
+  .prose.citrus {
+    --tw-prose-body: var(--color-text-color);
+    --tw-prose-links: var(--color-link);
+    --tw-prose-headings: var(--color-accent-base);
+    --tw-prose-quotes: var(--color-quote);
+  }
+
+  /* Pagefind UI */
+  #citrus__search { @apply h-full; }
+  #citrus__search .pagefind-ui { @apply w-full h-full text-text-color font-sans; }
+  #citrus__search .pagefind-ui__hidden { @apply hidden; }
+  #citrus__search .pagefind-ui__suppressed { @apply opacity-0 pointer-events-none; }
+  #citrus__search .pagefind-ui__form { @apply relative h-full; }
+  #citrus__search .pagefind-ui__form::before {
+    @apply absolute pointer-events-none block opacity-70 z-10 size-4 top-3 left-3;
+    content: "";
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg ... %3E");
+    mask-image: url("data:image/svg+xml,%3Csvg ... %3E");
+    -webkit-mask-size: 100%; mask-size: 100%;
+  }
+  #citrus__search .pagefind-ui__search-input {
+    @apply rounded-lg border-none text-base text-text-color font-normal w-full flex h-10 py-0 px-10 outline-none;
+    background: var(--theme-color-100);
+  }
+  #citrus__search .pagefind-ui__search-input::placeholder { @apply opacity-20; }
+  #citrus__search .pagefind-ui__search-clear::before {
+    @apply block w-full h-full; content: ""; background: var(--color-accent-two);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg ... %3E") center / 60% no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg ... %3E") center / 60% no-repeat;
+  }
+  #citrus__search .pagefind-ui__search-clear { @apply overflow-hidden absolute top-0 right-0 size-10 py-0 px-0 text-text-color font-medium cursor-pointer bg-transparent rounded-lg; }
+  #citrus__search .pagefind-ui__drawer { @apply flex flex-wrap md:h-[calc(100vh-10.5rem)] h-full pb-0 m-auto; }
+  #citrus__search .pagefind-ui__message { @apply text-base font-normal text-lighter h-10 py-0 flex items-center; }
+  #citrus__search .pagefind-ui__button { @apply absolute bottom-0 m-0 shadow-md border-none text-bg-color flex items-center justify-center rounded-lg h-10 py-0 px-2 text-base text-center font-medium cursor-pointer bg-accent-base; }
+  #citrus__search .pagefind-ui__button:hover { @apply brightness-110; }
+  #citrus__search .pagefind-ui__result { @apply border-none p-0 mb-8; }
+  #citrus__search .pagefind-ui__result:last-of-type { @apply mb-0; }
+  /* #citrus__search .pagefind-ui__result-link { @apply title text-base bg-transparent text-accent-base font-medium; } */
+  #citrus__search .pagefind-ui__result-nested { @apply ps-4; }
+  #citrus__search .pagefind-ui__result-nested:first-of-type { @apply pt-0; }
+  #citrus__search .pagefind-ui__result-excerpt { @apply inline-block font-normal text-base text-text-color mt-0 mb-0 md:line-clamp-1 mr-2; }
+  #citrus__search .pagefind-ui__result-inner { @apply flex-1 flex flex-col items-start mt-0; }
+  #citrus__search .pagefind-ui__results { @apply p-0 text-text-color text-base max-h-[calc(100vh-13.5rem)] md:max-h-[calc(100vh-13rem)] overflow-y-auto; }
+  #citrus__search .pagefind-ui__results-area { @apply flex-1 mt-0 mb-0; }
+  #citrus__search mark { @apply text-accent-two bg-transparent; }
+
+  /* Otros */
+  article mark { @apply bg-transparent; }
 }
 
-@keyframes noise {
-	0% {
-		filter: url(#noise-frame-1);
-	}
-	33% {
-		filter: url(#noise-frame-2);
-	}
-	66% {
-		filter: url(#noise-frame-3);
-	}
-	100% {
-		filter: url(#noise-frame-1);
-	}
-}
+/* =======================
+   UTILITIES (helpers sueltos)
+   ======================= */
+@layer utilities {
+  .animate-amoeba { animation: amoeba 8s ease-in-out infinite; }
 
-.animate-amoeba {
-	animation: amoeba 8s ease-in-out infinite;
-}
+  .aligncenter,
+  .align-center { text-align: center; display: flex; justify-content: center; max-width: 100%; }
 
-.aligncenter,
-.align-center {
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	max-width: 100%;
-}
-
-.alignright {
-	float: right;
-}
-.alignleft {
-	float: left;
+  .alignright { float: right; }
+  .alignleft  { float: left; }
 }

@@ -27,11 +27,11 @@ const meta = {
 ---
 
 <PageLayout meta={meta}>
-	<div class="fixed left-0 top-0 z-10 flex h-16 md:h-20 w-full bg-bgColor overflow-hidden">
-		<!-- Background 
-			TODO: This approach is not optimal and requires improvements. 
-  			- Too many absolutely positioned elements can affect performance. 
-  		-->	
+	<div class="fixed left-0 top-0 z-10 flex h-16 md:h-20 w-full bg-bg-color overflow-hidden">
+		<!-- Background
+			TODO: This approach is not optimal and requires improvements.
+  			- Too many absolutely positioned elements can affect performance.
+  		-->
 		<div class="absolute top-0 left-1/2 -ml-[50vw] w-screen min-h-screen pointer-events-none blur-2xl">
 			<!--
 			<div class="fixed blur-xl top-0 left-0 w-full h-16 md:h-20 bg-gradient-to-b from-indigo-300 via-purple-300 to-transparent opacity-10 dark:opacity-5"></div>
@@ -53,7 +53,7 @@ const meta = {
 	// Wait for the content to fully load
 	document.addEventListener("DOMContentLoaded", () => {
 		const buttonsPanel = document.getElementById("buttons-panel");
-		
+
 		if (buttonsPanel) {
 			buttonsPanel.classList.add("fixed");
 			console.log("Class 'fixed' added to the buttons-panel element.");

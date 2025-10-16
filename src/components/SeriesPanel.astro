@@ -25,7 +25,7 @@ if (seriesId) {
 
 <aside
 	id="series-panel"
-	class="hidden grid lg:block z-40 min-h-screen fixed lg:relative `shadow-[5px_0px_10px_rgba(0,0,0,0.05)]` transition-all duration-300 ease-in-out bg-bgColor"
+	class="hidden grid lg:block z-40 min-h-screen fixed lg:relative `shadow-[5px_0px_10px_rgba(0,0,0,0.05)]` transition-all duration-300 ease-in-out bg-bg-color"
 >
 	<div class="fixed -z-10 top-0 w-screen md:w-72 md:min-w-72 md:max-w-72 h-screen bg-gradient-to-b from-orange-300 via-pink-300 to-purple-300 opacity-30 dark:opacity-0">
 	</div>
@@ -51,9 +51,9 @@ if (seriesId) {
 				<a
 					href={`/series/${postsSeries.id}`}
 					aria-label={`About ${postsSeries.data.title} series`}
-					class="sticky top-4 flex h-8 w-full items-center justify-center gap-x-1 rounded-lg shadow-lg bg-accent-base font-medium text-bgColor hover:brightness-110 transition-all duration-300"
+					class="sticky top-4 flex h-8 w-full items-center justify-center gap-x-1 rounded-lg shadow-lg bg-accent-base font-medium text-bg-color hover:brightness-110 transition-all duration-300"
 				>
-					<Icon class="inline-block h-6 w-6 text-bgColor" name="solar:notes-bold" />
+					<Icon class="inline-block h-6 w-6 text-bg-color" name="solar:notes-bold" />
 					{postsSeries.data.title}
 				</a>
 

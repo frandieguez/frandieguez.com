@@ -21,7 +21,7 @@ const { headings } = await render(post);
 ---
 
 <BaseLayout meta={{ articleDate, description, ogImage: socialImage, title }}>
-	<div class="fixed left-0 top-0 z-10 flex h-16 md:h-20 w-full bg-bgColor overflow-hidden">
+	<div class="fixed left-0 top-0 z-10 flex h-16 md:h-20 w-full bg-bg-color overflow-hidden">
 		<!-- Background
 			TODO: This approach is not optimal and requires improvements.
   			- Too many absolutely positioned elements can affect performance.
@@ -42,7 +42,7 @@ const { headings } = await render(post);
 	<!-- Menu button instead of the main menu -->
 	<!--
 	<div class="left-0 right-0 top-0 z-30 ml-auto h-0 w-fit px-2 md:absolute">
-		<div class="fixed top-0 -ml-[4rem] flex space-x-2 bg-bgColor pt-8">
+		<div class="fixed top-0 -ml-[4rem] flex space-x-2 bg-bg-color pt-8">
 	-->
 			<!-- Button background -->
 			<!--
@@ -97,7 +97,7 @@ const { headings } = await render(post);
 	<div class="left-0 right-12 z-50 ml-auto w-fit md:absolute">
 		<button
 			id="to-top-button"
-			class="fixed bottom-14 flex h-12 w-12 text-light translate-y-28 items-center justify-center rounded-full bg-bgColor text-3xl drop-shadow-xl transition-all duration-300 hover:text-accent-two data-[show=true]:translate-y-0 data-[show=true]:opacity-100"
+			class="fixed bottom-14 flex h-12 w-12 text-light translate-y-28 items-center justify-center rounded-full bg-bg-color text-3xl drop-shadow-xl transition-all duration-300 hover:text-accent-two data-[show=true]:translate-y-0 data-[show=true]:opacity-100"
 			aria-label="Back to Top"
 			data-show="false"
 		>
@@ -121,7 +121,7 @@ const { headings } = await render(post);
 	{seriesId && (
 		<mobile-button
 			id="toggle-panel-mobile"
-			class="size-12 flex items-center justify-center  sm:hidden fixed bottom-4 shadow-[0px_10px_25px_rgba(0,0,0,0.15)] border border-special-lighter right-4 z-50 rounded-lg bg-bgColor text-accent-base hover:text-bg-accent-base/90"
+			class="size-12 flex items-center justify-center  sm:hidden fixed bottom-4 shadow-[0px_10px_25px_rgba(0,0,0,0.15)] border border-special-lighter right-4 z-50 rounded-lg bg-bg-color text-accent-base hover:text-bg-accent-base/90"
 			aria-label="Toggle Series Panel"
 		>
 			<span class="absolute inset-0 rounded-lg flex items-center justify-center bg-special-light hover:text-accent-base/90">
@@ -136,7 +136,7 @@ const { headings } = await render(post);
 	{!!headings.length && (
 		<mobile-button
 			id="toggle-toc-mobile"
-			class="size-12 flex items-center justify-center block sm:hidden fixed bottom-20 shadow-[0px_10px_25px_rgba(0,0,0,0.15)] border border-special-lighter right-4 z-50 rounded-lg bg-bgColor text-accent-base hover:text-accent-base/90"
+			class="size-12 flex items-center justify-center block sm:hidden fixed bottom-20 shadow-[0px_10px_25px_rgba(0,0,0,0.15)] border border-special-lighter right-4 z-50 rounded-lg bg-bg-color text-accent-base hover:text-accent-base/90"
 			aria-label="Toggle TOC Panel"
 		>
 			<span class="absolute inset-0 rounded-lg flex items-center justify-center bg-special-light hover:text-accent-base/90">
@@ -158,7 +158,7 @@ const { headings } = await render(post);
 				// Create the button
 				const copyButton = document.createElement("button");
 				copyButton.className =
-				"absolute flex items-center justify-center bg-bgColor h-6 font-medium overflow-hidden rounded-md text-light hover:text-accent-two font-sans text-sm font-medium top-2 right-2";
+				"absolute flex items-center justify-center bg-bg-color h-6 font-medium overflow-hidden rounded-md text-light hover:text-accent-two font-sans text-sm font-medium top-2 right-2";
 
 				// Create the span element that will hold the button text
 				const buttonText = document.createElement("span");
