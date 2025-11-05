@@ -140,7 +140,7 @@ export default {
 				// Add any custom fonts here
 				sans: ["IBM Plex Sans", "SFProRounded", ...fontFamily.sans],
 				serif: ["CascadiaCode", ...fontFamily.serif],
-				heading: ["Lexend", ...fontFamily.sans], // Add this new font family
+				heading: ["Urbanist", "Space Grotesk","Lexend", ...fontFamily.sans], // Add this new font family
 			},
 
 			transitionProperty: {

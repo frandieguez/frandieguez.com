@@ -1,78 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Regular.latin.base.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-	/* font-display: swap; */
-}
 
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Medium.latin.base.ttf") format("truetype");
-	font-weight: 500;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Semibold.latin.base.ttf") format("truetype");
-	font-weight: 600;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Bold.latin.base.ttf") format("truetype");
-	font-weight: 700;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Regular.latin.extend.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Medium.latin.extend.ttf") format("truetype");
-	font-weight: 500;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Semibold.latin.extend.ttf") format("truetype");
-	font-weight: 600;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "SFProRounded";
-	src: url("../assets/fonts/SF-Pro-Rounded-Bold.latin.extend.ttf") format("truetype");
-	font-weight: 700;
-	font-style: normal;
-	/* font-display: swap; */
-}
-
-@font-face {
-	font-family: "CascadiaCode";
-	src: url("../assets/fonts/CascadiaCode.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
 
 @layer base {
 	:root,
@@ -127,6 +58,7 @@
 			font-style: var(--shiki-light-font-style) !important;
 			font-weight: var(--shiki-light-font-weight) !important;
 			text-decoration: var(--shiki-light-text-decoration) !important;
+      font-family: 'CascadiaCode', monospace;
 		}
 	}
 
@@ -237,6 +169,7 @@
 		--code-line-highlight: var(--theme-color-150);
 		--code-line-diff-add: rgba(72, 191, 145, 0.15);
 		--code-line-diff-remove: rgba(248, 85, 82, 0.15);
+
 	}
 
 	html {
@@ -280,6 +213,8 @@
 }
 
 :root {
+  --heading-before-content: '#';
+
 	/* Стиль для блоков кода rehype-pretty-code */
 	figure[data-rehype-pretty-code-figure] {
 		@apply relative m-0 rounded-lg overflow-auto;

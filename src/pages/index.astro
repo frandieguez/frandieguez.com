@@ -10,6 +10,7 @@ import WorkExperienceRightTimeline from "@/components/WorkingExperience";
 import WritingTypewriter from "@/components/WritingTypewriter";
 import { Image } from 'astro:assets';
 import profilePic from "../../public/profile-pic.jpg";
+import PixelatedTextEffect from "@/components/PixelatedTextEffect";
 
 // Posts
 const MAX_POSTS = 10;
@@ -74,7 +75,22 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 					<div style="min-height:5rem;" class="title text-3xl md:text-4xl  ">
 						Hey, I'm Fran <br />
 						<span class="h-9" >
-							<WritingTypewriter client:load />
+							<PixelatedTextEffect
+								client:load
+								className="mt-4"
+								fontSize={40}
+								fontWeight={600}
+								color="black"
+								sampleStep={7}
+								leftPaddingPct={0}
+								height={30}
+								texts={[
+									'a Web Tech Lead',
+									'an open sourcerer',
+									'a full stack developer',
+								]}
+							/>
+							<!-- <WritingTypewriter client:load /> -->
 						</span>
 					</div>
 				</h1>
@@ -87,13 +103,13 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 					<SocialList />
 				</div> -->
 				<div class="flex flex-column md:flex-row justify-center md:justify-start space-x-4 mt-8">
-					<a href="/posts/" class="relative flex items-center justify-center md:h-8 px-4 rounded-lg shadow-lg hover:brightness-110 transition-all bg-accent-two">
+					<a href="/posts/" class="relative flex items-center justify-center md:h-8 px-4 rounded-lg hover:brightness-110 transition-all bg-accent-two">
 						<span class="text-bgColor font-semibold">
 							Read my blog
 						</span>
 					</a>
 
-					<a href="/contact/" class="relative flex items-center justify-center md:h-8 px-4 rounded-lg shadow-lg bg-special-lighter hover:brightness-110 hover:bg-special-lightest">
+					<a href="/contact/" class="relative flex items-center justify-center md:h-8 px-4 rounded-lg border border-gray-400/20 bg-special-lighter hover:brightness-110 hover:bg-special-lightest">
 						<span class="font-semibold">
 							➤ Contact me
 						</span>
