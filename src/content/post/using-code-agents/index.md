@@ -13,7 +13,7 @@ I recently gave a talk at Situm about code agents — what they actually are, ho
 
 You can download the slides from the link below:
 
-[![Code Agents slides](./image.png "Code Agents: From Writing Code to Controlling the Code That Writes Itself")](./Using%20Code%20Agents%20in%20SITUM.pdf)
+[![Code Agents slides](./image.png "Code Agents: From Writing Code to Controlling the Code That Writes Itself")](/files/Using%20Code%20Agents%20in%20SITUM.pdf)
 
 ---
 
