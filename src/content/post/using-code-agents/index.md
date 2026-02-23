@@ -7,7 +7,6 @@ tags: ["ai", "agents", "opencode", "claude-code", "developer-tools", "productivi
 heroImage: "./image.png"
 ---
 
-
 *"We're not asking if you trust AI. We're asking if you know how to control it."*
 
 I recently gave a talk at Situm about code agents — what they actually are, how they work internally, and how to use them without losing control of your codebase. The feedback was great, so I'm expanding that material here with more context and the things I couldn't fit into 15 slides.
@@ -105,7 +104,7 @@ The market is fragmented but converging. In the talk I covered the main players:
 
 **Aider** is open source, git-aware, and opinionated about keeping commits clean. Good for teams that want the agent's changes to be traceable and atomic in git history.
 
-![./logo-dark.svg](https://opencode.ai)
+[![OpenCode](./logo-dark.svg)](https://opencode.ai)
 
 **[OpenCode](https://opencode.ai)** is the one I've personally invested the most in, and the one I used for the demos at Situm. It's open source, written in TypeScript, with a terminal UI that keeps you in your workflow. The key advantage is model flexibility: you can use OpenAI, Anthropic, Google Gemini, or local models via Ollama, and you can switch per task or per project. No vendor lock-in. Configuration is JSON files that you can version and share with your team — which means your agent setup is reproducible across machines and teammates.
 
