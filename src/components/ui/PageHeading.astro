@@ -1,0 +1,55 @@
+---
+/**
+ * The page-level heading: a monospace eyebrow, a display-scale h1, an inked rule
+ * and an optional standfirst. The page counterpart to home/SectionHeader.astro.
+ *
+ * The font-size lives on a child <span>, never on the <h1> — global.css forces
+ * `h1 { text-2xl !important }` and a utility class can't beat it. See DESIGN.md §3.4.
+ */
+import HandRule from "@/components/ui/HandRule.astro";
+
+interface Props {
+	/** Monospace kicker above the title, e.g. "WRITING · 124 POSTS". */
+	eyebrow: string;
+	title: string;
+	standfirst?: string;
+	class?: string;
+}
+
+const { eyebrow, title, standfirst, class: className } = Astro.props;
+---
+
+<header class:list={["pb-10 md:pb-14", className]}>
+	<div data-reveal class="flex items-center gap-5">
+		<p
+			class="font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.2em] text-color-550 md:shrink-0 md:text-xs"
+		>
+			{eyebrow}
+		</p>
+		<HandRule class="hidden flex-1 md:block" />
+	</div>
+
+	<h1 class="display-heading mt-5 md:mt-7">
+		<span
+			data-reveal
+			style="--reveal-delay:60ms"
+			class="block font-heading text-[2.5rem] font-bold leading-[0.95] tracking-[-0.02em] text-accent-base md:text-[4.5rem]"
+		>
+			{title}
+		</span>
+	</h1>
+
+	{
+		standfirst && (
+			<p
+				data-reveal
+				style="--reveal-delay:120ms"
+				class="mt-5 max-w-[58ch] text-lg leading-relaxed text-color-600"
+			>
+				{standfirst}
+			</p>
+		)
+	}
+
+	<slot />
+</header>

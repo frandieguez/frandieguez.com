@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import Image from 'astro:assets';
 import FormattedDate from "@/components/FormattedDate.astro";
 import type { HTMLTag, Polymorphic } from "astro/types";
 
@@ -10,18 +9,14 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
     forPage?: "index" | "posts";
 };
 
-const { as: Tag = "div", post, withDesc = false, forPage: string = "index" } = Astro.props;
-const postImage = post.data.image || post.data.cover || post.data.thumbnail || post.data.ogImage;
+// Note: `forPage` used to be destructured as `forPage: string = "index"`, which
+// bound the value to a local called `string` and left `forPage` itself undefined.
+const { as: Tag = "div", post, withDesc = false, forPage = "index" } = Astro.props;
 ---
 
 <div class={withDesc ? "flex flex-col" : "flex flex-col sm:flex-row sm:items-center sm:justify-between"}>
     {!withDesc ? (
         <>
-            {false&& postImage && (
-                <a href={`/posts/${post.id}/`} class={`block mr-4 shrink-0 w-20 h-20 rounded-lg overflow-hidden bg-gray-100 ${forPage ==="posts" ? 'text-xl': ''}`}>
-					{/* <Image width={48} height={48} src={postImage} alt={post.data.title} class="object-cover w-full h-full" loading="lazy" /> */}
-                </a>
-            )}
             <div class="flex flex-row flex-1">
                 <Tag class="citrus-link font-medium text-accent-base md:line-clamp-1">
                     <a data-astro-prefetch href={`/posts/${post.id}/`}>
@@ -30,7 +25,7 @@ const postImage = post.data.image || post.data.cover || post.data.thumbnail || p
                     </a>
                 </Tag>
                 <FormattedDate
-                    class="shrink-0 flex-1 text-lighter text-sm sm:text-right"
+                    class="shrink-0 flex-1 text-color-550 text-sm sm:text-right"
                     date={post.data.publishDate}
                     dateTimeOptions={{
                         year: "numeric",
@@ -42,13 +37,8 @@ const postImage = post.data.image || post.data.cover || post.data.thumbnail || p
         </>
     ) : (
         <>
-            {false&& postImage && (
-                <a href={`/posts/${post.id}/`} class={`block mb-2 w-40 h-40 rounded-lg overflow-hidden bg-gray-100 ${Astro.props.forPage === "posts" ? 'text-xl': ''}`}>
-					{/* <Image width={48} height={48} src={image.src} alt={post.data.title} class="object-cover w-full h-full" loading="lazy" /> */}
-                </a>
-            )}
             <FormattedDate
-                class="text-sm shrink-0 text-lighter"
+                class="text-sm shrink-0 text-color-550"
                 date={post.data.publishDate}
                 dateTimeOptions={{
                     year: "numeric",
@@ -57,13 +47,13 @@ const postImage = post.data.image || post.data.cover || post.data.thumbnail || p
                 }}
             />
             <Tag class="citrus-link font-medium text-accent-base mt-2.5">
-                <a data-astro-prefetch href={`/posts/${post.id}/`} class={`${Astro.props.forPage === "posts" ? 'text-xl': ''}`} 	>
+                <a data-astro-prefetch href={`/posts/${post.id}/`} class={`${forPage === "posts" ? 'text-xl': ''}`} 	>
                     {post.data.draft && <span class="text-red-500">(Draft) </span>}
                     {post.data.title}
                 </a>
             </Tag>
             {post.data.description && (
-                <p class="mt-0.5 text-sm text-gray-600 line-clamp-2">{post.data.description}</p>
+                <p class="mt-0.5 text-sm text-color-600 line-clamp-2">{post.data.description}</p>
             )}
         </>
     )}

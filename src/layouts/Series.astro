@@ -243,31 +243,17 @@ const { headings } = await render(series);
 		}
 	};
 
-	// Добавляем обработчик для кнопки переключения
-	if (toggleTocBtn) {
-		toggleTocBtn.addEventListener("click", toggleToc);
-	} else {
-		console.error('Элемент toggle-toc не найден');
-	}
-
-	// Добавляем обработчик для кнопки переключения
-	if (toggleTocMobileBtn) {
-		toggleTocMobileBtn.addEventListener("click", toggleToc);
-	} else {
-		console.error('Элемент toggle-toc-mobile не найден');
-	}
-
-	// Добавляем обработчик для кнопки закрытия
-	if (closeTocBtn) {
-		closeTocBtn.addEventListener('click', hideToc);
-	} else {
-		console.error('Элемент close-toc не найден');
-	}
+	// These controls are optional — the TOC component no longer ships a close
+	// button, and the toggles are commented out in the markup. Bind when present,
+	// stay quiet when not.
+	toggleTocBtn?.addEventListener("click", toggleToc);
+	toggleTocMobileBtn?.addEventListener("click", toggleToc);
+	closeTocBtn?.addEventListener("click", hideToc);
 </script>
 
 <script>
   // Ждем загрузки контента
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("astro:page-load", () => {
     const buttonsPanel = document.getElementById("buttons-panel");
 
     if (buttonsPanel) {

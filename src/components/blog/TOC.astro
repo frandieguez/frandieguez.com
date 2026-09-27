@@ -1,42 +1,65 @@
 ---
-import { generateToc } from "@/utils/generateToc";
+/**
+ * Table of contents.
+ *
+ * It used to be a bordered card with its own header bar and a close button that
+ * had no way back — closing it hid the TOC for the rest of the visit. This is an
+ * instrument instead: a measuring rail (see TOCList.astro), no box, no shadow.
+ *
+ * Two variants because mobile previously had no table of contents at all:
+ * - "rail": the sticky desktop aside.
+ * - "disclosure": a native <details> above the article on mobile. Zero JS.
+ */
+import TOCList from "@/components/blog/TOCList.astro";
 import type { MarkdownHeading } from "astro";
-import TOCHeading from "./TOCHeading.astro";
-import { Icon } from "astro-icon/components";
 
 interface Props {
 	headings: MarkdownHeading[];
+	variant?: "rail" | "disclosure";
 }
 
-const { headings } = Astro.props;
+const { headings, variant = "rail" } = Astro.props;
 
-const toc = generateToc(headings);
+// h2 and h3 only. Deeper levels make the rail noisy, and h1 is the post title.
+const items = headings.filter(({ depth }) => depth >= 2 && depth <= 3);
+
+const eyebrow =
+	"font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-color-550";
 ---
 
-<div class="sticky top-20 rounded-t-lg">
-	<div class="sticky top-20 bg-bgColor rounded-t-lg">
-		<div class="sticky top-20 flex pt-2 ps-4 pb-2 pe-2 items-end title rounded-t-lg bg-color-75 gap-x-1 border-t border-l border-r border-special-light">
-			<!--
-			<Icon aria-hidden="true" class="flex-shrink-0 h-8 w-6 py-1" focusable="false" name="solar:clipboard-list-line-duotone" />
-			-->
-			<h4 class="title">Table of Contents</h4>
-			<button
-				id="close-toc"
-				class="absolute top-2 right-2 h-6 w-6 flex items-center justify-center rounded-lg bg-accent-base/5 text-accent-base hover:bg-accent-base/10"
-				aria-label="Close TOC"
-			>
-				<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="hugeicons:cancel-01" />
-			</button>
-
-		</div>
-	</div>
-	<div class="bg-bgColor rounded-b-lg">
-		<div class="rounded-b-lg pb-6 bg-color-75 border-b border-l border-r border-special-light">
-			<div class="max-h-[calc(100vh-11rem)] h-auto overflow-y-auto overflow-hidden px-4">
-				<ul class="text-sm font-medium text-textColor">
-					{toc.map((heading) => <TOCHeading heading={heading} />)}
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
+{
+	items.length > 0 &&
+		(variant === "disclosure" ? (
+			<nav aria-label="Table of contents">
+				<details class="group border-y border-color-250">
+					<summary
+						class:list={[
+							"flex cursor-pointer list-none items-center justify-between gap-4 py-4 marker:content-none",
+							eyebrow,
+						]}
+					>
+						<span>
+							Contents <span class="text-color-450">· {items.length}</span>
+						</span>
+						<span
+							aria-hidden="true"
+							class="text-base leading-none text-accent-two transition-transform duration-200 group-open:rotate-45"
+						>
+							+
+						</span>
+					</summary>
+					<TOCList items={items} class="pb-4" />
+				</details>
+			</nav>
+		) : (
+			<nav aria-label="Table of contents">
+				<p class={eyebrow}>
+					Contents <span class="text-color-450">· {items.length}</span>
+				</p>
+				<TOCList
+					items={items}
+					class="mt-4 max-h-[calc(100vh-11rem)] overflow-y-auto"
+				/>
+			</nav>
+		))
+}

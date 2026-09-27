@@ -1,26 +1,53 @@
 ---
+/**
+ * A small pill. Used for tags and for the series marker.
+ *
+ * No shadows anywhere: in this system elevation comes from the `bg-special-*`
+ * surfaces, never from `drop-shadow` (DESIGN.md §5.2). Every variant used to
+ * carry `drop-shadow-lg`, which is what made a row of tags read as a row of
+ * chunky buttons.
+ *
+ * `muted` is the tag treatment — hairline, not filled, terracotta only on hover.
+ * A dozen solid accent pills in a row turns the one accent colour of the site
+ * into wallpaper and steals the emphasis from the CTAs and section marks.
+ */
+type Variant =
+	| "default"
+	| "accent"
+	| "accent-base"
+	| "accent-one"
+	| "accent-two"
+	| "muted"
+	| "outline"
+	| "inactive";
+
+interface Props {
+	variant?: Variant;
+	showHash?: boolean;
+	title?: string;
+}
+
 const { variant = "default", showHash = true, title } = Astro.props;
 
-// CSS-классы для вариантов стилей
-const badgeClasses = {
-	base: "flex items-baseline pt-[0.075rem] drop-shadow-lg active:drop-shadow-none rounded-lg h-6 px-2 text-sm font-medium transition-colors",
-	variants: {
-		default: "bg-textColor text-bgColor hover:brightness-105",
-		accent: "bg-accent text-bgColor hover:brightness-105",
-		"accent-base": "bg-accent-base text-bgColor hover:brightness-105",
-		"accent-one": "bg-accent-one text-bgColor hover:brightness-105",
-		"accent-two": "bg-accent-two text-bgColor hover:brightness-105",
-		muted: "bg-color-100 text-textColor hover:bg-accent-two hover:text-bgColor drop-shadow-none hover:drop-shadow-lg",
-		outline: "border border-lightest text-textColor drop-shadow-none",
-		inactive: "text-lighter bg-color-100 drop-shadow-none",
-	},
-};
+// h-8 so a badge wrapped in a link is a 32px touch target (DESIGN.md §7).
+const base =
+	"inline-flex h-8 items-center gap-0.5 rounded-lg px-3 text-sm font-medium transition-colors";
 
-const variantClasses = badgeClasses.variants[variant as keyof typeof badgeClasses.variants]; // Приведение типов
+const variants: Record<Variant, string> = {
+	default: "bg-textColor text-bgColor hover:brightness-110",
+	accent: "bg-accent text-bgColor hover:brightness-110",
+	"accent-base": "bg-accent-base text-bgColor hover:brightness-110",
+	"accent-one": "bg-accent-one text-bgColor hover:brightness-110",
+	"accent-two": "bg-accent-two text-bgColor hover:brightness-110",
+	muted:
+		"border border-color-250 text-color-600 hover:border-accent-two hover:text-accent-two",
+	outline: "border border-color-250 text-color-600",
+	inactive: "border border-color-200 text-color-450",
+};
 ---
 
-<div class={`${badgeClasses.base} ${variantClasses}`}>
-	{showHash && <span class="h-full">#</span>}
+<span class:list={[base, variants[variant]]}>
+	{showHash && <span aria-hidden="true" class="opacity-60">#</span>}
 	{title}
 	<slot />
-</div>
+</span>

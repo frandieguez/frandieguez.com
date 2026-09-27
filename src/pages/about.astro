@@ -1,140 +1,255 @@
 ---
+import CareerDetail from "@/components/career/CareerDetail.astro";
+import HandRule from "@/components/ui/HandRule.astro";
+import Avatar from "@/components/ui/Avatar.astro";
+import { career } from "@/data/career";
 import PageLayout from "@/layouts/Base.astro";
+import profilePic from "@/assets/images/profile-pic.jpg";
 
 const meta = {
-	description: "I'm a starter theme for Astro.build",
+	description:
+		"Fran Dieguez — nineteen years building for the web, from open-source consulting to Head of R&D and Web Tech Lead at Situm.",
 	title: "About",
 };
-import { Image } from 'astro:assets';
-import profilePic from "../../public/profile-pic.jpg";
-
-import Workline from "@/components/Workline.astro";
-
 ---
 
-
 <PageLayout meta={meta}>
+	<section class="relative pb-16 pt-4 md:pb-24 md:pt-8">
+		<div data-reveal class="flex items-center gap-5">
+			<p
+				class="font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.2em] text-color-550 md:shrink-0 md:text-xs"
+			>
+				About — Galicia, Spain · Full stack since 2006
+			</p>
+			<HandRule class="hidden flex-1 md:block" />
+		</div>
 
-  	<section class="mx-auto relative mt-10 ">
-		<div class="gap-8 flex flex-col md:flex-row-reverse items-center justify-center">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%"
-			class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-full max-w-none h-auto pointer-events-none" >
-				<defs>
-					<!-- patrón de cuadrícula -->
-					<pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-					<path d="M0 24 H24" fill="none" stroke="#38bdf8" stroke-opacity=".15" stroke-width="1"/>
-					<path d="M24 0 V24" fill="none" stroke="#38bdf8" stroke-opacity=".15" stroke-width="1"/>
-					</pattern>
+		<div class="relative mt-7 md:mt-12">
+			<h1 class="display-heading">
+				<span
+					data-reveal
+					style="--reveal-delay:40ms"
+					class="block font-heading text-[2.75rem] font-bold uppercase leading-[0.92] tracking-[-0.02em] text-accent-base md:text-[5.5rem]"
+				>
+					Hey, I'm Fran
+				</span>
+			</h1>
 
-					<!-- degradado radial para difuminar bordes -->
-					<radialGradient id="fadeMask" cx="50%" cy="50%" r="70%">
-					<stop offset="70%" stop-color="white" stop-opacity="1"/>
-					<stop offset="100%" stop-color="white" stop-opacity="0"/>
-					</radialGradient>
-
-					<!-- máscara usando elipse con gradiente -->
-					<mask id="softMask">
-					<rect width="100%" height="100%" fill="black"/>
-					<ellipse cx="400" cy="200" rx="360" ry="140" fill="url(#fadeMask)" />
-					</mask>
-				</defs>
-
-				<!-- cuadrícula con máscara difuminada -->
-				<rect width="100%" height="100%" fill="url(#grid)" mask="url(#softMask)"/>
-			</svg>
-			<div class="w-full md:w-1/3 flex justify-center mb-6 md:mt-0 relative">
-      <div
-					class="size-40 md:size-72 animate-amoeba absolute -top-1 md:-top-3 z-0 bg-[#fff8f3aa] dark:bg-[#fff8f30f]"></div>
-				<Image src={profilePic} alt="Fran Dieguez" class="size-36 md:size-64 relative z-10  rounded-full" />
+			<div
+				class="mx-auto mt-8 w-36 md:absolute md:right-0 md:top-1/2 md:mx-0 md:mt-0 md:w-[clamp(8rem,13vw,11rem)] md:-translate-y-1/2"
+			>
+				<Avatar
+					src={profilePic}
+					alt="Fran Dieguez"
+					eager
+					data-reveal="scale"
+					style="--reveal-delay:120ms"
+				/>
 			</div>
-      <div class="w-full md:w-2/3 text-center md:text-left">
-        <h1 class="text-4xl font-bold mb-6">
-          <div style="min-height:5rem;" class="title text-3xl md:text-4xl bg-gradient-to-r -mt-6 from-accent-two via-accent-one to-accent-two bg-clip-text text-transparent">
-            Hey, I'm Fran
-          </div>
-        </h1>
-        <p class="mt-0 mb-4 text-lg font-medium">
-          I've been developing web applications as a Full Stack Developer since 2006,
-          taking on <span class="bg-accent-two px-1 !text-white">various roles throughout my career</span> — from Software Developer
-          and Lead Developer to Head of Research and Development, and finally CTO.
-        </p>
-        <p>
-          Across every project, my main goal has always been to build meaningful and reliable tools that have a real impact on people’s lives.
-        </p>
-      </div>
+		</div>
+
+		<p
+			data-reveal
+			style="--reveal-delay:160ms"
+			class="mt-8 max-w-[52ch] text-xl leading-[1.5]"
+		>
+			I've been building web applications since 2006, taking on{" "}
+			<span
+				class="relative inline-block before:absolute before:inset-x-[-0.2em] before:inset-y-[0.14em] before:-z-10 before:-rotate-[1.2deg] before:rounded-[3px] before:bg-accent-two/20"
+				>various roles along the way</span
+			> — from Software Developer and Lead Developer to CTO and Head of Research
+			and Development, and today Web Tech Lead at Situm.
+		</p>
+
+		<p
+			data-reveal
+			style="--reveal-delay:200ms"
+			class="mt-5 max-w-[58ch] text-lg leading-relaxed text-color-600"
+		>
+			Across every project the goal has been the same: build meaningful, reliable
+			tools that have a real impact on people's lives.
+		</p>
+	</section>
+
+	<!-- Tech -->
+	<section aria-labelledby="tech-heading" class="pb-16 md:pb-24">
+		<div class="flex flex-col gap-4 md:flex-row md:items-end md:gap-8">
+			<div data-reveal>
+				<p class="font-mono text-xs uppercase tracking-[0.22em] text-color-550">
+					01 — The stack
+				</p>
+				<h2 class="display-heading mt-2" id="tech-heading">
+					<span
+						class="block font-heading text-[2.125rem] font-bold leading-[0.95] tracking-[-0.02em] text-accent-base md:text-[3.5rem]"
+					>
+						The stack
+					</span>
+				</h2>
+			</div>
+			<HandRule class="hidden flex-1 md:mb-4 md:block" />
+		</div>
+
+		<div class="mt-8 grid grid-cols-1 gap-8 md:mt-12 md:grid-cols-2 md:gap-12">
+			<div data-reveal>
+				<p
+					class="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-accent-two"
+				>
+					Server side
+				</p>
+				<p class="mt-3 max-w-[48ch] text-base leading-relaxed text-color-600">
+					The journey began with Ruby and PHP before expanding into Go. Most
+					recently it's been Node.js and Java/Spring Boot, building
+					high-performance microservices and distributed systems.
+				</p>
+			</div>
+			<div data-reveal style="--reveal-delay:90ms">
+				<p
+					class="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-accent-two"
+				>
+					Client side
+				</p>
+				<p class="mt-3 max-w-[48ch] text-base leading-relaxed text-color-600">
+					From the early days of the web — VanillaJS and jQuery, through AngularJS
+					and Angular 2 — and finally to React, which has become my main focus for
+					building modern, high-performance interfaces.
+				</p>
+			</div>
+		</div>
+
+		<p
+			data-reveal
+			style="--reveal-delay:150ms"
+			class="mt-10 max-w-[58ch] text-lg leading-relaxed text-color-600"
+		>
+			My interests revolve around web performance optimization, sustainable
+			engineering, and promoting open-source technologies that foster
+			collaboration and long-term maintainability.
+		</p>
+	</section>
+
+	<!-- Work -->
+	<section aria-labelledby="work-heading" class="pb-16 md:pb-24">
+		<div class="flex flex-col gap-4 md:flex-row md:items-end md:gap-8">
+			<div data-reveal>
+				<p class="font-mono text-xs uppercase tracking-[0.22em] text-color-550">
+					02 — Work
+				</p>
+				<h2 class="display-heading mt-2" id="work-heading">
+					<span
+						class="block font-heading text-[2.125rem] font-bold leading-[0.95] tracking-[-0.02em] text-accent-base md:text-[3.5rem]"
+					>
+						Work
+					</span>
+				</h2>
+			</div>
+			<HandRule class="hidden flex-1 md:mb-4 md:block" />
+		</div>
+
+		<!-- The rail sits outside the list so the <ol> only ever contains <li>. -->
+		<div class="relative mt-12">
+			<span
+				aria-hidden="true"
+				data-rail
+				class="absolute bottom-6 left-[6px] top-3 w-px bg-gradient-to-b from-accent-two/50 via-color-200 to-transparent md:left-[7px]"
+			></span>
+			<ol role="list">
+				{
+					career.map((entry, i) => (
+						<li>
+							<CareerDetail entry={entry} index={i} />
+						</li>
+					))
+				}
+			</ol>
 		</div>
 	</section>
 
+	<!-- Off keyboard -->
+	<section aria-labelledby="offkeyboard-heading" class="pb-20 md:pb-28">
+		<div class="flex flex-col gap-4 md:flex-row md:items-end md:gap-8">
+			<div data-reveal>
+				<p class="font-mono text-xs uppercase tracking-[0.22em] text-color-550">
+					03 — Away from the keyboard
+				</p>
+				<h2 class="display-heading mt-2" id="offkeyboard-heading">
+					<span
+						class="block font-heading text-[2.125rem] font-bold leading-[0.95] tracking-[-0.02em] text-accent-base md:text-[3.5rem]"
+					>
+						Off keyboard
+					</span>
+				</h2>
+			</div>
+			<HandRule class="hidden flex-1 md:mb-4 md:block" />
+		</div>
 
-	<div class="prose prose-citrus max-w-none">
-      I've worked with a wide range of technologies over the years:
-      <ul>
-        <li>
-          On the server side, my journey began with Ruby and PHP before expanding into Go. Most recently, I've been working with Node.js and Java/Spring Boot to build high-performance microservices and distributed systems.        </li>
-        <li>
-          On the client side, I've started with the early days of the web — from VanillaJS and jQuery, through AngularJS and Angular 2, and finally to React, which has become my main focus for building modern, high-performance interfaces.
-        </li>
-      </ul>
-      <p>
-        From a technical standpoint, my main interests revolve around web performance optimization,
-        <a
-          href="https://github.com/frandieguez"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          sustainable engineering
-        </a>
-        , and the promotion of open-source technologies that foster collaboration and long-term maintainability.
-      </p>
+		<ul role="list" class="mt-10 divide-y divide-color-250 md:mt-12">
+			<li data-reveal class="grid gap-x-8 py-5 md:grid-cols-[10rem_1fr]">
+				<p
+					class="font-mono text-xs uppercase tracking-[0.16em] text-accent-two md:pt-1"
+				>
+					Open source
+				</p>
+				<p class="mt-2 max-w-[54ch] text-base leading-relaxed text-color-600 md:mt-0">
+					Contributing to <strong class="font-medium text-accent-base">GNOME</strong>
+					as a long-time member of the GNOME Foundation, and coordinating the
+					Galician translation team for Ubuntu.
+				</p>
+			</li>
+			<li
+				data-reveal
+				style="--reveal-delay:45ms"
+				class="grid gap-x-8 py-5 md:grid-cols-[10rem_1fr]"
+			>
+				<p
+					class="font-mono text-xs uppercase tracking-[0.16em] text-accent-two md:pt-1"
+				>
+					Outdoors
+				</p>
+				<p class="mt-2 max-w-[54ch] text-base leading-relaxed text-color-600 md:mt-0">
+					Training at the gym, CrossFit, hiking through the forests of Galicia, and
+					snowboarding whenever there's snow.
+				</p>
+			</li>
+			<li
+				data-reveal
+				style="--reveal-delay:90ms"
+				class="grid gap-x-8 py-5 md:grid-cols-[10rem_1fr]"
+			>
+				<p
+					class="font-mono text-xs uppercase tracking-[0.16em] text-accent-two md:pt-1"
+				>
+					Home automation
+				</p>
+				<p class="mt-2 max-w-[54ch] text-base leading-relaxed text-color-600 md:mt-0">
+					Most of my house runs on Home Assistant and Zigbee2MQTT, with custom
+					automations that make daily life smoother — and geekier.
+				</p>
+			</li>
+			<li
+				data-reveal
+				style="--reveal-delay:135ms"
+				class="grid gap-x-8 py-5 md:grid-cols-[10rem_1fr]"
+			>
+				<p
+					class="font-mono text-xs uppercase tracking-[0.16em] text-accent-two md:pt-1"
+				>
+					Reading
+				</p>
+				<p class="mt-2 max-w-[54ch] text-base leading-relaxed text-color-600 md:mt-0">
+					Mostly about technology, design and personal growth, and exploring ideas
+					for making tech more accessible and sustainable.
+				</p>
+			</li>
+		</ul>
 
-        <Workline />
-
- <p>
-  Whenever I’m not thinking about software development:
-  <ul>
-    <li>
-      I’m usually contributing to
-      <a
-        href="https://www.ohloh.net/accounts/frandieguez"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        open-source projects
-      </a>
-      👨‍💻 like <strong>GNOME</strong> (as a long-time member of the GNOME
-      Foundation) or coordinating the Galician translation team for Ubuntu.
-      I also enjoy
-      <a
-        href="https://www.amazon.com/gp/pdp/profile/A362F32UBZHEUR"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        reading
-      </a>
-      — mostly about technology, design, and personal growth — and exploring new
-      ideas to make tech more accessible and sustainable.
-    </li>
-
-    <li>
-      When I’m away from the keyboard, you’ll probably find me training at the
-      gym 💪, practicing CrossFit, going hiking through the forests of Galicia 🌲,
-      or hitting the slopes on my snowboard 🏂.
-    </li>
-
-    <li>
-      I’m also passionate about home automation and smart living — most of my
-      house is connected through Home Assistant and Zigbee2MQTT, with custom
-      automations that make daily life smoother (and geekier 😄).
-    </li>
-  </ul>
-</p>
-<p>
-  Currently, I’m <strong>not available for hire</strong>, but feel free to reach
-  out if you’d like to collaborate on innovative or meaningful future projects.
-</p>
-      </div>
-
-
-	</div>
-
+		<p
+			data-reveal
+			class="mt-10 max-w-[52ch] text-lg leading-relaxed text-color-600"
+		>
+			Open to collaborating on innovative or meaningful projects — <a
+				class="citrus-link font-medium text-accent-two"
+				href="/contact/">get in touch</a
+			>.
+		</p>
+	</section>
 </PageLayout>

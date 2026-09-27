@@ -1,0 +1,50 @@
+---
+/**
+ * A compact row in the homepage writing list: year · title · month.
+ *
+ * Deliberately not a PostPreview variant — PostPreview is shared with /posts and
+ * /tags, and widening it for one more layout is how that component ended up with
+ * two branches and a broken prop in the first place.
+ */
+import type { HTMLAttributes } from "astro/types";
+import type { CollectionEntry } from "astro:content";
+
+interface Props extends HTMLAttributes<"li"> {
+	post: CollectionEntry<"post">;
+}
+
+const { post, class: className, ...attrs } = Astro.props;
+const href = `/posts/${post.id}/`;
+const date = post.data.publishDate;
+const year = date.getFullYear();
+const month = date.toLocaleDateString("en-GB", { month: "short" });
+---
+
+<li
+	class:list={[
+		"group -mx-2 grid items-baseline gap-x-4 rounded-lg px-2 py-4 transition-colors duration-200 hover:bg-color-50 md:grid-cols-[3.5rem_1fr_auto]",
+		className,
+	]}
+	{...attrs}
+>
+	<p
+		class="font-mono text-xs tabular-nums text-color-550 transition-colors group-hover:text-accent-two"
+	>
+		{year}
+	</p>
+	<h3 class="display-heading">
+		<a class="citrus-link" data-astro-prefetch href={href}>
+			<span
+				class="block text-[1.0625rem] font-medium text-accent-base transition-colors group-hover:text-accent-two md:text-lg"
+			>
+				{post.data.draft && <span class="text-red-500">(Draft) </span>}
+				{post.data.title}
+			</span>
+		</a>
+	</h3>
+	<p
+		class="font-mono text-xs uppercase tracking-[0.14em] text-color-550 md:text-right"
+	>
+		{month}
+	</p>
+</li>

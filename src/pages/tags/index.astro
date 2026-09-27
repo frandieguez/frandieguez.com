@@ -1,58 +1,56 @@
 ---
-import Badge from "@/components/Badge.astro";
+import PageHeading from "@/components/ui/PageHeading.astro";
 import { getAllPosts, getUniqueTagsWithCount } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 
 const allPosts = await getAllPosts();
+// Already sorted by count, descending.
 const allTags = getUniqueTagsWithCount(allPosts);
 
 const meta = {
 	description: "A list of all the topics I've written about in my posts",
-	title: "All Tags",
+	title: "Tags",
 };
 ---
 
 <PageLayout meta={meta}>
-	<h1 class="title mb-6">Tags</h1>
-	<!--
-	<ul class="space-y-4">
-		{
-			allTags.map(([tag, val]) => (
-				<li class="flex items-center gap-x-2">
-					<a
-						class="citrus-link inline-block"
-						data-astro-prefetch
-						href={`/tags/${tag}/`}
-						title={`View posts with the tag: ${tag}`}
+	<PageHeading
+		eyebrow={`Tags — ${allTags.length} topics across ${allPosts.length} posts`}
+		title="Tags"
+		standfirst="Sorted by how often they come up. The long tail is mostly the 2007–2013 sysadmin era, some of it in Spanish."
+	/>
+
+	<section aria-label="All tags" class="pb-20 md:pb-28">
+		<ul
+			role="list"
+			class="grid grid-cols-1 border-t border-color-250 sm:grid-cols-2 lg:grid-cols-3"
+		>
+			{
+				allTags.map(([tag, count], i) => (
+					<li
+						data-reveal
+						style={`--reveal-delay:${Math.min(i, 12) * 25}ms`}
+						class="border-b border-color-250"
 					>
-						&#35;{tag}
-					</a>
-					<a aria-label={`View all posts with the tag: ${tag}`} href={`/tags/${tag}`}>
-						<Badge variant="accent-two" title={tag}>
-							{tag}
-						</Badge>
-					</a>
-					<span class="inline-block">
-						- {val} Post{val > 1 && "s"}
-					</span>
-				</li>
-			))
-		}
-	</ul>
-	-->
-	<div class="flex flex-wrap items-center gap-2">
-		{
-			allTags.map(([tag, val]) => (
-			<div class="flex items-center gap-x-2">
-				<a aria-label={`View all posts with the tag: ${tag}`} href={`/tags/${tag}`}>
-				<Badge variant="muted" title={tag}>
-					<span class="text-xs font-normal">
-						&nbsp;{val} post{val > 1 && "s"}
-					</span>
-				</Badge>
-				</a>
-			</div>
-			))
-		}
-	</div>
+						<a
+							aria-label={`View all posts with the tag: ${tag}`}
+							class="citrus-link group flex items-baseline justify-between gap-4 px-2 py-3.5 transition-colors duration-200 hover:bg-color-50"
+							data-astro-prefetch
+							href={`/tags/${tag}/`}
+						>
+							<span class="text-base text-accent-base transition-colors group-hover:text-accent-two">
+								<span aria-hidden="true" class="text-color-450">
+									#
+								</span>
+								{tag}
+							</span>
+							<span class="shrink-0 font-mono text-xs tabular-nums text-color-550">
+								{count}
+							</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</section>
 </PageLayout>

@@ -118,10 +118,10 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 export async function GET(context: APIContext) {
   const { pubDate, title } = context.props as Props;
-  const postDate = getFormattedDate(pubDate, {
-    month: "long",
-    weekday: "long",
-  });
+  // The site card (slug "site") has no date — it isn't a post.
+  const postDate = pubDate
+    ? getFormattedDate(pubDate, { month: "long", weekday: "long" })
+    : "";
   const svg = await satori(markup(title, postDate), ogOptions);
 
   // Проверяем, запрашивает ли пользователь PNG
@@ -149,26 +149,36 @@ export async function GET(context: APIContext) {
   return new Response("Unsupported format", { status: 400 });
 }
 
-export async function getStaticPaths() {
+interface OgPath {
+  params: { slug: string; ext: "png" | "svg" };
+  /** pubDate is absent on the site card — it isn't a post. */
+  props: { pubDate?: Date; title: string };
+}
+
+const EXTENSIONS = ["png", "svg"] as const;
+
+export async function getStaticPaths(): Promise<OgPath[]> {
   const posts = await getAllPosts();
-  return posts
+
+  const postPaths: OgPath[] = posts
     .filter(({ data }) => !data.ogImage)
-    .flatMap((post) => {
-      return [
-        {
-          params: { slug: post.id, ext: "png" },
-          props: {
-            pubDate: post.data.updatedDate ?? post.data.publishDate,
-            title: post.data.title,
-          },
+    .flatMap((post) =>
+      EXTENSIONS.map((ext) => ({
+        params: { slug: post.id, ext },
+        props: {
+          pubDate: post.data.updatedDate ?? post.data.publishDate,
+          title: post.data.title,
         },
-        {
-          params: { slug: post.id, ext: "svg" },
-          props: {
-            pubDate: post.data.updatedDate ?? post.data.publishDate,
-            title: post.data.title,
-          },
-        },
-      ];
-    });
+      }))
+    );
+
+  // A card for the site itself. BaseHead used to fall back to /social-card.png,
+  // a file that never existed in public/, so every page without an explicit
+  // ogImage — the homepage included — shipped a broken social card.
+  const sitePaths: OgPath[] = EXTENSIONS.map((ext) => ({
+    params: { slug: "site", ext },
+    props: { title: siteConfig.description },
+  }));
+
+  return [...postPaths, ...sitePaths];
 }

@@ -1,0 +1,49 @@
+---
+/**
+ * The homepage section header: an editorial index mark, a display-scale h2, an
+ * inked rule, and a standfirst. One component so heading level and the
+ * aria-labelledby wiring can't drift between sections.
+ */
+import HandRule from "@/components/ui/HandRule.astro";
+
+interface Props {
+	/** Matches the parent section's aria-labelledby. */
+	id: string;
+	/** "02" — the editorial index mark. */
+	ordinal: string;
+	title: string;
+	standfirst?: string;
+}
+
+const { id, ordinal, title, standfirst } = Astro.props;
+---
+
+<div class="flex flex-col gap-4 md:flex-row md:items-end md:gap-8">
+	<div data-reveal>
+		<p
+			class="font-mono text-xs uppercase tracking-[0.22em] text-color-550"
+		>
+			{ordinal} — {title}
+		</p>
+		<h2 class="display-heading mt-2" id={id}>
+			<span
+				class="block font-heading text-[2.125rem] font-bold leading-[0.95] tracking-[-0.02em] text-accent-base md:text-[3.5rem]"
+			>
+				{title}
+			</span>
+		</h2>
+	</div>
+	<HandRule class="hidden flex-1 md:mb-4 md:block" />
+</div>
+
+{
+	standfirst && (
+		<p
+			data-reveal
+			style="--reveal-delay:70ms"
+			class="mt-5 max-w-[58ch] text-lg leading-relaxed text-color-600"
+		>
+			{standfirst}
+		</p>
+	)
+}

@@ -1,0 +1,141 @@
+---
+/**
+ * The masthead.
+ *
+ * The wordmark echoes the site logo's own hierarchy — FRAN light over DIEGUEZ
+ * bold, uppercase, monochrome — at newspaper-masthead scale. The portrait sits
+ * at the right end of the wordmark rather than beside a column of text, which is
+ * what makes the composition bold and not merely large.
+ *
+ * Note on the type: the font-size lives on child <span>s, never on the <h1>.
+ * global.css forces `h1 { text-2xl !important }` and a utility class cannot beat
+ * it; a child inherits and wins with no !important at all. Don't move these
+ * sizes onto the heading element — they'd silently collapse to 24px.
+ */
+import Avatar from "@/components/ui/Avatar.astro";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import HandRule from "@/components/ui/HandRule.astro";
+import { currentPosition } from "@/data/career";
+import profilePic from "@/assets/images/profile-pic.jpg";
+
+const current = currentPosition();
+const role = current.roles[0]?.title ?? "Web Tech Lead";
+
+const stack = [
+	"TypeScript",
+	"Node.js",
+	"Java",
+	"Spring Boot",
+	"PostgreSQL",
+	"React",
+	"Redux",
+	"MapLibre",
+	"deck.gl",
+	"WebGL",
+	"three.js",
+	"Git",
+];
+
+const wordmark =
+	"block font-heading uppercase text-[clamp(3.25rem,12.5vw,13rem)] leading-[0.84] tracking-[-0.02em]";
+---
+
+<section class="relative pb-14 pt-4 md:pb-16 md:pt-8">
+	<div data-reveal class="flex items-center gap-5">
+		<!-- Wraps on mobile: at 320px this line is ~465px wide, and shrink-0 at every
+			breakpoint would push it past the viewport. -->
+		<p
+			class="font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.2em] text-color-550 md:shrink-0 md:text-xs"
+		>
+			01 — Galicia, Spain · Building for the web since 2006
+		</p>
+		<HandRule class="hidden flex-1 md:block" />
+	</div>
+
+	<div class="relative mt-7 md:mt-14">
+		<h1 class="display-heading">
+			<span
+				data-reveal
+				style="--reveal-delay:40ms"
+				class:list={[wordmark, "font-medium text-accent-base/40"]}>Fran</span
+			>
+			<span
+				data-reveal
+				style="--reveal-delay:80ms"
+				class:list={[wordmark, "font-bold text-accent-base"]}>Dieguez</span
+			>
+		</h1>
+
+		<!-- The positioning lives on this wrapper and the reveal transform on the
+			figure inside it, so the two never fight over `transform`. -->
+		<div
+			class="mx-auto mt-8 w-36 md:absolute md:right-0 md:top-1/2 md:mx-0 md:mt-0 md:w-[clamp(9rem,16vw,14rem)] md:-translate-y-1/2"
+		>
+			<Avatar
+				src={profilePic}
+				alt="Fran Dieguez"
+				eager
+				data-reveal="scale"
+				style="--reveal-delay:120ms"
+			/>
+		</div>
+	</div>
+
+	<p
+		data-reveal
+		style="--reveal-delay:140ms"
+		class="mt-7 font-mono text-[0.8125rem] uppercase tracking-[0.18em] text-accent-two md:mt-9 md:text-sm"
+	>
+		{role} · open sourcerer · full stack developer
+	</p>
+
+	<p
+		data-reveal
+		style="--reveal-delay:180ms"
+		class="mt-6 max-w-[36ch] text-xl leading-[1.5] md:max-w-[52ch]"
+	>
+		I'm a full stack developer and {role} at {current.org}, where we do indoor
+		positioning for people and robots. I build{" "}
+		<span
+			class="relative inline-block before:absolute before:inset-x-[-0.2em] before:inset-y-[0.14em] before:-z-10 before:-rotate-[1.2deg] before:rounded-[3px] before:bg-accent-two/20"
+			>the visual layer</span
+		> — map viewers, 3D layers, the code that turns complex spatial data into
+		something fast enough to think with.
+	</p>
+
+	<div
+		data-reveal
+		style="--reveal-delay:220ms"
+		class="mt-9 flex flex-col gap-8 md:flex-row md:items-start md:justify-between md:gap-12"
+	>
+		<div class="flex flex-col items-start gap-4">
+			<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+				<ButtonLink href="/posts/" size="lg">Read the blog</ButtonLink>
+				<ButtonLink href="/contact/" variant="secondary" size="lg">
+					➤ Get in touch
+				</ButtonLink>
+			</div>
+			<a
+				href="/about/"
+				class="citrus-link group flex items-center gap-1.5 text-sm font-medium text-accent-two"
+			>
+				The long version
+				<span
+					aria-hidden="true"
+					class="transition-transform group-hover:translate-x-1">→</span
+				>
+			</a>
+		</div>
+		<p class="max-w-[30ch] text-sm leading-relaxed text-color-600 md:text-right">
+			Open to collaborating on things that are genuinely interesting.
+		</p>
+	</div>
+
+	<p
+		data-reveal
+		style="--reveal-delay:260ms"
+		class="mt-12 font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.16em] text-color-550 md:mt-16 md:text-xs"
+	>
+		{stack.join(" · ")}
+	</p>
+</section>

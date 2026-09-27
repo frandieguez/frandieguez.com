@@ -1,34 +1,44 @@
 ---
-import { Icon } from "astro-icon/components";
-import Badge from '@/components/Badge.astro';
+/**
+ * The tag row at the foot of a post.
+ *
+ * A monospace label instead of the old tag icon, to match the other section
+ * marks on the site (CONTENTS, ELSEWHERE, TAGS), and hairline chips instead of
+ * solid terracotta fills.
+ */
+import Badge from "@/components/Badge.astro";
 
 interface Props {
-    tags?: string[];
+	tags?: string[];
 }
 
 const { tags } = Astro.props;
 ---
 
-<div class="flex items-start gap-2">
-    <Icon
-        aria-hidden="true"
-        class="flex-shrink-0 inline-block h-6 w-6 text-accent-base"
-        focusable="false"
-        name="solar:tag-line-duotone"
-    />
-    <div class="flex items-center gap-2 flex-wrap">
-        {
-            tags?.length ? (
-                <>
-                    {tags.map((tag) => (
-                        <a  aria-label={`View all posts with the tag: ${tag}`} href={`/tags/${tag}`}>
-                            <Badge variant="accent-two" title={tag} />
-                        </a>
-                    ))}
-                </>
-            ) : (
-                    <span class="text-sm text-lightest">No tags</span>
-            )
-        }
-    </div>
+<div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-6">
+	<p
+		class="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-color-550 sm:shrink-0 sm:pt-2"
+	>
+		Tagged
+	</p>
+
+	{
+		tags?.length ? (
+			<ul role="list" class="flex flex-wrap items-center gap-2">
+				{tags.map((tag) => (
+					<li>
+						<a
+							aria-label={`View all posts with the tag: ${tag}`}
+							data-astro-prefetch
+							href={`/tags/${tag}/`}
+						>
+							<Badge variant="muted" title={tag} />
+						</a>
+					</li>
+				))}
+			</ul>
+		) : (
+			<span class="text-sm text-color-450">No tags</span>
+		)
+	}
 </div>

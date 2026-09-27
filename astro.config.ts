@@ -69,8 +69,10 @@ export default defineConfig({
 				},
 			],
 			start_url: "/",
-			background_color: "#1d1f21",
-			theme_color: "#2bbc8a",
+			// The cream and terracotta of the actual identity. These were the Astro
+			// Citrus starter's colours and matched nothing in the design system.
+			background_color: "#fff1e8",
+			theme_color: "#bc4a24",
 			display: "standalone",
 			config: {
 				insertFaviconLinks: false,
@@ -115,8 +117,9 @@ export default defineConfig({
 	},
 	// https://docs.astro.build/en/guides/prefetch/
 	prefetch: true,
-	// ! Please remember to replace the following site property with your own domain
-	site: "http://astrocitrus.artemkutsan.pp.ua/",
+	// Drives canonical URLs, the sitemap, the RSS feeds, robots.txt and the
+	// absolute og:image URLs. It was still the starter theme's domain.
+	site: "https://www.frandieguez.com/",
 	vite: {
 		build: {
 			sourcemap: true, // Source maps generation

@@ -14,7 +14,7 @@ export const siteConfig: SiteConfig = {
   },
   // Used as the default description meta property and webmanifest description
   description:
-    "Yet another software craftmanship. Node.js, PHP, Angular, React, Golang, .",
+    "Fran Dieguez — full stack developer and Web Tech Lead at Situm, building the visual layer of indoor positioning. Writing about code agents, web performance and open source since 2007.",
   // HTML lang property, found in src/layouts/Base.astro L:18 & astro.config.ts L:48
   lang: "en-GB",
   // Meta property, found in src/components/BaseHead.astro L:42

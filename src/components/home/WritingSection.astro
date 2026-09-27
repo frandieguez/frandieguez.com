@@ -1,0 +1,85 @@
+---
+/**
+ * The writing area: two featured posts, then a compact list, then the archive CTA.
+ *
+ * "Featured" is derived by recency — there's no `featured` field in the post
+ * schema, and adding one would touch /posts, /tags, /series, the RSS feed and the
+ * OG image route for no gain. The ten most recent posts all fall in the
+ * 2019–2026 era, so recency already produces a coherent selection.
+ *
+ * No tag chips here: tag hygiene across the archive is poor (Spanish/English
+ * duplicates, and corrupted YAML that leaked whole sentences into `tags:`).
+ */
+import FeaturedPostCard from "@/components/home/FeaturedPostCard.astro";
+import HandRule from "@/components/ui/HandRule.astro";
+import PostRow from "@/components/home/PostRow.astro";
+import SectionHeader from "@/components/home/SectionHeader.astro";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import { getLatestPosts } from "@/data/post";
+
+const LIST_SIZE = 6;
+
+const all = await getLatestPosts();
+const [lead, second, ...rest] = all;
+const list = rest.slice(0, LIST_SIZE);
+const total = all.length;
+
+const headingId = "writing-heading";
+---
+
+<section aria-labelledby={headingId} class="py-20 md:py-28">
+	<SectionHeader
+		id={headingId}
+		ordinal="02"
+		title="Writing"
+		standfirst="Notes going back to 2007. Lately: code agents, leading teams, and what AI is actually doing to the way we write software."
+	/>
+
+	<div class="mt-10 grid grid-cols-1 gap-8 md:mt-14 md:grid-cols-12 md:gap-10">
+		{
+			lead && (
+				<div data-reveal class="md:col-span-7">
+					<FeaturedPostCard post={lead} variant="lead" />
+				</div>
+			)
+		}
+		{
+			second && (
+				<div data-reveal style="--reveal-delay:90ms" class="md:col-span-5">
+					<FeaturedPostCard post={second} />
+				</div>
+			)
+		}
+	</div>
+
+	{
+		list.length > 0 && (
+			<>
+				<HandRule class="mt-14" />
+				<ul role="list" class="mt-4 divide-y divide-color-250">
+					{list.map((post, i) => (
+						<PostRow post={post} data-reveal style={`--reveal-delay:${i * 45}ms`} />
+					))}
+				</ul>
+			</>
+		)
+	}
+
+	<div
+		data-reveal
+		class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 md:mt-12"
+	>
+		<ButtonLink href="/posts/" variant="secondary">
+			Browse all {total} posts
+			<span aria-hidden="true" class="transition-transform group-hover:translate-x-1"
+				>→</span
+			>
+		</ButtonLink>
+		<a
+			href="/rss.xml"
+			class="citrus-link font-mono text-xs uppercase tracking-[0.18em] text-color-550 hover:text-accent-two"
+		>
+			RSS
+		</a>
+	</div>
+</section>

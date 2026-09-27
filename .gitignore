@@ -23,3 +23,7 @@ Thumbs.db
 
 
 .yarn/install-state.gz
+!public/files
+
+.agents/*
+.claude

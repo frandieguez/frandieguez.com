@@ -1,11 +1,23 @@
+import { collectionDateSort } from "@/utils/date";
 import { type CollectionEntry, getCollection } from "astro:content";
 
-/** filter out draft posts based on the environment */
+/** all non-draft posts, unsorted. Drafts are hidden in every environment: the
+ *  content collection still holds the Astro Citrus fixture posts, and they are
+ *  all drafts, so showing drafts in dev would flood the local site with them. */
 export async function getAllPosts(): Promise<CollectionEntry<"post">[]> {
-  return await getCollection("post", ({ data }) => {
-    return !data.draft;
-    return import.meta.env.PROD ? !data.draft : true;
-  });
+  return await getCollection("post", ({ data }) => !data.draft);
+}
+
+/** newest-first posts, optionally excluding some ids and capped at `limit`. */
+export async function getLatestPosts(
+  limit?: number,
+  opts?: { exclude?: string[] }
+): Promise<CollectionEntry<"post">[]> {
+  const exclude = new Set(opts?.exclude ?? []);
+  const posts = (await getAllPosts())
+    .filter((post) => !exclude.has(post.id))
+    .sort(collectionDateSort);
+  return limit === undefined ? posts : posts.slice(0, limit);
 }
 
 /** groups posts by year (based on option siteConfig.sortPostsByUpdatedDate), using the year as the key

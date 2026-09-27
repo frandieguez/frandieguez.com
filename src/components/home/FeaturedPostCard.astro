@@ -1,0 +1,77 @@
+---
+/**
+ * A post given extra weight on the homepage.
+ *
+ * Only one post in the whole collection has a `coverImage`, so this treatment is
+ * typographic rather than image-led: the "lead" variant gets more area, a bigger
+ * title and a terracotta kicker bar where an image would otherwise sit.
+ */
+import FormattedDate from "@/components/FormattedDate.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+	post: CollectionEntry<"post">;
+	variant?: "lead" | "second";
+}
+
+const { post, variant = "second" } = Astro.props;
+const isLead = variant === "lead";
+const href = `/posts/${post.id}/`;
+---
+
+<article
+	class="group flex h-full flex-col rounded-lg border border-color-200 bg-color-50 p-5 transition-colors duration-200 hover:bg-color-75 md:p-7"
+>
+	{
+		isLead && (
+			<span
+				aria-hidden="true"
+				class="mb-5 block h-2 w-16 rounded-full bg-accent-two"
+			/>
+		)
+	}
+
+	<p class="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-color-550">
+		{isLead ? "Latest" : "Also recent"} · <FormattedDate
+			date={post.data.publishDate}
+			dateTimeOptions={{ year: "numeric", month: "short", day: "numeric" }}
+		/>
+	</p>
+
+	<h3 class:list={["display-heading", isLead ? "mt-4" : "mt-3"]}>
+		<a class="citrus-link" data-astro-prefetch href={href}>
+			<span
+				class:list={[
+					"block font-heading font-bold tracking-[-0.015em] text-accent-base transition-colors group-hover:text-accent-two",
+					isLead
+						? "text-[1.75rem] leading-[1.06] md:text-[2.5rem]"
+						: "text-2xl leading-[1.12] md:text-[1.75rem]",
+				]}
+			>
+				{post.data.draft && <span class="text-red-500">(Draft) </span>}
+				{post.data.title}
+			</span>
+		</a>
+	</h3>
+
+	<p
+		class:list={[
+			"mt-4 text-color-600",
+			isLead ? "text-base leading-relaxed md:text-lg" : "text-base leading-relaxed",
+		]}
+	>
+		{post.data.description}
+	</p>
+
+	<a
+		href={href}
+		data-astro-prefetch
+		aria-label={`Read ${post.data.title}`}
+		class="citrus-link mt-auto flex items-center gap-1.5 pt-6 text-sm font-medium text-accent-two"
+	>
+		{isLead ? "Read the piece" : "Read"}
+		<span aria-hidden="true" class="transition-transform group-hover:translate-x-1"
+			>→</span
+		>
+	</a>
+</article>

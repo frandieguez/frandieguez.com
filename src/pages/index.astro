@@ -1,209 +1,39 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-// import SocialList from "@/components/SocialList.astro";
-import PostPreview from "@/components/blog/PostPreview.astro";
-import { getAllPosts } from "@/data/post";
+import CareerTimeline from "@/components/career/CareerTimeline.astro";
+import HomeHero from "@/components/home/HomeHero.astro";
+import SectionHeader from "@/components/home/SectionHeader.astro";
+import WritingSection from "@/components/home/WritingSection.astro";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import { careerBefore, careerNow } from "@/data/career";
 import PageLayout from "@/layouts/Base.astro";
-import { collectionDateSort } from "@/utils/date";
-import TechStackBanner from "@/components/TechStackBanner";
-import WorkExperienceRightTimeline from "@/components/WorkingExperience";
-import WritingTypewriter from "@/components/WritingTypewriter";
-import { Image } from 'astro:assets';
-import profilePic from "../../public/profile-pic.jpg";
-import PixelatedTextEffect from "@/components/PixelatedTextEffect";
 
-// Posts
-const MAX_POSTS = 10;
-const allPosts = await getAllPosts();
-const allPostsByDate = allPosts
-	.sort(collectionDateSort)
-	.slice(0, MAX_POSTS) as CollectionEntry<"post">[];
-
-// Notes
-const MAX_NOTES = 2;
-const allNotes = await getCollection("note");
-const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
-
----6
+const trajectoryId = "trajectory-heading";
+---
 
 <PageLayout meta={{ title: "Home" }}>
-	<!-- Hero section -->
-	<!-- Background blur -->
-	<!-- <div class="absolute top-0 left-1/2 md:top-[-15%] -ml-[50vw] min-h-screen w-screen pointer-events-none blur-3xl opacity-50 overflow-x-hidden">
-		<div class="absolute top-[10%] right-[-40%] w-[65%] h-full bg-gradient-to-b from-purple-300 via-blue-300 to-transparent rounded-full opacity-30 dark:opacity-10"></div>
-		<div class="absolute top-[10%] left-[-40%] w-[65%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-30 dark:opacity-10"></div>
-		<div class="absolute top-[-20%] left-[-50%] w-[85%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-60 dark:opacity-10"></div>
-		<div class="absolute top-[-20%] right-[-50%] w-[85%] h-full bg-gradient-to-b from-orange-300 via-indigo-300 to-transparent rounded-full opacity-60 dark:opacity-10"></div>
-	</div> -->
-	<div class="absolute mt-[-150px] top-0 left-1/2 min-h-[1050px] md:min-h-[600px] w-screen -ml-[50vw] bg-[#fff1e8] dark:bg-bgColor pointer-events-none overflow-hidden"></div>
+	<HomeHero />
 
-	<section class="mx-auto relative mt-10 mb-24">
-		<div class="gap-8 flex flex-col md:flex-row-reverse items-center justify-center">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%"
-			class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-full max-w-none h-auto pointer-events-none" >
-				<defs>
-					<!-- patrón de cuadrícula -->
-					<pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-						<path d="M0 24 H24" fill="none" stroke="#38bdf8" stroke-opacity=".15" stroke-width="1"/>
-						<path d="M24 0 V24" fill="none" stroke="#38bdf8" stroke-opacity=".15" stroke-width="1"/>
-					</pattern>
+	<WritingSection />
 
-					<!-- degradado radial para difuminar bordes -->
-					<radialGradient id="fadeMask" cx="50%" cy="50%" r="70%">
-					<stop offset="70%" stop-color="white" stop-opacity="1"/>
-					<stop offset="100%" stop-color="white" stop-opacity="0"/>
-					</radialGradient>
+	<section aria-labelledby={trajectoryId} class="pb-20 md:pb-32">
+		<SectionHeader
+			id={trajectoryId}
+			ordinal="03"
+			title="Trajectory"
+			standfirst="Four places, two of them still going, one constant: making the web faster."
+		/>
 
-					<!-- máscara usando elipse con gradiente -->
-					<mask id="softMask">
-					<rect width="100%" height="100%" fill="black"/>
-					<ellipse cx="400" cy="200" rx="360" ry="140" fill="url(#fadeMask)" />
-					</mask>
-				</defs>
+		<CareerTimeline label="Now" entries={careerNow} class="mt-12" />
+		<CareerTimeline label="Before" entries={careerBefore} class="mt-4" />
 
-				<!-- cuadrícula con máscara difuminada -->
-				<rect width="100%" height="100%" fill="url(#grid)" mask="url(#softMask)"/>
-			</svg>
-			<div class="w-full md:w-1/3 flex justify-center mb-6 md:mt-0 relative">
-				    <!-- style={{ backgroundColor: 'color-mix(in srgb, #FFF8F3, transparent 50%)' }} -->
-				<div
-					class="size-40 md:size-72 animate-amoeba absolute -top-1 md:-top-3 z-0 bg-[#fff8f3aa] dark:bg-[#fff8f30f]"></div>
-				<Image src={profilePic} alt="Fran Dieguez" class="size-36 md:size-64 relative z-10  rounded-full" />
-			</div>
-			<div class="w-full md:w-2/3 text-center md:text-left">
-				<h1 class="text-4xl font-bold mb-6">
-					<div style="min-height:5rem;" class="title text-3xl md:text-4xl  ">
-						Hey, I'm Fran <br />
-						<span class="h-9" >
-							<PixelatedTextEffect
-								client:load
-								className="mt-4"
-								fontSize={40}
-								fontWeight={600}
-								color="black"
-								sampleStep={7}
-								leftPaddingPct={0}
-								height={30}
-								texts={[
-									'a Web Tech Lead',
-									'an open sourcerer',
-									'a full stack developer',
-								]}
-							/>
-							<!-- <WritingTypewriter client:load /> -->
-						</span>
-					</div>
-				</h1>
-				<p class="mt-4 mb-4 text-lg font-medium">
-  					Passionate about crafting beautiful, functional web experiences with modern technologies. Always exploring new ideas and tools to push my skills further.
-
-					Let's connect on <a href="https://www.linkedin.com/in/frandieguez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
-				</p>
-				<!-- <div class="flex justify-center mb-4">
-					<SocialList />
-				</div> -->
-				<div class="flex flex-column md:flex-row justify-center md:justify-start space-x-4 mt-8">
-					<a href="/posts/" class="relative flex items-center justify-center md:h-8 px-4 rounded-lg hover:brightness-110 transition-all bg-accent-two">
-						<span class="text-bgColor font-semibold">
-							Read my blog
-						</span>
-					</a>
-
-					<a href="/contact/" class="relative flex items-center justify-center md:h-8 px-4 rounded-lg border border-gray-400/20 bg-special-lighter hover:brightness-110 hover:bg-special-lightest">
-						<span class="font-semibold">
-							➤ Contact me
-						</span>
-					</a>
-				</div>
-			</div>
+		<div data-reveal class="mt-4">
+			<ButtonLink href="/about/" variant="secondary">
+				The long version, with pictures
+				<span
+					aria-hidden="true"
+					class="transition-transform group-hover:translate-x-1">→</span
+				>
+			</ButtonLink>
 		</div>
-		<TechStackBanner className="mt-8" />
-		<svg class="absolute -bottom-30 left-1/2 -ml-[50vw] w-screen h-20 rotate-180" class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-			<defs>
-				<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
-			</defs>
-			<g class="parallax">
-				<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,241,232,0.7)"></use>
-				<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,241,232,0.5)"></use>
-				<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,241,232,0.3)"></use>
-				<use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(255,241,232,1)"></use>
-			</g>
-		</svg>
 	</section>
-
-
-	<!-- Posts y Notes juntos en móvil/tablet -->
-	<div class="flex flex-col gap-8 lg:flex-row align-top">
-		<!-- Posts Section -->
-		<section aria-label="Blog post list" class="flex-2">
-			<h2 class="title mb-6 text-xl text-accent-two">
-				<a href="/posts/">Posts</a>
-			</h2>
-			<ul class="space-y-4 md:space-y-4" role="list">
-				{
-					allPostsByDate.map((p) => (
-						<li class="gap-2 sm:grid-cols-[auto_1fr]">
-							<PostPreview post={p} />
-						</li>
-					))
-				}
-			</ul>
-		</section>
-
-		<WorkExperienceRightTimeline client:load className="flex-1 mt-0" />
-
-		<!-- Notes Section -->
-		<!-- {
-			latestNotes.length > 0 && (
-				<section class="flex-1 mt-0 md:mt-12">
-					<h2 class="title mb-6 text-accent-two">
-						<a href="/notes/">Notes</a>
-					</h2>
-					<div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
-						{
-							latestNotes.map((note) => (
-								<div>
-									<Note note={note} as="h4" isPreview />
-								</div>
-							))
-						}
-					</div>
-				</section>
-			)
-		} -->
-	</div>
-
-	<!-- Debug -->
-	<!--
-	<div class="flex justify-between flex-wrap gap-y-1.5 mt-6 text-sm font-medium">
-		<div class="text-center content-center h-10 w-10 bg-color-50"><span class="text-textColor">50</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-75"><span class="text-textColor">75</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-100"><span class="text-textColor">100</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-150"><span class="text-textColor">150</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-200"><span class="text-textColor">200</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-250"><span class="text-textColor">250</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-300"><span class="text-textColor">300</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-350"><span class="text-textColor">350</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-400">
-			<span class="text-textColor">400</span>
-			<span class="text-bgColor">400</span>
-		</div>
-		<div class="text-center content-center h-10 w-10 bg-color-450">
-			<span class="text-textColor">450</span>
-			<span class="text-bgColor">450</span>
-		</div>
-		<div class="text-center content-center h-10 w-10 bg-color-500">
-			<span class="text-textColor">500</span>
-			<span class="text-bgColor">500</span>
-		</div>
-		<div class="text-center content-center h-10 w-10 bg-color-550"><span class="text-bgColor">550</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-600"><span class="text-bgColor">600</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-650"><span class="text-bgColor">650</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-700"><span class="text-bgColor">700</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-750"><span class="text-bgColor">750</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-800"><span class="text-bgColor">800</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-850"><span class="text-bgColor">850</span></div>
-		<div class="text-center content-center h-10 w-10 bg-color-900"><span class="text-bgColor">900</span></div>
-	</div>
-	-->
 </PageLayout>

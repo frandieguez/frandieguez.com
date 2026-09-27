@@ -27,23 +27,19 @@ const {
 		<ThemeProvider />
 		<SkipLink />
 
-		<!-- Background
-			TODO: This approach is not optimal and requires improvements.
-  			- Too many absolutely positioned elements can affect performance.
-  		-->
-		<div class="fixed top-0 left-1/2 -ml-[50vw] min-h-screen w-screen blur-2xl">
-			<div class="absolute top-[-90%] right-[25%] w-[75%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-			<div class="absolute top-[-90%] left-[25%] w-[75%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-			<div class="absolute top-[-85%] right-[25%] w-[55%] h-full bg-gradient-to-b from-purple-300 via-blue-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-			<div class="absolute top-[-85%] left-[25%] w-[55%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-			<div class="absolute top-[-75%] left-[-25%] w-[65%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-30 dark:opacity-5"></div>
-			<div class="absolute top-[-75%] right-[-25%] w-[65%] h-full bg-gradient-to-b from-purple-300 via-blue-300 to-transparent rounded-full opacity-30 dark:opacity-5"></div>
-			<div class="absolute top-[-85%] left-[-30%] w-[85%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-60 dark:opacity-5"></div>
-			<div class="absolute top-[-85%] right-[-30%] w-[85%] h-full bg-gradient-to-b from-orange-300 via-indigo-300 to-transparent rounded-full opacity-60 dark:opacity-5"></div>
+		<!-- Paper grain. One repeating 180px tile, in place of the eight blurred
+			gradient layers that used to live here (and whose own TODO flagged them
+			as a performance problem). The tint comes from the page background
+			through mix-blend-mode, so there's no colour value to keep in sync. -->
+		<div
+			aria-hidden="true"
+			class="pointer-events-none fixed inset-0 z-0 bg-[image:var(--paper-grain)] bg-[length:180px_180px] bg-repeat opacity-[0.035] mix-blend-multiply dark:opacity-[0.07] dark:mix-blend-screen"
+		>
 		</div>
-		<!-- <div class="fixed top-0 left-0 size-10 w-screen blur-2xl bg-[#fff1e8]"> </div> -->
 
-		<div class="relative flex min-h-screen w-full">
+		<!-- `isolate` is load-bearing: without its own stacking context this wrapper
+			gets pulled into the grain's blending group and images stop painting. -->
+		<div class="relative isolate z-10 flex min-h-screen w-full">
 			<!-- Sidebar for Docs Series -->
 			<slot name="sidebar" />
 			<!-- Main container for the page content -->
@@ -57,6 +53,9 @@ const {
 				</div>
 			</div>
 		</div>
+		<script>
+			import "@/scripts/reveal";
+		</script>
 	</body>
 
 </html>

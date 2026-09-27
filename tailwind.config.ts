@@ -136,11 +136,20 @@ export default {
 				"special-lighter": "var(--theme-special-lighter)",
 				"special-light": "var(--theme-special-light)",
 			},
+			borderRadius: {
+				// Static organic shapes. They replaced the animate-amoeba blob: same
+				// warmth, no 8s infinite morph.
+				pebble: "58% 42% 47% 53% / 48% 44% 56% 52%",
+				leaf: "44% 56% 62% 38% / 54% 40% 60% 46%",
+			},
 			fontFamily: {
-				// Add any custom fonts here
-				sans: ["IBM Plex Sans", "SFProRounded", ...fontFamily.sans],
-				serif: ["CascadiaCode", ...fontFamily.serif],
-				heading: ["Urbanist", "Space Grotesk","Lexend", ...fontFamily.sans], // Add this new font family
+				// Only families that are actually loaded. "SFProRounded" and
+				// "CascadiaCode" used to be listed here with no @font-face backing
+				// them, so they silently resolved to the generic fallback.
+				sans: ["IBM Plex Sans", ...fontFamily.sans],
+				serif: [...fontFamily.serif],
+				mono: [...fontFamily.mono],
+				heading: ["Urbanist", "Space Grotesk", "Lexend", ...fontFamily.sans],
 			},
 
 			transitionProperty: {
@@ -168,7 +177,7 @@ export default {
 							},
 						},
 
-						// Стиль для блоков кода
+						// Code blocks
 						pre: {
 							"@apply relative py-1.5": "",
 						},
@@ -240,7 +249,7 @@ export default {
 							"@apply items-center min-h-8": "",
 						},
 						"td, th": {
-							"@apply px-4 py-1": "", // Паддинг для всех ячеек таблицы
+							"@apply px-4 py-1": "", // Padding for every table cell
 						},
 						'th[align="center"], td[align="center"]': {
 							"text-align": "center",
@@ -251,12 +260,12 @@ export default {
 						'th[align="left"], td[align="left"]': {
 							"text-align": "left",
 						},
-						// Чередующиеся фоны для строк таблицы
+						// Alternating table row backgrounds
 						"tbody tr:nth-child(odd)": {
-							"@apply bg-color-100": "", // Белый фон для четных строк
+							"@apply bg-color-100": "", 
 						},
 						"tbody tr:nth-child(even)": {
-							"@apply bg-color-50": "", // Белый фон для четных строк
+							"@apply bg-color-50": "", 
 						},
 
 						/* Admonitions/Aside */

@@ -1,11 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+/* Fonts are loaded from a single <link> in BaseHead.astro. An @import here would
+   serialize: the browser can't discover the font request until this whole
+   stylesheet has downloaded. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition {
+		navigation: auto;
+	}
+}
+
 
 @layer base {
+
 	:root,
 	:root[data-theme="light"] {
 		color-scheme: light;
@@ -15,106 +24,114 @@
 
 		/*** MAIN COLORS (Base, background, accents, text) ***/
 		/* Base theme color-hue */
-		--hue: 0deg; /* Common base color-hue for theme elements */
-		--saturation: 100%; /* Common base saturation for theme elements, 0% - no color tint */
+		--hue: 0deg;
+		/* Common base color-hue for theme elements */
+		--saturation: 100%;
+		/* Common base saturation for theme elements, 0% - no color tint */
 
-		/* Background */
-		--bg-hue: var(--hue); /* Background color-hue */
-		--bg-saturation: var(--saturation); /* Background tint saturation and some other elements, 0% - no tint */
-		--bg-brightness: 100%; /* Background brightness, 100% - absolute white */
+		/* Background — the warm cream the identity is built on, hsl(24 100% 95.5%)
+		   ≈ #fff1e8. It used to be painted by an absolutely positioned div behind
+		   the old hero, so only the top of the homepage was actually cream and
+		   every other page was plain white. */
+		--bg-hue: 24deg;
+		--bg-saturation: 100%;
+		--bg-brightness: 95.5%;
 
 		/* Accents */
-		--theme-accent-base: var(--bg-hue) 153% 0%; /* Main accent color */
-		--theme-accent-one: var(--bg-hue) 0% 27%; /* First additional accent color */
-		--theme-accent-two: 15 68% 48%; /* Second additional accent color */
-
-		/* Variant */ /* --theme-accent-two: 344deg 63% 45%; */
+		--theme-accent-base: var(--bg-hue) 153% 0%;
+		/* Main accent color */
+		--theme-accent-one: var(--bg-hue) 0% 27%;
+		/* First additional accent color */
+		/* Terracotta. Was L=48% (#ce5127), which gave only 3.93:1 on the cream and
+		   failed AA for the small text it carries — eyebrows, role labels, links.
+		   L=44% (#bc4a24) reaches 4.59:1. */
+		--theme-accent-two: 15 68% 44%;
 
 		/* Text (foreground, text color-brightness is calculated below based on --theme-fg) */
-		--fg-hue: var(--hue); /* Common color-hue for calculating color gradations */
-		--fg-saturation: var(--saturation); /* Common saturation for calculating color gradations with tint, 0% - no tint */
-		--fg-brightness: 9%; /* Brightness for calculating color gradations with tint, 0% - starting from absolute black */
-		--theme-text: var(--theme-color-600); /* Text color-brightness already adapted to background color */
+		--fg-hue: var(--hue);
+		/* Common color-hue for calculating color gradations */
+		--fg-saturation: var(--saturation);
+		/* Common saturation for calculating color gradations with tint, 0% - no tint */
+		--fg-brightness: 9%;
+		/* Brightness for calculating color gradations with tint, 0% - starting from absolute black */
+		--theme-text: var(--theme-color-600);
+		/* Text color-brightness already adapted to background color */
 
 		/*** SECONDARY COLORS (External links, neutral accent, quotes) ***/
-		--theme-link: var(--hue) 97% 31%; /* Цвет внешних ссылок */
-		--theme-accent: var(--theme-color-600); /* Нейтральный акцент, рассчитывается ниже на базе --theme-fg */
-		--theme-quote: var(--theme-text); /* Цвет цитат */
+		--theme-link: var(--hue) 97% 31%;
+		/* External link colour */
+		--theme-accent: var(--theme-color-600);
+		/* Neutral accent, derived from --theme-fg below */
+		--theme-quote: var(--theme-text);
+		/* Blockquote colour */
 
-		/*** ДОПОЛНИТЕЛЬНЫЕ ЦВЕТА ***/
+		/*** ADDITIONAL COLOURS ***/
 		--theme-lightest: var(--theme-color-350);
 		--theme-lighter: var(--theme-color-400);
 		--theme-light: var(--theme-color-450);
 
-		/*** СПЕЦИАЛЬНЫЕ ДЛЯ КАЖДОЙ ТЕМЫ ЦВЕТА ***/
+		/*** PER-THEME SURFACES ***/
 		--theme-special-lightest: hsl(var(--hue), var(--saturation), 100%);
 		--theme-special-lighter: hsl(var(--hue), var(--saturation), 98%);
 		--theme-special-light: hsl(var(--theme-bg));
 		--theme-special: var(--theme-color-75);
 
-		/* Подсветка синтаксиса rehype-pretty-code */
+		/* rehype-pretty-code syntax highlighting */
 		pre code span {
 			color: var(--shiki-light) !important;
 			font-style: var(--shiki-light-font-style) !important;
 			font-weight: var(--shiki-light-font-weight) !important;
 			text-decoration: var(--shiki-light-text-decoration) !important;
-      font-family: 'CascadiaCode', monospace;
+			font-family: 'CascadiaCode', monospace;
 		}
 	}
 
 	:root[data-theme="dark"] {
 		color-scheme: dark;
 
-		/* Для того чтобы текст имел оттенок фона --fg-hue: var(--hue) и --bg-hue: var(--hue) */
-		/* Для того чтобы текст имел оттенок фона --fg-saturation: var(--saturation) и --bg-saturation: var(--saturation) */
+		/* Neutral charcoal, near-hueless: hsl(30 4% 9%) ≈ #181716.
+		   It used to be hsl(200 53% 10%) — a saturated navy sitting 176° from the
+		   cream of the light theme, i.e. almost its exact complement. The two
+		   themes read as two different sites, and the terracotta accent clashed
+		   head-on with the blue. With no tint of its own, the charcoal leaves the
+		   accent as the only colour on the page. */
+		--hue: 30deg;
+		--saturation: 4%;
 
-		/* --theme-bg: 200deg 93% 10%; /* DeepBlue */
-		/* --theme-bg: 190deg 86% 8%; /* DeepGreen */
-		/* --theme-bg: 237deg 22% 20%; */
-		/* --theme-accent-one: 355deg 61% 88%; /* LightRose */
-		/* --theme-accent-two: 200deg 61% 71%; /* LightBlue */
+		--bg-hue: var(--hue);
+		--bg-saturation: var(--saturation);
+		--bg-brightness: 9%;
 
-		/*** ОСНОВНЫЕ ЦВЕТА (Базовый, фон, акценты, текст) ***/
-		/* Базовый цвет-оттенок темы */
-		--hue: 200deg; /* Общий базовый цвет-оттенок элементов темы */
-		--saturation: 53%; /* Общая базовая насыщенность элементов темы, 0% - нет оттенка цвета */
+		/* Accents */
+		--theme-accent-base: var(--hue) 6% 92%;
+		--theme-accent-one: 32 60% 78%;
+		/* Terracotta, lightened for a dark background: 6.38:1 here, against the
+		   3.93:1 the light-theme value gave — which failed AA. */
+		--theme-accent-two: 16 82% 62%;
 
-		/* Фон (background) */
-		--bg-hue: var(--hue); /* Цвет-оттенок фона */
-		--bg-saturation: var(--saturation); /* Насыщенность оттенка фона и некоторых др. элементов, 0% - нет оттенка */
-		--bg-brightness: 10%; /* Ярксть фона, 0% - черный */
-		/* Вариант 204deg 51% 14% */
-		/* Вариант 210deg 25% 15% */
+		/* Text. Slightly warmer than the background so the page doesn't read grey. */
+		--fg-hue: var(--hue);
+		--fg-saturation: 6%;
+		--fg-brightness: 96%;
+		--theme-text: var(--theme-color-500);
 
-		/* Акценты */
-		--theme-accent-base: var(--hue) 10% 85%;
-		--theme-accent-one: 50deg 49% 80%; /* Первый дополнительный акцентный цвет */
-		--theme-accent-two: 50deg 72% 63%; /* 50deg 72% 63% */ /* Второй дополнительный акцентный цвет (был 45deg 80% 50%) */
-		--theme-accent-two: 15 68% 48%; /* Second additional accent color */		/* --theme-accent-base: var(--hue) 97% 71%; */
+		/* Prose links. The old value was hsl(200 61% 71%), a cold light blue —
+		   a third hue unrelated to either the cream or the terracotta. */
+		--theme-link: 32 70% 70%;
+		--theme-accent: var(--theme-color-600);
+		--theme-quote: var(--theme-text);
 
-		/* Текст (foreground, цвет-яркость текста рассчитывается ниже на базе --theme-fg) */
-		--fg-hue: var(--hue); /* Общий цвет-оттенок для рассчета градаций цвета */
-		--fg-saturation: var(--saturation); /* Общая насыщенность для рассчета градаций цвета с оттенком, 0% - нет оттенка */
-		--fg-brightness: 98%; /* Яркость для рассчета градаций цвета с оттенком, 100% - начиная от абсолютно белого */
-		--theme-text: var(--theme-color-500); /* Цвет-яркость текста адаптированного под цвет фона */
-
-		/*** ВТОРОСТЕПЕННЫЕ ЦВЕТА (Внкшние ссылки, нейтральный акцент, цитаты) ***/
-		--theme-link: var(--hue) 61% 71%; /* Цвет внешних ссылок */
-		--theme-accent: var(--theme-color-600); /* Нейтральный акцент относительно текста */
-		--theme-quote: var(--theme-text); /* Цвет цитат */
-
-		/*** ДОПОЛНИТЕЛЬНЫЕ ЦВЕТА ***/
 		--theme-lightest: var(--theme-color-350);
 		--theme-lighter: var(--theme-color-400);
 		--theme-light: var(--theme-color-450);
 
-		/*** СПЕЦИАЛЬНЫЕ ДЛЯ КАЖДОЙ ТЕМЫ ЦВЕТА (!отличающиеся настройки для разных тем) ***/
+		/*** PER-THEME SURFACES ***/
 		--theme-special-lightest: var(--theme-color-250);
 		--theme-special-lighter: var(--theme-color-200);
 		--theme-special-light: var(--theme-color-150);
 		--theme-special: hsl(var(--hue) var(--saturation) 0% / 0.15);
 
-		/* Подсветка синтаксиса */
+		/* Syntax highlighting */
 		pre code span {
 			color: var(--shiki-dark) !important;
 			font-style: var(--shiki-dark-font-style) !important;
@@ -122,26 +139,16 @@
 			text-decoration: var(--shiki-dark-text-decoration) !important;
 		}
 
-		.parallax > use:nth-child(1) {
-			fill: hsla(var(--bg-hue), 30%, 10%, 60%);
-		}
-		.parallax > use:nth-child(2) {
-			fill: hsla(var(--bg-hue), 30%, 40%, 60%);
-		}
-		.parallax > use:nth-child(3) {
-			fill: hsla(var(--bg-hue), 30%, 30%, 60%);
-		}
-		.parallax > use:nth-child(4) {
-			fill: hsla(var(--bg-hue), 80%, 1%, 70%);
-		}
 	}
 
-	/* Общие переменные */
+	/* Shared variables */
 	:root {
-		--theme-bg: var(--bg-hue) var(--bg-saturation) var(--bg-brightness); /* Цвет фона */
-		--theme-fg: var(--fg-hue) var(--fg-saturation) var(--fg-brightness); /* Базовый цвет для рассчета градации цветов */
+		--theme-bg: var(--bg-hue) var(--bg-saturation) var(--bg-brightness);
+		/* Background colour */
+		--theme-fg: var(--fg-hue) var(--fg-saturation) var(--fg-brightness);
+		/* Base colour the gradation scale is derived from */
 
-		/* Градации базового цвета для текста и элементов */
+		/* Gradations of the base colour, for text and surfaces */
 		--theme-color-900: hsl(var(--theme-fg) / 1.0);
 		--theme-color-850: hsl(var(--theme-fg) / 0.9675);
 		--theme-color-800: hsl(var(--theme-fg) / 0.935);
@@ -162,7 +169,13 @@
 		--theme-color-75: hsl(var(--theme-fg) / 0.03375);
 		--theme-color-50: hsl(var(--theme-fg) / 0.0225);
 
-		/* Переменные подсветки блоков кода rehype-pretty-code */
+		/* Paper grain. One repeating tile replaced the eight blurred gradient
+		   layers that used to sit behind every page. The colour comes from the
+		   page background through mix-blend-mode, so there is no hex here and no
+		   per-theme value — only the blend mode and opacity flip. */
+		--paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+
+		/* rehype-pretty-code block variables */
 		--code-inline-bg: var(--theme-color-150);
 		--code-bg: var(--theme-special);
 		--code-title-bg: var(--theme-color-200);
@@ -179,18 +192,24 @@
 	h1 {
 		@apply text-2xl md:pt-[0.0rem] !important;
 	}
+
 	h2 {
 		@apply text-xl md:pt-[0.215rem] !important;
 	}
+
 	h3 {
-		@apply text-lg md:pt-[0.250rem] !important; /* было 0.260 проверить!!! */
+		@apply text-lg md:pt-[0.250rem] !important;
+		
 	}
+
 	h4 {
 		@apply text-base md:pt-[0.425rem] !important;
 	}
+
 	h5 {
 		@apply text-base md:pt-[0.425rem] !important;
 	}
+
 	h6 {
 		@apply text-base md:pt-[0.425rem] !important;
 	}
@@ -204,7 +223,26 @@
 		@apply min-h-8 h-auto !important;
 	}
 
-	/* Нужно для кнопки копирования кода при отключенном rehype-pretty-code */
+	/* Opt-in escape hatch for display type.
+	   The h1..h6 rules above are !important and can't be beaten from a utility
+	   class, so a display heading puts its font-size on a child <span> (which
+	   inherits and wins with no !important needed). This rule only neutralises
+	   the layout side effects — the min-height and the top padding — and never
+	   touches font-size. Do not add more !important rules here; see DESIGN.md §9.5. */
+	h1.display-heading,
+	h2.display-heading,
+	h3.display-heading {
+		min-height: 0 !important;
+		padding-top: 0 !important;
+	}
+
+	/* No focus styles were defined anywhere in src/ before this. */
+	:focus-visible {
+		outline: 2px solid hsl(var(--theme-accent-two));
+		outline-offset: 2px;
+	}
+
+	/* Needed by the copy-code button when rehype-pretty-code is disabled */
 	/*
 	pre {
 		@apply relative;
@@ -213,9 +251,9 @@
 }
 
 :root {
-  --heading-before-content: '#';
+	--heading-before-content: '#';
 
-	/* Стиль для блоков кода rehype-pretty-code */
+	/* rehype-pretty-code blocks */
 	figure[data-rehype-pretty-code-figure] {
 		@apply relative m-0 rounded-lg overflow-auto;
 
@@ -223,38 +261,39 @@
 			@apply m-0;
 		}
 
-		/* Стиль для заголовков в блоках кода */
+		/* Code block titles */
 		[data-rehype-pretty-code-title] {
 			@apply break-words bg-[var(--code-title-bg)] border-b border-bgColor text-textColor px-4 flex items-center text-sm h-10;
 
-			& + pre {
-				@apply m-0 rounded-t-none; /* Убираем верхний отступ, если есть заголовок */
+			&+pre {
+				@apply m-0 rounded-t-none;
+				/* Drop the top radius when there's a title above */
 			}
 		}
 
-		/* Стиль для блоков кода */
+		/* The code block itself */
 		pre {
 			@apply m-0 static px-0 py-2 max-h-[612px] text-sm;
 
-			/* Стиль для содержимого кода */
-			> code {
+			/* Code contents */
+			>code {
 				counter-reset: line;
 
-				/* Для блоков с номерами строк */
+				/* Blocks with line numbers */
 				&[data-line-numbers] {
-					> [data-line]::before {
+					>[data-line]::before {
 						counter-increment: line;
 						content: counter(line);
 						@apply mr-4 inline-block w-4 text-right text-lightest;
 					}
 				}
 
-				/* Для каждой строки в блоке кода */
-				> [data-line] {
+				/* Each line */
+				>[data-line] {
 					@apply px-4 h-6 bg-transparent flex items-center;
 				}
 
-				/* Для выделенных строк */
+				/* Highlighted lines */
 				[data-highlighted-line] {
 					background-color: var(--code-line-highlight);
 				}
@@ -267,12 +306,12 @@
 					background-color: var(--code-line-diff-remove);
 				}
 
-				/* Для выделенных символов */
-				[data-highlighted-chars] > span {
+				/* Highlighted characters */
+				[data-highlighted-chars]>span {
 					@apply py-[4px];
 				}
 
-				/* Для различий в строках (реализовано выше) */
+				/* Line diffs (handled above) */
 				/*
 				.diff {
 					&.add {
@@ -287,18 +326,18 @@
 		}
 	}
 
-	/* Основной стиль для блока pre */
+	/* Base <pre> */
 	pre {
 		@apply bg-[var(--code-bg)] text-[var(--theme-text)] rounded-lg leading-loose m-0;
 		/* @apply bg-[var(--code-bg)] text-[var(--theme-accent)] rounded-lg leading-loose m-0; */
 	}
 
-	/* Стиль для инлайнового кода (rehype pretty code переопределяет стили в tailwind.config.css) */
-	:not(pre) > code {
+	/* Inline code (rehype-pretty-code overrides the tailwind.config styles) */
+	:not(pre)>code {
 		@apply bg-[var(--code-inline-bg)] px-2 py-1 text-sm rounded-lg;
 	}
 
-	/* Стиль для кнопки копирования кода rehype-pretty-copy (кнопка реализована отдельно) */
+	/* rehype-pretty-copy button (implemented separately) */
 	/*
 	button.rehype-pretty-copy {
 		@apply absolute top-1 right-1 bg-transparent m-auto size-8 rounded-md p-1 backdrop-blur-none;
@@ -306,56 +345,12 @@
 	}
 	*/
 
-	.waves {
-		position: relative;
-		width: 100%;
-		height: 50px;
-		transform: rotate(180deg) scaleX(-1) !important;
-	}
-
-	/* Animation */
-
-	.parallax > use {
-		animation: move-forever 45s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
-	}
-	.parallax > use:nth-child(1) {
-		animation-delay: -40s;
-		animation-duration: 125s;
-	}
-	.parallax > use:nth-child(2) {
-		animation-delay: -10s;
-		animation-duration: 30s;
-	}
-	.parallax > use:nth-child(3) {
-		animation-delay: -4s;
-		animation-duration: 40s;
-	}
-	.parallax > use:nth-child(4) {
-		animation-delay: -15s;
-		animation-duration: 10s;
-	}
-
-	@keyframes move-forever {
-		0% {
-			transform: translate3d(-90px, 0, 0);
-		}
-		100% {
-			transform: translate3d(85px, 0, 0);
-		}
-	}
-
-	/*Shrinking for mobile*/
-	@media (max-width: 768px) {
-		.waves {
-			min-height: 20px;
-			max-height: 50px;
-		}
-	}
 }
 
-/* ПЕРЕПРОВЕРИТЬ !!! */
+
 @layer components {
-	/* Переопределение стилей для <mark> в статье */
+
+	/* <mark> inside an article */
 	article mark {
 		@apply bg-transparent;
 	}
@@ -365,12 +360,15 @@
 	0% {
 		filter: url(#noise-frame-1);
 	}
+
 	33% {
 		filter: url(#noise-frame-2);
 	}
+
 	66% {
 		filter: url(#noise-frame-3);
 	}
+
 	100% {
 		filter: url(#noise-frame-1);
 	}
@@ -391,6 +389,132 @@
 .alignright {
 	float: right;
 }
+
 .alignleft {
 	float: left;
+}
+
+/* ---------------------------------------------------------------------------
+   Reveal on scroll
+
+   The hidden initial state is gated behind html.js-reveal, and that class is
+   added by reveal.ts itself. So if the script fails, if it's a crawler, or if
+   the visitor asked for reduced motion, the content is simply visible — it can
+   never get stuck invisible.
+   --------------------------------------------------------------------------- */
+html.js-reveal [data-reveal] {
+	opacity: 0;
+	transform: translateY(0.875rem);
+}
+
+html.js-reveal [data-reveal="scale"] {
+	transform: scale(0.96);
+}
+
+html.js-reveal [data-reveal="side"] {
+	transform: translateX(-0.75rem);
+}
+
+html.js-reveal [data-reveal].is-revealed {
+	opacity: 1;
+	transform: none;
+	transition:
+		opacity 520ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--reveal-delay, 0ms),
+		transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--reveal-delay, 0ms);
+}
+
+/* Never let a keyboard user land on a link inside a block that hasn't
+   revealed yet. */
+html.js-reveal [data-reveal]:focus-within {
+	opacity: 1;
+	transform: none;
+}
+
+/* The hand-drawn rules ink themselves in. */
+html.js-reveal .hand-rule path {
+	stroke-dasharray: 1400;
+	stroke-dashoffset: 1400;
+}
+
+html.js-reveal .hand-rule.is-revealed path {
+	stroke-dashoffset: 0;
+	transition: stroke-dashoffset 900ms ease-out var(--reveal-delay, 0ms);
+}
+
+/* The timeline rail draws downwards. */
+html.js-reveal [data-rail] {
+	transform: scaleY(0);
+	transform-origin: top;
+}
+
+html.js-reveal [data-rail].is-revealed {
+	transform: scaleY(1);
+	transition: transform 800ms ease-out;
+}
+
+/* ---------------------------------------------------------------------------
+   Table of contents rail
+
+   State lives here rather than in utility classes because it's driven by
+   aria-current, which src/scripts/toc.ts sets while scrolling. Several elements
+   change at once (tick and label), so keeping it in one rule is clearer than
+   repeating arbitrary variants on each of them.
+   --------------------------------------------------------------------------- */
+.toc-tick {
+	background-color: var(--theme-color-300);
+	transition:
+		background-color 200ms ease,
+		width 200ms ease;
+}
+
+.toc-label {
+	color: var(--theme-color-600);
+	transition: color 200ms ease;
+}
+
+.toc-link:hover .toc-label {
+	color: hsl(var(--theme-accent-two));
+}
+
+.toc-link:hover .toc-tick {
+	background-color: hsl(var(--theme-accent-two) / 0.6);
+}
+
+.toc-link[aria-current="true"] .toc-tick {
+	background-color: hsl(var(--theme-accent-two));
+	width: 1.125rem;
+}
+
+.toc-link[aria-current="true"] .toc-label {
+	color: hsl(var(--theme-accent-base));
+	font-weight: 500;
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion
+
+   The repo had no support for this at all: the amoeba blob (8s infinite) and
+   the wave parallax (10–125s infinite) ran regardless. This block covers the
+   whole site, not just the homepage.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+
+	html.js-reveal [data-reveal],
+	html.js-reveal [data-rail] {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+
+	html.js-reveal .hand-rule path {
+		stroke-dashoffset: 0 !important;
+	}
 }

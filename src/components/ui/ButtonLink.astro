@@ -1,0 +1,54 @@
+---
+/**
+ * The site's two button treatments, in one place. They used to be copy-pasted
+ * inline in index.astro.
+ *
+ * `size="lg"` exists only for the homepage hero: a 32px button under a 160px
+ * wordmark reads as a mistake. Everywhere else uses the system's `md:h-8`
+ * (DESIGN.md §5.3).
+ */
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+	href: string;
+	variant?: "primary" | "secondary";
+	size?: "md" | "lg";
+	external?: boolean;
+}
+
+const {
+	href,
+	variant = "primary",
+	size = "md",
+	external = false,
+	class: className,
+	...attrs
+} = Astro.props;
+
+const base =
+	"group relative inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all hover:brightness-110";
+
+const sizes = {
+	md: "h-9 md:h-8 px-4 text-base",
+	lg: "h-12 md:h-11 px-6 text-base",
+};
+
+const variants = {
+	primary: "bg-accent-two text-bgColor",
+	secondary:
+		"border border-gray-400/20 bg-special-lighter hover:bg-special-lightest",
+};
+
+const externalAttrs = external
+	? { target: "_blank", rel: "noopener noreferrer" }
+	: {};
+---
+
+<a
+	href={href}
+	class:list={[base, sizes[size], variants[variant], className]}
+	{...externalAttrs}
+	{...attrs}
+>
+	<slot />
+</a>

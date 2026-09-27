@@ -1,0 +1,52 @@
+---
+/**
+ * The career rail, split into "Now" and "Before".
+ *
+ * Two entries are ongoing (Situm since 2019, GNOME since 2006), so a single
+ * reverse-chronological list by start date would bury GNOME at the bottom — which
+ * undersells the one thing the hero claims. Two labelled groups, each with its own
+ * rail segment, is honest and scannable.
+ *
+ * <ol> with an explicit role="list" because Safari + VoiceOver drops list
+ * semantics once `list-style: none` is applied.
+ */
+import CareerTimelineItem from "@/components/career/CareerTimelineItem.astro";
+import type { CareerEntry } from "@/data/career";
+
+interface Props {
+	label: string;
+	entries: CareerEntry[];
+	class?: string;
+}
+
+const { label, entries, class: className } = Astro.props;
+---
+
+<div class:list={[className]}>
+	<p
+		data-reveal
+		class="mb-6 font-mono text-xs uppercase tracking-[0.22em] text-accent-two"
+	>
+		{label}
+	</p>
+	<!-- The rail is a sibling of the <ol>, not a child: an <ol> may only contain
+		<li>, and a stray <span> there confuses list counting in screen readers. -->
+	<div class="relative">
+		<span
+			aria-hidden="true"
+			data-rail
+			class="absolute bottom-3 left-[6px] top-3 w-px bg-gradient-to-b from-accent-two/50 via-color-200 to-transparent md:left-[7px]"
+		></span>
+		<ol role="list">
+			{
+				entries.map((entry, i) => (
+					<CareerTimelineItem
+						entry={entry}
+						data-reveal="side"
+						style={`--reveal-delay:${i * 90}ms`}
+					/>
+				))
+			}
+		</ol>
+	</div>
+</div>
