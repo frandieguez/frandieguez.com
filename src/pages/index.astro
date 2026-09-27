@@ -8,14 +8,10 @@ import { careerBefore, careerNow } from "@/data/career";
 import PageLayout from "@/layouts/Base.astro";
 
 const trajectoryId = "trajectory-heading";
-
-// Experiment: "split" = portrait right, type left. "bleed" = portrait as a
-// left-anchored backdrop, type right. Swap to compare.
-const heroVariant = "bleed" as "split" | "bleed";
 ---
 
 <PageLayout heroBand meta={{ title: "Home" }}>
-	<HomeHero slot="hero" variant={heroVariant} />
+	<HomeHero slot="hero" />
 
 	<WritingSection />
 
