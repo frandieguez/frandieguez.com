@@ -24,51 +24,89 @@ const meta = {
 			<HandRule class="hidden flex-1 md:block" />
 		</div>
 
-		<div class="relative mt-7 md:mt-12">
-			<h1 class="display-heading">
-				<span
-					data-reveal
-					style="--reveal-delay:40ms"
-					class="block font-heading text-[2.75rem] font-bold uppercase leading-[0.92] tracking-[-0.02em] text-accent-base md:text-[5.5rem]"
-				>
-					Hey, I'm Fran
-				</span>
-			</h1>
+		{/* An editorial spread rather than a heading with a sticker beside it: the
+			portrait gets a real column instead of floating at 169px in a void. */}
+		<div class="mt-7 grid grid-cols-1 gap-10 md:mt-12 md:grid-cols-12 md:gap-12">
+			<div class="md:col-span-7">
+				<h1 class="display-heading">
+					<span
+						data-reveal
+						style="--reveal-delay:40ms"
+						class="block font-heading text-[2.75rem] font-bold uppercase leading-[0.92] tracking-[-0.02em] text-accent-base md:text-[5rem]"
+					>
+						Hey, I'm Fran
+					</span>
+				</h1>
 
-			<div
-				class="mx-auto mt-8 w-36 md:absolute md:right-0 md:top-1/2 md:mx-0 md:mt-0 md:w-[clamp(8rem,13vw,11rem)] md:-translate-y-1/2"
-			>
+				<p
+					data-reveal
+					style="--reveal-delay:160ms"
+					class="mt-7 max-w-[46ch] text-xl leading-[1.5]"
+				>
+					I've been building web applications since 2006, taking on{" "}
+					<span
+						class="relative isolate inline-block before:absolute before:inset-x-[-0.2em] before:inset-y-[0.14em] before:-z-10 before:-rotate-[1.2deg] before:rounded-[3px] before:bg-accent-two/20"
+						>various roles along the way</span
+					> — from Software Developer and Lead Developer to CTO and Head of
+					Research and Development, and today Web Tech Lead at Situm.
+				</p>
+
+				<p
+					data-reveal
+					style="--reveal-delay:200ms"
+					class="mt-5 max-w-[50ch] text-lg leading-relaxed text-color-600"
+				>
+					Across every project the goal has been the same: build meaningful,
+					reliable tools that have a real impact on people's lives.
+				</p>
+
+				<dl
+					data-reveal
+					style="--reveal-delay:240ms"
+					class="mt-9 grid max-w-[30rem] grid-cols-2 gap-x-8 border-t border-color-250 pt-5 sm:grid-cols-3"
+				>
+					<div>
+						<dt
+							class="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-color-550"
+						>
+							Based in
+						</dt>
+						<dd class="mt-1 text-base text-accent-base">Galicia, Spain</dd>
+					</div>
+					<div>
+						<dt
+							class="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-color-550"
+						>
+							Since
+						</dt>
+						<dd class="mt-1 text-base tabular-nums text-accent-base">2006</dd>
+					</div>
+					<div class="mt-4 sm:mt-0">
+						<dt
+							class="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-color-550"
+						>
+							Now
+						</dt>
+						<dd class="mt-1 text-base text-accent-base">Web Tech Lead</dd>
+					</div>
+				</dl>
+			</div>
+
+			{/* First on a phone: stacked, the portrait would otherwise land after all
+				the copy. Same order as the homepage hero on mobile. */}
+			<div class="order-first md:order-none md:col-span-5">
 				<Avatar
 					src={profilePic}
 					alt="Fran Dieguez"
 					eager
+					shape="frame"
+					widths={[320, 480, 760, 960]}
+					sizes="(min-width: 768px) 38vw, 100vw"
 					data-reveal="scale"
 					style="--reveal-delay:120ms"
 				/>
 			</div>
 		</div>
-
-		<p
-			data-reveal
-			style="--reveal-delay:160ms"
-			class="mt-8 max-w-[52ch] text-xl leading-[1.5]"
-		>
-			I've been building web applications since 2006, taking on{" "}
-			<span
-				class="relative isolate inline-block before:absolute before:inset-x-[-0.2em] before:inset-y-[0.14em] before:-z-10 before:-rotate-[1.2deg] before:rounded-[3px] before:bg-accent-two/20"
-				>various roles along the way</span
-			> — from Software Developer and Lead Developer to CTO and Head of Research
-			and Development, and today Web Tech Lead at Situm.
-		</p>
-
-		<p
-			data-reveal
-			style="--reveal-delay:200ms"
-			class="mt-5 max-w-[58ch] text-lg leading-relaxed text-color-600"
-		>
-			Across every project the goal has been the same: build meaningful, reliable
-			tools that have a real impact on people's lives.
-		</p>
 	</section>
 
 	<!-- Tech -->

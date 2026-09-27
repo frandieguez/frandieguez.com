@@ -1,11 +1,13 @@
 ---
 /**
- * The portrait, with its offset registration outline.
+ * A portrait with an offset registration outline — a printer's mis-registration
+ * mark, which is the one hover the image gets.
  *
- * Replaces the avatar + animate-amoeba blob markup that was duplicated verbatim
- * between index.astro and about.astro. The organic silhouette survives as a
- * static `rounded-pebble` radius; the outline offset by 8px is a printer's
- * mis-registration mark, and it gives the one considered hover for free.
+ * Two shapes, because the same treatment doesn't scale:
+ * - "pebble" — small, organic, square. The static replacement for the
+ *   `animate-amoeba` blob that used to sit behind the old avatar.
+ * - "frame"  — a large 4:5 editorial plate. At 400px+ the pebble radius reads as
+ *   a blob rather than a shape, so a rectangle carries it better.
  */
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
@@ -14,31 +16,43 @@ import type { HTMLAttributes } from "astro/types";
 interface Props extends HTMLAttributes<"figure"> {
 	src: ImageMetadata;
 	alt: string;
-	/** true on the homepage, where the portrait is the LCP candidate. */
+	/** true when the portrait is the page's LCP candidate. */
 	eager?: boolean;
+	shape?: "pebble" | "frame";
+	/** Passed through to <Image> so each use can declare its real layout width. */
+	sizes?: string;
+	widths?: number[];
 }
 
 const {
 	src,
 	alt,
 	eager = false,
+	shape = "pebble",
+	sizes = "(min-width: 768px) 15rem, 9rem",
+	widths = [144, 256, 320, 512],
 	class: className,
 	...attrs
 } = Astro.props;
+
+const radius = shape === "frame" ? "rounded-lg" : "rounded-pebble";
+const ratio = shape === "frame" ? "aspect-[4/5]" : "aspect-square";
 ---
 
 <figure class:list={["group/pic relative", className]} {...attrs}>
 	<span
 		aria-hidden="true"
-		class="absolute inset-0 translate-x-2 translate-y-2 rounded-pebble border border-accent-two/45 transition-transform duration-200 group-hover/pic:translate-x-1 group-hover/pic:translate-y-1"
-	></span>
+		class:list={[
+			"absolute inset-0 translate-x-2 translate-y-2 border border-accent-two/45 transition-transform duration-200 group-hover/pic:translate-x-1 group-hover/pic:translate-y-1",
+			radius,
+		]}></span>
 	<Image
 		src={src}
 		alt={alt}
-		widths={[144, 256, 320, 512]}
-		sizes="(min-width: 768px) 15rem, 9rem"
+		widths={widths}
+		sizes={sizes}
 		loading={eager ? "eager" : "lazy"}
 		decoding={eager ? "sync" : "async"}
-		class="relative aspect-square w-full rounded-pebble border border-color-200 object-cover"
+		class:list={["relative w-full object-cover", ratio, radius]}
 	/>
 </figure>
