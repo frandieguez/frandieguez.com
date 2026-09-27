@@ -3,9 +3,18 @@ import Search from "@/components/Search.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import { siteConfig, menuLinks } from "@/site.config";
 import { Icon } from "astro-icon/components";
-import Logo from "../../assets/images/header.svg?react"
-import { Image } from 'astro:assets';
+import Logo from "../../assets/images/header.svg?react";
+import GlassesMark from "../../assets/images/glasses.svg?react";
 
+interface Props {
+	/**
+	 * Drop the wordmark and show only the glasses mark. Used on pages whose hero
+	 * already states the name at display size, so the header doesn't say it twice.
+	 */
+	compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
 ---
 
 <header
@@ -20,15 +29,22 @@ import { Image } from 'astro:assets';
 				class="group flex items-center hover:filter-none sm:relative flex-grow-1"
 				href="/"
 			 >
-				<!-- Logo -->
-				<div title={siteConfig.title} class="inline-block size-30 text-black dark:text-[hsl(var(--theme-accent-base))]">
-					<Logo />
-					<!-- <Image width={200} loading="eager" src={Logo} alt={siteConfig.title} class="inline-block size-30 fill-current text-accent-base dark:text-accent-two dark:fill-white"/> -->
+				{/* text-accent-base, not text-black + a dark: variant: the logo also has
+					to flip inside `.surface-dark`, which is dark in both themes and so
+					never matches `dark:`. The token resolves to black in light mode
+					anyway, so nothing changes outside the band. */}
+				{/* `size-30` was not a real Tailwind class — there's no 30 in the spacing
+					scale — so the logo rendered at its intrinsic size and ran into the
+					search and theme buttons on narrow screens. */}
+				<div
+					title={siteConfig.title}
+					class:list={[
+						"inline-block text-accent-base [&>svg]:h-auto [&>svg]:w-full",
+						compact ? "w-12 md:w-16" : "w-36 md:w-52",
+					]}
+				>
+					{compact ? <GlassesMark /> : <Logo />}
 				</div>
-
-				<!-- <strong class="'max-[320px]:hidden' bg-clip-text text-transparent bg-gradient-to-r from-accent-one to-accent-two hidden xs:block z-10 mb-0.5 ms-2 text-2xl group-hover:text-accent-one">
-					{siteConfig.title}
-				</strong> -->
 			</a>
 			<nav
 				aria-label="Main menu"

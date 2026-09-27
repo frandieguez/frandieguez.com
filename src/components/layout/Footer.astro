@@ -1,27 +1,129 @@
 ---
+/**
+ * The sign-off. Built on the same editorial language as the rest of the site:
+ * an inked rule on top, monospace column labels, hairline divider, no emoji.
+ *
+ * The role comes from career.ts so it can't drift from the hero and the timeline.
+ */
+import HandRule from "@/components/ui/HandRule.astro";
+import Logo from "../../assets/images/header.svg?react";
+import { currentPosition } from "@/data/career";
 import { menuLinks, siteConfig } from "@/site.config";
 
 const year = new Date().getFullYear();
+const current = currentPosition();
+const role = current.roles[0]?.title ?? "Web Tech Lead";
+
+const elsewhere = [
+	{
+		label: "LinkedIn",
+		detail: "in/frandieguez",
+		href: "https://www.linkedin.com/in/frandieguez/",
+		me: true,
+	},
+	{
+		label: "GitHub",
+		detail: "frandieguez",
+		href: "https://github.com/frandieguez",
+		me: true,
+	},
+	{
+		label: "GNOME",
+		detail: "Galician team",
+		href: "https://l10n.gnome.org/teams/gl",
+	},
+	{ label: "RSS", detail: "/rss.xml", href: "/rss.xml" },
+];
+
+const eyebrow =
+	"font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-color-550";
+const link =
+	"citrus-link group flex items-baseline justify-between gap-4 py-1.5 text-accent-base transition-colors hover:text-accent-two";
 ---
 
+<footer class="mt-16 md:mt-24">
+	<HandRule />
 
-	<!-- <div class="bg-accent-two/10 absolute bottom-0 left-1/2 min-h-100 z-0 md:min-h-[100px] w-screen -ml-[50vw] bg-red dark:bg-bgColor pointer-events-none overflow-hidden"></div> -->
-<footer
-	class="semibold  z-10 flex w-full flex-col items-center justify-center mt-10 space-y-10 gap-y-2 pb-4 pt-8 text-center align-top text-accent sm:flex-row sm:justify-between sm:text-sm"
->
-	<div class="me-0 font-semibold sm:me-4">
-		 &copy; {year}, Created with ♥️ and <span class="inline-block">&nbsp;🚀&nbsp;Astro</span> by {siteConfig.author}.
+	<div class="grid gap-10 pt-10 md:grid-cols-12 md:gap-8 md:pt-12">
+		<div class="md:col-span-5">
+			<div
+				class="inline-block w-36 text-accent-base [&>svg]:h-auto [&>svg]:w-full"
+				title={siteConfig.title}
+			>
+				<Logo />
+			</div>
+			<p class="mt-5 max-w-[34ch] text-sm leading-relaxed text-color-600">
+				{role} at {current.org}, building for the web from Galicia, Spain since
+				2006. Open to collaborating on things that are genuinely interesting.
+			</p>
+		</div>
+
+		<nav aria-labelledby="footer-nav-label" class="md:col-span-3">
+			<p class={eyebrow} id="footer-nav-label">Navigate</p>
+			<ul role="list" class="mt-4 divide-y divide-color-250">
+				{
+					menuLinks.map((item) => (
+						<li>
+							<a class={link} data-astro-prefetch href={item.path}>
+								<span class="text-base">{item.title}</span>
+								<span
+									aria-hidden="true"
+									class="font-mono text-xs text-color-450 transition-transform group-hover:translate-x-0.5"
+								>
+									→
+								</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+
+		<div class="md:col-span-4">
+			<p class={eyebrow}>Elsewhere</p>
+			<ul role="list" class="mt-4 divide-y divide-color-250">
+				{
+					elsewhere.map((item) => (
+						<li>
+							<a
+								class={link}
+								href={item.href}
+								rel={
+									item.href.startsWith("http")
+										? item.me
+											? "me noopener noreferrer"
+											: "noopener noreferrer"
+										: undefined
+								}
+								target={item.href.startsWith("http") ? "_blank" : undefined}
+							>
+								<span class="text-base">{item.label}</span>
+								<span class="font-mono text-xs uppercase tracking-[0.12em] text-color-450">
+									{item.detail}
+								</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
 	</div>
-	<nav
-		aria-label="More on this site"
-		class="flex justify-between align-middle space-x-4 font-medium text-light md:w-[14rem] w-auto"
+
+	<div
+		class="mt-10 flex flex-col gap-3 border-t border-color-250 py-6 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-color-550 sm:flex-row sm:items-center sm:justify-between md:mt-12"
 	>
-		{
-			menuLinks.map((link) => (
-				<a class="underline-offset-2 hover:text-accent hover:underline" href={link.path}>
-					{link.title}
-				</a>
-			))
-		}
-	</nav>
+		<p>© {year} {siteConfig.author}</p>
+		<p class="flex flex-wrap items-center gap-x-4 gap-y-2">
+			<span>
+				Built with{" "}
+				<a
+					class="citrus-link hover:text-accent-two"
+					href="https://astro.build"
+					rel="noopener noreferrer"
+					target="_blank">Astro</a
+				>
+			</span>
+			<a class="citrus-link hover:text-accent-two" href="#main">Back to top ↑</a>
+		</p>
+	</div>
 </footer>

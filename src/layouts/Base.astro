@@ -9,10 +9,16 @@ import type { SiteMeta } from "@/types";
 
 interface Props {
 	meta: SiteMeta;
+	/**
+	 * Wraps the header and the `hero` slot in a full-bleed band that is dark in
+	 * both themes. Pages that don't set it render exactly as before.
+	 */
+	heroBand?: boolean;
 }
 
 const {
 	meta: { articleDate, description = siteConfig.description, ogImage, title },
+	heroBand = false,
 } = Astro.props;
 ---
 
@@ -44,9 +50,48 @@ const {
 			<slot name="sidebar" />
 			<!-- Main container for the page content -->
 			<div id="container" class="min-w-3xl relative m-auto max-w-6xl grow">
-				<div class="m-auto grid min-h-screen md:grid-rows-[auto_auto_1fr] px-4 md:px-8 md:pt-4">
-					<Header />
-					<main id="main" class="relative flex-grow mt-24 md:mt-[3.5rem]" transition:animate="initial">
+				{/* No top padding under a hero band: the band is min-h-screen, so 16px
+					above it would push its bottom edge — and the tech stack line sitting
+					just inside it — below the fold. */}
+				<div
+					class:list={[
+						"m-auto grid min-h-screen px-4 md:grid-rows-[auto_auto_1fr] md:px-8",
+						!heroBand && "md:pt-4",
+					]}
+				>
+					{
+						heroBand ? (
+							<div class="surface-dark relative flex min-h-screen flex-col">
+								{/* Full-bleed backdrop. The container is padded and capped at
+									max-w-6xl, so the band has to break out with the
+									left-1/2 / -ml-[50vw] / w-screen trick. The -top-8 covers
+									the grid's md:pt-4 above the header. */}
+								<span
+									aria-hidden="true"
+									class="absolute -top-8 bottom-0 left-1/2 -ml-[50vw] w-screen bg-bgColor"
+								/>
+								{/* pt-16 on mobile clears the header, which is fixed below md. */}
+								{/* Compact logo: a page with a hero band states the name at
+									display size, so the header showing the full FRAN DIEGUEZ
+									wordmark right above it says it twice. The glasses mark alone
+									carries the identity there. */}
+								<div class="relative flex flex-1 flex-col pt-16 md:pt-0">
+									<Header compact />
+									<slot name="hero" />
+								</div>
+							</div>
+						) : (
+							<Header />
+						)
+					}
+					<main
+						id="main"
+						class:list={[
+							"relative flex-grow",
+							heroBand ? "mt-12 md:mt-16" : "mt-24 md:mt-[3.5rem]",
+						]}
+						transition:animate="initial"
+					>
 						<slot />
 					</main>
 					<Footer />

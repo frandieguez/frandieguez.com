@@ -64,7 +64,8 @@ Imports con alias `@/` → `src/`.
 ## Convenciones
 
 - **Astro por defecto.** Solo la interactividad de cliente real justifica una isla.
-  Ahora mismo no queda ningún `.tsx` en `src/`.
+  No queda ningún `.tsx` en `src/` y ninguna página envía islas hidratadas. Ojo:
+  React sigue haciendo falta **en build**, porque los logos se importan con `?react`.
 - **Estilos en clases de Tailwind.** A `global.css` solo va lo que no se puede
   expresar con utilidades: keyframes, variables de tema y el estilado del HTML
   generado desde markdown.
@@ -73,8 +74,7 @@ Imports con alias `@/` → `src/`.
   desde `src/assets/`. Importar desde `public/` emite el asset dos veces.
 - **Scripts de cliente**: escuchar `astro:page-load`, nunca `DOMContentLoaded`. Con
   `<ClientRouter />` activo, este último no vuelve a dispararse tras una navegación.
-- **Iconos**: `astro-icon` (sets `hugeicons`, `mdi`, `solar`) en Astro; `react-icons`
-  en componentes React.
+- **Iconos**: `astro-icon` (sets `hugeicons`, `mdi`, `solar`).
 - El contenido de blog se renderiza con `class="prose prose-citrus max-w-none"`.
 
 ## Contenido

@@ -126,6 +126,13 @@ ningún `@font-face` que los respaldase, así que caían al fallback en silencio
 El cuerpo es **más grande en móvil que en desktop**, decisión deliberada en
 `Base.astro`: `text-xl md:text-base`.
 
+⚠️ **Esa clase va en `<html>`, así que cambia el tamaño de fuente raíz**: en móvil
+pasa a 20px y en desktop a 16px. Como `rem` se resuelve contra la raíz, **todas las
+utilidades de Tailwind basadas en rem miden un 25% más en móvil** — espaciados,
+anchos, alturas, no solo el texto. `w-36` son 180px en móvil y 144px en desktop. Al
+dimensionar algo para móvil hay que contar con eso; es la causa de más de un elemento
+que "se sale" solo en pantallas pequeñas.
+
 Los headings globales están redefinidos en `global.css` con `!important` y son
 conservadores: `h1: text-2xl`, `h2: text-xl`, `h3: text-lg`, `h4`–`h6`: `text-base`,
 todos con `min-h-8`. La escala grande (`text-3xl`/`text-4xl`) se usa solo en los
@@ -329,14 +336,25 @@ Todo el estilado vive en `global.css` bajo
 | --- | --- | --- |
 | Grano de papel | `Base.astro`, capa `fixed` global | Tile SVG `feTurbulence` de ~500 B en `--paper-grain`, a `opacity-[0.035] mix-blend-multiply` (claro) / `dark:opacity-[0.07] dark:mix-blend-screen`. El color lo hereda del fondo por el blend |
 | Regla dibujada a mano | `HandRule.astro` | Un `<path>` ondulado con `vector-effect="non-scaling-stroke"`. Separa bandas; se «entinta» al entrar en viewport |
-| Trazo de rotulador | Una frase por sección | `before:` rotado `-1.2deg` en `bg-accent-two/20`, tras el texto |
+| Trazo de rotulador | Una frase por sección | `relative isolate` + `before:` rotado `-1.2deg` con `-z-10` en `bg-accent-two/20..25` |
 | Contorno desplazado | `Avatar.astro` | Borde de 1px en `accent-two/45` desplazado 8px, como un registro de imprenta mal alineado. Se acerca en hover |
 | Forma orgánica estática | `rounded-pebble`, `rounded-leaf` | Radios asimétricos fijos. Sustituyen al blob que mutaba en bucle |
 | Marcas de índice | Cabecera de sección | `01 —`, `02 —` en `font-mono text-xs uppercase tracking-[0.22em]` |
 
-**`isolation: isolate` es obligatorio** en el contenedor de contenido de `Base.astro`.
-Sin su propio contexto de apilamiento, el contenido entra en el grupo de mezcla del
-grano y **las imágenes dejan de pintarse**.
+**`isolation: isolate` es obligatorio** en dos sitios, por motivos distintos:
+
+1. En el contenedor de contenido de `Base.astro`. Sin su propio contexto de
+   apilamiento, el contenido entra en el grupo de mezcla del grano y **las imágenes
+   dejan de pintarse**.
+2. En el `<span>` del trazo de rotulador. Su `before:` lleva `-z-10`, y el `<p>` que
+   lo contiene lleva `data-reveal`: mientras dura el reveal, el `transform` crea un
+   contexto de apilamiento que contiene al pseudo-elemento, pero al terminar
+   (`transform: none`) ese contexto desaparece y el realce **se va detrás del fondo
+   de la banda**. Se veía y luego desaparecía. Con `isolate` en el propio span el
+   `-z-10` queda acotado a él.
+
+**Regla general:** un `-z-*` dentro de algo que lleva `data-reveal` necesita su propio
+contexto de apilamiento, o se romperá justo cuando acabe la animación.
 
 ### 6.2 Movimiento
 
@@ -391,9 +409,15 @@ El proyecto ya cumple estos puntos; mantenerlos al añadir UI:
 ## 8. Stack y convenciones de código
 
 - **Astro 5**. Componente estático → `.astro`. Solo interactividad de cliente real
-  justifica una isla. **Hoy no queda ningún `.tsx` en `src/`**: la home pasó de tres
-  islas de React a cero, y `react`, `react-dom`, `framer-motion` y `react-icons`
-  siguen en `package.json` únicamente porque nadie los ha retirado todavía.
+  justifica una isla. **No queda ningún `.tsx` en `src/`** y ninguna página envía una
+  isla hidratada (`grep -c astro-island dist/<pagina>.html` → 0).
+- ⚠️ **React sigue siendo necesario en build**, aunque no se envíe nada al cliente:
+  los logos se importan con `?react` (`vite-plugin-svgr`), lo que genera componentes
+  React que Astro renderiza en el servidor. Es decir, `@astrojs/react` y `react` **no
+  se pueden quitar** mientras el logo se cargue así. `framer-motion`, `react-icons` y
+  `react-dom` sí son retirables.
+- Los tipos de `*.svg?react` vienen de `vite-plugin-svgr/client`, referenciado desde
+  `src/env.d.ts`. Sin esa línea, cada import de logo es un error de `astro check`.
 - **Datos compartidos en `src/data/`**: `career.ts` es la única fuente de verdad de la
   trayectoria (antes había dos copias que se contradecían), y `post.ts` concentra las
   consultas de posts (`getAllPosts`, `getLatestPosts`, `groupPostsByYear`,
@@ -407,8 +431,7 @@ El proyecto ya cumple estos puntos; mantenerlos al añadir UI:
 - **Biome** para lint y formato (`yarn lint`, `yarn format`). Indentación con
   **tabulador** en `.astro` y `.css`.
 - Imports con alias `@/` (`@/components/...`, `@/layouts/...`).
-- Iconos: `astro-icon` con los sets `hugeicons`, `mdi`, `solar` para Astro;
-  `react-icons` dentro de componentes React.
+- Iconos: `astro-icon` con los sets `hugeicons`, `mdi`, `solar`.
 - Imágenes con `<Image>` de `astro:assets`, nunca `<img>` directo.
 - Búsqueda con Pagefind (se indexa en `postbuild`).
 - `yarn dev` para el servidor local; `yarn build` incluye la indexación.

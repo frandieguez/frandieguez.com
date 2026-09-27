@@ -86,7 +86,13 @@
 		}
 	}
 
-	:root[data-theme="dark"] {
+	/* `.surface-dark` shares this palette so a band can be dark in both themes.
+	   It redeclares the variables for its own subtree, so every token-based
+	   component inside it flips automatically — no `dark:` variants, no
+	   per-component overrides. It must also appear on the derivation block below,
+	   or the --theme-color-* scale would keep the values computed at :root. */
+	:root[data-theme="dark"],
+	.surface-dark {
 		color-scheme: dark;
 
 		/* Neutral charcoal, near-hueless: hsl(30 4% 9%) ≈ #181716.
@@ -141,8 +147,12 @@
 
 	}
 
-	/* Shared variables */
-	:root {
+	/* Shared variables. `.surface-dark` is here too so the whole gradation scale
+	   recomputes from its own --fg-*; custom properties resolve their var()s at
+	   the element where they're declared, so inheriting them from :root would
+	   carry the page theme's values into the band. */
+	:root,
+	.surface-dark {
 		--theme-bg: var(--bg-hue) var(--bg-saturation) var(--bg-brightness);
 		/* Background colour */
 		--theme-fg: var(--fg-hue) var(--fg-saturation) var(--fg-brightness);
@@ -450,6 +460,12 @@ html.js-reveal [data-rail] {
 html.js-reveal [data-rail].is-revealed {
 	transform: scaleY(1);
 	transition: transform 800ms ease-out;
+}
+
+/* The band has to repaint its own text colour: `text-textColor` is applied on
+   <html>, and descendants inherit the resolved colour, not the variable. */
+.surface-dark {
+	color: var(--theme-text);
 }
 
 /* ---------------------------------------------------------------------------

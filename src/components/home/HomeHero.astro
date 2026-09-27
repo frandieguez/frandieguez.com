@@ -1,22 +1,28 @@
 ---
 /**
- * The masthead.
+ * The masthead. Lives inside the dark band declared by Base.astro's `heroBand`,
+ * so every token here resolves to the charcoal palette in both themes.
  *
- * The wordmark echoes the site logo's own hierarchy — FRAN light over DIEGUEZ
- * bold, uppercase, monochrome — at newspaper-masthead scale. The portrait sits
- * at the right end of the wordmark rather than beside a column of text, which is
- * what makes the composition bold and not merely large.
+ * Two layouts under test:
+ * - "split"  — portrait on the right, type on the left.
+ * - "bleed"  — portrait as a full-height backdrop anchored left, type on the right.
  *
  * Note on the type: the font-size lives on child <span>s, never on the <h1>.
  * global.css forces `h1 { text-2xl !important }` and a utility class cannot beat
- * it; a child inherits and wins with no !important at all. Don't move these
- * sizes onto the heading element — they'd silently collapse to 24px.
+ * it; a child inherits and wins with no !important at all. See DESIGN.md §3.4.
  */
-import Avatar from "@/components/ui/Avatar.astro";
 import ButtonLink from "@/components/ui/ButtonLink.astro";
 import HandRule from "@/components/ui/HandRule.astro";
 import { currentPosition } from "@/data/career";
-import profilePic from "@/assets/images/profile-pic.jpg";
+import portrait from "@/assets/images/portrait.jpeg";
+import { Image } from "astro:assets";
+
+interface Props {
+	variant?: "split" | "bleed";
+}
+
+const { variant = "split" } = Astro.props;
+const isBleed = variant === "bleed";
 
 const current = currentPosition();
 const role = current.roles[0]?.title ?? "Web Tech Lead";
@@ -37,104 +43,197 @@ const stack = [
 ];
 
 const wordmark =
-	"block font-heading uppercase text-[clamp(3.25rem,12.5vw,13rem)] leading-[0.84] tracking-[-0.02em]";
+	"block font-heading uppercase leading-[0.84] tracking-[-0.02em]";
+
+// The wordmark scales with viewport WIDTH, but the space it has to fit into is
+// bounded by viewport HEIGHT: on a wide, short screen (1440x800 and friends) the
+// type ran big enough to push the tech stack line below the fold. The `min()`
+// with a vh term caps it on short viewports; the bleed layout also has less
+// horizontal room, so it caps lower.
+const wordmarkSize = isBleed
+	? "text-[clamp(3rem,min(9.5vw,11vh),9.5rem)]"
+	: "text-[clamp(3.25rem,min(11vw,13vh),11rem)]";
 ---
 
-<section class="relative pb-14 pt-4 md:pb-16 md:pt-8">
-	<div data-reveal class="flex items-center gap-5">
-		<!-- Wraps on mobile: at 320px this line is ~465px wide, and shrink-0 at every
-			breakpoint would push it past the viewport. -->
-		<p
-			class="font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.2em] text-color-550 md:shrink-0 md:text-xs"
-		>
-			01 — Galicia, Spain · Building for the web since 2006
-		</p>
-		<HandRule class="hidden flex-1 md:block" />
-	</div>
-
-	<div class="relative mt-7 md:mt-14">
-		<h1 class="display-heading">
-			<span
-				data-reveal
-				style="--reveal-delay:40ms"
-				class:list={[wordmark, "font-medium text-accent-base/40"]}>Fran</span
-			>
-			<span
-				data-reveal
-				style="--reveal-delay:80ms"
-				class:list={[wordmark, "font-bold text-accent-base"]}>Dieguez</span
-			>
-		</h1>
-
-		<!-- The positioning lives on this wrapper and the reveal transform on the
-			figure inside it, so the two never fight over `transform`. -->
-		<div
-			class="mx-auto mt-8 w-36 md:absolute md:right-0 md:top-1/2 md:mx-0 md:mt-0 md:w-[clamp(9rem,16vw,14rem)] md:-translate-y-1/2"
-		>
-			<Avatar
-				src={profilePic}
-				alt="Fran Dieguez"
-				eager
-				data-reveal="scale"
-				style="--reveal-delay:120ms"
-			/>
-		</div>
-	</div>
-
-	<p
-		data-reveal
-		style="--reveal-delay:140ms"
-		class="mt-7 font-mono text-[0.8125rem] uppercase tracking-[0.18em] text-accent-two md:mt-9 md:text-sm"
-	>
-		{role} · open sourcerer · full stack developer
-	</p>
-
-	<p
-		data-reveal
-		style="--reveal-delay:180ms"
-		class="mt-6 max-w-[36ch] text-xl leading-[1.5] md:max-w-[52ch]"
-	>
-		I'm a full stack developer and {role} at {current.org}, where we do indoor
-		positioning for people and robots. I build{" "}
-		<span
-			class="relative inline-block before:absolute before:inset-x-[-0.2em] before:inset-y-[0.14em] before:-z-10 before:-rotate-[1.2deg] before:rounded-[3px] before:bg-accent-two/20"
-			>the visual layer</span
-		> — map viewers, 3D layers, the code that turns complex spatial data into
-		something fast enough to think with.
-	</p>
-
-	<div
-		data-reveal
-		style="--reveal-delay:220ms"
-		class="mt-9 flex flex-col gap-8 md:flex-row md:items-start md:justify-between md:gap-12"
-	>
-		<div class="flex flex-col items-start gap-4">
-			<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-				<ButtonLink href="/posts/" size="lg">Read the blog</ButtonLink>
-				<ButtonLink href="/contact/" variant="secondary" size="lg">
-					➤ Get in touch
-				</ButtonLink>
-			</div>
-			<a
-				href="/about/"
-				class="citrus-link group flex items-center gap-1.5 text-sm font-medium text-accent-two"
-			>
-				The long version
-				<span
+<section class="relative flex flex-1 flex-col pb-8 pt-4 md:pb-8 md:pt-5">
+	{
+		isBleed && (
+			<>
+				{/* Full-bleed backdrop, anchored left. The photo's own studio
+					background is near-identical to the band, so it dissolves into it
+					rather than sitting on it as a picture. */}
+				{/* In flow on mobile, absolute on desktop — same element either way, so
+					the browser only ever fetches one image. Text over the portrait was
+					unreadable on a phone: the face landed right behind the wordmark. */}
+				<div
 					aria-hidden="true"
-					class="transition-transform group-hover:translate-x-1">→</span
+					class="pointer-events-none relative left-1/2 -ml-[50vw] mb-7 h-[32vh] min-h-[12rem] w-screen md:absolute md:inset-y-0 md:mb-0 md:h-auto md:min-h-0"
 				>
-			</a>
+					<div class="relative h-full w-full overflow-hidden md:w-[48%] md:max-w-[38rem]">
+						{/* The source is square with a lot of empty studio backdrop, so a
+							landscape mobile crop leaves the figure small. Scaling from the
+							top zooms in without cutting the head. */}
+						<Image
+							src={portrait}
+							alt=""
+							widths={[520, 760, 1024]}
+							sizes="(min-width: 768px) 48vw, 100vw"
+							loading="eager"
+							decoding="sync"
+							class="h-full w-full origin-top scale-[1.35] object-cover object-[50%_10%] md:scale-100 md:object-[30%_20%]"
+						/>
+						{/* Mobile: only the bottom edge dissolves into the band, so the
+							portrait stays legible instead of sitting under a heavy scrim. */}
+						<div
+							class="absolute inset-0 bg-gradient-to-b from-transparent from-55% to-bgColor md:hidden"
+						/>
+						{/* Desktop: fade the right edge into the band so there's no seam.
+							The stops start late on purpose — with the default 0/50/100 the
+							veil was already 45% opaque over the middle of the frame, which
+							is exactly where the subject sits. */}
+						<div
+							class="absolute inset-0 hidden bg-gradient-to-r from-transparent from-55% via-bgColor/30 via-80% to-bgColor md:block"
+						/>
+						<div
+							class="absolute inset-0 hidden bg-gradient-to-t from-bgColor via-transparent to-bgColor/70 md:block"
+						/>
+					</div>
+				</div>
+			</>
+		)
+	}
+
+	{/* flex-1 + justify-center so the content sits in the middle of the
+		full-height band, with the stack line pinned below it. */}
+	<div
+		class:list={[
+			"relative flex flex-1 flex-col justify-center",
+			isBleed && "md:ml-auto md:w-[56%] md:max-w-[40rem]",
+		]}
+	>
+		<div data-reveal class="flex items-center gap-5">
+			<p
+				class="font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.2em] text-color-550 md:shrink-0 md:text-xs"
+			>
+				01 — Galicia, Spain · Building for the web since 2006
+			</p>
+			<HandRule class:list={["hidden flex-1", !isBleed && "md:block"]} />
 		</div>
-		<p class="max-w-[30ch] text-sm leading-relaxed text-color-600 md:text-right">
-			Open to collaborating on things that are genuinely interesting.
+
+		<div class="relative mt-5 md:mt-6">
+			<h1 class="display-heading">
+				<span
+					data-reveal
+					style="--reveal-delay:40ms"
+					class:list={[
+						wordmark,
+						wordmarkSize,
+						"font-medium text-accent-base/40",
+					]}>Fran</span
+				>
+				<span
+					data-reveal
+					style="--reveal-delay:80ms"
+					class:list={[wordmark, wordmarkSize, "font-bold text-accent-base"]}
+					>Dieguez</span
+				>
+			</h1>
+
+			{
+				!isBleed && (
+					<div
+						class="mx-auto mt-8 w-44 md:absolute md:-top-6 md:right-0 md:mx-0 md:mt-0 md:w-[clamp(11rem,22vw,19rem)]"
+					>
+						<figure
+							data-reveal="scale"
+							style="--reveal-delay:120ms"
+							class="group/pic relative"
+						>
+							<span
+								aria-hidden="true"
+								class="absolute inset-0 translate-x-2 translate-y-2 rounded-lg border border-accent-two/45 transition-transform duration-200 group-hover/pic:translate-x-1 group-hover/pic:translate-y-1"
+							/>
+							<Image
+								src={portrait}
+								alt="Fran Dieguez"
+								widths={[176, 304, 608]}
+								sizes="(min-width: 768px) 19rem, 11rem"
+								loading="eager"
+								decoding="sync"
+								class="relative aspect-[4/5] w-full rounded-lg object-cover object-[50%_18%]"
+							/>
+						</figure>
+					</div>
+				)
+			}
+		</div>
+
+		<p
+			data-reveal
+			style="--reveal-delay:140ms"
+			class="mt-6 font-mono text-[0.8125rem] uppercase tracking-[0.18em] text-accent-two md:mt-7 md:text-sm"
+		>
+			{role} · open sourcerer · full stack developer
 		</p>
+
+		<p
+			data-reveal
+			style="--reveal-delay:180ms"
+			class:list={[
+				"mt-5 text-xl leading-[1.5]",
+				isBleed ? "max-w-[42ch]" : "max-w-[36ch] md:max-w-[52ch]",
+			]}
+		>
+			I'm a full stack developer and {role} at {current.org}, where we do indoor
+			positioning for people and robots. I build{" "}
+			<span
+				class="relative isolate inline-block before:absolute before:inset-x-[-0.2em] before:inset-y-[0.14em] before:-z-10 before:-rotate-[1.2deg] before:rounded-[3px] before:bg-accent-two/25"
+				>the visual layer</span
+			> — map viewers, 3D layers, the code that turns complex spatial data into
+			something fast enough to think with.
+		</p>
+
+		<div
+			data-reveal
+			style="--reveal-delay:220ms"
+			class:list={[
+				"mt-8 flex flex-col gap-6",
+				!isBleed && "md:flex-row md:items-start md:justify-between md:gap-12",
+			]}
+		>
+			<div class="flex flex-col items-start gap-4">
+				<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+					<ButtonLink href="/posts/" size="lg">Read the blog</ButtonLink>
+					<ButtonLink href="/contact/" variant="secondary" size="lg">
+						➤ Get in touch
+					</ButtonLink>
+				</div>
+				<a
+					href="/about/"
+					class="citrus-link group flex items-center gap-1.5 text-sm font-medium text-accent-two"
+				>
+					The long version
+					<span
+						aria-hidden="true"
+						class="transition-transform group-hover:translate-x-1">→</span
+					>
+				</a>
+			</div>
+			<p
+				class:list={[
+					"max-w-[30ch] text-sm leading-relaxed text-color-600",
+					!isBleed && "md:text-right",
+				]}
+			>
+				Open to collaborating on things that are genuinely interesting.
+			</p>
+		</div>
 	</div>
 
 	<p
 		data-reveal
 		style="--reveal-delay:260ms"
-		class="mt-12 font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.16em] text-color-550 md:mt-16 md:text-xs"
+		class="relative mt-8 font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.16em] text-color-550 md:mt-8 md:text-xs"
 	>
 		{stack.join(" · ")}
 	</p>
