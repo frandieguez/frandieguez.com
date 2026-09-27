@@ -47,9 +47,29 @@ function init() {
 		{ threshold: 0.01, rootMargin: "0px 0px -8% 0px" }
 	);
 
-	// Anything already in the viewport is revealed by the observer's first,
-	// synchronous callback — so there's no flash of hidden content.
-	targets.forEach((el) => observer?.observe(el));
+	// The observer's negative rootMargin delays a reveal until the element is a
+	// little way into the viewport. That's right for content you scroll down to,
+	// and wrong for the first screen: it leaves a dead band along the bottom, so
+	// anything sitting there — the hero's tech stack line, for one — stayed
+	// hidden until the visitor scrolled and came back.
+	//
+	// So: whatever is already on screen at load is revealed directly, and the
+	// observer only ever handles what starts below the fold.
+	const onScreen: Element[] = [];
+	for (const el of targets) {
+		const rect = el.getBoundingClientRect();
+		if (rect.top < window.innerHeight && rect.bottom > 0) onScreen.push(el);
+		else observer.observe(el);
+	}
+
+	// Force a style flush so the hidden state is committed before the class flips;
+	// without it the browser collapses both into one recalc and the transition
+	// snaps instead of running. Reading a layout property is the standard way.
+	// (A requestAnimationFrame would also work, but it never fires in a
+	// background tab, which would leave the first screen hidden until focus.)
+	void document.documentElement.offsetHeight;
+
+	for (const el of onScreen) reveal(el);
 }
 
 function teardown() {
