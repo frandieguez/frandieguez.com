@@ -73,6 +73,19 @@ const tagCounts = new Map<string, number>();
 const postDates = new Map<string, string>();
 
 /**
+ * Series ids that at least one published post actually belongs to.
+ *
+ * A series file can exist before its first instalment does — the definition is
+ * written once and the posts arrive over weeks. Until one of them is live, the
+ * series page renders an empty list, and offering an empty page to a crawler is
+ * the thin content this archive just spent a day getting rid of.
+ *
+ * Same reasoning as EMPTY_LISTINGS, and derived the same way: the page returns
+ * to the sitemap on its own the moment a post claims the series.
+ */
+const seriesWithPosts = new Set<string>();
+
+/**
  * Last commit date per file under src/content/post/, from a single `git log`.
  *
  * Why not just use publishDate: no post in this archive sets `updatedDate`, so
@@ -137,6 +150,9 @@ for (const entry of fs.readdirSync(POST_DIR, { recursive: true, encoding: "utf8"
 	// half-empty tag page in the sitemap before the post that justifies it exists.
 	if (published && new Date(published).getTime() > Date.now()) continue;
 
+	const series = /^seriesId:\s*["']?([^"'\s]+)/m.exec(frontmatter)?.[1];
+	if (series) seriesWithPosts.add(series);
+
 	const committed = gitDates.get(`src/content/post/${entry}`);
 
 	const lastmod = declared
@@ -198,6 +214,12 @@ export default defineConfig({
 				// listing to a crawler earns a thin-content impression and nothing
 				// else. They return to the sitemap the moment they have an entry.
 				if (EMPTY_LISTINGS.has(pathname)) return false;
+
+				// A series whose instalments are all still scheduled has nothing to
+				// list yet. Its definition can sit in the repo meanwhile.
+				if (pathname.startsWith("/series/") && pathname !== "/series/") {
+					return seriesWithPosts.has(pathname.split("/")[2] ?? "");
+				}
 
 				if (!pathname.startsWith("/tags/") || pathname === "/tags/") return true;
 				const tag = decodeURIComponent(pathname.split("/")[2] ?? "");
