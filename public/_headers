@@ -1,0 +1,41 @@
+# Cloudflare Pages header rules. Copied verbatim into the deploy root by Astro,
+# because everything under public/ is emitted as-is.
+#
+# Before this file existed there was no header policy at all: the only security
+# headers the site returned (x-content-type-options, referrer-policy) were
+# platform defaults, and hashed assets inherited Cloudflare's default 4-hour
+# browser TTL despite having content hashes in their filenames.
+#
+# Two deliberate CSP relaxations, both load-bearing — do not tighten without
+# testing the rendered page:
+#   script-src 'unsafe-inline'  ThemeProvider.astro is an is:inline,
+#                               parser-blocking script; it has to run before
+#                               first paint or the wrong theme flashes. A hash
+#                               would work but silently breaks the site the next
+#                               time that script is edited.
+#   style-src  'unsafe-inline'  astro-icon emits hundreds of inline style="..."
+#                               attributes per page, and Astro's scoped styles
+#                               are inline too. A strict policy visibly breaks
+#                               every icon.
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://webmention.io; font-src 'self'; connect-src 'self' https://webmention.io; form-action https://formspree.io; manifest-src 'self'; upgrade-insecure-requests
+
+# Filenames under /_astro/ carry a content hash, so the contents behind a given
+# URL can never change. A year, immutable, is the correct policy — and it now
+# covers the self-hosted woff2 files too.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Same reasoning: the OG cards are regenerated only when their slug changes, but
+# they are NOT content-hashed, so they get a day rather than a year.
+/og-image/*
+  Cache-Control: public, max-age=86400
+
+/pagefind/*
+  Cache-Control: public, max-age=86400
