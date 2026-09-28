@@ -1,86 +1,102 @@
-![Fran Dieguez site logo](https://raw.githubusercontent.com/frandieguez/frandieguez.com/master/static/assets/logos/glasses.png)
-<hr>
+# frandieguez.com
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/df049c12-f7f4-4bf7-9115-90fce9d3a37e/deploy-status)](https://app.netlify.com/sites/frandieguezcom/deploys) 
-[![Travis CI Status](https://travis-ci.org/frandieguez/frandieguez.com.svg?branch=master)](https://travis-ci.org/frandieguez/frandieguez.com) 
-[![Maintainability](https://api.codeclimate.com/v1/badges/c05dae42f64d4bc4fecf/maintainability)](https://codeclimate.com/github/frandieguez/frandieguez.com/maintainability)
-[![dependencies Status](https://david-dm.org/frandieguez/frandieguez.com/status.svg)](https://david-dm.org/frandieguez/frandieguez.com)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+Source and content for [www.frandieguez.com](https://www.frandieguez.com) — Fran
+Dieguez's blog and portfolio. Roughly half the archive is in English and half in
+Spanish, with a couple of posts in Galician, going back to 2007.
 
-This repository contains the code and contents for [Fran Dieguez's site](http://www.frandieguez.dev), a blog about technology and topics that insterest me.
+Built with **Astro 5** (fully static), **Tailwind 3**, and Markdown content
+collections. React 19 is a dependency but ships no hydrated islands: it is only
+needed at build time, because the logos are imported through `?react`.
 
-The leitmotiv of this code was to use and learn interesting technologies like React, GraphQL, Gatsby, etc.
+## Quick start
 
-## 🚀 Quick start
+Requires **yarn 4** (pinned in `packageManager`). Do not use npm or pnpm.
 
-1.  **Install the base tools.**
+```sh
+yarn install
+yarn dev        # dev server
+```
 
-   Install Yarn to manage dependencies
-   ```
-   https://yarnpkg.com/lang/en/docs/install/
-   ```
-   
-   Install the dependencies to work.
-    ```sh
-    yarn install
-    ```
+## Scripts
 
-1.  **Start developing.**
+| Command | What it does |
+|---|---|
+| `yarn dev` | Astro dev server |
+| `yarn build` | `astro build` + Pagefind search indexing |
+| `yarn preview` | Serve the production build locally |
+| `yarn new:post <slug>` | Scaffold a post or note with valid frontmatter |
+| `yarn indexnow` | Push changed URLs to Bing/Yandex/Seznam/Naver — run *after* deploy |
+| `yarn redirects` | Regenerate the legacy WordPress redirect map — run after renaming a slug |
+| `yarn check` | `astro check` — baseline is 3 pre-existing errors, see DESIGN.md §9 |
+| `yarn format` | Biome + Prettier |
+| `yarn lint` | Biome — ⚠️ currently broken: `biome.json` still uses Biome v1 keys |
 
-    Navigate into your new site’s directory and start it up.
+## Writing a post
 
-    ```sh
-    gatsby develop
-    ```
+```sh
+yarn new:post threejs-maplibre-depth-buffer --tags threejs,maplibre,3d
+yarn new:post some-short-thought --note
+```
 
-1.  **Open the source code and start editing!**
+Posts live in `src/content/post/<slug>/index.md`, so images can sit beside the
+markdown. The slug is the URL: `/posts/<slug>/`. The Zod schema in
+`src/content.config.ts` **fails the build** if `description` or `publishDate` is
+missing, and tags are restricted to the vocabulary in
+`scripts/tag-vocabulary.mjs`.
 
-    Your site is now running at `http://localhost:8000`!
+Shorter pieces go to `src/content/note/` and get their own feed at
+`/notes/rss.xml`. Multi-part posts link to a `src/content/series/<id>.md` entry
+through `seriesId` + `orderInSeries`.
 
-    _Note: There is another endpoint available at _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying data. 
-    Check further info at [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+Images always go through `<Image>` from `astro:assets`, imported from
+`src/assets/` — never `public/`, which emits the asset twice.
 
-## 🧐 What's inside?
+## Structure
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+```text
+src/
+  pages/        Routes (index, about, contact, posts/, notes/, tags/, series/)
+  layouts/      Base.astro, BlogPost.astro, Series.astro
+  components/   ui/ home/ career/ blog/ layout/
+  data/         career.ts, post.ts, schema.ts — sources of truth, no ad-hoc queries
+  content/      post / note / series collections
+  plugins/      remark-admonitions, remark-reading-time
+  styles/       global.css — theme variables, reveals, code blocks
+scripts/        indexnow.mjs, new-post.mjs, tag-vocabulary.mjs
+functions/      Cloudflare Pages middleware (apex + .dev domain redirects)
+public/_headers CSP and cache policy
+```
 
-    .
-    ├── node_modules
-    ├── content
-    ├── src
-    ├── .gitignore
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+Imports use the `@/` → `src/` alias.
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-2.  **`/content`**: This directory contains all the markdown files with posts and all static files, like images for all the posts.
-2.  **`/src`**: This directory contains all the code related what is seeing at the front-end of the site (what you see in the browser) such the site header or a page template.
+## Before touching any UI
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+**[DESIGN.md](./DESIGN.md) is required reading** before writing markup, CSS, or
+Tailwind classes here. It documents the real design system — colour tokens,
+typography, components, motion — plus a list of known debt not to propagate.
+[AGENTS.md](./AGENTS.md) covers repo conventions.
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+## Deployment
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+Pushing to `master` deploys to **Cloudflare Pages** (build settings live in the
+Cloudflare dashboard; there is no CI config in this repo). `public/_headers`
+carries the CSP, HSTS, and cache rules; `functions/_middleware.ts` 301s
+`frandieguez.com`, `frandieguez.dev`, and `www.frandieguez.dev` to
+`www.frandieguez.com`.
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+After a production deploy, run `yarn indexnow`. It is deliberately outside the
+build so preview deploys are not announced to search engines.
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+`functions/_middleware.ts` also restores the WordPress URLs this archive was
+published under on mabishu.com for eighteen years: `/blog/YYYY/MM/slug/` and the
+older `/blog/index.php/YYYY/MM/DD/id/` both 301 to `/posts/slug/`. That map is
+generated from the `permalink` and `guid` fields the WordPress export left in
+post frontmatter, so **run `yarn redirects` after renaming a post slug** or the
+old URL will keep pointing at the old location.
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+## Features
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
-
-10. **`yarn.lock`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of the npm dependencies that were installed for the project. **(Do not change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/frandieguez/frandieguez.com)
+Pagefind search · RSS for posts and notes · sitemap with `lastmod` derived from
+`git log` · OG images generated with satori + resvg · JSON-LD structured data ·
+webmentions via webmention.io · `llms.txt` · light/dark themes · admonitions and
+reading time via custom remark plugins.

@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Blog y portfolio personal de Fran Dieguez. Astro 5 + islas de React 19 + Tailwind 3,
-desplegado en Netlify.
+desplegado en Cloudflare Pages.
 
 ## ⚠️ Antes de tocar cualquier UI: lee DESIGN.md
 
@@ -34,6 +34,7 @@ yarn preview  # previsualizar el build
 yarn lint     # Biome — ⚠️ hoy no arranca: biome.json usa claves de Biome v1
 yarn check    # astro check (tipos) — baseline: 3 errores preexistentes, ver DESIGN.md §9
 yarn format   # Biome + Prettier
+yarn new:post # scaffolding de post o nota con frontmatter válido
 ```
 
 Gestor de paquetes: **yarn 4** (`packageManager` en `package.json`). No usar npm ni pnpm.
@@ -81,6 +82,16 @@ Imports con alias `@/` → `src/`.
 
 Los posts van en `src/content/post/<slug>/index.md`. El esquema de frontmatter está
 en `src/content.config.ts`. Marcar `draft: true` mientras no esté listo.
+
+No crear el fichero a mano: **`yarn new:post <slug>`** genera el frontmatter válido
+(el esquema Zod rompe el build si falta `description` o `publishDate`, y el de `note`
+exige ISO 8601 con offset). Acepta `--note`, `--tags`, `--date`, `--series`, `--order`.
+
+Los tags salen del **vocabulario controlado de `scripts/tag-vocabulary.mjs`**, y el
+script rechaza cualquier otro. El archivo llegó a tener 302 tags para 124 posts, 249
+de ellos usados una sola vez; como `getRelatedPosts()` (`src/data/post.ts`) pondera
+por 1/frecuencia, esa cola generaba casi todos los enlaces internos del sitio.
+Añadir un tag nuevo es editar ese fichero a propósito, no colarlo en un frontmatter.
 
 ## Accesibilidad
 
