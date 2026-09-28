@@ -1,8 +1,14 @@
 ---
 /**
- * Renders a JSON-LD @graph. One <script> per page rather than several, so the
- * @id cross-references between Person, WebSite and BlogPosting resolve inside a
- * single document.
+ * Renders a JSON-LD @graph as a single script element per page rather than
+ * several, so the @id cross-references between Person, WebSite and BlogPosting
+ * resolve inside one document.
+ *
+ * Do not write a literal script tag in this comment. Vite's dependency scanner
+ * reads it as a real opening tag and treats everything after it as JavaScript,
+ * which fails the dev server with `Expected ";" but found ...`. The production
+ * build is unaffected, so it looks like it works right up until someone runs
+ * `astro dev`.
  */
 interface Props {
 	graph: Record<string, unknown>[];
