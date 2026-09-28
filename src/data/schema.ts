@@ -20,6 +20,7 @@
 import type { CollectionEntry } from "astro:content";
 import { currentPosition } from "@/data/career";
 import { siteConfig } from "@/site.config";
+import portrait from "@/assets/images/profile-pic.jpg";
 
 const ORIGIN = "https://www.frandieguez.com";
 
@@ -58,6 +59,11 @@ export function personSchema() {
 		url: abs("/"),
 		jobTitle: current.roles[0]?.title ?? "Web Tech Lead",
 		description: siteConfig.description,
+		// Google's Profile page guidance lists `image` as recommended on the
+		// Person. The hashed /_astro/ URL changes between builds, which is fine
+		// here: the JSON-LD is regenerated in the same build, so the reference and
+		// the file it points at are never out of step.
+		image: abs(portrait.src),
 		worksFor: {
 			"@type": "Organization",
 			name: current.org,

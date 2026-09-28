@@ -28,7 +28,27 @@ const post = defineCollection({
        * was no way to say otherwise.
        */
       lang: z.enum(["en-GB", "es", "gl"]).default("en-GB"),
-      ogImage: z.string().optional(),
+      /**
+       * Social-card override. Must be a root-relative path or an absolute URL —
+       * NOT a "./file.png" next to the post.
+       *
+       * Three published posts used the relative form. The file sits beside
+       * index.md and Astro does emit it (hashed, under /_astro/) when the body
+       * references it, but this field is a plain string that never resolves to
+       * that URL — so og:image and BlogPosting.image each pointed at a different
+       * 404. Nothing failed the build; the cards just silently broke.
+       *
+       * Leaving this unset is the better default anyway: it falls back to the
+       * generated /og-image/<slug>.png card, which is 1200x630, branded, and at
+       * a stable unhashed path.
+       */
+      ogImage: z
+        .string()
+        .refine((value) => value.startsWith("/") || /^https?:\/\//.test(value), {
+          message:
+            "ogImage must be root-relative ('/foo.png') or absolute ('https://…'). A './file.png' beside the post will not resolve and produces a 404 social card.",
+        })
+        .optional(),
       tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
       publishDate: z
         .string()

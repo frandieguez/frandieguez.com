@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
+   role="img"
+   aria-label="Fran Dieguez"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -65,7 +67,7 @@
        transform="translate(0,0.17881722)"
        id="g1463">
       <g
-         aria-label="FRAN"
+         aria-hidden="true"
          transform="matrix(0.29024693,0,0,0.29024693,7.3285315,0.60683711)"
          id="flowRoot1439"
          fill="currentColor"
@@ -92,7 +94,7 @@
            id="path875" />
       </g>
       <g
-         aria-label="DIEGUEZ"
+         aria-hidden="true"
          transform="matrix(0.29024693,0,0,0.29024693,7.3639622,11.391042)"
          id="flowRoot1453"
          fill="currentColor"

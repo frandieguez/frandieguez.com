@@ -18,7 +18,6 @@ tags:
   - software engineering
   - developer skills
   - AI in tech hiring
-ogImage: ./interviews-chatbot.png
 ---
 
 ![Interviews and chatbots](./interviews-chatbot.png)

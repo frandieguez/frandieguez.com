@@ -18,7 +18,6 @@ tags:
   - Software Engineering
   - Database Management
   - Developer Tools
-ogImage: ./colima.png
 ---
 
 For the past year, I've had the privilege of working with MacBook Pro computers, and incredible machine like M3 PRO. I have to say they're  outstanding: fast, efficient, incredible battery life, ...

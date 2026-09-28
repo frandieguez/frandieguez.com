@@ -13,7 +13,6 @@ categories:
 tags:
   - Archlinux
   - AUR
-ogImage: Arch_Linux_logo.svg.png
 ---
 
 
