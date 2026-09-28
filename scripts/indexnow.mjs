@@ -19,7 +19,6 @@
  * all, so this has no effect there either way.
  */
 import { readFileSync, readdirSync } from "node:fs";
-import { join } from "node:path";
 
 const ORIGIN = "https://www.frandieguez.com";
 const SITEMAP = "dist/sitemap-0.xml";
