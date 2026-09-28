@@ -1,3 +1,4 @@
+import { execSync } from "node:child_process";
 import fs from "node:fs";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
@@ -42,6 +43,46 @@ const NOINDEX_PATHS = new Set(["/404", "/404/", "/contact/thanks/"]);
 const tagCounts = new Map<string, number>();
 const postDates = new Map<string, string>();
 
+/**
+ * Last commit date per file under src/content/post/, from a single `git log`.
+ *
+ * Why not just use publishDate: no post in this archive sets `updatedDate`, so
+ * a publishDate-derived lastmod says every page is unchanged since its original
+ * publication — including the ~124 posts whose description, `lang` attribute and
+ * related-links block were all rewritten on 2026-09-28. A post genuinely edited
+ * today would tell Google "nothing since 2007", which is worse than sending no
+ * lastmod at all: omission is neutral, a false unchanged-since date actively
+ * deprioritises re-crawling exactly the pages that did change.
+ *
+ * Git's own history is the one source of truth that cannot drift, and it needs
+ * no authoring discipline to stay accurate. The trade-off is that a pure
+ * formatting commit also moves the date; that is the cheaper error.
+ *
+ * Fails soft: a shallow clone or a missing git binary just leaves the map empty
+ * and every post falls back to publishDate.
+ */
+const gitDates = new Map<string, string>();
+try {
+	const log = execSync(
+		"git log --format=%aI --name-only --no-merges -- src/content/post",
+		{ encoding: "utf8", maxBuffer: 64 * 1024 * 1024, stdio: ["ignore", "pipe", "ignore"] }
+	);
+
+	let current: string | null = null;
+	for (const line of log.split("\n")) {
+		if (line === "") continue;
+		// An ISO-8601 line starts a commit block; everything after it is a path,
+		// until the next date line. First date wins, since log is newest-first.
+		if (/^\d{4}-\d{2}-\d{2}T/.test(line)) {
+			current = line;
+		} else if (current && !gitDates.has(line)) {
+			gitDates.set(line, current);
+		}
+	}
+} catch {
+	// No git history available (shallow clone, export, CI without .git).
+}
+
 for (const entry of fs.readdirSync(POST_DIR, { recursive: true, encoding: "utf8" })) {
 	if (!/\.mdx?$/.test(entry)) continue;
 
@@ -53,10 +94,19 @@ for (const entry of fs.readdirSync(POST_DIR, { recursive: true, encoding: "utf8"
 	// Mirrors Astro's glob loader: "foo/index.md" and "foo.md" both yield "foo".
 	const slug = entry.replace(/\.mdx?$/, "").replace(/\/index$/, "");
 
-	const date =
-		/^updatedDate:\s*["']?([\d-]+)/m.exec(frontmatter)?.[1] ??
+	// Precedence: an explicit updatedDate always wins, then the file's last commit
+	// date, then publishDate. See the gitDates comment above for why publishDate
+	// alone is not good enough.
+	const declared =
+		/^updatedDate:\s*["']?([\d-]+)/m.exec(frontmatter)?.[1];
+	const published =
 		/^publishDate:\s*["']?([\d-]+)/m.exec(frontmatter)?.[1];
-	if (date) postDates.set(slug, new Date(date).toISOString());
+	const committed = gitDates.get(`src/content/post/${entry}`);
+
+	const lastmod = declared
+		? new Date(declared).toISOString()
+		: (committed ?? (published ? new Date(published).toISOString() : undefined));
+	if (lastmod) postDates.set(slug, lastmod);
 
 	// Both YAML shapes appear in this archive: an inline flow sequence and a
 	// block sequence of "- value" lines.
@@ -70,9 +120,12 @@ for (const entry of fs.readdirSync(POST_DIR, { recursive: true, encoding: "utf8"
 					.map((line) => line.replace(/^\s*-\s*/, "").trim().replace(/^["']|["']$/g, ""))
 			: [];
 
-	// The collection schema lowercases tags, and the routes are built from those
-	// lowercased values, so the counts have to agree.
-	for (const tag of tags.filter(Boolean).map((t) => t.toLowerCase())) {
+	// The collection schema lowercases AND de-duplicates tags per post
+	// (removeDupsAndLowerCase), and the routes are built from those values, so the
+	// counts have to agree. Without the Set, a post listing the same tag twice in
+	// its own frontmatter inflates that tag's count — which would wrongly push a
+	// 2-post tag over the 3-post indexing threshold.
+	for (const tag of new Set(tags.filter(Boolean).map((t) => t.toLowerCase()))) {
 		tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
 	}
 }
