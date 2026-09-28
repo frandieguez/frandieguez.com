@@ -40,6 +40,26 @@ const MIN_POSTS_PER_INDEXED_TAG = 3;
 /** Routes that render `<meta name="robots" content="noindex">`. Keep in sync. */
 const NOINDEX_PATHS = new Set(["/404", "/404/", "/contact/thanks/"]);
 
+/**
+ * Listing pages whose collection is currently empty.
+ *
+ * Derived rather than hardcoded so this corrects itself: the moment a note or a
+ * series file exists, its index drops out of this set and back into the sitemap,
+ * with no one having to remember to come edit a list here.
+ */
+const LISTINGS: { route: string; dir: string }[] = [
+	{ route: "/notes/", dir: "./src/content/note/" },
+	{ route: "/series/", dir: "./src/content/series/" },
+];
+
+const EMPTY_LISTINGS = new Set<string>(
+	LISTINGS.filter(({ dir }) => {
+		const path = new URL(dir, import.meta.url);
+		if (!fs.existsSync(path)) return true;
+		return !fs.readdirSync(path).some((name) => /\.mdx?$/.test(name));
+	}).map(({ route }) => route)
+);
+
 const tagCounts = new Map<string, number>();
 const postDates = new Map<string, string>();
 
@@ -155,6 +175,12 @@ export default defineConfig({
 				// indexing here — offering and refusing at the same time is just a
 				// contradictory signal.
 				if (NOINDEX_PATHS.has(pathname)) return false;
+
+				// Index pages with nothing on them yet. /notes/ and /series/ both
+				// render fine when their collection is empty, but offering an empty
+				// listing to a crawler earns a thin-content impression and nothing
+				// else. They return to the sitemap the moment they have an entry.
+				if (EMPTY_LISTINGS.has(pathname)) return false;
 
 				if (!pathname.startsWith("/tags/") || pathname === "/tags/") return true;
 				const tag = decodeURIComponent(pathname.split("/")[2] ?? "");
