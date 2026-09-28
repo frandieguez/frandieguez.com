@@ -7,11 +7,13 @@
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "lint": "biome lint .",
-    "format": "pnpm run format:code && pnpm run format:imports",
+    "format": "yarn run format:code && yarn run format:imports",
     "format:code": "biome format . --write && prettier -w \"**/*\" \"!**/*.{md,mdx}\" --ignore-unknown --cache",
     "format:imports": "biome check --formatter-enabled=false --write",
     "check": "astro check",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "new:post": "node scripts/new-post.mjs",
+    "redirects": "node scripts/generate-legacy-redirects.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "4.3.6",
