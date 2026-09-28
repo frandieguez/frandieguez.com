@@ -1,7 +1,7 @@
 ---
 title: "What Rebuilding My Blog Taught Me About Zero-JavaScript Frontends"
 description: "I rebuilt this site with a zero-JavaScript budget, wrote the targets down, and then broke all four of them in the same redesign. What the numbers actually said."
-publishDate: 2026-10-06
+publishDate: 2026-09-28
 lang: "en-GB"
 tags: ["astro", "web-performance", "javascript", "css"]
 draft: false
