@@ -1,7 +1,7 @@
 ---
 id: 275
 title: Real Wall-E
-description: "Un Wall-E construido de verdad, en vídeo."
+description: "A real, working Wall-E built from scratch, on video."
 publishDate: 2008-12-20T00:03:36+00:00
 author: Fran Dieguez
 layout: post

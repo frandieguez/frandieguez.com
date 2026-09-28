@@ -1,7 +1,7 @@
 ---
 id: 227
 title: Camino de las estrellas
-description: "Los 679 bits del mensaje de Arecibo, reproducidos literalmente, como recuerdo en un segundo aniversario."
+description: "Los 1679 bits del mensaje de Arecibo, emitido al espacio en 1974, reproducidos literalmente en el 12º aniversario de la muerte de Carl Sagan."
 publishDate: 2007-12-20T10:06:52+00:00
 lang: es
 author: Fran Dieguez

@@ -1,7 +1,7 @@
 ---
 id: 237
 title: Briefcase Portability
-description: "Una imagen sobre lo que significaba la portabilidad antes de que existiera el portátil."
+description: "What portability looked like before the laptop: one photograph."
 publishDate: 2008-01-17T00:21:27+00:00
 author: Fran Dieguez
 layout: post
