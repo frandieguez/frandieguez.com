@@ -49,6 +49,9 @@ export const TAG_VOCABULARY = [
 	"devops",
 	"security",
 	"open-source",
+	// Running a site, as opposed to building one
+	"seo",
+	"content",
 	// People and career
 	"gnome",
 	"l10n",
