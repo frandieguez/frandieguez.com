@@ -1,0 +1,7 @@
+Keeps the `note` collection's directory in git.
+
+The collection is declared in src/content.config.ts and consumed by
+src/pages/notes/. Astro's glob loader treats a MISSING base directory as a hard
+error, not as an empty collection — deleting the last note therefore broke the
+whole build rather than emptying a listing. An empty directory is fine; an
+absent one is not.
