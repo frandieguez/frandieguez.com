@@ -4,7 +4,7 @@ description: "I rebuilt this site with a zero-JavaScript budget, wrote the targe
 publishDate: 2026-10-06
 lang: "en-GB"
 tags: ["astro", "web-performance", "javascript", "css"]
-draft: true
+draft: false
 ---
 
 I rebuilt this site over the last few weeks. Nineteen years of posts, a design system written down for the first time, and a budget I set before writing a line of markup: **no hydrated JavaScript on any page**.
