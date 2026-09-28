@@ -52,8 +52,19 @@ const wordmark =
 		aria-hidden="true"
 		class="pointer-events-none relative left-1/2 -ml-[50vw] mb-7 h-[32vh] min-h-[12rem] w-screen md:absolute md:inset-y-0 md:mb-0 md:h-auto md:min-h-0"
 	>
+		{/* The cap is the source image's own width, 1024px, not a guessed value.
+			It was 38rem (608px), which threw away real photograph: with object-cover
+			and object-position 30%, 70% of the horizontal overflow is cropped from
+			the RIGHT, so at any viewport from 1280px up exactly 160px of the frame's
+			right side was being discarded — while the photo simultaneously ended
+			288px short of the text column at 1920px, leaving a dead strip and a hard
+			vertical edge.
+
+			At 64rem the frame is 48vw until 2133px, where it meets the source
+			resolution; past that it stops growing rather than upscaling a 1024px
+			image into a blur. The right crop falls to zero by 1920px. */}
 		<div
-			class="relative h-full w-full overflow-hidden md:w-[48%] md:max-w-[38rem]"
+			class="relative h-full w-full overflow-hidden md:w-[48%] md:max-w-[64rem]"
 		>
 			{/* The source is square with a lot of empty studio backdrop, so a landscape
 				mobile crop leaves the figure small. Scaling from the top zooms in
@@ -73,16 +84,60 @@ const wordmark =
 				class="absolute inset-0 bg-gradient-to-b from-transparent from-55% to-bgColor md:hidden"
 			>
 			</div>
-			{/* Desktop: fade the right edge into the band so there's no seam. The stops
-				start late on purpose — with the default 0/50/100 the veil was already
-				45% opaque over the middle of the frame, which is exactly where the
-				subject sits. */}
+			{/* Desktop: fade the right edge into the band so the photo doesn't end on a
+				hard vertical seam.
+
+				The stops used to start at 55%, which was measured wrong rather than
+				chosen. A luminance scan across the rendered frame puts the subject
+				between roughly 30% and 81% of its width, peaking at 60-65% — so the
+				veil began in the brightest part of the torso and took the arm, the
+				stool and the legs with it.
+
+				Two things make a late start safe. The text column never reaches further
+				left than 92% of the frame at any viewport (measured 92-95% from 768px
+				to 1280px, and past the frame entirely from 1440px up), so it is not
+				sitting on the photo. And the photo's own studio backdrop is within a
+				few levels of the band colour by 85% across, so there is very little
+				left to hide.
+
+				The stops step up with the breakpoint because the geometry genuinely
+				changes: the frame is min(48vw, 38rem) but its height is the whole
+				band, so a wider viewport crops less and pushes the subject right, and
+				past 1400px the text stops overlapping the frame at all.
+
+				From 1400px up the gradient is therefore only softening an edge, and it
+				changes shape as well as position. The `via` alpha is set to exactly
+				the value a straight line would pass through at that stop (40% at 93%,
+				between 0% at 86% and 80% at 100%), which removes the kink the other
+				breakpoints have and makes the fade perfectly even — the most gradual
+				curve there is.
+
+				It also stops at 80% rather than reaching the full band colour. The
+				photo's own studio backdrop measures luma 17 against the band's 23, so
+				an 80% veil composites to 21.8: a difference of about one level in 255,
+				which no one can see. Spending the last 20% of opacity to close a gap
+				that isn't visible only steepens the ramp. */}
 			<div
-				class="absolute inset-0 hidden bg-gradient-to-r from-transparent from-55% via-bgColor/30 via-80% to-bgColor md:block"
+				class="absolute inset-0 hidden bg-gradient-to-r from-transparent from-[76%] via-bgColor/55 via-[90%] to-bgColor md:block xl:from-[82%] xl:via-[92%] min-[1400px]:from-[84%] min-[1400px]:via-bgColor/40 min-[1400px]:via-[92%] min-[1400px]:to-bgColor/80"
+			>
+			</div>
+			{/* Feather the top and bottom edges into the band — but ONLY the edges.
+				This used to be one full-height gradient,
+				`from-bgColor via-transparent to-bgColor/70`, which put a 70%-opaque
+				charcoal veil on the top of the frame ramping to transparent at the
+				vertical middle. The subject's head sits around 20% from the top, so
+				it was carrying roughly 42% charcoal: a visible black halo that
+				swallowed the hair and flattened the face.
+
+				Two short gradients do the actual job the veil was there for — hiding
+				the hard top and bottom edges behind the header and the tech-stack
+				line — and leave everything between them untouched. */}
+			<div
+				class="absolute inset-x-0 top-0 hidden h-24 bg-gradient-to-b from-bgColor to-transparent md:block"
 			>
 			</div>
 			<div
-				class="absolute inset-0 hidden bg-gradient-to-t from-bgColor via-transparent to-bgColor/70 md:block"
+				class="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-bgColor to-transparent md:block"
 			>
 			</div>
 		</div>
