@@ -1,0 +1,35 @@
+---
+/**
+ * Where Formspree sends the visitor after a successful submit, via the `_next`
+ * hidden field on the contact form. Without it they land on Formspree's own
+ * confirmation screen — the brand disappears at the exact moment someone has
+ * just decided to get in touch.
+ *
+ * Deliberately noindex: it is a dead end reachable only by posting the form, and
+ * a "thanks, message sent" page has nothing to offer a searcher.
+ */
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import PageHeading from "@/components/ui/PageHeading.astro";
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "Your message is on its way — thanks for getting in touch.",
+	noindex: true,
+	title: "Message sent",
+};
+---
+
+<PageLayout meta={meta}>
+	<PageHeading
+		eyebrow="Contact — message received"
+		title="Thanks, it's on its way"
+		standfirst="I usually reply within a day or two. If it's urgent and you'd rather not wait, LinkedIn is the fastest way to reach me."
+	/>
+
+	<section class="pb-20 md:pb-28">
+		<div data-reveal class="flex flex-col gap-4 sm:flex-row sm:items-center">
+			<ButtonLink href="/posts/">Read the blog</ButtonLink>
+			<ButtonLink href="/" variant="secondary">Back to the homepage</ButtonLink>
+		</div>
+	</section>
+</PageLayout>

@@ -34,7 +34,9 @@ export const menuLinks: { path: string; title: string }[] = [
     title: "Blog",
   },
   {
-    path: "/contact",
+    // Trailing slash matters: the site canonicalises to it, so "/contact"
+    // costs every visitor an extra 308 on a link in the main navigation.
+    path: "/contact/",
     title: "Contact",
   },
 ];

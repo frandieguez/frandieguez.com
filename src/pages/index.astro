@@ -10,7 +10,15 @@ import PageLayout from "@/layouts/Base.astro";
 const trajectoryId = "trajectory-heading";
 ---
 
-<PageLayout heroBand meta={{ title: "Home" }}>
+<PageLayout
+	heroBand
+	meta={{
+		// Was "Home", which spent the most valuable token position on the most
+		// important title tag of the site saying nothing. BaseHead appends
+		// " • Fran Dieguez", so this reads as a full positioning line in a SERP.
+		title: "Full Stack Developer & Web Tech Lead",
+	}}
+>
 	<HomeHero slot="hero" />
 
 	<WritingSection />
