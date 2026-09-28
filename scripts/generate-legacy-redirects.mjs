@@ -30,6 +30,7 @@ import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { basename, dirname, join } from "node:path";
 
 const POST_DIR = "src/content/post";
+const NOTE_DIR = "src/content/note";
 const OUT = "functions/legacy-redirects.ts";
 
 function walk(dir) {
@@ -70,8 +71,33 @@ const paths = new Map();
 const queryIds = new Map();
 let skippedDrafts = 0;
 let fromGuid = 0;
+let moved = 0;
 
-for (const file of walk(POST_DIR)) {
+const postSlugs = new Set(walk(POST_DIR).map(slugOf));
+
+/**
+ * A note that used to be a post keeps its old /posts/ URL working.
+ *
+ * 34 short link posts moved to the note collection, which changed their URL.
+ * Every one of them had been live at /posts/<slug>/ and indexed there, and the
+ * WordPress redirects below would otherwise point at a page that no longer
+ * exists.
+ *
+ * Emitted for every note, not just the migrated ones: a note that was never a
+ * post had no /posts/ URL to begin with, so the entry costs nothing. Guarded
+ * against a real post with the same slug, which would otherwise be shadowed.
+ */
+for (const file of walk(NOTE_DIR)) {
+	const slug = slugOf(file);
+	if (postSlugs.has(slug)) {
+		console.warn(`Both a post and a note claim the slug "${slug}"; leaving /posts/ alone.`);
+		continue;
+	}
+	paths.set(`/posts/${slug}`, `/notes/${slug}/`);
+	moved += 1;
+}
+
+for (const file of [...walk(POST_DIR), ...walk(NOTE_DIR)]) {
 	const source = readFileSync(file, "utf8");
 	const frontmatter = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source)?.[1];
 	if (!frontmatter) continue;
@@ -85,7 +111,8 @@ for (const file of walk(POST_DIR)) {
 	}
 
 	const permalink = raw.trim().replace(/^["']|["']$/g, "");
-	const target = `/posts/${slugOf(file)}/`;
+	const collection = file.startsWith(NOTE_DIR) ? "notes" : "posts";
+	const target = `/${collection}/${slugOf(file)}/`;
 
 	const byId = /^\/\?p=(\d+)$/.exec(permalink);
 	if (byId) {
@@ -155,6 +182,8 @@ ${sortedIds.map(([id, to]) => `\t[${JSON.stringify(id)}, ${JSON.stringify(to)}],
 writeFileSync(OUT, body);
 
 console.log(`Wrote ${OUT}`);
-console.log(`  ${sorted.length} dated permalink(s), of which ${fromGuid} recovered from guid`);
+console.log(`  ${sorted.length} path(s) total`);
+console.log(`    ${fromGuid} older URL(s) recovered from guid`);
+console.log(`    ${moved} /posts/ -> /notes/ redirect(s) for relocated short posts`);
 console.log(`  ${sortedIds.length} /?p=<id> permalink(s)`);
 console.log(`  ${skippedDrafts} draft(s) skipped — they have no published destination`);

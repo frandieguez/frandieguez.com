@@ -41,6 +41,15 @@ const MIN_POSTS_PER_INDEXED_TAG = 3;
 const NOINDEX_PATHS = new Set(["/404", "/404/", "/contact/thanks/"]);
 
 /**
+ * The whole note collection sends `noindex, follow`, so none of it belongs here.
+ *
+ * A prefix rather than a membership test, because this has to cover the index,
+ * its pagination and all 34 note pages — the short 2007-2008 link posts that
+ * used to live in /posts/ and made up 43% of the archive as thin pages.
+ */
+const NOTES_ARE_NOINDEXED = "/notes/";
+
+/**
  * Listing pages whose collection is currently empty.
  *
  * Derived rather than hardcoded so this corrects itself: the moment a note or a
@@ -182,6 +191,7 @@ export default defineConfig({
 				// indexing here — offering and refusing at the same time is just a
 				// contradictory signal.
 				if (NOINDEX_PATHS.has(pathname)) return false;
+				if (pathname.startsWith(NOTES_ARE_NOINDEXED)) return false;
 
 				// Index pages with nothing on them yet. /notes/ and /series/ both
 				// render fine when their collection is empty, but offering an empty

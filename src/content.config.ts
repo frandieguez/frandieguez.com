@@ -64,13 +64,40 @@ const post = defineCollection({
     }),
 });
 
+/**
+ * Notes: short pieces that are not articles.
+ *
+ * This collection now also holds the 2007-2008 link posts imported from
+ * WordPress — a bare Vimeo URL, one image, a joke — which were sitting in
+ * `post` alongside real writing. They carry `lang` and `tags`, so the schema
+ * has to as well; moving them into a title-and-date-only collection would have
+ * thrown away the language pass that gave every Spanish page a correct
+ * `<html lang>` and `og:locale`.
+ *
+ * Unlike posts, notes are deliberately kept out of the index. See
+ * NOTES_ARE_NOINDEXED in astro.config.ts.
+ */
 const note = defineCollection({
   loader: glob({ base: "./src/content/note", pattern: "**/*.{md,mdx}" }),
   schema: baseSchema.extend({
     description: z.string().optional(),
+    draft: z.boolean().default(false),
+    lang: z.enum(["en-GB", "es", "gl"]).default("en-GB"),
+    tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+    /**
+     * ISO 8601, and stricter than the post schema on purpose: a bare
+     * "25 Aug 2024" is rejected rather than guessed at.
+     *
+     * The `z.date()` branch is not a loophole. An unquoted `2008-12-20T00:03:36+00:00`
+     * is a native YAML timestamp, so the parser hands Zod a Date and the string
+     * branch never sees it — which is exactly how the 34 posts migrated from the
+     * WordPress export arrive. A Date is already unambiguous; what the string
+     * branch is guarding against is prose that only looks like a date.
+     */
     publishDate: z
       .string()
-      .datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
+      .datetime({ offset: true }) // e.g. "2024-01-01T00:00:00Z", "2024-01-01T00:00:00+02:00"
+      .or(z.date())
       .transform((val) => new Date(val)),
   }),
 });

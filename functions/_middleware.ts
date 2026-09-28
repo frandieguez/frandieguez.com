@@ -82,11 +82,16 @@ function legacyKey(pathname: string): string {
 }
 
 /**
- * The WordPress URL this request is asking for, if any.
+ * The old URL this request is asking for, if any.
  *
- * Guarded so the Map lookups never run for ordinary traffic: every path on the
- * old blog began with /blog/, and the pre-permalink form is a `p` query
- * parameter. Static assets fall straight through.
+ * Two families live in the same map. Every path on the WordPress blog began
+ * with /blog/, and its pre-permalink form is a `p` query parameter. The second
+ * family is /posts/<slug>/ for the short link posts that moved to the note
+ * collection — those URLs were live and indexed here, so they redirect rather
+ * than 404.
+ *
+ * Guarded by prefix so the Map lookups never run for ordinary traffic. Static
+ * assets fall straight through.
  */
 function legacyTarget(url: URL): string | undefined {
 	const id = url.searchParams.get("p");
@@ -95,7 +100,9 @@ function legacyTarget(url: URL): string | undefined {
 		if (target) return target;
 	}
 
-	if (!url.pathname.startsWith("/blog/")) return undefined;
+	if (!url.pathname.startsWith("/blog/") && !url.pathname.startsWith("/posts/")) {
+		return undefined;
+	}
 	return LEGACY_PATHS.get(legacyKey(url.pathname));
 }
 

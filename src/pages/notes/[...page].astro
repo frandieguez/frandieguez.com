@@ -22,6 +22,9 @@ const { page } = Astro.props;
 
 const meta = {
 	description: "Read my collection of notes",
+	// Kept out of the index along with the notes themselves — a listing of
+	// noindexed pages has nothing to offer a search result.
+	noindex: true,
 	title: "Notes",
 };
 

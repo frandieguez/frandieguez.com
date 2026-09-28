@@ -22,6 +22,12 @@ const meta = {
 	description:
 		note.data.description ||
 		`Read about my note posted on: ${note.data.publishDate.toLocaleDateString()}`,
+	lang: note.data.lang,
+	// Notes are deliberately out of the index. Most of this collection is the
+	// 2007-2008 link posts — a bare video URL, one image — which are real history
+	// worth keeping reachable and bad pages to offer a search engine. `follow`,
+	// not `none`: the links in them still deserve to be crawled.
+	noindex: true,
 	title: note.data.title,
 };
 ---
