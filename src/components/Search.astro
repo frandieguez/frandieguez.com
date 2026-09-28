@@ -1,7 +1,11 @@
 ---
 // Heavy inspiration taken from Astro Starlight -> https://github.com/withastro/starlight/blob/main/packages/starlight/components/Search.astro
 
-import "@pagefind/default-ui/css/ui.css";
+// The Pagefind UI stylesheet is deliberately NOT imported here. Importing it in
+// this frontmatter puts it in the global bundle that every page downloads — 19.9
+// of the site's 112KB of CSS, for a modal most visitors never open. It is loaded
+// alongside the Pagefind bundle instead, from mountPagefind() below, which
+// already waits for someone to reach for the search button.
 import { Icon } from "astro-icon/components";
 ---
 
@@ -55,6 +59,8 @@ import { Icon } from "astro-icon/components";
 </site-search>
 
 <script>
+	import pagefindCss from "@pagefind/default-ui/css/ui.css?url";
+
 	class SiteSearch extends HTMLElement {
 		private closeBtn: HTMLButtonElement;
 		private dialog: HTMLDialogElement;
@@ -102,6 +108,23 @@ import { Icon } from "astro-icon/components";
 		 */
 		mountPagefind = () => {
 			if (this.pagefind) return this.pagefind;
+
+			// The stylesheet is attached here, not imported by the page, for the same
+			// reason the bundle is deferred: it is 19.9KB of CSS that only matters
+			// once this modal is on screen.
+			//
+			// It has to be a <link> built from a `?url` import. A plain dynamic
+			// `import()` of a CSS file does not work — Vite hoists it back into the
+			// page's own stylesheet links, so the file splits in two and every page
+			// still downloads both. `?url` asks for the emitted, hashed path as a
+			// string and leaves the injecting to us.
+			if (!document.querySelector("link[data-pagefind-ui-css]")) {
+				const link = document.createElement("link");
+				link.rel = "stylesheet";
+				link.href = pagefindCss;
+				link.dataset.pagefindUiCss = "";
+				document.head.append(link);
+			}
 
 			this.pagefind = import("@pagefind/default-ui").then(({ PagefindUI }) => {
 				new PagefindUI({
