@@ -1,0 +1,52 @@
+# Rebuild the site once a day so scheduled posts actually appear.
+#
+# getAllPosts() in src/data/post.ts hides any post whose publishDate is still in
+# the future. That comparison happens at BUILD time, so on a static site nothing
+# changes until something rebuilds — a post dated 6 October stays invisible
+# forever if the last deploy was on the 2nd and nobody pushes.
+#
+# This is the thing that turns the page over. It does not build anything itself;
+# it pokes a Cloudflare Pages deploy hook, and Cloudflare runs the same build it
+# runs for a push to master.
+#
+# Setup, once:
+#   1. Cloudflare dashboard -> Workers & Pages -> this project -> Settings ->
+#      Builds & deployments -> Deploy hooks -> Add, branch `master`.
+#   2. Copy the URL into the repo's secrets as CLOUDFLARE_DEPLOY_HOOK
+#      (Settings -> Secrets and variables -> Actions).
+#
+# Two things to know about GitHub's scheduler, because neither is obvious:
+#   - `schedule` is best-effort on shared runners. Expect the job to fire late,
+#     sometimes by half an hour. Irrelevant here; it matters if you ever want a
+#     post live at an exact minute.
+#   - GitHub disables scheduled workflows in a repository with no commits for 60
+#     days, and emails you first. A blog that goes quiet for two months is
+#     exactly when this silently stops working, so re-enable it from the Actions
+#     tab if that mail ever arrives.
+name: Scheduled publish
+
+on:
+  schedule:
+    # 05:15 UTC daily — 07:15 in Galicia in summer, 06:15 in winter. Offset from
+    # the hour on purpose: the top of the hour is the busiest slot on GitHub's
+    # shared schedulers and the most delayed.
+    - cron: "15 5 * * *"
+  workflow_dispatch: # so you can also trigger a rebuild by hand
+
+jobs:
+  trigger-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger a Cloudflare Pages deploy
+        env:
+          HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "CLOUDFLARE_DEPLOY_HOOK is not set — nothing to call." >&2
+            echo "Scheduled posts will not publish until it is." >&2
+            exit 1
+          fi
+          # --fail so an HTTP error is a failed job rather than a green tick over
+          # a deploy that never happened, which is the whole failure mode here.
+          curl --fail --silent --show-error -X POST "$HOOK"
+          echo "Deploy requested."

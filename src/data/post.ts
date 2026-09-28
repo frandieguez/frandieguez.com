@@ -1,11 +1,37 @@
 import { collectionDateSort } from "@/utils/date";
 import { type CollectionEntry, getCollection } from "astro:content";
 
-/** all non-draft posts, unsorted. Drafts are hidden in every environment: the
- *  content collection still holds the Astro Citrus fixture posts, and they are
- *  all drafts, so showing drafts in dev would flood the local site with them. */
+/**
+ * All published posts, unsorted.
+ *
+ * Two gates, and they do different jobs.
+ *
+ * `draft` means "not finished". Hidden in every environment, including dev.
+ *
+ * `publishDate` in the future means "finished, but not yet". Before this, the
+ * only way to hold a finished post back was to leave `draft: true` and remember
+ * to clear it on the day — so a calendar of pre-dated posts was a list of manual
+ * chores, and forgetting one meant it simply never appeared. Now a post can be
+ * written, reviewed and merged with `draft: false` and a date in the future, and
+ * it starts existing on its own.
+ *
+ * Future-dated posts DO show in `astro dev`, which is the point: you need to
+ * read the thing you just scheduled.
+ *
+ * The date is compared at build time, so nothing changes on a site that is not
+ * rebuilt. A scheduled deploy is what actually turns the page over — see
+ * .github/workflows/scheduled-publish.yml.
+ *
+ * Dates without a time are midnight UTC, so a post dated 6 October becomes
+ * eligible at 02:00 in Galicia during summer time, 01:00 in winter.
+ */
 export async function getAllPosts(): Promise<CollectionEntry<"post">[]> {
-  return await getCollection("post", ({ data }) => !data.draft);
+  const now = Date.now();
+  return await getCollection(
+    "post",
+    ({ data }) =>
+      !data.draft && (import.meta.env.DEV || data.publishDate.getTime() <= now)
+  );
 }
 
 /** newest-first posts, optionally excluding some ids and capped at `limit`. */

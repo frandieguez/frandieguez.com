@@ -121,6 +121,13 @@ for (const entry of fs.readdirSync(POST_DIR, { recursive: true, encoding: "utf8"
 		/^updatedDate:\s*["']?([\d-]+)/m.exec(frontmatter)?.[1];
 	const published =
 		/^publishDate:\s*["']?([\d-]+)/m.exec(frontmatter)?.[1];
+
+	// A post dated in the future has no page yet — getAllPosts() in
+	// src/data/post.ts holds it back until its date. Counting its tags here would
+	// let an unpublished post push a tag over MIN_POSTS_PER_INDEXED_TAG and put a
+	// half-empty tag page in the sitemap before the post that justifies it exists.
+	if (published && new Date(published).getTime() > Date.now()) continue;
+
 	const committed = gitDates.get(`src/content/post/${entry}`);
 
 	const lastmod = declared

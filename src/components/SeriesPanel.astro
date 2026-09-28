@@ -1,11 +1,15 @@
 ---
 import { Icon } from "astro-icon/components";
 import { type CollectionEntry, getCollection } from "astro:content";
+import { getAllPosts } from "@/data/post";
 
 const { seriesId } = Astro.props;
 const currentPath = Astro.url.pathname;
 
-const posts = await getCollection("post");
+// Was `getCollection("post")` with no filter, so the panel happily listed drafts
+// alongside published entries — and would have listed scheduled posts before
+// their date, advertising a link that 404s.
+const posts = await getAllPosts();
 const series = await getCollection("series");
 
 // Находим серию по переданному `seriesId` указанному в посте
