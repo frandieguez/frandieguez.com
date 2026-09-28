@@ -146,10 +146,14 @@ export default {
 				// Only families that are actually loaded. "SFProRounded" and
 				// "CascadiaCode" used to be listed here with no @font-face backing
 				// them, so they silently resolved to the generic fallback.
-				sans: ["IBM Plex Sans", ...fontFamily.sans],
+				// The "Variable" suffix is the family name @fontsource-variable
+				// declares in its @font-face rules; without it these resolve to
+				// nothing. The non-variable names are kept as the next fallback so a
+				// visitor who happens to have the font installed still gets it.
+				sans: ["IBM Plex Sans Variable", "IBM Plex Sans", ...fontFamily.sans],
 				serif: [...fontFamily.serif],
 				mono: [...fontFamily.mono],
-				heading: ["Urbanist", "Space Grotesk", "Lexend", ...fontFamily.sans],
+				heading: ["Urbanist Variable", "Urbanist", "Space Grotesk", "Lexend", ...fontFamily.sans],
 			},
 
 			transitionProperty: {

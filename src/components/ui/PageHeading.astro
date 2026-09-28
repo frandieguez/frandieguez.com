@@ -31,7 +31,7 @@ const { eyebrow, title, standfirst, class: className } = Astro.props;
 
 	<h1 class="display-heading mt-5 md:mt-7">
 		<span
-			data-reveal
+			data-reveal="rise"
 			style="--reveal-delay:60ms"
 			class="block font-heading text-[2.5rem] font-bold leading-[0.95] tracking-[-0.02em] text-accent-base md:text-[4.5rem]"
 		>
@@ -42,7 +42,7 @@ const { eyebrow, title, standfirst, class: className } = Astro.props;
 	{
 		standfirst && (
 			<p
-				data-reveal
+				data-reveal="rise"
 				style="--reveal-delay:120ms"
 				class="mt-5 max-w-[58ch] text-lg leading-relaxed text-color-600"
 			>

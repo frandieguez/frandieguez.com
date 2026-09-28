@@ -872,6 +872,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource-variable/ibm-plex-sans@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@fontsource-variable/ibm-plex-sans@npm:5.3.0"
+  checksum: 10c0/3fe44e92a441c956654d08be2fc1310f5527e241961f1386f4dcbe1ecfee4d3a387e1ca8b108afa48184647f3aa9db0d6547c2dd63a0442c2d369401c9a2e306
+  languageName: node
+  linkType: hard
+
+"@fontsource-variable/urbanist@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@fontsource-variable/urbanist@npm:5.3.0"
+  checksum: 10c0/11d3d9f5f259d3a4cc7985312069ef1819bec5652a03ebf01e7a4a0288d24374cee3a66b030e472ec4164f6a55c80c01baad567c9b3e9ef494b060d80bd36353
+  languageName: node
+  linkType: hard
+
 "@iconify-json/hugeicons@npm:^1.2.16":
   version: 1.2.17
   resolution: "@iconify-json/hugeicons@npm:1.2.17"
@@ -8127,6 +8141,8 @@ __metadata:
     "@astrojs/sitemap": "npm:3.6.0"
     "@astrojs/tailwind": "npm:5.1.4"
     "@biomejs/biome": "npm:^2.2.5"
+    "@fontsource-variable/ibm-plex-sans": "npm:^5.3.0"
+    "@fontsource-variable/urbanist": "npm:^5.3.0"
     "@iconify-json/hugeicons": "npm:^1.2.16"
     "@iconify-json/mdi": "npm:^1.2.3"
     "@iconify-json/solar": "npm:^1.2.4"

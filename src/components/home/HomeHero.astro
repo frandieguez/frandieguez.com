@@ -93,9 +93,15 @@ const wordmark =
 	<div
 		class="relative flex flex-1 flex-col justify-center md:ml-auto md:w-[56%] md:max-w-[40rem]"
 	>
+		{/* `md:shrink-0` used to sit on this label so it wouldn't compress. At
+			exactly the md breakpoint the column is ~430px wide and the label needs
+			510px, so instead of compressing it overflowed the page by 84px and the
+			text was clipped mid-word ("…BUILDING FOR THE WEB SI"), invisible
+			because <html> carries overflow-x-hidden. Letting it wrap is the whole
+			fix; `text-balance` keeps the two lines even. */}
 		<div data-reveal class="flex items-center gap-5">
 			<p
-				class="font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.2em] text-color-550 md:shrink-0 md:text-xs"
+				class="text-balance font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.2em] text-color-550 md:text-xs"
 			>
 				01 — Galicia, Spain · Building for the web since 2006
 			</p>
@@ -104,12 +110,12 @@ const wordmark =
 
 		<h1 class="display-heading mt-5 md:mt-6">
 			<span
-				data-reveal
+				data-reveal="rise"
 				style="--reveal-delay:40ms"
 				class:list={[wordmark, "font-medium text-accent-base/40"]}>Fran</span
 			>
 			<span
-				data-reveal
+				data-reveal="rise"
 				style="--reveal-delay:80ms"
 				class:list={[wordmark, "font-bold text-accent-base"]}>Dieguez</span
 			>
@@ -124,7 +130,7 @@ const wordmark =
 		</p>
 
 		<p
-			data-reveal
+			data-reveal="rise"
 			style="--reveal-delay:180ms"
 			class="mt-5 max-w-[42ch] text-xl leading-[1.5]"
 		>

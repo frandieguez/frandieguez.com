@@ -1,6 +1,21 @@
-/* Fonts are loaded from a single <link> in BaseHead.astro. An @import here would
-   serialize: the browser can't discover the font request until this whole
-   stylesheet has downloaded. */
+/* Self-hosted variable fonts. These used to come from a render-blocking
+   <link> to fonts.googleapis.com in BaseHead.astro, which cost a full
+   round trip to a third-party origin before any @font-face could even be
+   discovered — measured at ~890ms of blocked render per page.
+
+   An @import only serializes when it points at a *remote* stylesheet. Vite
+   inlines these at build time into this same bundle, so the font URLs are
+   discovered in the stylesheet the page already had to download, and the
+   woff2 files are emitted as hashed assets under /_astro/ (cached a year,
+   immutable — see public/_headers).
+
+   Each file carries a unicode-range, so a visitor only downloads the subsets
+   their text actually needs. */
+@import "@fontsource-variable/ibm-plex-sans/wght.css";
+@import "@fontsource-variable/ibm-plex-sans/wght-italic.css";
+@import "@fontsource-variable/urbanist/wght.css";
+@import "@fontsource-variable/urbanist/wght-italic.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -82,7 +97,10 @@
 			font-style: var(--shiki-light-font-style) !important;
 			font-weight: var(--shiki-light-font-weight) !important;
 			text-decoration: var(--shiki-light-text-decoration) !important;
-			font-family: 'CascadiaCode', monospace;
+			/* No @font-face for CascadiaCode has ever existed in this repo, so the
+			   name resolved to nothing and the browser fell through to the generic
+			   stack anyway. Say what actually happens. */
+			font-family: theme('fontFamily.mono');
 		}
 	}
 
@@ -168,6 +186,14 @@
 		--theme-color-600: hsl(var(--theme-fg) / 0.745);
 		--theme-color-550: hsl(var(--theme-fg) / 0.675);
 		--theme-color-500: hsl(var(--theme-fg) / 0.605);
+		/* ── WCAG AA boundary for normal-size text ──────────────────────────────
+		   500 is the lowest step that clears 4.5:1 against both backgrounds
+		   (5.02:1 on the cream, 6.54:1 on the charcoal). 450 measures 3.61:1 in
+		   the light theme and fails.
+
+		   So 450 and below are decoration only: hairlines, dividers, aria-hidden
+		   separators, disabled affordances. Never body copy, labels or link text
+		   — use 550 for de-emphasised text instead. */
 		--theme-color-450: hsl(var(--theme-fg) / 0.5);
 		--theme-color-400: hsl(var(--theme-fg) / 0.395);
 		--theme-color-350: hsl(var(--theme-fg) / 0.29);
@@ -423,6 +449,24 @@ html.js-reveal [data-reveal="scale"] {
 
 html.js-reveal [data-reveal="side"] {
 	transform: translateX(-0.75rem);
+}
+
+/* Transform-only variant, for text that is the page's Largest Contentful Paint
+   candidate — a page heading, a standfirst, a post title.
+
+   Chrome's LCP algorithm ignores any element currently at `opacity: 0`. Fading
+   such an element in therefore postpones the page's LCP by the reveal delay plus
+   however far into the 520ms transition it takes to become non-transparent. On
+   the post template that was measured at 4311ms on mobile, 89% of it render
+   delay, with the lead paragraph as the LCP element.
+
+   This keeps the entrance movement and drops only the fade, so the element is a
+   paint candidate from the very first frame. Do not "solve" this by using a
+   near-zero opacity instead: that games the metric while leaving the text just
+   as invisible to a real visitor. */
+html.js-reveal [data-reveal="rise"] {
+	opacity: 1;
+	transform: translateY(0.5rem);
 }
 
 html.js-reveal [data-reveal].is-revealed {
