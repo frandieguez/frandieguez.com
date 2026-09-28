@@ -90,6 +90,21 @@ const socialImageURL = new URL(ogImage ? ogImage : "/og-image/site.png", Astro.u
 
 {/* RSS auto-discovery */}
 <link href="/rss.xml" rel="alternate" title={siteConfig.title} type="application/rss+xml" />
+{
+	/* Notes have their own feed, advertised only where you are already reading
+	   them. Sitewide it would offer every visitor a second subscription to a
+	   noindexed side collection, which is not what a reader asking for "the
+	   feed" of this site means. A title that says which feed it is, because a
+	   reader showing two identical names is no help. */
+	Astro.url.pathname.startsWith("/notes/") && (
+		<link
+			href="/notes/rss.xml"
+			rel="alternate"
+			title={`${siteConfig.title} — Notes`}
+			type="application/rss+xml"
+		/>
+	)
+}
 
 {/* Webmentions */}
 {

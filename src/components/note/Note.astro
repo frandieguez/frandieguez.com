@@ -13,7 +13,23 @@ const { Content } = await render(note);
 ---
 
 <article
-	class:list={[isPreview && "inline-grid w-full rounded-lg bg-color-75 px-4 md:px-8 py-2 md:py-4"]}
+	class:list={[
+		isPreview &&
+			// Cards in a row used to end at different heights — 216px next to 293px
+			// on the notes index — because this article was wrapped in a plain <div>
+			// in the listing. The <div> was the grid item and stretched; the card
+			// inside it kept hugging its own content.
+			//
+			// The wrapper is gone, so the article is the grid item and `stretch`
+			// applies to it directly. `grid` over `inline-grid` is then belt and
+			// braces: grid items are blockified, so `inline-grid` would compute to
+			// `grid` anyway. Saying it outright beats relying on that.
+			//
+			// `1fr` on the last row is the part that is actually load-bearing: it
+			// puts the extra height into the body, so the date stays pinned under
+			// the title on every card however little the note has to say.
+			"grid h-full grid-rows-[auto_auto_1fr] w-full rounded-lg bg-color-75 px-4 md:px-8 py-2 md:py-4",
+	]}
 	data-pagefind-body={isPreview ? false : true}
 >
 	<Tag class="flex items-end title md:sticky md:top-8 md:z-10" class:list={{ "text-base": isPreview }}>

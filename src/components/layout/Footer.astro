@@ -35,6 +35,18 @@ const elsewhere = [
 	{ label: "RSS", detail: "/rss.xml", href: "/rss.xml" },
 ];
 
+/**
+ * The footer nav carries one destination the header deliberately does not.
+ *
+ * /notes/ holds the short link posts — a bare video URL, one image — and is sent
+ * `noindex`, so it has no business competing for attention in the main menu. But
+ * it was reachable from nowhere at all: no link anywhere on the site pointed at
+ * it, so 34 pieces of the archive existed only for someone who typed the URL.
+ *
+ * Kept out of `menuLinks` on purpose, because Header.astro reads the same list.
+ */
+const footerNav = [...menuLinks, { path: "/notes/", title: "Notes" }];
+
 const eyebrow =
 	"font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-color-550";
 const link =
@@ -62,7 +74,7 @@ const link =
 			<p class={eyebrow} id="footer-nav-label">Navigate</p>
 			<ul role="list" class="mt-4 divide-y divide-color-250">
 				{
-					menuLinks.map((item) => (
+					footerNav.map((item) => (
 						<li>
 							<a class={link} data-astro-prefetch href={item.path}>
 								<span class="text-base">{item.title}</span>

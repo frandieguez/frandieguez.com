@@ -8,7 +8,7 @@ import type { GetStaticPaths, Page } from "astro";
 import { Icon } from "astro-icon/components";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const MAX_NOTES_PER_PAGE = 5;
+	const MAX_NOTES_PER_PAGE = 6;
 	const allNotes = await getCollection("note");
 	return paginate(allNotes.sort(collectionDateSort), { pageSize: MAX_NOTES_PER_PAGE });
 }) satisfies GetStaticPaths;
@@ -53,14 +53,11 @@ const paginationProps = {
 				<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="mdi:rss" />
 			</a>
 		</h1>
+		{/* No wrapper element around <Note>: the article has to BE the grid item,
+			otherwise the wrapper stretches to the row height and the card inside
+			it keeps hugging its own content. */}
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-			{
-				page.data.map((note) => (
-					<div>
-						<Note note={note} as="h4" isPreview />
-					</div>
-				))
-			}
+			{page.data.map((note) => <Note note={note} as="h4" isPreview />)}
 		</div>
 
 		<Pagination {...paginationProps} />
