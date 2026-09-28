@@ -6,7 +6,11 @@ import { Icon } from "astro-icon/components";
 ---
 
 <site-search class="ms-auto" id="search">
+	{/* The icon is aria-hidden, so without this label the button reaches the
+		accessibility tree with no name at all — it announced as just "button".
+		Matches the pattern ThemeToggle.astro already uses. */}
 	<button
+		aria-label="Search"
 		class="flex h-8 w-8 items-center justify-center rounded-lg drop-shadow-[0px_1.5px_1.5px_rgba(0,0,0,0.175)] hover:text-accent-two"
 		data-open-modal
 		disabled
@@ -19,10 +23,11 @@ import { Icon } from "astro-icon/components";
 		class="h-full max-h-full w-full max-w-full md:h-fit bg-bgColor backdrop:backdrop-blur-xl md:my-8 md:min-h-[6.5rem] 'md:w-5/6' md:max-w-[44rem] md:rounded-lg overflow-y-hidden"
 	>
 		<div class="dialog-frame flex flex-col h-[100%] px-4 pt-4 pb-4 md:px-8 md:py-8 gap-4">
-			<!-- Заголовок и кнопка закрытия -->
+			<!-- Title and close button -->
 			<div class="md:hidden sticky top-0 z-20 flex items-center justify-between bg-bgColor">
 				<h4 class="title flex items-end font-semibold">Search</h4>
 			 	<button
+					aria-label="Close search"
 					class="flex size-8 cursor-pointer items-center justify-center rounded-lg bg-color-100 text-textColor hover:text-accent-base hover:bg-accent-base/5"
 					data-close-modal
 				>
@@ -55,6 +60,8 @@ import { Icon } from "astro-icon/components";
 		private dialog: HTMLDialogElement;
 		private dialogFrame: HTMLDivElement;
 		private openBtn: HTMLButtonElement;
+		/** Set once the Pagefind bundle has been requested; guards re-entry. */
+		private pagefind?: Promise<void>;
 
 		closeModal = () => {
 			if (this.dialog.open) {
@@ -84,9 +91,38 @@ import { Icon } from "astro-icon/components";
 			}
 		};
 
+		/**
+		 * Mounts the Pagefind UI, at most once.
+		 *
+		 * This used to run from `requestIdleCallback` in `connectedCallback`, which
+		 * meant the Pagefind bundle — 20.6KB gzipped, the single largest script on
+		 * the site — downloaded and parsed on every page view, including the large
+		 * majority that never open search. It is now deferred until someone
+		 * actually reaches for it.
+		 */
+		mountPagefind = () => {
+			if (this.pagefind) return this.pagefind;
+
+			this.pagefind = import("@pagefind/default-ui").then(({ PagefindUI }) => {
+				new PagefindUI({
+					baseUrl: import.meta.env.BASE_URL,
+					bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/",
+					element: "#citrus__search",
+					showImages: false,
+					showSubResults: true,
+				});
+			});
+
+			return this.pagefind;
+		};
+
 		openModal = (event?: MouseEvent) => {
+			// Open first, load second: the dialog appears immediately and the search
+			// field fills in a moment later, rather than the click feeling dead while
+			// a network request resolves.
 			this.dialog.showModal();
 			document.body.classList.add("overflow-hidden");
+			if (!import.meta.env.DEV) this.mountPagefind();
 			this.querySelector("input")?.focus();
 			event?.stopPropagation();
 			window.addEventListener("click", this.onWindowClick);
@@ -102,25 +138,20 @@ import { Icon } from "astro-icon/components";
 			this.openBtn.addEventListener("click", this.openModal);
 			this.openBtn.disabled = false;
 			this.closeBtn.addEventListener("click", this.closeModal);
+
+			// Warm the bundle on intent rather than on load, so by the time the click
+			// lands it is usually already in the HTTP cache. Costs nothing for the
+			// visitor who never goes near the button.
+			if (!import.meta.env.DEV) {
+				const warm = () => this.mountPagefind();
+				this.openBtn.addEventListener("pointerenter", warm, { once: true });
+				this.openBtn.addEventListener("focus", warm, { once: true });
+			}
 		}
 
 		connectedCallback() {
 			// Listen for keyboard shortcut
 			window.addEventListener("keydown", this.onWindowKeydown);
-
-			// Only add pagefind in production
-			if (import.meta.env.DEV) return;
-			const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
-			onIdle(async () => {
-				const { PagefindUI } = await import("@pagefind/default-ui");
-				new PagefindUI({
-					baseUrl: import.meta.env.BASE_URL,
-					bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/",
-					element: "#citrus__search",
-					showImages: false,
-					showSubResults: true,
-				});
-			});
 		}
 
 		disconnectedCallback() {

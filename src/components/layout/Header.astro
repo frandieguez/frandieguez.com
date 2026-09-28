@@ -64,56 +64,9 @@ const { compact = false } = Astro.props;
 					))
 				}
 
-				<!-- Dropdown menu button for large screens. Needs improvement. -->
-
-				<!-- <button
-					aria-expanded="false"
-					aria-haspopup="menu"
-					aria-label="Open main menu"
-					class="hidden md:flex group text-sm relative h-8 w-16 font-medium items-center justify-center px-4 rounded-lg bg-accent-base/5 text-accent-base hover:bg-accent-base/10"
-					id="toggle-navigation-menu"
-					type="button"
-				>
-					Menu
-				</button> -->
 
 			</nav>
 
-			<!-- Dropdown menu for large screens. Needs improvement. -->
-			<!--
-			<div id="menu" class="absolute left-0 right-0 w-fit ml-auto top-16 z-10 hidden" aria-hidden="true">
-				<div
-					id="menu-body"
-					class="fixed bg-bgColor rounded-lg -ml-56 w-56"
-				>
-					<nav
-						aria-label="Main menu"
-						class="px-4 py-4 rounded-lg border border-special-lighter bg-special-light shadow-[0px_10px_25px_rgba(0,0,0,0.15)] text-sm flex flex-col gap-y-2 font-medium"
-						id="main-navigation-menu"
-					>
-						{
-							menuLinks.map((link) => (
-								<a
-									aria-current={Astro.url.pathname === link.path ? "page" : false}
-									class="text-accent-two underline-offset-2 hover:underline rounded-lg h-8 gap-x-1 px-2 flex justify-center items-center"
-									data-astro-prefetch
-									href={link.path}
-								>
-									{link.title}
-								</a>
-							))
-						}
-						<a
-							class="flex h-8 items-center justify-center rounded-lg bg-accent-base/5 hover:bg-accent-base/10 px-4 text-accent-base"
-							data-astro-prefetch
-							href="/posts/citrus-docs/intro/"
-						>
-							Docs
-						</a>
-					</nav>
-				</div>
-			</div>
-			-->
 
 			<div class="ml-auto w-fit">
 				<div id="buttons-panel" class="top-4 md:top-8 -ml-[4.5rem] flex space-x-2">
@@ -201,32 +154,40 @@ const { compact = false } = Astro.props;
 			const isOpen = toggleNavMenuMobileButton.getAttribute("aria-expanded") === "true";
 
 			if (isOpen) {
-				// Закрываем меню
+				// Close the menu.
 				drawerBody.classList.add("opacity-0", "-translate-y-full");
 				drawerBody.classList.remove("translate-y-0");
 
-				// Убираем после анимации
+				// `aria-hidden` goes back up only after the exit transition, so the
+				// drawer stays in the accessibility tree for as long as it is still
+				// visible on screen.
 				setTimeout(() => {
 					drawer.classList.add("hidden");
+					drawer.setAttribute("aria-hidden", "true");
 				}, 300);
 
-				// Меняем иконки
+				// Swap the icons.
 				openMenuIcon.classList.add("scale-100", "opacity-100");
 				closeMenuIcon.classList.add("scale-0", "opacity-0");
 				closeMenuIcon.classList.remove("scale-100", "opacity-100");
 			} else {
-				// Показываем меню
+				// Open the menu. The drawer carries a static `aria-hidden="true"` in
+				// the markup so it is correctly absent before any JS runs; clearing it
+				// here is what actually exposes the links. Without this the drawer
+				// opened visually but stayed invisible to screen readers and to any
+				// agent driving the page through the accessibility tree.
 				drawer.classList.remove("hidden");
+				drawer.setAttribute("aria-hidden", "false");
 				drawerBody.classList.add("translate-y-0");
 				drawerBody.classList.remove("opacity-0", "-translate-y-full");
 
-				// Меняем иконки
+				// Swap the icons.
 				openMenuIcon.classList.add("scale-0", "opacity-0");
 				closeMenuIcon.classList.add("scale-100", "opacity-100");
 				openMenuIcon.classList.remove("scale-100", "opacity-100");
 			}
 
-			// Обновляем состояние кнопки
+			// Reflect the new state on the toggle.
 			toggleNavMenuMobileButton.setAttribute("aria-expanded", (!isOpen).toString());
 		});
 	});
