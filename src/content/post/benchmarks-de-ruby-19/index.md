@@ -15,8 +15,8 @@ categories:
   - Uncategorized
 tags:
   - benchmark
-  - pruebas
-  - rendimiento
+  - testing
+  - performance
   - Ruby
   - ruby 1.9
 ---

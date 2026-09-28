@@ -14,7 +14,7 @@ dsq_thread_id:
 categories:
   - Uncategorized
 tags:
-  - bases de datos
+  - databases
   - migracion
   - mysql
   - sqlite3

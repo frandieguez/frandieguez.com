@@ -15,7 +15,7 @@ categories:
   - Programming
 tags:
   - PHP
-  - seguridad
+  - security
   - sql injection
 ---
 SQL Injection, la temida dirían algunos, y la verdad es que si no tienes

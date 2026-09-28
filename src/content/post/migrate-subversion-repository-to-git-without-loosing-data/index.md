@@ -15,7 +15,7 @@ categories:
 tags:
   - git
   - migrate
-  - subverstion
+  - subversion
 ---
 
 ![Git pony](./git-pony-svn-ogre.png)

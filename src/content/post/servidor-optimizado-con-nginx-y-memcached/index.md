@@ -18,7 +18,7 @@ tags:
   - debian
   - Linux
   - nginx
-  - servidor
+  - server
   - web server
 ---
 <div class="aligncenter">

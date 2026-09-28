@@ -15,11 +15,11 @@ categories:
   - System Administration
 tags:
   - bases
-  - bases de datos
+  - databases
   - desarrollo
   - mysql
-  - rendimiento
-  - servidor
+  - performance
+  - server
 ---
 En el desarrollo de aplicaciones contra bases de datos, la mayoría de
 las veces, necesitas unos valores de referencia para saber si las

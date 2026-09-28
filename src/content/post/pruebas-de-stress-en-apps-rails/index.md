@@ -17,8 +17,8 @@ tags:
   - ab
   - autobench
   - httperf
-  - pruebas
-  - rendimiento
+  - testing
+  - performance
 ---
 Muchas veces cuando estas en las fases de pruebas, y cuando tu aplicación se supone que va a soportar grandes flujos de peticiones, querrías testear la misma antes de ponerla en producción.
 

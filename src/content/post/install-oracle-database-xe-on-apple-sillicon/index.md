@@ -11,13 +11,13 @@ categories:
   - Software Development
   - Databases
 tags:
-  - Oracle XEd
+  - oracle-xe
   - Apple Sillicon
   - Docker
   - Colima
   - Software Engineering
   - Database Management
-  - Developer Tools
+  - developer-tools
 ---
 
 For the past year, I've had the privilege of working with MacBook Pro computers, and incredible machine like M3 PRO. I have to say they're  outstanding: fast, efficient, incredible battery life, ...

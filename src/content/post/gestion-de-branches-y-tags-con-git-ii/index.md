@@ -14,7 +14,7 @@ dsq_thread_id:
 categories:
   - System administration
 tags:
-  - Control de versiones
+  - git
   - git
 ---
 

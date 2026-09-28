@@ -17,6 +17,6 @@ tags:
   - desatendida
   - magia
   - Ruby
-  - servidor
+  - server
 ---
 Soy Vago, lo reconozco, y para ello hago lo maximo por trabajar lo minimo en una tarea repetitiva y ciertas veces cansina. En esta ocasion voy a enseñar el modo de convertir un server con Debian pelado en una maquina con Apache, MySQL, ssh, iptables,

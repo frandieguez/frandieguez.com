@@ -14,7 +14,7 @@ dsq_thread_id:
 categories:
   - Uncategorized
 tags:
-  - Control de versiones
+  - git
   - git
 ---
 Para configurar un poco el comportamiento de git y sus diferentes acciones podeis editar el archivo general ~/.gitconfig que teneis en vuestro directorio home:

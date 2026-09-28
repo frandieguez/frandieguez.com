@@ -15,7 +15,7 @@ categories:
   - Sofware Development
 tags:
   - library
-  - open source
+  - open-source
   - PHP
   - pingback
 ---

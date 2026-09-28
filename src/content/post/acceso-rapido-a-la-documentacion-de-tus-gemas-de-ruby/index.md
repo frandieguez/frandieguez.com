@@ -17,7 +17,7 @@ tags:
   - completado
   - funciones
   - gem
-  - Programación
+  - programming
   - Ruby
   - terminal
   - zsh

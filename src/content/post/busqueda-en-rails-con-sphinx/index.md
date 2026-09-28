@@ -15,7 +15,7 @@ categories:
   - Web
 tags:
   - busqueda
-  - Programación
+  - programming
   - rails
   - Ruby
   - ruby on rails
