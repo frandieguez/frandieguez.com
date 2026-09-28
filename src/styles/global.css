@@ -443,6 +443,14 @@ html.js-reveal [data-reveal] {
 	transform: translateY(0.875rem);
 }
 
+/* The "scale" and "side" variants only override `transform`, so the base rule's
+   `opacity: 0` still applies to them — they genuinely fade in, which is what you
+   want for content the visitor scrolls down to.
+
+   That makes them unusable on an element that is the page's LCP candidate. Use
+   "rise" there instead. Getting this wrong is invisible in a build and only
+   shows up as a worse LCP: /about/'s portrait was "scale", was the LCP element,
+   and was the last page on the site not to reach the 2.5s Good threshold. */
 html.js-reveal [data-reveal="scale"] {
 	transform: scale(0.96);
 }

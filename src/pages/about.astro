@@ -102,7 +102,11 @@ const schema = [
 			</div>
 
 			{/* First on a phone: stacked, the portrait would otherwise land after all
-				the copy. Same order as the homepage hero on mobile. */}
+				the copy. Same order as the homepage hero on mobile.
+
+				The reveal is "rise", not "scale": this portrait is the page's LCP
+				element, and the scale variant still starts at opacity 0, which
+				disqualifies it as an LCP candidate until JS reveals it. See global.css. */}
 			<div class="order-first md:order-none md:col-span-5">
 				<Avatar
 					src={profilePic}
@@ -111,7 +115,7 @@ const schema = [
 					shape="frame"
 					widths={[320, 480, 760, 960]}
 					sizes="(min-width: 768px) 38vw, 100vw"
-					data-reveal="scale"
+					data-reveal="rise"
 					style="--reveal-delay:120ms"
 				/>
 			</div>
