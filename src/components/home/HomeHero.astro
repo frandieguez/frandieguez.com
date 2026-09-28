@@ -69,6 +69,11 @@ const wordmark =
 			{/* The source is square with a lot of empty studio backdrop, so a landscape
 				mobile crop leaves the figure small. Scaling from the top zooms in
 				without cutting the head. */}
+			{/* fetchpriority="high" because this is the page's LCP element. `eager`
+				only opts it out of lazy loading; it still queues at the browser's
+				default image priority, behind the stylesheet and scripts. PageSpeed
+				flags exactly this as "LCP request discovery": the image is found in
+				the initial HTML, it just is not asked for urgently. */}
 			<Image
 				src={portrait}
 				alt=""
@@ -76,6 +81,7 @@ const wordmark =
 				sizes="(min-width: 768px) 48vw, 100vw"
 				loading="eager"
 				decoding="sync"
+				fetchpriority="high"
 				class="h-full w-full origin-top scale-[1.35] object-cover object-[50%_10%] md:scale-100 md:object-[30%_20%]"
 			/>
 			{/* Mobile: only the bottom edge dissolves into the band, so the portrait
