@@ -30,6 +30,7 @@ const roleLines = entry.roles.map((role) => {
 
 // Index-cycled tilt, straightened on hover.
 const tilts = ["-rotate-[1.5deg]", "rotate-[1deg]", "rotate-[0.5deg]"];
+
 ---
 
 <article class="relative pb-16 pl-8 md:pb-24 md:pl-0">
@@ -102,27 +103,63 @@ const tilts = ["-rotate-[1.5deg]", "rotate-[1deg]", "rotate-[0.5deg]"];
 
 		{
 			entry.media && entry.media.length > 0 && (
+				/* `content-start` keeps the rows at their natural height. This column
+					sits beside the copy in a 5-column grid, so when an entry has a lot of
+					text the media column is handed more height than its rows need — and
+					auto rows absorb that extra space by default, stretching every tile.
+					Pinning them to the top leaves the slack at the bottom of the column
+					instead, where nobody sees it. */
 				<div
 					data-reveal
 					style={`--reveal-delay:${90 + index * 30}ms`}
-					class="grid grid-cols-2 gap-3 md:col-span-3 sm:grid-cols-3"
+					class="grid grid-cols-2 content-start gap-3 md:col-span-3 sm:grid-cols-3"
 				>
 					{entry.media.map((media, i) => (
 						<figure
 							class:list={[
+								// The aspect ratio belongs on the figure, not on the button
+								// inside it. A grid item defaults to align-self: stretch, so
+								// without a ratio here the figure grows to the row height while
+								// the image keeps its own — leaving the border and background
+								// standing as a tall empty box under the picture.
 								"aspect-[4/3] overflow-hidden rounded-lg border border-color-200 bg-color-50 transition-transform duration-200 hover:rotate-0",
 								tilts[i % tilts.length],
 							]}
 						>
-							<Image
-								src={media.src}
-								alt={media.alt}
-								widths={[240, 400, 640]}
-								sizes="(min-width: 768px) 14rem, 45vw"
-								loading="lazy"
-								decoding="async"
-								class="h-full w-full object-cover"
-							/>
+							{/* A real <button>, not a click handler on the figure: it has to
+								be reachable by keyboard and announce itself as an action.
+								The alt text doubles as the accessible name, so a screen
+								reader hears what it would be opening. */}
+							<button
+								aria-label={`View larger: ${media.alt}`}
+								class="group/shot block h-full w-full cursor-zoom-in"
+								data-lb
+								data-lb-alt={media.alt}
+								data-lb-group={entry.id}
+								data-lb-ratio={media.src.width / media.src.height}
+								type="button"
+							>
+								{/* The last width is the one the lightbox uses. It is capped at
+									the file's own width because these screenshots range from
+									800px wide to 3010px, so a fixed large value would upscale
+									half of them. `sizes` still describes the thumbnail, so the
+									browser only fetches a big rendition on a high-DPI screen —
+									the lightbox reads the URL straight out of the srcset. */}
+								<Image
+									src={media.src}
+									alt={media.alt}
+									widths={[
+										240,
+										400,
+										640,
+										Math.min(1600, media.src.width),
+									]}
+									sizes="(min-width: 768px) 14rem, 45vw"
+									loading="lazy"
+									decoding="async"
+									class="h-full w-full object-cover transition-transform duration-300 group-hover/shot:scale-[1.03]"
+								/>
+							</button>
 						</figure>
 					))}
 				</div>

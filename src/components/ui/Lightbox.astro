@@ -1,0 +1,204 @@
+---
+/**
+ * Click-to-enlarge for the career screenshots on /about.
+ *
+ * One <dialog> per page, driven by whatever `[data-lb-src]` buttons exist in the
+ * document. Native <dialog> rather than a hand-rolled overlay because it brings
+ * Escape-to-close, the top layer, inertness of the page behind it and focus
+ * restoration to the trigger for free — the same reasoning Search.astro already
+ * follows. No hydrated island, no dependency.
+ *
+ * The enlarged sources are generated at build time by the component that renders
+ * the buttons, capped at each file's own width, so nothing is upscaled.
+ */
+---
+
+<dialog
+	aria-label="Enlarged screenshot"
+	class="max-h-none max-w-none bg-transparent p-0 backdrop:bg-bgColor/90 backdrop:backdrop-blur-sm"
+	data-lightbox
+>
+	<div class="flex h-screen w-screen flex-col p-4 md:p-8">
+		<div class="flex shrink-0 items-center justify-between gap-4">
+			{/* Position indicator, e.g. "2 / 4". Hidden when there is only one image. */}
+			<p
+				class="font-mono text-xs uppercase tabular-nums tracking-[0.18em] text-color-550"
+				data-lb-count
+			>
+			</p>
+
+			<button
+				aria-label="Close"
+				class="flex size-10 items-center justify-center rounded-lg border border-color-250 bg-special-lighter text-accent-base transition-colors hover:border-accent-two hover:text-accent-two"
+				data-lb-close
+				type="button"
+			>
+				<svg
+					aria-hidden="true"
+					class="size-5"
+					fill="none"
+					focusable="false"
+					stroke="currentColor"
+					stroke-width="2"
+					viewBox="0 0 24 24"
+				>
+					<path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"></path>
+				</svg>
+			</button>
+		</div>
+
+		<figure class="flex min-h-0 flex-1 flex-col items-center justify-center gap-4 py-4">
+			{/* Dimensions are set from the trigger so the box is reserved before the
+				file arrives — otherwise every open would shift the caption. */}
+			<img
+				alt=""
+				class="max-h-full min-h-0 w-auto max-w-full rounded-lg object-contain"
+				data-lb-image
+			/>
+			<figcaption
+				class="max-w-[60ch] shrink-0 text-center text-sm leading-relaxed text-color-600"
+				data-lb-caption
+			>
+			</figcaption>
+		</figure>
+
+		{/* Only rendered as interactive when a page has more than one image; the
+			script hides the whole row otherwise. */}
+		<div class="flex shrink-0 items-center justify-center gap-3" data-lb-nav>
+			<button
+				aria-label="Previous image"
+				class="flex h-10 items-center gap-2 rounded-lg border border-color-250 bg-special-lighter px-4 text-sm font-medium text-accent-base transition-colors hover:border-accent-two hover:text-accent-two"
+				data-lb-prev
+				type="button"
+			>
+				<span aria-hidden="true">←</span> Previous
+			</button>
+			<button
+				aria-label="Next image"
+				class="flex h-10 items-center gap-2 rounded-lg border border-color-250 bg-special-lighter px-4 text-sm font-medium text-accent-base transition-colors hover:border-accent-two hover:text-accent-two"
+				data-lb-next
+				type="button"
+			>
+				Next <span aria-hidden="true">→</span>
+			</button>
+		</div>
+	</div>
+</dialog>
+
+<script>
+	function init() {
+		const found = document.querySelector<HTMLDialogElement>("dialog[data-lightbox]");
+		if (!found) return;
+		// Re-bound after the guard: TypeScript does not carry the null-narrowing
+		// into the hoisted `function` declarations below, only into arrow functions.
+		const dialog: HTMLDialogElement = found;
+
+		const triggers = Array.from(document.querySelectorAll<HTMLButtonElement>("button[data-lb]"));
+		if (triggers.length === 0) {
+			dialog.remove();
+			return;
+		}
+
+		const image = dialog.querySelector<HTMLImageElement>("[data-lb-image]")!;
+		const caption = dialog.querySelector<HTMLElement>("[data-lb-caption]")!;
+		const counter = dialog.querySelector<HTMLElement>("[data-lb-count]")!;
+		const nav = dialog.querySelector<HTMLElement>("[data-lb-nav]")!;
+		const closeBtn = dialog.querySelector<HTMLButtonElement>("[data-lb-close]")!;
+		const prevBtn = dialog.querySelector<HTMLButtonElement>("[data-lb-prev]")!;
+		const nextBtn = dialog.querySelector<HTMLButtonElement>("[data-lb-next]")!;
+
+		/**
+		 * Paging stays inside one career entry. Treating the whole page as a single
+		 * strip would walk from a Situm screenshot into a GNOME one, which reads as
+		 * a bug rather than a gallery.
+		 */
+		const groups = new Map<string, HTMLButtonElement[]>();
+		for (const t of triggers) {
+			const key = t.dataset.lbGroup ?? "";
+			if (!groups.has(key)) groups.set(key, []);
+			groups.get(key)!.push(t);
+		}
+
+		let strip: HTMLButtonElement[] = [];
+		let index = 0;
+
+		/**
+		 * The widest rendition Astro emitted for this thumbnail.
+		 *
+		 * Reading the srcset rather than precomputing with getImage() is what keeps
+		 * dev and production identical: getImage() hands back a build-style
+		 * /_astro/ path that the dev server does not serve, so the lightbox worked
+		 * in production and 404'd locally.
+		 */
+		function largestSource(button: HTMLButtonElement): string {
+			const img = button.querySelector("img");
+			if (!img) return "";
+			const set = img.getAttribute("srcset") ?? "";
+			const best = set
+				.split(",")
+				.map((part) => part.trim().split(/\s+/))
+				.map(([url, descriptor]) => ({ url: url ?? "", w: Number.parseInt(descriptor ?? "0", 10) || 0 }))
+				.sort((a, b) => b.w - a.w)[0];
+			return best?.url || img.currentSrc || img.src;
+		}
+
+		function show(next: number) {
+			index = (next + strip.length) % strip.length;
+			const button = strip[index]!;
+
+			// Reserve the box before the file arrives, or the caption jumps.
+			const ratio = Number(button.dataset.lbRatio);
+			if (ratio > 0) image.style.aspectRatio = String(ratio);
+
+			image.src = largestSource(button);
+			image.alt = button.dataset.lbAlt ?? "";
+			caption.textContent = button.dataset.lbAlt ?? "";
+			counter.textContent = strip.length > 1 ? `${index + 1} / ${strip.length}` : "";
+			nav.hidden = strip.length < 2;
+		}
+
+		function open(button: HTMLButtonElement) {
+			strip = groups.get(button.dataset.lbGroup ?? "") ?? [button];
+			show(strip.indexOf(button));
+			dialog.showModal();
+			// Stops the page scrolling under the dialog on iOS.
+			document.body.classList.add("overflow-hidden");
+		}
+
+		for (const button of triggers) {
+			button.addEventListener("click", () => open(button));
+		}
+
+		closeBtn.addEventListener("click", () => dialog.close());
+		prevBtn.addEventListener("click", () => show(index - 1));
+		nextBtn.addEventListener("click", () => show(index + 1));
+
+		// Escape is native; the arrows are not.
+		dialog.addEventListener("keydown", (event) => {
+			if (strip.length < 2) return;
+			if (event.key === "ArrowLeft") {
+				event.preventDefault();
+				show(index - 1);
+			} else if (event.key === "ArrowRight") {
+				event.preventDefault();
+				show(index + 1);
+			}
+		});
+
+		// The dialog fills the viewport, so "outside" means outside the figure.
+		dialog.addEventListener("click", (event) => {
+			const target = event.target as HTMLElement;
+			if (target.closest("button")) return;
+			if (!target.closest("figure")) dialog.close();
+		});
+
+		// Fires for the close button, Escape and the backdrop alike, so the scroll
+		// lock is released exactly once. Native dialog restores focus to the trigger.
+		dialog.addEventListener("close", () => {
+			document.body.classList.remove("overflow-hidden");
+			image.removeAttribute("src");
+		});
+	}
+
+	document.addEventListener("astro:page-load", init);
+</script>

@@ -11,6 +11,8 @@ import gnome1 from "@/assets/projects/gnome/1.png";
 import gnome2 from "@/assets/projects/gnome/2.png";
 import opennemas1 from "@/assets/projects/opennemas/1.jpeg";
 import opennemas2 from "@/assets/projects/opennemas/2.jpeg";
+import opennemas3 from "@/assets/projects/opennemas/3.png";
+import opennemas4 from "@/assets/projects/opennemas/4.png";
 import oslusc1 from "@/assets/projects/oslusc/1.jpeg";
 import oslusc2 from "@/assets/projects/oslusc/2.jpeg";
 import oslusc3 from "@/assets/projects/oslusc/3.jpeg";
@@ -120,8 +122,26 @@ export const career: CareerEntry[] = [
     link: { href: "http://www.opennemas.com/", label: "Visit the site" },
     eyebrow: "High-performance news publishing",
     media: [
-      { src: opennemas1, alt: "An Opennemas-powered online newspaper" },
-      { src: opennemas2, alt: "The Opennemas content management interface" },
+      // These alt strings are also the lightbox captions on /about, so they are
+      // read by people, not just by screen readers. The first two used to say
+      // "an Opennemas-powered online newspaper" and "the content management
+      // interface"; neither matched its picture.
+      {
+        src: opennemas1,
+        alt: "The Opennemas product site: create your online newspaper for free, three clicks and your news go live",
+      },
+      {
+        src: opennemas2,
+        alt: "Opennemas customers: newspapers running on the platform across Galicia, Spain and Argentina",
+      },
+      {
+        src: opennemas3,
+        alt: "The Opennemas front-page manager, composing a newspaper homepage from placement slots with the section picker open",
+      },
+      {
+        src: opennemas4,
+        alt: "The Opennemas article editor, with standfirst, byline, scheduling, SEO and structured-data panels down the side",
+      },
     ],
   },
   {

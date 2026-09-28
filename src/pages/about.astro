@@ -3,6 +3,7 @@ import CareerDetail from "@/components/career/CareerDetail.astro";
 import HandRule from "@/components/ui/HandRule.astro";
 import Avatar from "@/components/ui/Avatar.astro";
 import { career } from "@/data/career";
+import Lightbox from "@/components/ui/Lightbox.astro";
 import PageLayout from "@/layouts/Base.astro";
 import { breadcrumbSchema, profilePageSchema } from "@/data/schema";
 import profilePic from "@/assets/images/profile-pic.jpg";
@@ -303,4 +304,6 @@ const schema = [
 			>.
 		</p>
 	</section>
+	{/* One dialog for every career screenshot on the page. */}
+	<Lightbox />
 </PageLayout>
