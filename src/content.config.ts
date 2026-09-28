@@ -21,6 +21,13 @@ const post = defineCollection({
         })
         .optional(),
       draft: z.boolean().default(false),
+      /**
+       * BCP 47 tag for the language this post is actually written in. About half
+       * the archive is Spanish or Galician; before this field existed every page
+       * declared the site default (en-GB) regardless of its contents, and there
+       * was no way to say otherwise.
+       */
+      lang: z.enum(["en-GB", "es", "gl"]).default("en-GB"),
       ogImage: z.string().optional(),
       tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
       publishDate: z
@@ -32,9 +39,8 @@ const post = defineCollection({
         .optional()
         .transform((str) => (str ? new Date(str) : undefined)),
       // Series
-      seriesId: z.string().optional(), // Поле для связи с серией
-      orderInSeries: z.number().optional(), // Опционально: для сортировки в серии
-      // End
+      seriesId: z.string().optional(), // Links this post to a series
+      orderInSeries: z.number().optional(), // Optional: ordering within the series
     }),
 });
 
@@ -56,7 +62,7 @@ const series = defineCollection({
     id: z.string(),
     title: z.string(),
     description: z.string(),
-    featured: z.boolean().default(false), // Пометка для популярных серий
+    featured: z.boolean().default(false), // Marks a series as a prominent one
   }),
 });
 // End

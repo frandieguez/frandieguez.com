@@ -4,23 +4,37 @@ import Masthead from "@/components/blog/Masthead.astro";
 import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
 import BaseLayout from "./Base.astro";
+import { blogPostingSchema, breadcrumbSchema } from "@/data/schema";
 import SeriesPanel from "@/components/SeriesPanel.astro";
 import { Icon } from "astro-icon/components";
 import PostTags from "@/components/blog/PostTags.astro";
+import RelatedPosts from "@/components/blog/RelatedPosts.astro";
 
 interface Props {
 	post: CollectionEntry<"post">;
 }
 
 const { post } = Astro.props;
-const { ogImage, title, description, updatedDate, publishDate, seriesId } = post.data;
+const { ogImage, title, description, lang, updatedDate, publishDate, seriesId } = post.data;
 
 const socialImage = ogImage ?? `/og-image/${post.id}.png`;
 const articleDate = updatedDate?.toISOString() ?? publishDate.toISOString();
 const { headings } = await render(post);
+
+const schema = [
+	blogPostingSchema(post),
+	breadcrumbSchema([
+		{ name: "Home", path: "/" },
+		{ name: "Posts", path: "/posts/" },
+		{ name: title, path: `/posts/${post.id}/` },
+	]),
+];
 ---
 
-<BaseLayout meta={{ articleDate, description, ogImage: socialImage, title }}>
+<BaseLayout
+	meta={{ articleDate, description, lang, ogImage: socialImage, title }}
+	schema={schema}
+>
 	<!-- SeriesPanel is inserted into the named slot "sidebar" -->
 	{seriesId && (<SeriesPanel slot="sidebar" seriesId={seriesId} />)}
 
@@ -42,6 +56,8 @@ const { headings } = await render(post);
 			<div class="mt-12 border-t border-color-250 pt-6">
 				<PostTags tags={post.data.tags} />
 			</div>
+			<RelatedPosts post={post} />
+
 			<a
 				class="citrus-link group mt-8 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.18em] text-color-550 hover:text-accent-two"
 				data-astro-prefetch

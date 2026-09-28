@@ -1,0 +1,22 @@
+---
+/**
+ * Renders a JSON-LD @graph. One <script> per page rather than several, so the
+ * @id cross-references between Person, WebSite and BlogPosting resolve inside a
+ * single document.
+ */
+interface Props {
+	graph: Record<string, unknown>[];
+}
+
+const { graph } = Astro.props;
+
+// Escaping "<" is what stops a post title or description containing the literal
+// text "</script>" from closing this element early. JSON.stringify alone does
+// not do it, because "<" is a legal character in a JSON string.
+const json = JSON.stringify({
+	"@context": "https://schema.org",
+	"@graph": graph,
+}).replace(/</g, "\\u003c");
+---
+
+<script is:inline type="application/ld+json" set:html={json} />

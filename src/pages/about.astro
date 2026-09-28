@@ -4,6 +4,7 @@ import HandRule from "@/components/ui/HandRule.astro";
 import Avatar from "@/components/ui/Avatar.astro";
 import { career } from "@/data/career";
 import PageLayout from "@/layouts/Base.astro";
+import { breadcrumbSchema, profilePageSchema } from "@/data/schema";
 import profilePic from "@/assets/images/profile-pic.jpg";
 
 const meta = {
@@ -11,9 +12,17 @@ const meta = {
 		"Fran Dieguez — nineteen years building for the web, from open-source consulting to Head of R&D and Web Tech Lead at Situm.",
 	title: "About",
 };
+
+const schema = [
+	profilePageSchema(),
+	breadcrumbSchema([
+		{ name: "Home", path: "/" },
+		{ name: "About", path: "/about/" },
+	]),
+];
 ---
 
-<PageLayout meta={meta}>
+<PageLayout meta={meta} schema={schema}>
 	<section class="relative pb-16 pt-4 md:pb-24 md:pt-8">
 		<div data-reveal class="flex items-center gap-5">
 			<p

@@ -1,9 +1,11 @@
 ---
 import BaseHead from "@/components/BaseHead.astro";
 import SkipLink from "@/components/SkipLink.astro";
+import StructuredData from "@/components/StructuredData.astro";
 import ThemeProvider from "@/components/ThemeProvider.astro";
 import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
+import { personSchema, websiteSchema } from "@/data/schema";
 import { siteConfig } from "@/site.config";
 import type { SiteMeta } from "@/types";
 
@@ -14,20 +16,48 @@ interface Props {
 	 * both themes. Pages that don't set it render exactly as before.
 	 */
 	heroBand?: boolean;
+	/**
+	 * Page-specific JSON-LD nodes. Person and WebSite are added here for every
+	 * page, so callers only pass what is particular to them (BlogPosting,
+	 * BreadcrumbList, ProfilePage, CollectionPage).
+	 */
+	schema?: Record<string, unknown>[];
 }
 
 const {
-	meta: { articleDate, description = siteConfig.description, ogImage, title },
+	meta: {
+		articleDate,
+		description = siteConfig.description,
+		lang = siteConfig.lang,
+		noindex,
+		ogImage,
+		title,
+	},
 	heroBand = false,
+	schema = [],
 } = Astro.props;
+
+const graph = [websiteSchema(), personSchema(), ...schema];
 ---
 
+<!-- `lang` is per-page, not sitewide. Roughly half this archive is written in
+	Spanish or Galician, and every one of those pages used to declare itself as
+	en-GB — which sends screen readers to the wrong pronunciation engine and
+	suppresses the browser's own translation prompt. -->
 <html
 	class="overflow-x-hidden grid scroll-pt-20 scroll-smooth font-sans text-textColor text-xl md:text-base antialiased"
-	lang={siteConfig.lang}
+	lang={lang}
 >
 	<head>
-		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
+		<BaseHead
+			articleDate={articleDate}
+			description={description}
+			lang={lang}
+			noindex={noindex}
+			ogImage={ogImage}
+			title={title}
+		/>
+		<StructuredData graph={graph} />
 	</head>
 	<body class="min-w-4xl relative m-auto min-h-screen w-full max-w-6xl grow bg-bgColor">
 		<ThemeProvider />

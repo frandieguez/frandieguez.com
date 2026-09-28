@@ -6,6 +6,7 @@ import HandRule from "@/components/ui/HandRule.astro";
 import PageHeading from "@/components/ui/PageHeading.astro";
 import { getAllPosts, getUniqueTags, groupPostsByYear } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
+import { breadcrumbSchema, collectionPageSchema } from "@/data/schema";
 import { collectionDateSort } from "@/utils/date";
 import type { GetStaticPaths, Page } from "astro";
 import type { CollectionEntry } from "astro:content";
@@ -36,10 +37,30 @@ interface Props {
 
 const { page, uniqueTags, total, oldest, newest } = Astro.props;
 
+// Every paginated page used to render the identical title and description, so
+// /posts/2/ through /posts/9/ were indistinguishable in a SERP. Each page now
+// says which one it is.
+const pageSuffix = page.currentPage > 1 ? ` (page ${page.currentPage})` : "";
+
 const meta = {
-	description: "Read my collection of posts and the things that interest me",
-	title: "Posts",
+	description:
+		page.currentPage > 1
+			? `Page ${page.currentPage} of ${page.lastPage} — posts on web development, performance and open source.`
+			: "Read my collection of posts and the things that interest me",
+	title: `Posts${pageSuffix}`,
 };
+
+const schema = [
+	collectionPageSchema({
+		path: page.currentPage > 1 ? `/posts/${page.currentPage}/` : "/posts/",
+		name: meta.title,
+		description: meta.description,
+	}),
+	breadcrumbSchema([
+		{ name: "Home", path: "/" },
+		{ name: "Posts", path: "/posts/" },
+	]),
+];
 
 const paginationProps = {
 	...(page.url.prev && {
@@ -57,7 +78,7 @@ const range = oldest && newest ? `${oldest}–${newest}` : "";
 const eyebrow = [`Writing — ${total} posts`, range].filter(Boolean).join(" · ");
 ---
 
-<PageLayout meta={meta}>
+<PageLayout meta={meta} schema={schema}>
 	<PageHeading
 		eyebrow={eyebrow}
 		title="Posts"

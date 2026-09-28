@@ -8,7 +8,11 @@ import { ClientRouter } from "astro:transitions";
 
 type Props = SiteMeta;
 
-const { articleDate, description, ogImage, title } = Astro.props;
+const { articleDate, description, lang, noindex, ogImage, title } = Astro.props;
+
+// og:locale wants an underscored form ("es_ES"), while <html lang> wants the
+// hyphenated BCP 47 tag. Derive one from the other rather than storing both.
+const ogLocale = lang ? lang.replace("-", "_") : siteConfig.ogLocale;
 
 const titleSeparator = "•";
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
@@ -42,6 +46,8 @@ const socialImageURL = new URL(ogImage ? ogImage : "/og-image/site.png", Astro.u
 {/* Canonical URL */}
 <link href={canonicalURL} rel="canonical" />
 
+{noindex && <meta content="noindex, follow" name="robots" />}
+
 {/* Primary Meta Tags */}
 <meta content={siteTitle} name="title" />
 <meta content={description} name="description" />
@@ -56,7 +62,7 @@ const socialImageURL = new URL(ogImage ? ogImage : "/og-image/site.png", Astro.u
 <meta content={description} property="og:description" />
 <meta content={canonicalURL} property="og:url" />
 <meta content={siteConfig.title} property="og:site_name" />
-<meta content={siteConfig.ogLocale} property="og:locale" />
+<meta content={ogLocale} property="og:locale" />
 <meta content={socialImageURL} property="og:image" />
 <meta content="1200" property="og:image:width" />
 <meta content="630" property="og:image:height" />
@@ -76,12 +82,9 @@ const socialImageURL = new URL(ogImage ? ogImage : "/og-image/site.png", Astro.u
 <meta content={description} property="twitter:description" />
 <meta content={socialImageURL} property="twitter:image" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
-	rel="stylesheet"
->
+{/* Fonts are self-hosted and bundled through src/styles/global.css — there is
+	deliberately no third-party font origin to preconnect to. */}
+
 {/* Sitemap */}
 <link href="/sitemap-index.xml" rel="sitemap" />
 

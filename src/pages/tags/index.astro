@@ -2,6 +2,7 @@
 import PageHeading from "@/components/ui/PageHeading.astro";
 import { getAllPosts, getUniqueTagsWithCount } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
+import { breadcrumbSchema, collectionPageSchema } from "@/data/schema";
 
 const allPosts = await getAllPosts();
 // Already sorted by count, descending.
@@ -11,9 +12,17 @@ const meta = {
 	description: "A list of all the topics I've written about in my posts",
 	title: "Tags",
 };
+
+const schema = [
+	collectionPageSchema({ path: "/tags/", name: meta.title, description: meta.description }),
+	breadcrumbSchema([
+		{ name: "Home", path: "/" },
+		{ name: "Tags", path: "/tags/" },
+	]),
+];
 ---
 
-<PageLayout meta={meta}>
+<PageLayout meta={meta} schema={schema}>
 	<PageHeading
 		eyebrow={`Tags — ${allTags.length} topics across ${allPosts.length} posts`}
 		title="Tags"

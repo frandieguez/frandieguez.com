@@ -19,6 +19,10 @@ export interface PaginationLink {
 export interface SiteMeta {
 	articleDate?: string | undefined;
 	description?: string;
+	/** BCP 47 tag for the page's own content, when it isn't the site default. */
+	lang?: string | undefined;
+	/** Emits `<meta name="robots" content="noindex, follow">`. */
+	noindex?: boolean | undefined;
 	ogImage?: string | undefined;
 	title: string;
 }

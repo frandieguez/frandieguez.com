@@ -4,6 +4,7 @@ import PostPreview from "@/components/blog/PostPreview.astro";
 import PageHeading from "@/components/ui/PageHeading.astro";
 import { getAllPosts, getUniqueTags } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
+import { breadcrumbSchema, collectionPageSchema } from "@/data/schema";
 import { collectionDateSort } from "@/utils/date";
 import type { GetStaticPaths, Page } from "astro";
 import type { CollectionEntry } from "astro:content";
@@ -28,10 +29,27 @@ interface Props {
 const { page } = Astro.props;
 const { tag } = Astro.params;
 
+const pageSuffix = page.currentPage > 1 ? ` (page ${page.currentPage})` : "";
+
 const meta = {
-	description: `View all posts with the tag - ${tag}`,
-	title: `Tag: ${tag}`,
+	// Was the bare template "View all posts with the tag - {tag}" on all 304 tag
+	// pages. Naming the count at least differentiates them from each other.
+	description: `${page.total} post${page.total === 1 ? "" : "s"} tagged ${tag} on Fran Dieguez's blog.`,
+	title: `Tag: ${tag}${pageSuffix}`,
 };
+
+const schema = [
+	collectionPageSchema({
+		path: page.currentPage > 1 ? `/tags/${tag}/${page.currentPage}/` : `/tags/${tag}/`,
+		name: meta.title,
+		description: meta.description,
+	}),
+	breadcrumbSchema([
+		{ name: "Home", path: "/" },
+		{ name: "Tags", path: "/tags/" },
+		{ name: `#${tag}`, path: `/tags/${tag}/` },
+	]),
+];
 
 const paginationProps = {
 	...(page.url.prev && {
@@ -45,7 +63,7 @@ const paginationProps = {
 const count = page.total;
 ---
 
-<PageLayout meta={meta}>
+<PageLayout meta={meta} schema={schema}>
 	<PageHeading
 		eyebrow={`Tag — ${count} post${count === 1 ? "" : "s"}`}
 		title={`#${tag}`}
