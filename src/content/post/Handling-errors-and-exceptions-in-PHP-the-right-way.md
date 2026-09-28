@@ -3,7 +3,7 @@ id: 1108
 title: 'Handling errors and exceptions in PHP: the right way'
 description: 'Handling errors and exceptions in PHP: the right way'
 publishDate: 2012-12-25T02:13:14+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

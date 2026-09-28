@@ -1,9 +1,10 @@
 ---
 id: 254
 title: SQL Injection, PHP y Bases de Datos
-description: SQL Injection, PHP y Bases de Datos
+description: "Cómo se produce una inyección SQL en PHP, por qué cuesta tanto depurarla después, y las prácticas que la evitan desde el principio."
 publishDate: 2008-05-22T11:14:11+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2008/05/22/sql-injection-php-y-bases-de-datos

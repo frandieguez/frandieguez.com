@@ -1,9 +1,9 @@
 ---
 id: 991
 title: 'Sending patches through mail with "git send-mail"'
-description: 'Sending patches through mail with "git send-mail"'
+description: "How to generate a patch with git format-patch and send it to a colleague with git send-email, without leaving Git for other tools."
 publishDate: 2011-11-06T20:20:49+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=991

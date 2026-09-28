@@ -3,7 +3,7 @@ id: 276
 title: Configuracion desatendida de servers con capistrano
 description: Configuracion desatendida de servers con capistrano
 publishDate: 2008-12-26T17:39:20+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

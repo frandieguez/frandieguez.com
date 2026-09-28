@@ -1,9 +1,9 @@
 ---
 id: 717
 title: MacBook Pro keyboard backlight keys on Ubuntu GNU/Linux
-description: MacBook Pro keyboard backlight keys on Ubuntu GNU/Linux
+description: "How to wire the keyboard backlight keys of a MacBook Pro 15\" into Ubuntu Lucid Lynx so they work like the rest of the hardware."
 publishDate: 2010-06-24T04:39:13+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=717
@@ -17,7 +17,7 @@ tags:
   - bash
   - keyboard
   - macbook
-  - macboopro6.2
+  - macbook
 ---
 <div class="alignright">
 

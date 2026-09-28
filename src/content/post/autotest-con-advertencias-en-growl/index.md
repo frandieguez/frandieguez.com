@@ -1,9 +1,10 @@
 ---
 id: 250
 title: Autotest con advertencias en Growl
-description: Autotest con advertencias en Growl
+description: "Cómo enganchar Autotest de Ruby con las notificaciones de Growl en Mac OS X, editando el fichero .autotest del directorio home."
 publishDate: 2008-05-07T03:15:02+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=130

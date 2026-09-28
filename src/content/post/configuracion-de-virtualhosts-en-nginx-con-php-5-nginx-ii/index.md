@@ -1,9 +1,10 @@
 ---
 id: 252
 title: 'Configuraciónn de VirtualHosts en Nginx (Nginx II)'
-description: 'Configuraciónn de VirtualHosts en Nginx (Nginx II)'
+description: "Segunda entrega de la serie sobre Nginx: cómo organizar los VirtualHosts y la configuración que los gestiona."
 publishDate: 2008-05-08T12:13:36+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=132

@@ -1,9 +1,10 @@
 ---
 id: 268
 title: Configurar MySQL para rendimiento
-description: Configurar MySQL para rendimiento
+description: "Qué variables mirar en MySQL para saber si tus consultas se comportan como deberían, y qué ajustes de configuración mueven de verdad el rendimiento."
 publishDate: 2008-08-03T23:43:49+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2008/08/03/configuracion-de-mysql-para-rendimiento-2/

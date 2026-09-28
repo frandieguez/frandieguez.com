@@ -1,9 +1,10 @@
 ---
 id: 255
 title: Control de versiones con Git (I)
-description: Control de versiones con Git (I)
+description: "Primera parte de una introducción a Git: configurar ~/.gitconfig y situar el control de versiones en el ciclo de vida del software."
 publishDate: 2008-06-04T16:27:51+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2008/06/07/control-de-versiones-con-git-i

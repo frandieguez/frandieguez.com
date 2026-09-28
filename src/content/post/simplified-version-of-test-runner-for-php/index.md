@@ -1,9 +1,9 @@
 ---
 id: 1677
 title: Simplified version of my PHP test runner
-description: Simplified version of my PHP test runner
+description: "A PHP continuous test runner rewritten to depend only on inotifywait, replacing the earlier Ruby and Watchr version."
 publishDate: 2013-11-13T12:19:44+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1677

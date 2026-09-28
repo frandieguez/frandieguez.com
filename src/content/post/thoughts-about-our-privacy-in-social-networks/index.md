@@ -1,9 +1,9 @@
 ---
 id: 1051
 title: Thoughts about our privacy in social networks
-description: Thoughts about our privacy in social networks
+description: "The argument that social network privacy policies are posturing: once you upload something, in practice it stops being yours."
 publishDate: 2011-08-30T15:51:42+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1051

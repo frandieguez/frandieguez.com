@@ -1,9 +1,9 @@
 ---
 id: 952
 title: Sort an array of objects by one of the objects property with PHP
-description: Sort an array of objects by one of the objects property with PHP
+description: "A cheaper way to sort an array of objects by one of their properties in PHP, for when usort turns out to be too expensive."
 publishDate: 2011-02-03T15:20:08+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=952
@@ -14,7 +14,7 @@ categories:
   - Sofware Development
 tags:
   - objects
-  - php. sort
+  - php
 ---
 <div class="alignright">
 

@@ -3,7 +3,7 @@ id: 1333
 title: Continuous delivery
 description: Continuous delivery
 publishDate: 2013-03-07T16:57:24+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

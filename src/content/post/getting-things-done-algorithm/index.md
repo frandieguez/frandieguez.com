@@ -1,9 +1,9 @@
 ---
 id: 287
 title: Getting things done algorithm
-description: Getting things done algorithm
+description: "The Getting Things Done decision flow, translated into Ruby for the fun of seeing it as executable code."
 publishDate: 2009-09-04T18:51:07+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=262

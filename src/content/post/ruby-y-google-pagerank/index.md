@@ -1,9 +1,10 @@
 ---
 id: 248
 title: Ruby y Google PageRank
-description: Ruby y Google PageRank
+description: "Cómo consultar el PageRank de un dominio desde Ruby, escrito por necesidad para un proyecto que valoraba dominios."
 publishDate: 2008-04-13T03:16:03+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=128

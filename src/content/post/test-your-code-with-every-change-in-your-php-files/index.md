@@ -1,9 +1,9 @@
 ---
 id: 1132
 title: Test your code with every change in your PHP files
-description: Test your code with every change in your PHP files
+description: "A continuous testing setup that runs your PHP test suite on every file save, so the TDD loop stops depending on remembering to run it."
 publishDate: 2012-04-15T21:35:10+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1132

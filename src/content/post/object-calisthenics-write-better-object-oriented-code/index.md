@@ -1,9 +1,9 @@
 ---
 id: 1125
 title: 'Object Calisthenics: write better object-oriented code'
-description: 'Object Calisthenics: write better object-oriented code'
+description: "The nine Object Calisthenics rules as a deliberate exercise in object-oriented design, summed up as: whatever obscures my code is bad."
 publishDate: 2012-12-14T17:22:16+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1125

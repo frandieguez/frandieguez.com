@@ -1,9 +1,10 @@
 ---
 id: 227
 title: Camino de las estrellas
-description: Camino de las estrellas
+description: "Los 679 bits del mensaje de Arecibo, reproducidos literalmente, como recuerdo en un segundo aniversario."
 publishDate: 2007-12-20T10:06:52+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/12/20/106/

@@ -1,9 +1,10 @@
 ---
 id: 232
 title: Benchmarks de Ruby 1.9
-description: Benchmarks de Ruby 1.9
+description: "Unos benchmarks de Ruby 1.9 recién publicado, midiendo cuánto se acerca su rendimiento al de otros lenguajes."
 publishDate: 2007-12-27T11:20:41+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/12/27/benchmarks-de-ruby-19/

@@ -1,9 +1,10 @@
 ---
 id: 288
 title: Formula del éxito con el software libre
-description: Formula del éxito con el software libre
+description: "Un extracto de Jon “Maddog” Hall sobre cuánta gente hace falta para que un millón de usuarios produzca tres parches útiles."
 publishDate: 2009-10-05T23:41:23+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=271

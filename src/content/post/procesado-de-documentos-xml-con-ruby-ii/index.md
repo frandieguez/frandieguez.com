@@ -1,9 +1,10 @@
 ---
 id: 279
 title: Procesado de documentos XML con Ruby (II)
-description: Procesado de documentos XML con Ruby (II)
+description: "Segunda parte sobre XML en Ruby: usar StreamParser de REXML delegando la gestión de nodos en una clase propia."
 publishDate: 2009-07-02T10:10:10+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=232

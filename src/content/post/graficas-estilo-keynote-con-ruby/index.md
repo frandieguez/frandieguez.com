@@ -1,9 +1,10 @@
 ---
 id: 178
 title: Graficas estilo keynote con Ruby
-description: Graficas estilo keynote con Ruby
+description: "Probando la gema Gruff Graphs para generar gráficas con aire de Keynote desde Ruby, con RMagick como dependencia."
 publishDate: 2007-08-09T21:13:31+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=51

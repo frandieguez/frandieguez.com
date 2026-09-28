@@ -3,7 +3,7 @@ id: 1689
 title: '5 Years at Openhost: From Craftsmanship to Enterprisy'
 description: 'Five years at Openhost: marking a milestone from craftsmanship to enterprise solutions, navigating through challenges and growth in a dynamic environment.'
 publishDate: 2014-12-09T22:19:05+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1689

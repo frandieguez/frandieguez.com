@@ -1,9 +1,10 @@
 ---
 id: 146
 title: Hello world!
-description: Hello world!
+description: "La primera entrada de este blog, escrita mientras el diseño estaba todavía a medias."
 publishDate: 2007-06-23T03:30:11+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=5

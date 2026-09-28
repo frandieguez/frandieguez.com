@@ -1,9 +1,10 @@
 ---
 id: 290
 title: Rotar imágenes y elementos solo con CSS
-description: Rotar imágenes y elementos solo con CSS
+description: "Clases CSS para rotar imágenes y cualquier elemento HTML en pasos de 90 grados, incluido cómo fijar el origen de la rotación."
 publishDate: 2009-10-11T17:22:24+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=280

@@ -1,9 +1,10 @@
 ---
 id: 211
 title: De Symbian, mi Nokia e65 y Ruby
-description: De Symbian, mi Nokia e65 y Ruby
+description: "Impresiones del Nokia E65 después de unos días estresándolo, y cómo ejecutar Ruby sobre Symbian."
 publishDate: 2007-10-20T10:05:23+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/10/20/de-symbian-mi-nokia-e65-y-ruby/

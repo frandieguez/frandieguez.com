@@ -1,0 +1,64 @@
+---
+/**
+ * Contextual links out of a post, derived from shared tags.
+ *
+ * The archive had effectively zero post-to-post links, which left every article
+ * a dead end for a reader who arrived from search and would have kept going.
+ * See getRelatedPosts() in src/data/post.ts for how the matches are scored.
+ *
+ * Renders nothing at all when there is no good match — three weak suggestions
+ * are worse than none, and a post with only unique tags genuinely has no
+ * neighbours.
+ */
+import FormattedDate from "@/components/FormattedDate.astro";
+import HandRule from "@/components/ui/HandRule.astro";
+import { getRelatedPosts } from "@/data/post";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+	post: CollectionEntry<"post">;
+}
+
+const { post } = Astro.props;
+const related = await getRelatedPosts(post);
+---
+
+{
+	related.length > 0 && (
+		<section aria-labelledby="related-heading" class="mt-16">
+			<div data-reveal class="flex items-center gap-5">
+				<p
+					class="font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.2em] text-color-550 md:shrink-0 md:text-xs"
+					id="related-heading"
+				>
+					Related reading
+				</p>
+				<HandRule class="flex-1" />
+			</div>
+
+			<ul role="list" class="mt-2 divide-y divide-color-250">
+				{related.map((entry, i) => (
+					<li
+						data-reveal
+						style={`--reveal-delay:${i * 45}ms`}
+						class="group -mx-2 rounded-lg px-2 py-4 transition-colors duration-200 hover:bg-color-50"
+					>
+						<FormattedDate
+							class="text-sm text-color-550"
+							date={entry.data.publishDate}
+							dateTimeOptions={{ month: "long", year: "numeric" }}
+						/>
+						<p class="citrus-link mt-1 font-medium text-accent-base">
+							<a data-astro-prefetch href={`/posts/${entry.id}/`}>
+								{entry.data.title}
+							</a>
+						</p>
+						<p class="mt-1 max-w-[62ch] text-sm leading-relaxed text-color-600">
+							{entry.data.description}
+						</p>
+					</li>
+				))}
+			</ul>
+		</section>
+	)
+}

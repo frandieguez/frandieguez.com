@@ -1,9 +1,9 @@
 ---
 id: 965
 title: Setup a remote git repository using http with push support and digest auth
-description: Setup a remote git repository using http with push support and digest auth
+description: "How to serve a remote Git repository over HTTP with push support and digest authentication, and why you might prefer it to SSH."
 publishDate: 2011-02-09T20:38:57+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=965

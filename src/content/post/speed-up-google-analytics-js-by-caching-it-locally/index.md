@@ -1,9 +1,9 @@
 ---
 id: 632
 title: Speed up Google Analytics js by caching it locally
-description: Speed up Google Analytics js by caching it locally
+description: "Serving Google Analytics' JavaScript from your own domain with a local cache, so a third-party request stops holding up page load."
 publishDate: 2010-06-03T09:18:51+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=632

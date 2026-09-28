@@ -1,9 +1,10 @@
 ---
 id: 187
 title: Videos de la Ruby Hoedown 2007
-description: Videos de la Ruby Hoedown 2007
+description: "Se publicaron los vídeos de la Ruby Hoedown 2007: testeo en Rails, Vo-IP y creación de juegos con Ruby, entre otros temas."
 publishDate: 2007-08-27T18:49:29+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=60

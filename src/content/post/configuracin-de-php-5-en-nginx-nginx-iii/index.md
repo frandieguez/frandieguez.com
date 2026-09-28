@@ -1,9 +1,10 @@
 ---
 id: 272
 title: 'Configuración de PHP 5 en Nginx (Nginx III)'
-description: 'Configuración de PHP 5 en Nginx (Nginx III)'
+description: "Tercera entrega de la serie sobre Nginx: instalar PHP 5 y servir aplicaciones y scripts PHP desde el servidor."
 publishDate: 2008-11-20T19:04:28+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=134

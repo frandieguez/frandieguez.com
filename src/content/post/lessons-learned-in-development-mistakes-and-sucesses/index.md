@@ -3,7 +3,7 @@ id: 1693
 title: Lessons Learned Over Years in Development - Mistakes and Successes
 description: Key insights from years of software development experience, covering clean code practices, the importance of testing, effective communication, architectural decisions, and continuous learning - essential lessons that shaped my professional growth.
 publishDate: 2025-03-07T22:42:07+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1693

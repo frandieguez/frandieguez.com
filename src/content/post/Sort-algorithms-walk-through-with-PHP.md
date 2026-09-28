@@ -3,7 +3,7 @@ id: 1501
 title: Sort algorithms walk through with PHP
 description: Sort algorithms walk through with PHP
 publishDate: 2013-04-08T14:53:47+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

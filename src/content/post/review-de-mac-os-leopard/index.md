@@ -1,9 +1,10 @@
 ---
 id: 214
 title: Review de Mac OS Leopard
-description: Review de Mac OS Leopard
+description: "Qué trae Mac OS X Leopard visto por alguien que llegó al sistema hace poco y sigue buscando el bash en cuanto puede."
 publishDate: 2007-11-03T13:51:38+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/11/03/review-de-mac-os-leopard/

@@ -1,9 +1,9 @@
 ---
 id: 1336
 title: Thoughts on working from home
-description: Thoughts on working from home
+description: "What Marissa Mayer's decision to end remote work at Yahoo! got wrong, and what telecommuting actually costs and gives a company."
 publishDate: 2013-03-07T13:00:24+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1336

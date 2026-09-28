@@ -1,9 +1,10 @@
 ---
 id: 148
 title: The Monkey Island
-description: The Monkey Island
+description: "Nostalgia de The Secret of Monkey Island, y la decisión de volver a pasarse la saga entera."
 publishDate: 2007-06-24T22:24:24+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/06/24/the-monkey-island/

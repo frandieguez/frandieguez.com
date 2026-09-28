@@ -1,9 +1,10 @@
 ---
 id: 155
 title: 'Compartir sí, pero con seguridad'
-description: 'Compartir sí, pero con seguridad'
+description: "Cómo compartir recursos con Samba entre GNU/Linux y Windows sin dejar el recurso abierto a toda la red."
 publishDate: 2007-07-01T18:26:24+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2007/07/01/compartir-si-pero-con-seguridad/

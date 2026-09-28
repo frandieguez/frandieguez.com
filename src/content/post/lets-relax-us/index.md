@@ -1,9 +1,9 @@
 ---
 id: 277
 title: 'Let"s relax us'
-description: 'Let"s relax us'
+description: "Macroworld of Bali by Global Dive Media: ten minutes of underwater macro footage worth stopping for."
 publishDate: 2009-02-07T19:10:13+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=207

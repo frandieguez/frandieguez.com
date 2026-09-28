@@ -1,9 +1,10 @@
 ---
 id: 150
 title: Trucos con SSH
-description: Trucos con SSH
+description: "Cómo usar ~/.ssh/config con alias, usuarios y llaves por host para dejar de escribir cadenas de conexión largas cuando tienes muchos servidores."
 publishDate: 2007-06-26T01:58:37+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/06/26/trucos-con-ssh/

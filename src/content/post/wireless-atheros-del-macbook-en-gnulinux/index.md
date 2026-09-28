@@ -1,9 +1,10 @@
 ---
 id: 204
 title: Wireless Atheros del MacBook en GNU/Linux
-description: Wireless Atheros del MacBook en GNU/Linux
+description: "Segunda entrega sobre GNU/Linux en un MacBook: cómo hacer funcionar la tarjeta wireless Atheros, que es siempre el mismo problema recurrente."
 publishDate: 2007-09-30T18:49:48+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/09/30/wireless-atheros-del-macbook-en-gnulinux/

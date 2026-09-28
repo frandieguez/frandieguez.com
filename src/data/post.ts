@@ -20,6 +20,52 @@ export async function getLatestPosts(
   return limit === undefined ? posts : posts.slice(0, limit);
 }
 
+/**
+ * Posts related to `post`, best match first.
+ *
+ * Across 124 published posts there was exactly one in-body link from one post to
+ * another, and it pointed at an article that was never written (404). So the
+ * archive was a flat list: every post reachable only through pagination or a tag
+ * page, never from a topically adjacent piece. Thirteen years of not hand-linking
+ * says the habit is not coming, so this derives the links instead.
+ *
+ * Scoring: shared tags, weighted by how rare the tag is across the whole corpus.
+ * A tag two posts share is a far stronger signal than one shared by forty, and
+ * this archive has a long tail of near-unique tags that would otherwise dominate.
+ * Ties break towards the more recent post.
+ */
+export async function getRelatedPosts(
+  post: CollectionEntry<"post">,
+  limit = 3
+): Promise<CollectionEntry<"post">[]> {
+  const all = await getAllPosts();
+  const tags = new Set(post.data.tags);
+  if (tags.size === 0) return [];
+
+  const frequency = new Map<string, number>();
+  for (const tag of getAllTags(all)) {
+    frequency.set(tag, (frequency.get(tag) ?? 0) + 1);
+  }
+
+  return all
+    .filter((candidate) => candidate.id !== post.id)
+    .map((candidate) => {
+      let score = 0;
+      for (const tag of candidate.data.tags) {
+        // 1/frequency: a tag on two posts is worth far more than one on forty.
+        if (tags.has(tag)) score += 1 / (frequency.get(tag) ?? 1);
+      }
+      return { candidate, score };
+    })
+    .filter(({ score }) => score > 0)
+    .sort(
+      (a, b) =>
+        b.score - a.score || collectionDateSort(a.candidate, b.candidate)
+    )
+    .slice(0, limit)
+    .map(({ candidate }) => candidate);
+}
+
 /** groups posts by year (based on option siteConfig.sortPostsByUpdatedDate), using the year as the key
  *  Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so.
  */

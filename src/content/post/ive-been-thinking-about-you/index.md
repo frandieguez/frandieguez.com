@@ -1,9 +1,10 @@
 ---
 id: 186
 title: I've been thinking about you
-description: I've been thinking about you
+description: "Una fotografía de la naturaleza como única entrada."
 publishDate: 2007-08-23T18:46:52+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=59

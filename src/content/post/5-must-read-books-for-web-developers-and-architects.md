@@ -3,7 +3,7 @@ id: 1176
 title: 5 must read books for web developers and architects
 description: A curated selection of essential books for web developers, covering everything from practical programming wisdom to scaling systems and productivity tips. These books shaped my development career and offer timeless insights for both beginners and seasoned developers.
 publishDate: 2025-10-02T18:58:05+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: false

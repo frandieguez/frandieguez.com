@@ -3,7 +3,7 @@ id: 616
 title: 3 ways of get memcached status
 publishDate: 2010-06-01T23:38:04+00:00
 description: If you use memcached to cache contents among different servers and apps, and you want to get statistics for what is happening inside the memcached-sever you can use one of the available interfaces for programming languages but there are simpler ways to do that.
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=616

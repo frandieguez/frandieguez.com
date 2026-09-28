@@ -1,9 +1,9 @@
 ---
 id: 1185
 title: Authenticate into Ubuntu 12.04 with your DNI-e (Spanish ID)
-description: Authenticate into Ubuntu 12.04 with your DNI-e (Spanish ID)
+description: "How to configure pam-pkcs11 so the Spanish DNI-e electronic ID card works as your login credential on Ubuntu 12.04."
 publishDate: 2012-06-05T23:24:30+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1185

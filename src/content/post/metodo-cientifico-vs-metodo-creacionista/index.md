@@ -1,9 +1,10 @@
 ---
 id: 159
 title: Método Científico vs. Metodo Creacionista
-description: Método Científico vs. Metodo Creacionista
+description: "Una tira de JPod que contrapone el método científico y el creacionista en dos diagramas."
 publishDate: 2007-07-10T08:42:45+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2007/07/10/metodo-cientifico-vs-metodo-creacionista/

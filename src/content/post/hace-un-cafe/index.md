@@ -1,9 +1,10 @@
 ---
 id: 222
 title: '¿Would you mind a cup of coffee?'
-description: '¿Would you mind a cup of coffee?'
+description: "Una defensa del café de grano recién molido y sin azúcar, y de la cafetera diaria como parte del método de trabajo."
 publishDate: 2007-11-20T13:36:11+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/11/20/hace-un-cafe/

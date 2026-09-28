@@ -1,9 +1,9 @@
 ---
 id: 1542
 title: Steps toward modernizing a legacy codebase
-description: Steps toward modernizing a legacy codebase
+description: "Paul M Jones at Nashville PHP on modernising legacy code: what to do when you inherit a codebase that made perfect sense to someone else."
 publishDate: 2013-04-19T12:39:18+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1542

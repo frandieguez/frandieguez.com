@@ -1,9 +1,10 @@
 ---
 id: 190
 title: 'Learning from "Beautiful Code"'
-description: 'Learning from "Beautiful Code"'
+description: "Primeras impresiones de Beautiful Code, el libro donde los programadores explican cómo piensan, y si merece el pedestal que le han puesto."
 publishDate: 2007-09-03T22:38:42+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/09/03/learning-at-beautiful-code/

@@ -1,9 +1,9 @@
 ---
 id: 555
 title: 'Pingback-php: a library for performing Pingback calls in an easy-way'
-description: 'Pingback-php: a library for performing Pingback calls in an easy-way'
+description: "Pingback-php, a small library I wrote for making Pingback 1.0 requests from PHP without the boilerplate."
 publishDate: 2012-12-26T13:20:53+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=555

@@ -1,9 +1,10 @@
 ---
 id: 1016
 title: GNOME Launch Party en Galiza, España
-description: GNOME Launch Party en Galiza, España
+description: "Como foi a Festa de Lanzamento de GNOME 3 en Galicia, organizada por Ghandalf con Gpul e Trasno, e quen estivo detrás."
 publishDate: 2011-05-02T12:45:00+00:00
-author: Fran Diéguez
+lang: gl
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1016

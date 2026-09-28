@@ -1,9 +1,9 @@
 ---
 id: 520
 title: Optimizing MySQL databases
-description: Optimizing MySQL databases
+description: "Why a heavily used MySQL database stays fragmented even after you delete data, and how to optimise tables that are full of VARCHAR columns."
 publishDate: 2009-12-09T21:22:51+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=520

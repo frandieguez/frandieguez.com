@@ -1,9 +1,9 @@
 ---
 id: 866
 title: Playing with D-Bus interface of Spotify for Linux
-description: Playing with D-Bus interface of Spotify for Linux
+description: "Spotify 0.4.8 shipped D-Bus support on Linux: what the interface exposes and how to drive the player programmatically."
 publishDate: 2010-11-15T13:26:24+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=866

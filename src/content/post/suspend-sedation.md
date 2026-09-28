@@ -2,7 +2,7 @@
 title: Setting up suspend to ram and hibernate after some time
 description: Setting up suspend to ram and hibernate after some time
 publishDate: 2013-04-07T18:58:05+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

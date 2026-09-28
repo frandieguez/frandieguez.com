@@ -1,9 +1,10 @@
 ---
 id: 184
 title: Kill your PHB
-description: Kill your PHB
+description: "Un generador aleatorio de excusas para explicar por qué el proyecto no está terminado, con publicación automática en Twitter."
 publishDate: 2007-08-20T23:18:49+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: false
 guid: http://www.mabishu.com/blog/?p=57

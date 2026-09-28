@@ -1,9 +1,9 @@
 ---
 id: 815
 title: Debugging PHP with XDebug and Komodo IDE
-description: Debugging PHP with XDebug and Komodo IDE
+description: "How to set up XDebug and drive it from Komodo IDE or Edit to step through PHP code, with notes that carry over to other editors."
 publishDate: 2010-10-06T16:56:53+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=815

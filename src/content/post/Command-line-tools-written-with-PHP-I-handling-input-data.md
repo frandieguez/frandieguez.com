@@ -3,7 +3,7 @@ id: 1104
 title: 'Command line tools written with PHP (I): handling input data'
 description: 'Command line tools written with PHP (I): handling input data'
 publishDate: 2012-12-14T16:02:34+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

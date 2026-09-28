@@ -3,7 +3,7 @@ id: 1686
 title: Advanced Varnish cache purging
 description: Advanced Varnish cache purging
 publishDate: 2013-12-04T11:15:02+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 draft: true
 guid: http://www.mabishu.com/?p=1686

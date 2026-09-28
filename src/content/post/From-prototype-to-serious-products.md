@@ -3,7 +3,7 @@ id: 1745
 title: From prototype to serious products
 description: From prototype to serious products
 publishDate: 2015-01-13T15:11:53+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 draft: true
 categories:

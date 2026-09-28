@@ -1,9 +1,9 @@
 ---
 id: 938
 title: Indent your HTML code with a Smarty plugin
-description: Indent your HTML code with a Smarty plugin
+description: "A small Smarty output filter I wrote that indents the HTML your PHP templates produce, and how Smarty's extension points work."
 publishDate: 2011-01-27T23:09:52+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=938

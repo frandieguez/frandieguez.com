@@ -1,9 +1,10 @@
 ---
 id: 175
 title: WOW! La joya de la corona
-description: WOW! La joya de la corona
+description: "Sobre el diseño de Apple visto desde un MacBook recién comprado: estética, peso y portabilidad como una misma decisión."
 publishDate: 2007-08-07T22:25:49+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2007/08/07/wow-la-joya-de-la-corona/

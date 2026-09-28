@@ -3,7 +3,7 @@ id: 1694
 title: How to Lead a Development Team Without Losing Your Technical Edge
 description: Learn practical strategies for leading a software development team without losing your technical skills. This article covers common challenges such as time management, delegation, staying updated with technology, and maintaining code quality. Discover actionable tips to balance leadership duties with hands-on coding, foster a strong engineering culture, and continue growing as both a developer and a leader.
 publishDate: 2025-01-07
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1694

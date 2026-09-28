@@ -1,9 +1,10 @@
 ---
 id: 194
 title: Textmate, el mejor editor
-description: Textmate, el mejor editor
+description: "Por qué TextMate acertó al unir las tripas de UNIX con una interfaz de Mac, y qué lo hacía distinto del resto de editores."
 publishDate: 2007-09-08T13:06:43+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/09/08/textm/

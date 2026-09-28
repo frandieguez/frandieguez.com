@@ -1,9 +1,9 @@
 ---
 id: 800
 title: 'Some valuable "User Interface Patterns" resources'
-description: 'Some valuable "User Interface Patterns" resources'
+description: "The most useful references I found while researching web and social-media UI patterns for a pattern toolkit."
 publishDate: 2010-08-23T16:36:22+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=800

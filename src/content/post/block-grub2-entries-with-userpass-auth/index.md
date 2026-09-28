@@ -1,9 +1,9 @@
 ---
 id: 558
 title: Block Grub2 entries with user/pass auth
-description: Block Grub2 entries with user/pass auth
+description: "Using Grub2's basic authentication to lock individual boot entries behind a user and password, and the regression that made it necessary."
 publishDate: 2010-01-20T17:47:19+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=558

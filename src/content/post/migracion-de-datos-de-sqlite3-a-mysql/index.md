@@ -1,9 +1,10 @@
 ---
 id: 259
 title: 'Migracion de SQLite a MySQL'
-description: 'Migracion de SQLite a MySQL'
+description: "Cómo pasar los datos de SQLite3 a MySQL cuando la base de datos de juguete del desarrollo ya no sirve para medir rendimiento."
 publishDate: 2008-07-04T11:30:54+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=146

@@ -1,9 +1,9 @@
 ---
 id: 881
 title: Get back your disk space in a Debian-based Linux
-description: Get back your disk space in a Debian-based Linux
+description: "Reclaiming disk space on Debian and Ubuntu by stripping the translations, documentation and package files you will never use."
 publishDate: 2010-11-21T15:59:01+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=881

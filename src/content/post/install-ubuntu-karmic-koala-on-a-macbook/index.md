@@ -1,9 +1,9 @@
 ---
 id: 530
 title: Install Ubuntu Karmic Koala on a MacBook
-description: Install Ubuntu Karmic Koala on a MacBook
+description: "Four months of fighting a MacBook 2,1 into running Ubuntu 9.10, written as a list of the issues and how each one was fixed."
 publishDate: 2009-12-27T23:57:52+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=530

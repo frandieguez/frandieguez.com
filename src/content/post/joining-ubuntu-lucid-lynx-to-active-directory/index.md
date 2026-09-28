@@ -1,9 +1,9 @@
 ---
 id: 777
 title: Joining Ubuntu Lucid Lynx to Active Directory
-description: Joining Ubuntu Lucid Lynx to Active Directory
+description: "How to join an Ubuntu 10.04 machine to a large Active Directory domain for centralised users, groups and resources."
 publishDate: 2010-07-27T17:11:45+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=777

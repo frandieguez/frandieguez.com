@@ -1,9 +1,10 @@
 ---
 id: 238
 title: Presumiendo con Ruby
-description: Presumiendo con Ruby
+description: "Un truco de Ruby que parece complicadísimo de implementar y resulta que se resuelve en unas pocas líneas."
 publishDate: 2008-01-20T12:26:57+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2008/01/20/presumiendo-con-ruby/

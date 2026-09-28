@@ -1,9 +1,9 @@
 ---
 id: 1699
 title: Scale out vs Scale up
-description: Scale out vs Scale up
+description: "Scaling out with cloud instances or scaling up with bigger machines: what StackOverflow's scale-up architecture says about the trade-off."
 publishDate: 2014-07-22T18:24:12+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1699

@@ -1,9 +1,9 @@
 ---
 id: 165
 title: Holy Bible spoiler
-description: Holy Bible spoiler
+description: "The Holy Bible, spoiled in a single panel from JPod."
 publishDate: 2007-07-21T21:53:28+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2007/07/21/spoiler-de-la-biblia/

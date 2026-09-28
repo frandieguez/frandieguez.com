@@ -1,9 +1,9 @@
 ---
 id: 506
 title: Using Memcache server as Apache content cache
-description: Using Memcache server as Apache content cache
+description: "Using memcached through mod_cache as Apache's content cache, so several servers can share the same cached responses."
 publishDate: 2009-12-08T00:01:57+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=506

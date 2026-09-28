@@ -3,7 +3,7 @@ id: 1696
 title: Install Oracle Database XE on Apple Sillicon
 description: A step-by-step guide to running Oracle Database XE on Apple Silicon Macs using Colima and Docker, overcoming architecture compatibility issues and enabling persistent database storage.
 publishDate: 2024-11-17
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1696

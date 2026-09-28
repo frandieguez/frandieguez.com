@@ -1,9 +1,10 @@
 ---
 id: 226
 title: Tips de seguridad en PHP
-description: Tips de seguridad en PHP
+description: "Una lista corta de prácticas de seguridad en PHP: sentencias preparadas, escapado de salida, manejo de sesiones y control de la subida de ficheros."
 publishDate: 2007-11-30T14:51:04+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/11/30/tips-de-seguridad-en-php/

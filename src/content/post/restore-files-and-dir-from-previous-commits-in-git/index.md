@@ -1,9 +1,9 @@
 ---
 id: 787
 title: Restore files and dirs from previous commits in Git
-description: Restore files and dirs from previous commits in Git
+description: "How to bring back files and whole directories from an earlier commit in Git, written after deleting an icons directory in gnome-system-tools."
 publishDate: 2010-08-10T19:20:02+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=787

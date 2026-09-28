@@ -1,9 +1,10 @@
 ---
 id: 166
 title: 'Soy usuario de &#8230;'
-description: 'Soy usuario de &#8230;'
+description: "Una entrada corta sobre las herramientas y servicios que usaba a diario por entonces."
 publishDate: 2007-07-22T02:35:42+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: false
 guid: http://www.mabishu.com/blog/2007/07/22/32/

@@ -1,9 +1,9 @@
 ---
 id: 16
 title: 'Software"s life cycle'
-description: 'Software"s life cycle'
+description: "Do you write software like a book, grow it like a plant, accrete it like a pearl, or construct it like a building? A line from Jeff Atwood worth sitting with."
 publishDate: 2009-11-10T22:53:53+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/2009/11/10/en-tres-palabras/

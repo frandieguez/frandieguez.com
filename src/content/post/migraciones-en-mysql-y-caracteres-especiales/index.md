@@ -1,9 +1,10 @@
 ---
 id: 223
 title: Migraciones en MySQL y caracteres especiales
-description: Migraciones en MySQL y caracteres especiales
+description: "Por qué un volcado de MySQL rompe los acentos y las eñes al migrar, y cómo hacer el dump y la importación para que no ocurra."
 publishDate: 2007-11-26T15:20:34+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/11/26/migraciones-en-mysql-y-caracteres-especiales/

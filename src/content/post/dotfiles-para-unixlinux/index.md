@@ -1,9 +1,10 @@
 ---
 id: 257
 title: dotfiles para Unix/Linux
-description: dotfiles para Unix/Linux
+description: "Una web que recopila ficheros de configuración de mucha gente, con buscador incluido, para robar ideas para tus propios dotfiles."
 publishDate: 2008-07-04T11:16:00+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=145

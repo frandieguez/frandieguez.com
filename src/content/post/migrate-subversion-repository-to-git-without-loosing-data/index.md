@@ -1,9 +1,9 @@
 ---
 id: 916
 title: Migrate Subversion repository to Git without loosing data
-description: Migrate Subversion repository to Git without loosing data
+description: "The full procedure we used to move a company's Subversion repositories to Git with the history intact, written down because it is not straightforward."
 publishDate: 2011-01-13T23:35:43+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=916

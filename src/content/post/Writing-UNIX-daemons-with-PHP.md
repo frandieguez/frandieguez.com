@@ -3,7 +3,7 @@ id: 1110
 title: Writing UNIX daemons with PHP
 description: Writing UNIX daemons with PHP
 publishDate: 2011-11-16T21:43:06+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

@@ -1,9 +1,9 @@
 ---
 id: 1691
 title: 'Speed up build times for ArchLinux AUR packages'
-description: 'Speed up build times for ArchLinux AUR packages'
+description: "How to cut AUR package build times on ArchLinux, plus what the move from Ubuntu to a rolling release actually gets you."
 publishDate: 2019-04-27
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.frandieguez.dev/?p=1691

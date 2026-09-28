@@ -1,9 +1,10 @@
 ---
 id: 199
 title: Cocinando el kernel Linux para Macbook Core 2 Duo
-description: Cocinando el kernel Linux para Macbook Core 2 Duo
+description: "Cómo compilar el kernel de Linux, opción por opción, para que todo el hardware de un MacBook Core 2 Duo funcione."
 publishDate: 2007-09-22T19:53:15+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/09/22/cocinando-el-kernel-linux-para-macbook-core-2-duo/
@@ -13,7 +14,7 @@ dsq_thread_id:
 categories:
   - Uncategorized
 tags:
-  - compilaciÃ³n
+  - compilación
   - core 2 duo
   - kernel
   - Linux

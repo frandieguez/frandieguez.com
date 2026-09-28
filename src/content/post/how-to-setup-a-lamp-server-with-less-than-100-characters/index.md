@@ -1,9 +1,9 @@
 ---
 id: 732
 title: How to setup a LAMP server with less than 100 characters
-description: How to setup a LAMP server with less than 100 characters
+description: "The single command that installs Apache, PHP 5 and MySQL on a Debian-based system, in under a hundred characters."
 publishDate: 2010-07-15T15:30:14+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=732

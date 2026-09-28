@@ -1,9 +1,10 @@
 ---
 id: 219
 title: Configuración de Lighttpd sobre Linux con PHP5, Ruby on Rails y SSL
-description: Configuración de Lighttpd sobre Linux con PHP5, Ruby on Rails y SSL
+description: "Migrar un servidor de Apache a Lighttpd con PHP5, Ruby on Rails y SSL conviviendo en la misma máquina, y los puntos donde duele."
 publishDate: 2007-11-12T23:02:03+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/11/12/configuracion-de-lighttpd-sobre-linux-con-php5-ruby-on-rails-y-ssl/

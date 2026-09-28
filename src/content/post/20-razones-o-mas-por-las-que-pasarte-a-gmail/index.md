@@ -3,7 +3,8 @@ id: 168
 title: '20 razones (o más) por las que pasarte a Gmail'
 description: 'Mi cuenta de Gmail ofrece, ahora mismo, 2879 MB de espacio para almacenar mis mensajes.'
 publishDate: 2007-07-25
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2007/07/25/20-razones-o-mas-por-las-que-pasarte-a-gmail/

@@ -1,9 +1,10 @@
 ---
 id: 202
 title: Cuestión de Tamaño, 1 Gigabyte
-description: Cuestión de Tamaño, 1 Gigabyte
+description: "Un disco duro de IBM de hace veinte años junto a una tarjeta SD actual: la evolución del almacenamiento en una sola imagen."
 publishDate: 2007-09-24T23:38:15+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/09/24/cuestion-de-tamano-1-gigabyte/

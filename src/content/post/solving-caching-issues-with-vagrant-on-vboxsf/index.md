@@ -1,9 +1,9 @@
 ---
 id: 1550
 title: Solving caching issues with Vagrant on vboxsf
-description: Solving caching issues with Vagrant on vboxsf
+description: "Why files edited on the host don't always show up inside a Vagrant box over vboxsf, and how to stop the caching from biting while developing Opennemas."
 publishDate: 2013-05-07T19:59:41+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1550

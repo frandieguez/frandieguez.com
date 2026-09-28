@@ -1,9 +1,10 @@
 ---
 id: 153
 title: Japón
-description: Japón
+description: "Sobre la cultura japonesa vista desde fuera: no tanto el idioma como la forma de vivir y de pensar de esa sociedad."
 publishDate: 2007-06-27T19:38:43+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/06/27/japon/

@@ -1,9 +1,9 @@
 ---
 id: 1711
 title: Easy way to install PHP QA tools
-description: Easy way to install PHP QA tools
+description: "A bash snippet that installs phpunit, phploc, phpmd, pdepend and the rest of the PHP QA toolchain in one go through Composer."
 publishDate: 2014-10-23T20:58:11+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1711

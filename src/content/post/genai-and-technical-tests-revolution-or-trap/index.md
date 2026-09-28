@@ -1,9 +1,9 @@
 ---
 id: 1695
 title: GenAI and Technical Tests · Revolution or Trap for Developers?
-description: GenAI and Technical Tests · Revolution or Trap for Developers?
+description: "Are coding interviews still measuring anything now that candidates practise with ChatGPT and Codex? The case for and against technical tests in the GenAI era."
 publishDate: 2025-02-08
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1695

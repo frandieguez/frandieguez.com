@@ -1,9 +1,10 @@
 ---
 id: 278
 title: Procesado de documentos XML con Ruby (I)
-description: Procesado de documentos XML con Ruby (I)
+description: "Primera parte sobre análisis de XML en Ruby: la diferencia entre tree parsing y stream parsing, y cuándo conviene cada uno."
 publishDate: 2009-06-26
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=215

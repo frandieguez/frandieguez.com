@@ -3,7 +3,7 @@ id: 1539
 title: Worst developer enemies
 description: Worst developer enemies
 publishDate: 2013-04-10T13:45:39+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

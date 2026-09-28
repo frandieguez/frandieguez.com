@@ -1,9 +1,9 @@
 ---
 id: 564
 title: Automatic upgrades on Ubuntu with apt and cron
-description: Automatic upgrades on Ubuntu with apt and cron
+description: "A crontab workaround for automatic package upgrades on Ubuntu, for the case where unattended-upgrades won't cover your own repositories."
 publishDate: 2010-01-22T15:17:16+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=564

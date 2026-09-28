@@ -3,7 +3,7 @@ id: 863
 title: Website wireframing
 description: Website wireframing
 publishDate: 2013-04-08T15:34:40+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

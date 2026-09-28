@@ -1,9 +1,9 @@
 ---
 id: 888
 title: Slides of our last lecture at the University of Coruña
-description: Slides of our last lecture at the University of Coruña
+description: "Slides from a lecture at the University of A Coruña on what the Galician open-source community is building and how to get involved."
 publishDate: 2010-11-26T18:36:07+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=888

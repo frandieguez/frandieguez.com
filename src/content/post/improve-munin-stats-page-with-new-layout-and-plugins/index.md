@@ -1,9 +1,9 @@
 ---
 id: 603
 title: Improve Munin stats page with new layout and plugins
-description: Improve Munin stats page with new layout and plugins
+description: "Making Munin usable once you are monitoring more servers than you expected: a cleaner layout and the plugins worth adding."
 publishDate: 2010-03-24T17:39:58+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=603

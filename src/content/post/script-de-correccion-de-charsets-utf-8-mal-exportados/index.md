@@ -1,9 +1,10 @@
 ---
 id: 167
 title: 'Script de corrección de CHARSETS utf-8 mal exportados'
-description: 'Script de corrección de CHARSETS utf-8 mal exportados'
+description: "Un script para reparar textos con el charset roto tras exportar una base de datos en latin1_swedish_ci, salido de migrar glug.es a Drupal 5."
 publishDate: 2007-07-23T22:32:10+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2007/07/23/script-de-correccion-de-charsets-utf-8-mal-exportados/

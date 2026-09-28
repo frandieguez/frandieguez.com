@@ -1,9 +1,9 @@
 ---
 id: 760
 title: Feelings at Guadec-ES 7 (A Coruña)
-description: Feelings at Guadec-ES 7 (A Coruña)
+description: "Notes from GUADEC-ES 7 in A Coruña, my first GNOME-focused conference, and what meeting the people behind the project in person changed."
 publishDate: 2010-07-26T09:35:18+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=760

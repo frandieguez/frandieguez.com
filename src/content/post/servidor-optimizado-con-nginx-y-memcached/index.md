@@ -1,9 +1,10 @@
 ---
 id: 251
 title: Web Server optimizado con Nginx (Nginx I)
-description: Web Server optimizado con Nginx (Nginx I)
+description: "Primera entrega de la serie sobre Nginx: compilar e instalar el servidor buscando el mínimo consumo de recursos."
 publishDate: 2008-05-07T19:58:40+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=129

@@ -1,9 +1,10 @@
 ---
 id: 182
 title: Ruby Cookbook
-description: Ruby Cookbook
+description: "Primeras impresiones de Ruby Cookbook: mil páginas de ejemplos que enseñan los recovecos del lenguaje sin desperdicio."
 publishDate: 2007-08-13T21:41:45+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=55

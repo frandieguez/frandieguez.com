@@ -3,7 +3,7 @@ id: 1537
 title: PHP as node.js
 description: PHP as node.js
 publishDate: 2013-04-20T21:52:28+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

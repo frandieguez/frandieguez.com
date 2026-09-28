@@ -1,9 +1,10 @@
 ---
 id: 8
 title: Jerarquía de la programación
-description: Jerarquía de la programación
+description: "Un estudio sobre cómo se miran entre sí los programadores según el lenguaje que usan, y la jerarquía implícita que eso dibuja."
 publishDate: 2007-06-24T20:44:29+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/06/24/7/

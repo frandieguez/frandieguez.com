@@ -1,9 +1,9 @@
 ---
 id: 1613
 title: Too much features in products
-description: Too much features in products
+description: "Features that offer value to a minority of users impose a cost on all of them. Douglas Crockford, in JavaScript: The Good Parts."
 publishDate: 2013-07-29T16:54:51+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: phrase
 published: true
 guid: http://www.mabishu.com/?p=1613

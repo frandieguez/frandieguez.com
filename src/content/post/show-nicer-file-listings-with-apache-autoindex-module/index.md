@@ -1,9 +1,9 @@
 ---
 id: 577
 title: Show nicer file listings with Apache autoindex module
-description: Show nicer file listings with Apache autoindex module
+description: "mabishu-apache-autoindex, a set of templates, CSS and icons that makes Apache's mod_autoindex directory listings look like something you meant."
 publishDate: 2010-02-17T14:04:01+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=577

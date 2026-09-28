@@ -1,9 +1,10 @@
 ---
 id: 171
 title: Un Chiste
-description: Un Chiste
+description: "¿Cómo matarías a un elefante amarillo? La respuesta, escrita en C++."
 publishDate: 2007-08-06T10:27:51+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2007/08/06/un-chiste/

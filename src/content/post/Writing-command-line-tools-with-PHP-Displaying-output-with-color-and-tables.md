@@ -3,7 +3,7 @@ id: 1106
 title: 'Writing command line tools with PHP: Displaying output with color and tables'
 description: 'Writing command line tools with PHP: Displaying output with color and tables'
 publishDate: 2011-11-16T21:38:22+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

@@ -1,9 +1,10 @@
 ---
 id: 269
 title: Acceso rápido a la documentación de tus gemas de Ruby
-description: Acceso rápido a la documentación de tus gemas de Ruby
+description: "Un script de Bash, con autocompletado, para abrir la documentación de cualquier gema de Ruby instalada sin salir del terminal."
 publishDate: 2008-08-07T00:36:57+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=161

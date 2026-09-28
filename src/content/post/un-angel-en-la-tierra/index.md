@@ -1,9 +1,10 @@
 ---
 id: 162
 title: Un ángel en la tierra
-description: Un ángel en la tierra
+description: "Un texto breve, escrito a propósito de JPod."
 publishDate: 2007-07-14T13:51:09+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2007/07/14/un-angel-en-la-tierra/

@@ -1,9 +1,9 @@
 ---
 id: 1630
 title: Speed up PHP linting with xargs
-description: Speed up PHP linting with xargs
+description: "Parallelising PHP lint with xargs so the linting step stops dominating build time on a large project in Jenkins."
 publishDate: 2013-07-30T18:31:53+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1630

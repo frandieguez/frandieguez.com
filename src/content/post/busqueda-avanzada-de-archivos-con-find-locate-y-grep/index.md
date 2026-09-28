@@ -1,9 +1,10 @@
 ---
 id: 274
 title: Búsqueda avanzada de archivos con find, locate y grep
-description: Búsqueda avanzada de archivos con find, locate y grep
+description: "find, locate y grep en la práctica: buscar archivos por nombre o por contenido desde el terminal y ejecutar comandos sobre los resultados."
 publishDate: 2008-12-08T16:44:47+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=185

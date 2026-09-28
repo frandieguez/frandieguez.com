@@ -3,7 +3,7 @@ id: 1717
 title: Harvening SSL encryption in an nginx server
 description: Harvening SSL encryption in an nginx server
 publishDate: 2014-12-17T00:55:53+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: false
 draft: true

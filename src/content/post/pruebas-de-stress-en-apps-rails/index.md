@@ -1,9 +1,10 @@
 ---
 id: 246
 title: Pruebas de Stress en Apps Rails
-description: Pruebas de Stress en Apps Rails
+description: "Cómo montar pruebas de carga sobre una aplicación Rails antes de ponerla en producción, sin depender de generar el tráfico a mano."
 publishDate: 2008-02-13T21:49:36+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2008/02/13/pruebas-de-stress-en-apps-rails/

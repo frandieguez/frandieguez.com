@@ -1,9 +1,9 @@
 ---
 id: 1308
 title: Get better performance and life from your SSD in Linux-based systems
-description: Get better performance and life from your SSD in Linux-based systems
+description: "TRIM, scheduler choice, mount options and the writes worth moving off disk, to get both speed and lifespan out of an SSD on Linux."
 publishDate: 2012-12-14T18:15:39+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1308

@@ -1,9 +1,10 @@
 ---
 id: 245
 title: Búsqueda en Rails con Sphinx
-description: Búsqueda en Rails con Sphinx
+description: "Cómo integrar el indexador Sphinx en una aplicación Rails para buscar sobre millones de registros sin depender del buscador de MySQL."
 publishDate: 2008-02-11T17:20:45+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2008/02/11/busqueda-en-rails-con-sphinx/

@@ -1,9 +1,10 @@
 ---
 id: 191
 title: Tu shell en irb
-description: Tu shell en irb
+description: "Un script corto que convierte irb en una shell de sistema, sin perder nada de lo que da Ruby."
 publishDate: 2007-09-04T20:26:25+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/09/04/tu-shell-en-irb/

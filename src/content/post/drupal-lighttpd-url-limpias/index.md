@@ -1,9 +1,10 @@
 ---
 id: 243
 title: Drupal + LighttpD + URL limpias
-description: Drupal + LighttpD + URL limpias
+description: "La configuración de Lighttpd que hace funcionar las URLs limpias de Drupal, después de bastante pelea."
 publishDate: 2008-01-22T22:18:29+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2008/01/22/drupal-lighttpd-url-limpias/

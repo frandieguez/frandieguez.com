@@ -1,9 +1,10 @@
 ---
 id: 157
 title: Relax en la tempestad
-description: Relax en la tempestad
+description: "Sobre JPod, de Douglas Coupland, y la necesidad de leer novela cuando el trabajo nuevo te come el tiempo."
 publishDate: 2007-07-06T14:47:47+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2007/07/06/relax-en-la-tempestad/

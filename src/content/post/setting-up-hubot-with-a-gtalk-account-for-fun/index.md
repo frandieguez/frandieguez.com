@@ -1,9 +1,9 @@
 ---
 id: 1565
 title: Setting up Hubot with a gTalk account for fun
-description: Setting up Hubot with a gTalk account for fun
+description: "How to run GitHub's Hubot on a gTalk account so a bot sits in the team's chat and does the boring parts of the day."
 publishDate: 2013-05-11T01:57:20+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1565

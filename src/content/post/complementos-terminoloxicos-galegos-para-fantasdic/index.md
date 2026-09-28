@@ -1,9 +1,10 @@
 ---
 id: 286
 title: Complementos terminolóxicos galegos para Fantasdic
-description: Complementos terminolóxicos galegos para Fantasdic
+description: "Complementos para Fantasdic que permiten consultar dicionarios e fontes terminolóxicas galegas dende o escritorio de GNOME."
 publishDate: 2009-07-14T18:59:43+00:00
-author: Fran Diéguez
+lang: gl
+author: Fran Dieguez
 excerpt: |
   O aplicativo Fantasdic  é un aplicativo de diccionario que permite buscar palabras dende moitas e diversas fontes. Destinado principalmente ao escritorio de GNOME, pero tamén pode traballar en outras plataformas, incluso en Windows. Fantasdic é software libre e programado na linguaxe de programación Ruby.
 
@@ -24,7 +25,7 @@ tags:
   - fantasdic
   - recursos
   - Ruby
-  - teminología
+  - terminoloxía
 ---
 O aplicativo <a href="http://www.gnome.org/projects/fantasdic">Fantasdic</a> é un aplicativo de diccionario que permite buscar palabras dende moitas e diversas fontes. Destinado principalmente ao escritorio de GNOME, pero tamén pode traballar en outras plataformas, incluso en Windows. Fantasdic é software libre e programado na linguaxe de programación Ruby.
 

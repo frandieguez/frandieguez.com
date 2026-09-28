@@ -1,9 +1,9 @@
 ---
 id: 1145
 title: Setting up Jenkins in Ubuntu Precise 12.04 for PHP projects
-description: Setting up Jenkins in Ubuntu Precise 12.04 for PHP projects
+description: "Every step to turn an Ubuntu 12.04 box into a Jenkins continuous integration server for PHP projects."
 publishDate: 2012-04-17T22:44:18+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1145

@@ -1,9 +1,9 @@
 ---
 id: 725
 title: Remove grub from MBR under Mac OS X
-description: Remove grub from MBR under Mac OS X
+description: "How to recover a Mac after installing Ubuntu's bootloader into the MBR, on a machine that boots from EFI and GPT."
 publishDate: 2012-12-14T15:59:08+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=725

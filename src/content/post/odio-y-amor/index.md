@@ -1,9 +1,10 @@
 ---
 id: 160
 title: Odio y amor
-description: Odio y amor
+description: "El odio no es lo contrario del amor; lo contrario es la indiferencia."
 publishDate: 2007-07-11T21:47:59+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2007/07/11/26/

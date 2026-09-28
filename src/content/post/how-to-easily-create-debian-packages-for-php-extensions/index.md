@@ -1,9 +1,9 @@
 ---
 id: 994
 title: How to easily create Debian packages for PHP extensions
-description: How to easily create Debian packages for PHP extensions
+description: "How to turn a PECL tarball into a Debian package without any prior packaging experience, step by step."
 publishDate: 2011-03-20T20:41:07+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=994

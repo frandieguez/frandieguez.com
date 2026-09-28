@@ -1,9 +1,9 @@
 ---
 id: 180
 title: The Amazing 10 Megabyte HD
-description: The Amazing 10 Megabyte HD
+description: "A 10 megabyte hard disk, photographed at the size it actually was."
 publishDate: 2007-08-11T14:08:09+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=53

@@ -1,9 +1,9 @@
 ---
 id: 275
 title: Real Wall-E
-description: Real Wall-E
+description: "Un Wall-E construido de verdad, en vídeo."
 publishDate: 2008-12-20T00:03:36+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/?p=199

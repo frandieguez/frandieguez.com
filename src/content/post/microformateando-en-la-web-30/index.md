@@ -1,9 +1,10 @@
 ---
 id: 213
 title: Microformateando en la web 3.0
-description: Microformateando en la web 3.0
+description: "Qué son los microformatos y por qué la web semántica era el siguiente paso después de que la 2.0 acercase las aplicaciones al escritorio."
 publishDate: 2007-10-29T18:44:09+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/index.php/2007/10/29/microformateando-en-la-web-30/

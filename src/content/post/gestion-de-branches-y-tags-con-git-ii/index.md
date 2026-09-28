@@ -1,9 +1,10 @@
 ---
 id: 256
 title: Gestión de Branches y Tags con Git (II)
-description: Gestión de Branches y Tags con Git (II)
+description: "Segunda parte de la serie sobre Git: cómo encajan branches y tags en el ciclo de vida del software y cómo manejarlos a diario."
 publishDate: 2008-06-13T17:05:25+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2008/06/13/gestion-de-branches-y-tags-con-git-ii

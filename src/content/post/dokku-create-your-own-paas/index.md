@@ -1,9 +1,9 @@
 ---
 id: 1690
 title: 'Dokku: create your own PaaS'
-description: 'Dokku: create your own PaaS'
+description: "How to run your own Heroku-style PaaS with Dokku: installing it, deploying by git push, and attaching a database to an app."
 publishDate: 2019-04-15
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.frandieguez.dev/?p=1690

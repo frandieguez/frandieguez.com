@@ -1,9 +1,9 @@
 ---
 id: 842
 title: 'Speech at Trasnada "10 &#8211; Open Source translators event'
-description: 'Speech at Trasnada "10 &#8211; Open Source translators event'
+description: "Slides and context for a talk at Trasnada '10 on coordinating the Galician GNOME translation team and how that community works."
 publishDate: 2010-10-15T15:38:22+00:00
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=842

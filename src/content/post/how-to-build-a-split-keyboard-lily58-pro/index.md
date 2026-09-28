@@ -3,7 +3,7 @@ id: 1692
 title: How to build a split keyboard - Lily58 Pro
 description: A detailed guide on building a Lily58 Pro split mechanical keyboard, covering parts selection, assembly steps, soldering, switch lubing, firmware programming with QMK, and tips for overcoming common challenges. Includes personal experiences, photos, and useful resources for DIY keyboard enthusiasts.
 publishDate: 2020-11-29
-author: Fran Diéguez
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/?p=1962
@@ -72,7 +72,7 @@ move to __ortholinear split__ keyboard layout; size around __60% and use MX-like
 | Switches        | [DROP + INVYR HOLY PANDA MECHANICAL SWITCHES](https://drop.com/buy/drop-invyr-holy-panda-mechanical-switches) <br> Famous switches in the keeb community similar to clear MX                                                       |
 | Chips           | 2 x [Arduino Pro micros](https://www.sparkfun.com/products/12640)  <br> The brain of the keyboard detects all keystrokes in the PCB matrix, interprets and sends them to the computer                                              |
 | OLED            | 2 x [OLEDs](https://www.littlekeyboards.com/collections/oled-screens/products/oled-screen)  <br> Used to display realtime information about the keyboard. There are no limits as you can code whatever you want to display on them.|
-| USB cable       | [Magnetic USB cable](https://www.amazon.es/conector-magn%C3%A9tico-NetDot-Generation-conectores/dp/B07RZ6F47G/?th=1) <br> Check the [problems post](/posts/problems-faced-while-building-my-lily58-split-keyboard//) for more info |
+| USB cable       | [Magnetic USB cable](https://www.amazon.es/conector-magn%C3%A9tico-NetDot-Generation-conectores/dp/B07RZ6F47G/?th=1) |
 | TRRS cable      | [Braided TRRS cable](https://splitkb.com/products/braided-trrs-cable?_pos=1&_psq=braided%20cable&_ss=e&_v=1.0&variant=31226379501645) <br> Ok, this is just for flexing but looks so cool with it                                  |
 | 3D printed legs | [3D printed legs from Thingiverse](https://www.thingiverse.com/thing:4493691) To tilt the keyboard a little bit                                                                                                                    |
 | Switches lube   | [Krytox GPL 205 grade 0 lube](https://divinikey.com/products/krytox-gpl-205-grade-0-switch-lubricant)                                                                                                                              |
@@ -90,7 +90,7 @@ All the process could be separated into 3 sections: 1) soldering electronic part
 
 - First of all, you need to solder SMD diodes alongside each switch socket, on my Lily58 PCB
   there are 58 switches so a ton of work to do. As a little advice don't overheat your soldering iron, 150 C if enough.
-- To continue you must connect the brain of your keyboard to the main PCB, the Arduino Pro Micro. __PLEASE do not solder the Arduino directly to the PCB__, just use [Millmax sockets](https://www.40percent.club/2018/03/sockets.html). This type of connector makes your life easier [in case of any problem with the chip](/posts/problems-faced-while-building-my-lily58-split-keyboard//), as with it you can remove the chip from the board without desoldering.
+- To continue you must connect the brain of your keyboard to the main PCB, the Arduino Pro Micro. __PLEASE do not solder the Arduino directly to the PCB__, just use [Millmax sockets](https://www.40percent.club/2018/03/sockets.html). This type of connector makes your life easier in case of any problem with the chip, as with it you can remove the chip from the board without desoldering.
 
 - Sold the OLED panel on top of each Arduino using long rigid copper cable soldering to the PCB headers.
 - And to finish with the soldering part you must solder the JACK sockets and the RESET buttons to the PCB.

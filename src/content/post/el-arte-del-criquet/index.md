@@ -1,9 +1,10 @@
 ---
 id: 163
 title: El arte del criquet
-description: El arte del criquet
+description: "Las reglas del críquet explicadas como una pila de bucles while anidados en PHP."
 publishDate: 2007-07-17T22:38:54+00:00
-author: Fran Diéguez
+lang: es
+author: Fran Dieguez
 layout: post
 published: true
 guid: http://www.mabishu.com/blog/2007/07/17/el-arte-del-criquet/
