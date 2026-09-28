@@ -32,10 +32,14 @@ const { label, entries, class: className } = Astro.props;
 	<!-- The rail is a sibling of the <ol>, not a child: an <ol> may only contain
 		<li>, and a stray <span> there confuses list counting in screen readers. -->
 	<div class="relative">
+		<!-- 6.5px, not 7: a 1px rail centres on the node's 7px axis by sitting half
+			a pixel left of it. Not a translate — global.css animates `transform` on
+			[data-rail] to draw the line downwards, so a translate utility here is
+			overridden and would break the draw if it won. Same as about.astro. -->
 		<span
 			aria-hidden="true"
 			data-rail
-			class="absolute bottom-3 left-[6px] top-3 w-px bg-gradient-to-b from-accent-two/50 via-color-200 to-transparent md:left-[7px]"
+			class="absolute bottom-3 left-[6.5px] top-3 w-px bg-gradient-to-b from-accent-two/50 via-color-200 to-transparent"
 		></span>
 		<ol role="list">
 			{

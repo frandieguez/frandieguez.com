@@ -37,7 +37,8 @@ const tilts = ["-rotate-[1.5deg]", "rotate-[1deg]", "rotate-[0.5deg]"];
 	<span
 		aria-hidden="true"
 		class:list={[
-			"absolute left-0 top-2 size-3.5 rounded-full border md:left-[7px]",
+			// Same 7px axis as the rail in about.astro, centred the same way.
+			"absolute left-[7px] top-2 size-3.5 -translate-x-1/2 rounded-full border",
 			entry.ongoing
 				? "border-accent-two bg-bgColor"
 				: "border-accent-two/40 bg-accent-two/40",

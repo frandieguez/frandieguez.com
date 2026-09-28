@@ -199,10 +199,20 @@ const schema = [
 
 		<!-- The rail sits outside the list so the <ol> only ever contains <li>. -->
 		<div class="relative mt-12">
+			<!-- Centred on the same 7px axis as the node on each entry, which is what
+				keeps the line running through the middle of the dots. The node is
+				14px and this is 1px, so sharing a `left` value aligned their left
+				edges and pushed every dot 6.5px right of the line.
+
+				The half pixel is deliberate and cannot be a `-translate-x-1/2`:
+				global.css owns `transform` on [data-rail] to draw the rail downwards
+				with scaleY, so a translate utility here is silently overridden — and
+				would break the draw if it won. The node centres itself with a
+				translate instead, because nothing else touches its transform. -->
 			<span
 				aria-hidden="true"
 				data-rail
-				class="absolute bottom-6 left-[6px] top-3 w-px bg-gradient-to-b from-accent-two/50 via-color-200 to-transparent md:left-[7px]"
+				class="absolute bottom-6 left-[6.5px] top-3 w-px bg-gradient-to-b from-accent-two/50 via-color-200 to-transparent"
 			></span>
 			<ol role="list">
 				{

@@ -46,7 +46,10 @@ const node = entry.ongoing
 	<span
 		aria-hidden="true"
 		class:list={[
-			"absolute left-0 top-2 size-3.5 rounded-full border transition-transform duration-200 group-hover:scale-125",
+			// Centred on the same 7px axis as the rail. `scale-125` on hover composes
+			// with the translate rather than replacing it: Tailwind writes both
+			// through --tw-translate-x / --tw-scale-x, so the node grows in place.
+			"absolute left-[7px] top-2 size-3.5 -translate-x-1/2 rounded-full border transition-transform duration-200 group-hover:scale-125",
 			node,
 		]}></span>
 
