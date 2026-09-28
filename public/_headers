@@ -17,6 +17,13 @@
 #                               attributes per page, and Astro's scoped styles
 #                               are inline too. A strict policy visibly breaks
 #                               every icon.
+#
+# The two cloudflareinsights.com origins are Web Analytics, which is switched on
+# in the Cloudflare dashboard and injected at the edge — it is not in the built
+# HTML, so grepping this repository will never explain why it is there. The
+# script comes from static.cloudflareinsights.com and beacons back to
+# cloudflareinsights.com/cdn-cgi/rum, which is why both a script-src and a
+# connect-src entry are needed. Turn the dashboard feature off and both can go.
 
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
@@ -24,7 +31,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://webmention.io; font-src 'self'; connect-src 'self' https://webmention.io; form-action https://formspree.io; manifest-src 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://webmention.io; font-src 'self'; connect-src 'self' https://webmention.io https://cloudflareinsights.com; form-action https://formspree.io; manifest-src 'self'; upgrade-insecure-requests
 
 # Filenames under /_astro/ carry a content hash, so the contents behind a given
 # URL can never change. A year, immutable, is the correct policy — and it now
