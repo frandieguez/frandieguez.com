@@ -85,5 +85,19 @@
       "sharp"
     ]
   },
+  "resolutions": {
+    "@babel/core": "^7.29.7",
+    "@ungap/structured-clone": "^1.4.0",
+    "anymatch/picomatch": "^2.3.2",
+    "brace-expansion": "^2.1.7",
+    "fast-uri": "^3.1.8",
+    "fflate": "^0.7.5",
+    "glob": "^10.5.0",
+    "ip-address": "^10.7.2",
+    "mdast-util-to-hast": "^13.2.1",
+    "minimatch": "^9.0.9",
+    "sharp": "^0.35.5",
+    "svgo": "^3.3.5"
+  },
   "packageManager": "yarn@4.10.2+sha512.0b0e54ad5381f0a35184957bd3ea44e37f5a4fb1960b903b0fb9a3c7c2c009190455c41ef2a1977b1dbd3b72c5f152da696e9c52e2bc78a011b6adea8ee73ba3"
 }
