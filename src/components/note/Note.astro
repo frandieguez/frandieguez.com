@@ -6,14 +6,23 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 	note: CollectionEntry<"note">;
 	isPreview?: boolean | undefined;
+	class?: string | undefined;
 };
 
-const { as: Tag = "div", note, isPreview = false } = Astro.props;
+const {
+	as: Tag = "div",
+	note,
+	isPreview = false,
+	class: className,
+	...attrs
+} = Astro.props;
 const { Content } = await render(note);
 ---
 
 <article
+	{...attrs}
 	class:list={[
+		className,
 		isPreview &&
 			// Cards in a row used to end at different heights — 216px next to 293px
 			// on the notes index — because this article was wrapped in a plain <div>
@@ -32,10 +41,16 @@ const { Content } = await render(note);
 	]}
 	data-pagefind-body={isPreview ? false : true}
 >
-	<Tag class="flex items-end title md:sticky md:top-8 md:z-10" class:list={{ "text-base": isPreview }}>
+	{/* The size goes on a child <span>, never on the heading itself: global.css
+		sets `h2 { text-xl! }` and a utility cannot beat !important. This is the
+		escape hatch documented in DESIGN.md §3.4, and it is what lets the listing
+		use a real h2 — under the page's h1 — without the card title jumping a
+		size. Previously this was an h4 purely to dodge that rule, which left a
+		heading-order gap on every notes page. */}
+	<Tag class="title flex items-end md:sticky md:top-8 md:z-10">
 		{
 			isPreview ? (
-				<a class="citrus-link" href={`/notes/${note.id}/`}>
+				<a class="citrus-link block text-base font-medium" href={`/notes/${note.id}/`}>
 					{note.data.title}
 				</a>
 			) : (

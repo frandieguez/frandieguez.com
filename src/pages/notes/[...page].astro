@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import Pagination from "@/components/Paginator.astro";
 import Note from "@/components/note/Note.astro";
+import PageHeading from "@/components/ui/PageHeading.astro";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
 import type { GetStaticPaths, Page } from "astro";
@@ -10,15 +11,27 @@ import { Icon } from "astro-icon/components";
 export const getStaticPaths = (async ({ paginate }) => {
 	const MAX_NOTES_PER_PAGE = 6;
 	const allNotes = await getCollection("note");
-	return paginate(allNotes.sort(collectionDateSort), { pageSize: MAX_NOTES_PER_PAGE });
+	const sorted = allNotes.sort(collectionDateSort);
+	const oldest = sorted.at(-1)?.data.publishDate.getFullYear();
+	const newest = sorted[0]?.data.publishDate.getFullYear();
+
+	return paginate(sorted, {
+		pageSize: MAX_NOTES_PER_PAGE,
+		props: { total: sorted.length, oldest, newest },
+	});
 }) satisfies GetStaticPaths;
 
 interface Props {
 	page: Page<CollectionEntry<"note">>;
-	uniqueTags: string[];
+	total: number;
+	oldest?: number;
+	newest?: number;
 }
 
-const { page } = Astro.props;
+const { page, total, oldest, newest } = Astro.props;
+
+const range = oldest && newest && oldest !== newest ? `${oldest}–${newest}` : `${newest ?? ""}`;
+const eyebrow = [`Notes — ${total}`, range].filter(Boolean).join(" · ");
 
 const meta = {
 	description: "Read my collection of notes",
@@ -46,18 +59,38 @@ const paginationProps = {
 
 <PageLayout meta={meta}>
 	<section>
-		<h1 class="title mb-6 flex items-center gap-2">
-			Notes
-			<a class="text-accent-two" href="/notes/rss.xml" target="_blank">
-				<span class="sr-only">RSS feed</span>
-				<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="mdi:rss" />
+		<PageHeading
+			eyebrow={eyebrow}
+			title="Notes"
+			standfirst="Short pieces that are not articles: links, one-line thoughts, and the tumblr-era posts this blog collected between 2007 and 2008."
+		>
+			<a
+				class="citrus-link group mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-color-550 hover:text-accent-two"
+				data-reveal
+				style="--reveal-delay:160ms"
+				href="/notes/rss.xml"
+				target="_blank"
+			>
+				<Icon aria-hidden="true" class="h-4 w-4" focusable="false" name="mdi:rss" />
+				Subscribe to notes
 			</a>
-		</h1>
+		</PageHeading>
+
 		{/* No wrapper element around <Note>: the article has to BE the grid item,
 			otherwise the wrapper stretches to the row height and the card inside
 			it keeps hugging its own content. */}
-		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-			{page.data.map((note) => <Note note={note} as="h4" isPreview />)}
+		<div class="grid grid-cols-1 gap-8 pb-20 md:grid-cols-2 md:pb-28">
+			{
+				page.data.map((note, i) => (
+					<Note
+						note={note}
+						as="h2"
+						isPreview
+						data-reveal
+						style={`--reveal-delay:${Math.min(i, 6) * 45}ms`}
+					/>
+				))
+			}
 		</div>
 
 		<Pagination {...paginationProps} />

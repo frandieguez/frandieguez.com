@@ -27,3 +27,7 @@ Thumbs.db
 
 .agents/*
 .claude
+
+# Scratch output dir for verifying a build without touching dist/, which is
+# served by any running `astro preview` and clobbered by a concurrent build.
+.verify-dist/

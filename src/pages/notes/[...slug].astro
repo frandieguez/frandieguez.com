@@ -1,7 +1,8 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
-import Note from "@/components/note/Note.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import PageHeading from "@/components/ui/PageHeading.astro";
 import PageLayout from "@/layouts/Base.astro";
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
@@ -17,6 +18,7 @@ export const getStaticPaths = (async () => {
 export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { note } = Astro.props;
+const { Content } = await render(note);
 
 const meta = {
 	description:
@@ -30,41 +32,31 @@ const meta = {
 	noindex: true,
 	title: note.data.title,
 };
+
+const dateOptions = {
+	year: "numeric",
+	month: "long",
+	day: "2-digit",
+} as const;
 ---
 
 <PageLayout meta={meta}>
-	<div class="fixed left-0 top-0 z-10 flex h-16 md:h-20 w-full bg-bgColor overflow-hidden">
-		<!-- Background 
-			TODO: This approach is not optimal and requires improvements. 
-  			- Too many absolutely positioned elements can affect performance. 
-  		-->	
-		<div class="absolute top-0 left-1/2 -ml-[50vw] w-screen min-h-screen pointer-events-none blur-2xl">
-			<!--
-			<div class="fixed blur-xl top-0 left-0 w-full h-16 md:h-20 bg-gradient-to-b from-indigo-300 via-purple-300 to-transparent opacity-10 dark:opacity-5"></div>
-			-->
-			<div class="absolute top-[-90%] right-[25%] w-[75%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-			<div class="absolute top-[-90%] left-[25%] w-[75%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-			<div class="absolute top-[-85%] right-[25%] w-[55%] h-full bg-gradient-to-b from-purple-300 via-blue-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-			<div class="absolute top-[-85%] left-[25%] w-[55%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-40 dark:opacity-5"></div>
-			<div class="absolute top-[-75%] left-[-25%] w-[65%] h-full bg-gradient-to-b from-blue-300 via-pink-300 to-transparent rounded-full opacity-30 dark:opacity-5"></div>
-			<div class="absolute top-[-75%] right-[-25%] w-[65%] h-full bg-gradient-to-b from-purple-300 via-blue-300 to-transparent rounded-full opacity-30 dark:opacity-5"></div>
-			<div class="absolute top-[-85%] left-[-30%] w-[85%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-60 dark:opacity-5"></div>
-			<div class="absolute top-[-85%] right-[-30%] w-[85%] h-full bg-gradient-to-b from-orange-300 via-indigo-300 to-transparent rounded-full opacity-60 dark:opacity-5"></div>
-		</div>
-	</div>
-	<Note as="h1" note={note} />
-</PageLayout>
+	<article data-pagefind-body>
+		<PageHeading eyebrow="Note" title={note.data.title}>
+			<p
+				data-reveal
+				style="--reveal-delay:160ms"
+				class="mt-6 font-mono text-xs uppercase tracking-[0.18em] text-color-550"
+			>
+				<FormattedDate date={note.data.publishDate} dateTimeOptions={dateOptions} />
+			</p>
+		</PageHeading>
 
-<script>
-	// Wait for the content to fully load
-	document.addEventListener("astro:page-load", () => {
-		const buttonsPanel = document.getElementById("buttons-panel");
-		
-		if (buttonsPanel) {
-			buttonsPanel.classList.add("fixed");
-			console.log("Class 'fixed' added to the buttons-panel element.");
-		} else {
-			console.error("Element with ID 'buttons-panel' not found.");
-		}
-	});
-</script>
+		<div
+			data-reveal
+			class="prose prose-citrus max-w-none pb-20 md:pb-28 [&>p:last-of-type]:mb-0"
+		>
+			<Content />
+		</div>
+	</article>
+</PageLayout>

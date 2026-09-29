@@ -442,26 +442,28 @@ El proyecto ya cumple estos puntos; mantenerlos al añadir UI:
 
 Marcado aquí para que ningún agente lo tome como patrón:
 
-1. **Páginas aún sin migrar al sistema**: `/notes/`, `/series/` y `/404`. Siguen con
-   los encabezados `.title` del tema base, sin marca de índice, sin `HandRule` y sin
-   reveals. Son las tres rutas de menor tráfico y ninguna está enlazada desde el menú.
-2. **Higiene de tags**: hay **304 tags únicos** para 124 posts. Duplicados
-   español/inglés (`servidor`/`server`, `rendimiento`/`performance`) y varios que son
-   frases enteras filtradas desde YAML corrupto. `/tags/` los expone todos; hace falta
-   una limpieza del contenido, no del diseño.
-3. **`!important` en los headings** de `global.css`, necesario hoy para ganar al
+1. **`/404` sigue sin migrar al sistema**: encabezado `.title` del tema base, sin
+   marca de índice, sin `HandRule` y sin reveals. `/notes/` y `/series/` ya están
+   migradas: usan `PageHeading`, y de paso perdieron los ocho blobs de gradiente
+   `from-blue-300 via-pink-300` en una capa `blur-2xl`, dos `shadow-*` y tres
+   `console.log` que llegaban a producción.
+2. **`!important` en los headings** de `global.css`, necesario hoy para ganar al
    plugin de typography. La única excepción documentada es `.display-heading` (§3.4).
    No añadir más. Restringir esas reglas a `.prose` es lo correcto a largo plazo, pero
    cinco rutas dependen de ellas fuera de `.prose`.
+3. **`drop-shadow` en `Search.astro` y `ThemeToggle.astro`**: los dos controles de
+   cabecera llevan `drop-shadow-[0px_1.5px_1.5px_rgba(0,0,0,0.175)]`, contra la regla
+   de §5.2. Son las dos únicas sombras que quedan fuera de `<kbd>`, y salen en todas
+   las páginas del sitio.
 4. **`contact.astro` tiene dos backends de formulario a la vez**: publica a Formspree
    (`action=`) y además lleva los atributos de Netlify Forms (`data-netlify`,
    `netlify-honeypot`). Hay que elegir uno; el estilado ya está migrado.
-5. **`yarn lint` no arranca**: `biome.json` usa claves de Biome v1 (`ignore`,
-   `organizeImports`) y está instalado Biome v2.
-6. **Restos del tema starter en el contenido**: ~17 posts de demo en `draft: true`, las
-   dos series `citrus-docs`/`markdown-elements`, y `note/welcome.md`.
-7. **`header.svg?react`** no tiene declaración de tipos, de ahí uno de los 3 errores
-   de `astro check`. Los otros dos son de satori en la ruta OG.
+5. **Entidades HTML sin decodificar en títulos importados**: por ejemplo
+   `Speech at Trasnada "10 &#8211; Open Source translators event`, que se renderiza
+   literal. Es deuda de contenido de la importación de WordPress, no de diseño.
+6. **El diálogo de búsqueda abre con un `<h4>`**, así que toda página con la búsqueda
+   montada tiene un salto en el orden de encabezados. Es un `<dialog>`, contexto
+   aparte, pero sigue siendo un `h4` sin `h2`/`h3` por encima.
 
 ---
 
@@ -483,5 +485,5 @@ Marcado aquí para que ningún agente lo tome como patrón:
       visible en cada parada al tabular.
 - [ ] Imágenes vía `<Image>` importadas desde `src/assets/`, nunca desde `public/`
       (eso emite el asset dos veces), con `alt`.
-- [ ] `yarn check` sin errores nuevos respecto al baseline (hoy 3, todos en §9).
+- [ ] `yarn check` sin errores: el baseline es 0 desde que se limpiaron los de satori.
 - [ ] No se ha copiado ninguno de los patrones de la sección 9.
