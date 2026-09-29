@@ -7,6 +7,7 @@ import { siteConfig } from "@/site.config";
 import { getFormattedDate } from "@/utils/date";
 import { Resvg } from "@resvg/resvg-js";
 import type { APIContext, InferGetStaticPropsType } from "astro";
+import type { ReactNode } from "react";
 import satori, { type SatoriOptions } from "satori";
 import { html } from "satori-html";
 
@@ -122,11 +123,20 @@ export async function GET(context: APIContext) {
   const postDate = pubDate
     ? getFormattedDate(pubDate, { month: "long", weekday: "long" })
     : "";
-  const svg = await satori(markup(title, postDate), ogOptions);
+  /* satori is typed against React's ReactNode, and satori-html returns its own
+     structural VNode. They are the documented pairing and satori walks the tree
+     happily; the two type definitions just never met. */
+  const svg = await satori(
+    markup(title, postDate) as unknown as ReactNode,
+    ogOptions,
+  );
 
-  // Проверяем, запрашивает ли пользователь PNG
+  // Does the caller want a PNG?
   if (context.url.pathname.endsWith(".png")) {
-    const png = new Resvg(svg).render().asPng();
+    /* asPng() hands back a Node Buffer, whose element type is ArrayBufferLike.
+       BodyInit only accepts a Uint8Array over a plain ArrayBuffer, so this copy
+       is what makes the two agree. ~100KB per card, at build time, 92 times. */
+    const png = new Uint8Array(new Resvg(svg).render().asPng());
     return new Response(png, {
       headers: {
         "Cache-Control": "public, max-age=31536000, immutable",
@@ -135,7 +145,7 @@ export async function GET(context: APIContext) {
     });
   }
 
-  // Проверяем, запрашивает ли пользователь SVG
+  // Or an SVG?
   if (context.url.pathname.endsWith(".svg")) {
     return new Response(svg, {
       headers: {
