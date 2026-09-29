@@ -2,7 +2,7 @@ import { execSync } from "node:child_process";
 import fs from "node:fs";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
@@ -190,10 +190,6 @@ export default defineConfig({
 	integrations: [
 		react(),
 		icon(),
-		tailwind({
-			applyBaseStyles: false,
-			nesting: true,
-		}),
 		sitemap({
 			// The sitemap listed 450 URLs for 124 real articles: 304 of them were
 			// tag pages, and 249 of those existed to list a single post under a
@@ -345,6 +341,10 @@ export default defineConfig({
 			exclude: ["@resvg/resvg-js"],
 		},
 		plugins: [
+			// Tailwind 4 ships as a Vite plugin. @astrojs/tailwind only ever peered on
+			// Astro 3-5, so it was the single thing blocking the move to Astro 7 —
+			// and Tailwind 4 drops that integration anyway.
+			tailwindcss(),
 			rawFonts([".ttf", ".woff"]),
 			svgr({
 				include: "**/*.svg?react",

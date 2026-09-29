@@ -186,6 +186,13 @@ import { Icon } from "astro-icon/components";
 </script>
 
 <style is:global>
+	/* Tailwind 4 compiles every component <style> block on its own, so it has no
+	   idea what `@apply bg-accent-two` or `theme(...)` refer to unless it is told
+	   where the theme lives. @reference loads the main stylesheet for resolution
+	   only — it emits nothing, so this does not duplicate any CSS. Without it the
+	   build fails with "Unknown at rule: @apply". */
+	@reference "../styles/global.css";
+
 	:root {
 		--pagefind-ui-border-radius: 0.5rem; /* 8px */
 	}

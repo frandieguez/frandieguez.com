@@ -11,20 +11,39 @@
 
    Each file carries a unicode-range, so a visitor only downloads the subsets
    their text actually needs. */
-@import "@fontsource-variable/ibm-plex-sans/wght.css";
-@import "@fontsource-variable/ibm-plex-sans/wght-italic.css";
-@import "@fontsource-variable/urbanist/wght.css";
-@import "@fontsource-variable/urbanist/wght-italic.css";
+@import '@fontsource-variable/ibm-plex-sans/wght.css' layer(base);
+@import '@fontsource-variable/ibm-plex-sans/wght-italic.css' layer(base);
+@import '@fontsource-variable/urbanist/wght.css' layer(base);
+@import '@fontsource-variable/urbanist/wght-italic.css' layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
+@config '../../tailwind.config.ts';
 
-@media (prefers-reduced-motion: no-preference) {
-	@view-transition {
-		navigation: auto;
-	}
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@layer utilities {
+  @media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+      navigation: auto;
+    }
+  }
 }
 
 
@@ -100,7 +119,7 @@
 			/* No @font-face for CascadiaCode has ever existed in this repo, so the
 			   name resolved to nothing and the browser fell through to the generic
 			   stack anyway. Say what actually happens. */
-			font-family: theme('fontFamily.mono');
+			font-family: var(--font-mono);
 		}
 	}
 
@@ -226,28 +245,28 @@
 	}
 
 	h1 {
-		@apply text-2xl md:pt-[0.0rem] !important;
+		@apply text-2xl! md:pt-0!;
 	}
 
 	h2 {
-		@apply text-xl md:pt-[0.215rem] !important;
+		@apply text-xl! md:pt-[0.215rem]!;
 	}
 
 	h3 {
-		@apply text-lg md:pt-[0.250rem] !important;
+		@apply text-lg! md:pt-[0.250rem]!;
 		
 	}
 
 	h4 {
-		@apply text-base md:pt-[0.425rem] !important;
+		@apply text-base! md:pt-[0.425rem]!;
 	}
 
 	h5 {
-		@apply text-base md:pt-[0.425rem] !important;
+		@apply text-base! md:pt-[0.425rem]!;
 	}
 
 	h6 {
-		@apply text-base md:pt-[0.425rem] !important;
+		@apply text-base! md:pt-[0.425rem]!;
 	}
 
 	h1,
@@ -256,7 +275,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply min-h-8 h-auto !important;
+		@apply min-h-8! h-auto!;
 	}
 
 	/* Opt-in escape hatch for display type.
@@ -286,69 +305,70 @@
 	*/
 }
 
-:root {
-	--heading-before-content: '#';
+@layer utilities {
+  :root {
+    --heading-before-content: '#';
 
-	/* rehype-pretty-code blocks */
-	figure[data-rehype-pretty-code-figure] {
-		@apply relative m-0 rounded-lg overflow-auto;
+    /* rehype-pretty-code blocks */
+    figure[data-rehype-pretty-code-figure] {
+      @apply relative m-0 rounded-lg overflow-auto;
 
-		figcaption {
-			@apply m-0;
-		}
+      figcaption {
+        @apply m-0;
+      }
 
-		/* Code block titles */
-		[data-rehype-pretty-code-title] {
-			@apply break-words bg-[var(--code-title-bg)] border-b border-bgColor text-textColor px-4 flex items-center text-sm h-10;
+      /* Code block titles */
+      [data-rehype-pretty-code-title] {
+        @apply wrap-break-word bg-(--code-title-bg) border-b border-bgColor text-textColor px-4 flex items-center text-sm h-10;
 
-			&+pre {
-				@apply m-0 rounded-t-none;
-				/* Drop the top radius when there's a title above */
-			}
-		}
+        & + pre {
+          @apply m-0 rounded-t-none;
+          /* Drop the top radius when there's a title above */
+        }
+      }
 
-		/* The code block itself */
-		pre {
-			@apply m-0 static px-0 py-2 max-h-[612px] text-sm;
+      /* The code block itself */
+      pre {
+        @apply m-0 static px-0 py-2 max-h-[612px] text-sm;
 
-			/* Code contents */
-			>code {
-				counter-reset: line;
+        /* Code contents */
+        > code {
+          counter-reset: line;
 
-				/* Blocks with line numbers */
-				&[data-line-numbers] {
-					>[data-line]::before {
-						counter-increment: line;
-						content: counter(line);
-						@apply mr-4 inline-block w-4 text-right text-lightest;
-					}
-				}
+          /* Blocks with line numbers */
+          &[data-line-numbers] {
+            > [data-line]::before {
+              counter-increment: line;
+              content: counter(line);
+              @apply mr-4 inline-block w-4 text-right text-lightest;
+            }
+          }
 
-				/* Each line */
-				>[data-line] {
-					@apply px-4 h-6 bg-transparent flex items-center;
-				}
+          /* Each line */
+          > [data-line] {
+            @apply px-4 h-6 bg-transparent flex items-center;
+          }
 
-				/* Highlighted lines */
-				[data-highlighted-line] {
-					background-color: var(--code-line-highlight);
-				}
+          /* Highlighted lines */
+          [data-highlighted-line] {
+            background-color: var(--code-line-highlight);
+          }
 
-				[data-highlighted-line-id="add"] {
-					background-color: var(--code-line-diff-add);
-				}
+          [data-highlighted-line-id='add'] {
+            background-color: var(--code-line-diff-add);
+          }
 
-				[data-highlighted-line-id="remove"] {
-					background-color: var(--code-line-diff-remove);
-				}
+          [data-highlighted-line-id='remove'] {
+            background-color: var(--code-line-diff-remove);
+          }
 
-				/* Highlighted characters */
-				[data-highlighted-chars]>span {
-					@apply py-[4px];
-				}
+          /* Highlighted characters */
+          [data-highlighted-chars] > span {
+            @apply py-[4px];
+          }
 
-				/* Line diffs (handled above) */
-				/*
+          /* Line diffs (handled above) */
+          /*
 				.diff {
 					&.add {
 						background-color: var(--code-line-diff-add);
@@ -358,34 +378,33 @@
 					}
 				}
 				*/
-			}
-		}
-	}
+        }
+      }
+    }
 
-	/* Base <pre> */
-	pre {
-		@apply bg-[var(--code-bg)] text-[var(--theme-text)] rounded-lg leading-loose m-0;
-		/* @apply bg-[var(--code-bg)] text-[var(--theme-accent)] rounded-lg leading-loose m-0; */
-	}
+    /* Base <pre> */
+    pre {
+      @apply bg-(--code-bg) text-(--theme-text) rounded-lg leading-loose m-0;
+      /* @apply bg-[var(--code-bg)] text-[var(--theme-accent)] rounded-lg leading-loose m-0; */
+    }
 
-	/* Inline code (rehype-pretty-code overrides the tailwind.config styles) */
-	:not(pre)>code {
-		@apply bg-[var(--code-inline-bg)] px-2 py-1 text-sm rounded-lg;
-	}
+    /* Inline code (rehype-pretty-code overrides the tailwind.config styles) */
+    :not(pre) > code {
+      @apply bg-(--code-inline-bg) px-2 py-1 text-sm rounded-lg;
+    }
 
-	/* rehype-pretty-copy button (implemented separately) */
-	/*
+    /* rehype-pretty-copy button (implemented separately) */
+    /*
 	button.rehype-pretty-copy {
 		@apply absolute top-1 right-1 bg-transparent m-auto size-8 rounded-md p-1 backdrop-blur-none;
 		filter: brightness(var(--brightness)) saturate(0%);
 	}
 	*/
-
+  }
 }
 
 
 @layer components {
-
 	/* <mark> inside an article */
 	article mark {
 		@apply bg-transparent;
@@ -585,4 +604,84 @@ html.js-reveal [data-rail].is-revealed {
 	html.js-reveal .hand-rule path {
 		stroke-dashoffset: 0 !important;
 	}
+}
+
+/* ---------------------------------------------------------------------------
+   Prose overrides
+
+   These lived in the `typography` block of tailwind.config.ts as CSS-in-JS with
+   `@apply` inside. Tailwind 4 reads that config through `@config` for theme
+   values, but it does NOT resolve `@apply` there — the directives leaked into
+   the built stylesheet verbatim, as 27 invalid declarations the browser threw
+   away. Blockquotes, code, tables, footnote markers and every admonition lost
+   their styling while the build reported success.
+
+   In a real CSS file `@apply` works, so they live here now. The plugin's own
+   rules are wrapped in `:where(...)`, which has zero specificity, so a plain
+   `.prose x` selector overrides them without !important.
+   --------------------------------------------------------------------------- */
+@layer components {
+	.prose a { @apply citrus-link; }
+
+	.prose blockquote {
+		@apply border-l-0 px-4 font-normal text-quote;
+	}
+	.prose blockquote > p:first-of-type { @apply mt-0; }
+	.prose blockquote > p:last-of-type { @apply mb-0; }
+	.prose blockquote > p::before {
+		@apply relative -ms-4 me-0.5 font-serif text-2xl font-medium leading-none text-lightest content-['“'];
+		top: 0.31125rem;
+	}
+	.prose blockquote > p::after {
+		@apply relative ms-0 font-serif text-2xl font-medium leading-none text-lightest content-['”'];
+		top: 0.31125rem;
+	}
+
+	.prose pre { @apply relative py-1.5; }
+	.prose code { @apply rounded-lg bg-color-150 px-2 py-1 text-sm; }
+	.prose kbd {
+		@apply border-color-100 bg-special-lighter text-textColor;
+		box-shadow: 0 2.5px 0 rgb(0 0 0 / 0.25);
+	}
+	.prose hr { @apply border-t border-solid border-color-200; }
+
+	/* Footnote markers */
+	.prose sup { @apply ms-0.5 rounded-sm bg-accent-two px-1 text-bgColor; }
+	.prose sup:hover { @apply brightness-110; }
+	.prose sup a { @apply text-bgColor; }
+	.prose sup a:hover { @apply no-underline; }
+
+	.prose table { @apply overflow-hidden rounded-lg; }
+	.prose thead { @apply bg-color-50; }
+	.prose thead th { @apply min-h-8 items-center; }
+	.prose td,
+	.prose th { @apply px-4 py-1; }
+	.prose tbody tr:nth-child(odd) { @apply bg-color-100; }
+	.prose tbody tr:nth-child(even) { @apply bg-color-50; }
+
+	/* Admonitions. The per-variant colour is already a custom property, so one
+	   rule replaces the five `bg-blue-400/10`-style declarations there used to be
+	   — and a new variant now only needs its --admonition-color. */
+	.prose .aside {
+		@apply my-4 rounded-lg p-4;
+		border-inline-start: 0.625rem solid var(--admonition-color);
+		background-color: color-mix(in oklab, var(--admonition-color) 10%, transparent);
+	}
+	.prose .aside .aside-title {
+		@apply my-0 flex items-center gap-2 text-base font-bold capitalize;
+		color: var(--admonition-color);
+	}
+	.prose .aside .aside-title::before {
+		@apply inline-block h-4 w-4 shrink-0 overflow-visible align-middle content-[''];
+		background-color: var(--admonition-color);
+	}
+	.prose .aside .aside-content > :last-child { @apply mb-0; }
+
+	/* Heading scale for the `citrus` prose variant. */
+	.prose-citrus h1 { @apply text-4xl font-bold leading-tight; }
+	.prose-citrus h2 { @apply text-3xl font-bold leading-snug; }
+	.prose-citrus h3 { @apply text-2xl font-semibold leading-snug; }
+	.prose-citrus h4 { @apply text-xl font-semibold leading-snug; }
+	.prose-citrus h5 { @apply text-lg font-medium leading-snug; }
+	.prose-citrus h6 { @apply text-base font-medium leading-snug; }
 }

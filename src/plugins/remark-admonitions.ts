@@ -1,6 +1,13 @@
 import type { AdmonitionType } from "@/types";
 import { type Properties, h as _h } from "hastscript";
 import type { Node, Paragraph as P, Parent, PhrasingContent, Root } from "mdast";
+// Side-effect type import: mdast-util-to-hast is what declares `hName` and
+// `hProperties` on mdast's `data`, by module augmentation. Astro 7 no longer
+// pulls it into scope on its own — @astrojs/markdown-remark became an opt-in
+// dependency when Sätteri took over as the default Markdown processor — so
+// without this line the augmentation is absent and `data: { hName }` stops
+// type-checking, even though it still works at runtime.
+import type {} from "mdast-util-to-hast";
 import type { Directives, LeafDirective, TextDirective } from "mdast-util-directive";
 import { directiveToMarkdown } from "mdast-util-directive";
 import { toMarkdown } from "mdast-util-to-markdown";
