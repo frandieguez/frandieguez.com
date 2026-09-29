@@ -1,4 +1,5 @@
 ---
+import StatusMark from "@/components/blog/StatusMark.astro";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 import type { HTMLTag, Polymorphic } from "astro/types";
@@ -20,7 +21,7 @@ const { as: Tag = "div", post, withDesc = false, forPage = "index" } = Astro.pro
             <div class="flex flex-row flex-1">
                 <Tag class="citrus-link font-medium text-accent-base md:line-clamp-1">
                     <a data-astro-prefetch href={`/posts/${post.id}/`}>
-                        {post.data.draft && <span class="text-red-500">(Draft) </span>}
+                        <StatusMark post={post} class="mr-1.5" />
                         {post.data.title}
                     </a>
                 </Tag>
@@ -48,7 +49,7 @@ const { as: Tag = "div", post, withDesc = false, forPage = "index" } = Astro.pro
             />
             <Tag class="citrus-link font-medium text-accent-base mt-2.5">
                 <a data-astro-prefetch href={`/posts/${post.id}/`} class={`${forPage === "posts" ? 'text-xl': ''}`} 	>
-                    {post.data.draft && <span class="text-red-500">(Draft) </span>}
+                    <StatusMark post={post} class="mr-1.5" />
                     {post.data.title}
                 </a>
             </Tag>

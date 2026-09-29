@@ -8,7 +8,9 @@
  */
 import Badge from "@/components/Badge.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
+import StatusMark from "@/components/blog/StatusMark.astro";
 import HandRule from "@/components/ui/HandRule.astro";
+import { postStatus } from "@/data/post";
 import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
@@ -18,6 +20,10 @@ interface Props {
 }
 
 const { content } = Astro.props;
+
+// Gated on DEV here as well as inside StatusMark, so the separator dot in front
+// of it cannot survive on its own into a build.
+const unpublished = import.meta.env.DEV && postStatus(content) !== null;
 
 const dateTimeOptions: Intl.DateTimeFormatOptions = { month: "long" };
 
@@ -65,12 +71,12 @@ const readingTime = content.rendered?.metadata?.frontmatter?.readingTime as
 				)
 			}
 			{
-				content.data.draft && (
+				unpublished && (
 					<>
 						<span aria-hidden="true" class="text-color-450">
 							·
 						</span>
-						<span class="text-red-500">Draft</span>
+						<StatusMark post={content} />
 					</>
 				)
 			}

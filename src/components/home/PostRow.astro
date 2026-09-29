@@ -1,4 +1,5 @@
 ---
+import StatusMark from "@/components/blog/StatusMark.astro";
 /**
  * A compact row in the homepage writing list: year · title · month.
  *
@@ -37,7 +38,7 @@ const month = date.toLocaleDateString("en-GB", { month: "short" });
 			<span
 				class="block text-[1.0625rem] font-medium text-accent-base transition-colors group-hover:text-accent-two md:text-lg"
 			>
-				{post.data.draft && <span class="text-red-500">(Draft) </span>}
+				<StatusMark post={post} class="mr-1.5" />
 				{post.data.title}
 			</span>
 		</a>

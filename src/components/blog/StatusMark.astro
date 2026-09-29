@@ -1,0 +1,56 @@
+---
+/**
+ * Marks a post that is not public yet. Development only.
+ *
+ * `getAllPosts()` shows drafts and future-dated posts under `astro dev` so they
+ * can be read in context rather than as a file. That is only safe if it is
+ * obvious at a glance which entries a visitor would not see, hence this.
+ *
+ * Renders nothing in a production build, twice over: `getAllPosts()` does not
+ * return unpublished posts there, and this component checks the environment
+ * again. Belt and braces on purpose — a false negative costs nothing, a false
+ * positive is a "Draft" pill on a live page.
+ *
+ * `text-red-500` is a flat Tailwind colour rather than a theme token, which
+ * DESIGN.md §2.3 sanctions for exactly this marker. It should not look like it
+ * belongs to the palette: it is scaffolding, and it is meant to catch the eye.
+ */
+import { postStatus } from "@/data/post";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+	post: CollectionEntry<"post">;
+	class?: string | undefined;
+}
+
+const { post, class: className } = Astro.props;
+
+const status = import.meta.env.DEV ? postStatus(post) : null;
+
+// Scheduled posts say when, because "scheduled" alone does not answer the
+// question you actually have when you see one in a listing.
+const label =
+	status === "scheduled"
+		? `Scheduled ${post.data.publishDate.toLocaleDateString("en-GB", {
+				day: "2-digit",
+				month: "short",
+			})}`
+		: "Draft";
+---
+
+{
+	status && (
+		<span
+			class:list={[
+				"inline-flex items-center gap-1 rounded-lg border px-1.5 font-mono text-[0.625rem] uppercase tracking-[0.14em] align-middle",
+				status === "draft"
+					? "border-red-500/40 text-red-500"
+					: "border-accent-two/40 text-accent-two",
+				className,
+			]}
+		>
+			<span aria-hidden="true">●</span>
+			{label}
+		</span>
+	)
+}

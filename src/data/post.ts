@@ -27,11 +27,30 @@ import { type CollectionEntry, getCollection } from "astro:content";
  */
 export async function getAllPosts(): Promise<CollectionEntry<"post">[]> {
   const now = Date.now();
-  return await getCollection(
-    "post",
-    ({ data }) =>
-      !data.draft && (import.meta.env.DEV || data.publishDate.getTime() <= now)
-  );
+  return await getCollection("post", ({ data }) => {
+    // In `astro dev` everything is visible, so a piece can be read in place —
+    // in the listing, on the homepage, with its real neighbours around it —
+    // instead of only as a file. `postStatus()` marks what is not live yet.
+    if (import.meta.env.DEV) return true;
+    return !data.draft && data.publishDate.getTime() <= now;
+  });
+}
+
+/**
+ * Why a post is not public yet, or null when it is.
+ *
+ * Only ever non-null under `astro dev`: a production build never returns an
+ * unpublished post from getAllPosts() in the first place, so there is nothing
+ * left to label. StatusMark checks `import.meta.env.DEV` again anyway — two
+ * gates, because the cost of this leaking into a build is a "Draft" pill on a
+ * live page and the cost of the extra check is nothing.
+ */
+export function postStatus(
+  post: CollectionEntry<"post">
+): "draft" | "scheduled" | null {
+  if (post.data.draft) return "draft";
+  if (post.data.publishDate.getTime() > Date.now()) return "scheduled";
+  return null;
 }
 
 /** newest-first posts, optionally excluding some ids and capped at `limit`. */
