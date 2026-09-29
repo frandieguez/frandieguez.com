@@ -73,7 +73,7 @@ I had left a comment there arguing they would win: the plugin wraps its selector
 
 It failed in the shape that hides best: each rule still applied wherever the plugin declared nothing at all. So everything I checked by eye looked right. Admonitions, striped table rows, the table corner radius — all fine. Meanwhile `hr`, `kbd`, blockquote colour and weight, footnote markers and the heading scale quietly kept the plugin's values.
 
-The tell was an asymmetry I would never have predicted. Table cells were rendering `padding: 4px 8px 8px 0` — where `px-4 py-1` asks for `4px 16px 4px 16px`. The top was right and the other three sides were wrong, because the plugin happens not to declare `padding-top` on `th`. A rule losing everywhere is invisible; a rule losing on three sides out of four is a clue.
+The tell was an asymmetry I would never have predicted. Header cells were rendering `padding: 4px 8px 8px 0` — where `px-4 py-1` asks for `4px 16px 4px 16px`. The top was right and the other three sides were wrong, because the plugin happens not to declare `padding-top` on `th`. Body cells lost all four sides and looked ordinary doing it. A rule losing everywhere is invisible; a rule losing on three sides out of four is a clue.
 
 Registering the layer explicitly, so it is ordered after the plugin, fixed all of it. Measured on a real post rather than a test page: every cell, not every cell except the first and last. Blockquotes back to weight 400 from 500.
 
@@ -106,7 +106,9 @@ What remained after all that was 34 files and exactly one real finding.
 
 Worth stating plainly, because upgrade write-ups have a habit of ending at "and everything was fine".
 
-The stylesheet went from **16,836 to 19,704 bytes gzipped**. That is v4's output format, not unused theme bloat — it emits twelve `--color-*` custom properties and is already tree-shaking. It gives back rather more than a separate change had just saved by splitting the search stylesheet out of the global bundle.
+The stylesheet went from **16,836 to 19,704 bytes gzipped**. That is v4's output format, not unused theme bloat — it emits twelve `--color-*` custom properties and is already tree-shaking.
+
+Those 2,868 bytes are slightly more than the 2,614 a separate change had just saved by splitting the search stylesheet out of the global bundle — gzipped on both sides, which is the only way the two are comparable. I originally wrote that comparison against the *uncompressed* saving, which made it sound like a rout. It is 254 bytes.
 
 `tailwind.config.ts` is no longer type-annotated. `Config` and `tailwindcss/defaultTheme` are v3 exports, and annotating a file that Tailwind loads itself produced sixteen errors in exchange for nothing.
 
