@@ -56,7 +56,11 @@ function transformUnhandledDirective(
 }
 
 /** From Astro Starlight: Function that generates an mdast HTML tree ready for conversion to HTML by rehype. */
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+/* `children` holds mdast nodes of any type: the callers below pass Paragraph,
+   Text, and the RootContent of whatever the author wrote inside the `:::`
+   block. Narrowing it to RootContent[] would reject the P nodes this same
+   function returns. */
+// biome-ignore lint/suspicious/noExplicitAny: see the note above
 function h(el: string, attrs: Properties = {}, children: any[] = []): P {
 	const { properties, tagName } = _h(el, attrs);
 	return {
