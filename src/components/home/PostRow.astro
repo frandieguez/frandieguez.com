@@ -36,6 +36,7 @@ const month = date.toLocaleDateString("en-GB", { month: "short" });
 	<h3 class="display-heading">
 		<a class="citrus-link" data-astro-prefetch href={href}>
 			<span
+				data-post-title={post.id}
 				class="block text-[1.0625rem] font-medium text-accent-base transition-colors group-hover:text-accent-two md:text-lg"
 			>
 				<StatusMark post={post} class="mr-1.5" />

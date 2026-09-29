@@ -49,6 +49,42 @@
     @view-transition {
       navigation: auto;
     }
+
+    /* The post-title morph. The name is put on exactly one element per
+       navigation by scripts/title-transition.ts; nothing here selects markup.
+
+       The group is what moves and resizes between the listing position and the
+       masthead. It gets the longer duration and an ease-out curve, because the
+       eye follows the travel.
+
+       The old and new snapshots are cross-faded much faster and with a delay, so
+       for most of the movement you are looking at the outgoing title. Text of two
+       different sizes cross-fading over its whole travel reads as a blur; ending
+       the fade early lands it crisp. */
+    ::view-transition-group(post-title) {
+      animation-duration: 420ms;
+      animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    ::view-transition-old(post-title),
+    ::view-transition-new(post-title) {
+      animation-duration: 160ms;
+      animation-delay: 130ms;
+      animation-fill-mode: both;
+      /* Both snapshots are stretched to the group box rather than letter-boxed,
+         so the two title sizes track each other instead of one sitting inside a
+         frame of the other's proportions. */
+      height: 100%;
+      width: 100%;
+      object-fit: fill;
+    }
+
+    /* The rest of the page keeps Astro's default fade, but it has to be quicker
+       than the morph or the title arrives over a half-faded page. */
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 180ms;
+    }
   }
 }
 

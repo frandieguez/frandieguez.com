@@ -19,7 +19,7 @@ const { as: Tag = "div", post, withDesc = false, forPage = "index" } = Astro.pro
     {!withDesc ? (
         <>
             <div class="flex flex-row flex-1">
-                <Tag class="citrus-link font-medium text-accent-base md:line-clamp-1">
+                <Tag data-post-title={post.id} class="citrus-link font-medium text-accent-base md:line-clamp-1">
                     <a data-astro-prefetch href={`/posts/${post.id}/`}>
                         <StatusMark post={post} class="mr-1.5" />
                         {post.data.title}
@@ -47,7 +47,7 @@ const { as: Tag = "div", post, withDesc = false, forPage = "index" } = Astro.pro
                     day: "2-digit",
                 }}
             />
-            <Tag class="citrus-link font-medium text-accent-base mt-2.5">
+            <Tag data-post-title={post.id} class="citrus-link font-medium text-accent-base mt-2.5">
                 <a data-astro-prefetch href={`/posts/${post.id}/`} class={`${forPage === "posts" ? 'text-xl': ''}`} 	>
                     <StatusMark post={post} class="mr-1.5" />
                     {post.data.title}
