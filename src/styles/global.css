@@ -18,6 +18,12 @@
 
 @import 'tailwindcss';
 
+/* `@import 'tailwindcss'` establishes the order `theme, base, components,
+   utilities`. Registering `prose` here appends it AFTER utilities, which is
+   where the typography plugin emits. The prose overrides at the bottom of this
+   file need to be in a later layer than the plugin — see the note there. */
+@layer prose;
+
 @config '../../tailwind.config.ts';
 
 /*
@@ -616,11 +622,22 @@ html.js-reveal [data-rail].is-revealed {
    away. Blockquotes, code, tables, footnote markers and every admonition lost
    their styling while the build reported success.
 
-   In a real CSS file `@apply` works, so they live here now. The plugin's own
-   rules are wrapped in `:where(...)`, which has zero specificity, so a plain
-   `.prose x` selector overrides them without !important.
+   In a real CSS file `@apply` works, so they live here now.
+
+   They must NOT go in `@layer components`. The plugin's rules are wrapped in
+   `:where(...)`, so it is tempting to assume zero specificity means a plain
+   `.prose x` selector wins — but the plugin emits into `@layer utilities`,
+   which is ordered after `components`, and layer order beats specificity
+   outright. That is not a tie a more specific selector can break.
+
+   It cost ten of the twenty-nine rules below, silently: each one applied only
+   where the plugin happened to declare nothing, so admonitions and striped
+   table rows looked correct while `hr`, `kbd`, blockquote colour, footnote
+   markers, the `.prose-citrus` heading scale and every table cell's padding
+   quietly kept the plugin's values. `@layer prose` is registered after
+   `utilities` at the top of this file; keep them there.
    --------------------------------------------------------------------------- */
-@layer components {
+@layer prose {
 	.prose a { @apply citrus-link; }
 
 	.prose blockquote {
