@@ -12,11 +12,8 @@ dsq_thread_id:
   - "654324905"
 categories:
   - Sofware Development
-tags:
-  - dirs
-  - files
-  - git
-  - restore
+tags: ["git"]
+
 ---
 
 <div class="aligncenter md:w-2/3">

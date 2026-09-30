@@ -12,14 +12,8 @@ dsq_thread_id:
   - "653744817"
 categories:
   - System Administration
-tags:
-  - apache
-  - development
-  - lamp
-  - mysql
-  - PHP
-  - server
-  - setup
+tags: ["apache", "php", "mysql", "sysadmin"]
+
 ---
 <div class="aligncenter">
 

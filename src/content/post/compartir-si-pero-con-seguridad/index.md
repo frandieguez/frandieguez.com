@@ -13,6 +13,7 @@ dsq_thread_id:
   - "664594500"
 categories:
   - Uncategorized
+tags: ["linux", "security", "sysadmin"]
 ---
 <p class="subhd">Siempre que utilizas una red heterogénea y quieres compartir recursos entre los distintos sistemas, y cuando es el caso en que coexisten sistemas GNU/Linux con Windows la mejor forma es utilizando <a title="Samba - compartiendo recursos con Windows" href="http://us3.samba.org/samba/">Samba</a>. Y una de las formas más comodas para tener un recurso en local es utilizando sambafs y montarlo en algun directorio local. Bueno pero, ¿como puedo montar mi directorio remoto en Linux?</p>
 <p class="subhd">Es muy fácil. primero tenemos que instalar samba y smbfs los cuales nos permitiran acceder y ofrecer recursos en red con sistemas Windows, montandolos en local en el segundo caso.</p>

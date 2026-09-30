@@ -10,14 +10,8 @@ guid: http://www.mabishu.com/?p=1695
 categories:
   - Software Development
   - Technical Interviews
-tags:
-  - artificial intelligence
-  - coding interviews
-  - OpenAI
-  - GenAI
-  - software engineering
-  - developer skills
-  - AI in tech hiring
+tags: ["ai", "career", "hiring"]
+
 ---
 
 ![Interviews and chatbots](./interviews-chatbot.png)

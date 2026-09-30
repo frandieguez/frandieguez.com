@@ -13,12 +13,8 @@ dsq_thread_id:
   - "654485310"
 categories:
   - Uncategorized
-tags:
-  - google
-  - pagerank
-  - Ruby
-  - rubyforge
-  - rubygem
+tags: ["ruby", "seo"]
+
 ---
 Ya lo dicen los abueletes, "la necesidad agudiza el ingenio". Recientemente estoy trabajando en un proyecto personal del que ya hablaré largo y tendido, en el cual me vi en la necesidad de utilizar un sistema de valoración de dominios segun su importancia y "famoseo" en la red. Cuando se me encendio la lucecita y pensé en la mítica frase de Eric S. Raymond en "<a title="La Catedral y el Bazar" href="http://biblioweb.sindominio.net/telematica/catedral.html" target="_blank">La catedral y el bazar</a>", con lo que me puse a buscar como poder obtener el PageRank de Google y por fin liberar algo de código a la Comunidad Ruby.
 

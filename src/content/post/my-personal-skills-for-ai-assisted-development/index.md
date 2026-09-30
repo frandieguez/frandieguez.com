@@ -2,7 +2,7 @@
 title: "My Personal AI Skills for React, Three.js and Spring Boot Development"
 description: "A collection of agent skills that encapsulates my preferred patterns across the frontend and backend stack I use daily."
 publishDate: 2026-03-13
-tags: ["ai", "tooling", "react", "threejs", "maplibre", "spring-boot", "redux", "opencode"]
+tags: ["ai", "agents", "react", "threejs", "developer-tools"]
 draft: false
 ---
 

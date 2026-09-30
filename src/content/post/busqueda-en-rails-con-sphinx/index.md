@@ -13,13 +13,8 @@ dsq_thread_id:
   - "655863285"
 categories:
   - Web
-tags:
-  - busqueda
-  - programming
-  - rails
-  - Ruby
-  - ruby on rails
-  - sphinx
+tags: ["rails", "ruby", "search"]
+
 ---
 Cuando lo que quieres es maximizar el rendimiento de tu aplicación en consultas y búsquedas en una base de datos con millones registros normalmente utilizar el *indexador* y *buscador* de MySql no es la mejor opción.
 

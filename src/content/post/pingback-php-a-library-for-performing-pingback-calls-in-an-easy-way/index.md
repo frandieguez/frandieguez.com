@@ -13,11 +13,8 @@ dsq_thread_id:
 categories:
   - Open Source
   - Sofware Development
-tags:
-  - library
-  - open-source
-  - PHP
-  - pingback
+tags: ["php", "open-source"]
+
 ---
 Today I'm pleased to announce another library that I made. [Pingback-php](http://frandieguez.github.com/pingback-php/">Pingback-php) is a library for performing Pingback requests in a simple way. Pingback-PHP is compliant with the [Pingback 1.0 standard specification](http://www.hixie.ch/specs/pingback/pingback).
 

@@ -13,14 +13,8 @@ dsq_thread_id:
   - "653991029"
 categories:
   - System Administration
-tags:
-  - console
-  - find
-  - grep
-  - Linux
-  - locate
-  - terminal
-  - unix
+tags: ["linux", "terminal", "sysadmin"]
+
 ---
 Todos los que trabajamos asiduamente con un terminal no podemos evitar
 en algún momento lidiar con la tarea de búsqueda de archivos por nombre

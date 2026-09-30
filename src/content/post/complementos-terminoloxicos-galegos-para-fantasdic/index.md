@@ -21,11 +21,8 @@ dsq_thread_id:
   - "655370812"
 categories:
   - Open Source
-tags:
-  - fantasdic
-  - recursos
-  - Ruby
-  - terminoloxía
+tags: ["galician", "l10n", "gnome", "ruby"]
+
 ---
 O aplicativo <a href="http://www.gnome.org/projects/fantasdic">Fantasdic</a> é un aplicativo de diccionario que permite buscar palabras dende moitas e diversas fontes. Destinado principalmente ao escritorio de GNOME, pero tamén pode traballar en outras plataformas, incluso en Windows. Fantasdic é software libre e programado na linguaxe de programación Ruby.
 

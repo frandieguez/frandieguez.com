@@ -13,6 +13,7 @@ dsq_thread_id:
   - "669278238"
 categories:
   - Uncategorized
+tags: ["email", "productivity"]
 ---
 
 <div class="alignright">

@@ -13,12 +13,8 @@ dsq_thread_id:
   - "653706395"
 categories:
   - Uncategorized
-tags:
-  - compilación
-  - core 2 duo
-  - kernel
-  - Linux
-  - macbook
+tags: ["linux", "macos", "hardware"]
+
 ---
 
 <div class="alignright">

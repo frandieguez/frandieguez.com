@@ -12,13 +12,8 @@ dsq_thread_id:
   - "654069406"
 categories:
   - Sofware Development
-tags:
-  - development
-  - PHP
-  - php5
-  - plugin
-  - server
-  - smarty
+tags: ["php", "html"]
+
 ---
 <div class="aligncenter">
 

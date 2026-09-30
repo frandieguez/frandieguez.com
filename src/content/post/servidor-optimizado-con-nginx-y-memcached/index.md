@@ -14,12 +14,8 @@ dsq_thread_id:
 categories:
   - System Administration
   - Web
-tags:
-  - debian
-  - Linux
-  - nginx
-  - server
-  - web server
+tags: ["nginx", "caching", "performance", "web-servers"]
+
 ---
 <div class="aligncenter">
 

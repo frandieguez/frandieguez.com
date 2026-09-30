@@ -13,14 +13,8 @@ dsq_thread_id:
   - "657457423"
 categories:
   - Programming
-tags:
-  - completado
-  - funciones
-  - gem
-  - programming
-  - Ruby
-  - terminal
-  - zsh
+tags: ["ruby", "terminal", "developer-tools"]
+
 ---
 Durante una de mis sesiones de lectura de blogs me encontré que [en el de Sergio Gil](http://www.lacoctelera.com/porras/post/2008/07/11/rapido-acceso-la-documentacion-las-gemas-instaladas "Acceso rápido a la Documentación de tus gemas"), programador en [The Cocktail](http://www.the-cocktail.com/ "The Cocktail: consultora de experiencia de usuario y diseño de interacción"), había escrito como tener acceso directo a las gemas mediante un script de Bash que además autocompleta.
 

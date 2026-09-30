@@ -12,6 +12,7 @@ dsq_thread_id:
   - "1279274272"
 categories:
   - Uncategorized
+tags: ["developer-tools", "automation"]
 ---
 This article should be called like something like "Be happy: put a robot in your life", deep down in order to represent better what I will explain here I've changed the title to a more technical point of view.
 

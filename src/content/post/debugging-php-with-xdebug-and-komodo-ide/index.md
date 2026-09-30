@@ -12,17 +12,8 @@ dsq_thread_id:
   - "654629803"
 categories:
   - Sofware Development
-tags:
-  - applications
-  - configuration
-  - debug
-  - debugging
-  - development
-  - PHP
-  - php5
-  - profiling
-  - server
-  - xdebug
+tags: ["php", "debugging", "developer-tools"]
+
 ---
 
 <div class="alignright">

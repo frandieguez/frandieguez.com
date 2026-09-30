@@ -9,13 +9,8 @@ published: true
 guid: http://www.mabishu.com/?p=1962
 categories:
   - Mechanical Keyboard
-tags:
-  - lily58
-  - howto
-  - mechanical keyboard
-  - build
-  - photos
-  - keeb
+tags: ["hardware", "keyboards", "diy"]
+
 ---
 
 ![lily58](./DSCF3271.JPG)

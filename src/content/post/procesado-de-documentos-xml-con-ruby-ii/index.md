@@ -13,9 +13,8 @@ dsq_thread_id:
   - "657940118"
 categories:
   - Programming
-tags:
-  - ruby
-  - xml
+tags: ["ruby", "xml"]
+
 ---
 Continuamos con el procesado de documentos XML con Ruby pero esta vez vamos a utilizar otro parser proporcionado en REXML.
 

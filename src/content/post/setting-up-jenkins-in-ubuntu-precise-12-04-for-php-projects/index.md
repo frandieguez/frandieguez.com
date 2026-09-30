@@ -12,14 +12,8 @@ dsq_thread_id:
   - "653690718"
 categories:
   - System Administration
-tags:
-  - ci
-  - continuous integration
-  - jenkins
-  - PHP
-  - precise
-  - setup
-  - ubuntu
+tags: ["php", "continuous-integration", "testing", "ubuntu"]
+
 ---
 
 <div class="alignright">

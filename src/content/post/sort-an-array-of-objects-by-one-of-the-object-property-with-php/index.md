@@ -12,9 +12,8 @@ dsq_thread_id:
   - "653773207"
 categories:
   - Sofware Development
-tags:
-  - objects
-  - php
+tags: ["php"]
+
 ---
 <div class="alignright">
 

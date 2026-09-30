@@ -13,11 +13,8 @@ dsq_thread_id:
   - "655370756"
 categories:
   - System Administration
-tags:
-  - atheros
-  - Linux
-  - madwifi
-  - wireless
+tags: ["linux", "macos", "hardware"]
+
 ---
 <div class="alignright">
 

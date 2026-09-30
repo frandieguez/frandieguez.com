@@ -135,6 +135,38 @@ const DEAD_TAXONOMY = new Map<string, string>([
 	["teminologia", "/posts/complementos-terminoloxicos-galegos-para-fantasdic/"],
 ]);
 
+/**
+ * Tag pages that were indexed under their old name and no longer exist.
+ *
+ * The archive's tags were retagged from the content rather than from whatever
+ * WordPress's autocomplete offered in 2008, which took 261 tags down to 70.
+ * Thirteen of the twenty-one indexed tag pages kept their slug. These eight did
+ * not, and each was a live, indexed URL — the same debt the notes migration
+ * created and had to pay off afterwards, so it is paid up front this time.
+ *
+ * Keys are percent-decoded: three of them contained a space, which is the
+ * reason they had to change at all.
+ */
+const RETIRED_TAGS = new Map<string, string>([
+	["best practices", "/tags/software-engineering/"],
+	["clean code", "/tags/software-engineering/"],
+	["software engineering", "/tags/software-engineering/"],
+	["development", "/tags/software-engineering/"],
+	["programming", "/tags/software-engineering/"],
+	["macbook", "/tags/macos/"],
+	["php5", "/tags/php/"],
+	["server", "/tags/sysadmin/"],
+]);
+
+/** Percent-decoded, so `best%20practices` matches the key `best practices`. */
+function decodeSlug(slug: string): string {
+	try {
+		return decodeURIComponent(slug);
+	} catch {
+		return slug;
+	}
+}
+
 function structuralTarget(pathname: string): string | undefined {
 	const path = pathname.replace("/blog/index.php/", "/blog/").toLowerCase();
 	const rest = path.startsWith("/blog/") ? path.slice(5) : path;
@@ -144,10 +176,20 @@ function structuralTarget(pathname: string): string | undefined {
 	// an unanchored /feed/?$ would also catch a post whose slug ends in "feed".
 	if (/^\/(comments\/|(tag|category)\/[^/]+\/)?feed\/?$/.test(rest)) return "/rss.xml";
 
+	// A tag page this site published itself and has since retired. Checked before
+	// the WordPress rules because the path is /tags/, not /tag/, and a live tag
+	// must fall through to its own page untouched.
+	const current = /^\/tags\/([^/]+)\/?$/.exec(rest);
+	if (current) {
+		const retired = RETIRED_TAGS.get(decodeSlug(current[1] ?? ""));
+		if (retired) return retired;
+		return undefined;
+	}
+
 	const archive = /^\/(tag|category)\/([^/]+)\/?$/.exec(rest);
 	if (archive) {
-		const slug = archive[2] ?? "";
-		return DEAD_TAXONOMY.get(slug) ?? `/tags/${slug}/`;
+		const slug = decodeSlug(archive[2] ?? "");
+		return DEAD_TAXONOMY.get(slug) ?? RETIRED_TAGS.get(slug) ?? `/tags/${slug}/`;
 	}
 
 	if (/^\/author\//.test(rest)) return "/about/";

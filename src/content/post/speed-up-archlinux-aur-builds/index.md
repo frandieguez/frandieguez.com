@@ -10,9 +10,8 @@ guid: http://www.frandieguez.dev/?p=1691
 permalink: /blog/2019/04/speed-up-archlinux-aur-package-building/
 categories:
   - Operating Systems
-tags:
-  - Archlinux
-  - AUR
+tags: ["linux", "packaging", "performance"]
+
 ---
 
 

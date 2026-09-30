@@ -14,12 +14,8 @@ dsq_thread_id:
 categories:
   - System Administration
   - Web
-tags:
-  - nginx
-  - PHP
-  - servidor web
-  - virtualhost
-  - webserver
+tags: ["nginx", "php", "web-servers"]
+
 ---
 Echa la compilación de nuestro nginx ahora voy a explicar mas o menos mi sistema para gestionar virtualhosts con nginx. Primero de todo, suelo meter los virtualhosts en /opt en el que crearemos el esqueleto para cada slice.
 

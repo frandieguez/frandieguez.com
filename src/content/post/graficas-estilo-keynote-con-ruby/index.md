@@ -13,11 +13,8 @@ dsq_thread_id:
   - "654483064"
 categories:
   - Programming
-tags:
-  - grafica
-  - gruff
-  - imagemagick
-  - Ruby
+tags: ["ruby", "data-visualisation"]
+
 ---
 Vamos a probar la gema Gruff <a title="Gruff Graphs para Ruby" href="http://nubyonrails.com/pages/gruff">Graphs para Ruby</a> (<a title="Ejemplos de uso de Graphs para Ruby" href="http://geoffreygrosenbach.com/projects/show/5">algunos ejemplos</a>) una gema que he descubierto hace poco que nos simplifica muchísimo la creación de gráficas (con un toque de estilo keynote para presentaciones). Para ello debemos tener la librería RMagick, necesaria para que Gruff funcione, y gem, para poder instalar librerías de Ruby al vuelo. Let's Go!
 

@@ -12,12 +12,8 @@ dsq_thread_id:
   - "974349149"
 categories:
   - System Administration
-tags:
-  - grub
-  - Linux
-  - mac os x
-  - macbook
-  - mbr
+tags: ["macos", "linux", "sysadmin"]
+
 ---
 <div class="aligncenter">
 

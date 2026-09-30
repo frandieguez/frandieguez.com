@@ -12,12 +12,8 @@ dsq_thread_id:
   - "1122986955"
 categories:
   - Work
-tags:
-  - home
-  - openhost
-  - telecommuting
-  - work style
-  - working
+tags: ["career", "remote-work"]
+
 ---
 In the last month seems that the main topic to talk about among IT start-ups is telecommuting. It all started when the actual Yahoo! CEO <a href="http://en.wikipedia.org/wiki/Marissa_Mayer">Marissa Mayer</a> announced that all company employees must start to work at the same place:
 <blockquote>“To become the absolute best place to work, communication and collaboration will be important, so we need to be working side by side. [...] Some of the best decisions and insights come from hallway and cafeteria discussions, [...] Speed and quality are often sacrificed when we work from home.”</blockquote>

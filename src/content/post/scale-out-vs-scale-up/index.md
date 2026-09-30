@@ -13,12 +13,8 @@ dsq_thread_id:
 categories:
   - System Administration
   - Web
-tags:
-  - scalability
-  - scale-out
-  - scale-up
-  - server administration
-  - web server
+tags: ["architecture", "performance", "sysadmin"]
+
 ---
 There is no doubt that cloud hosting is taking its place and it offers some advantages for managing your deployments but, is it the right choice to take?
 

@@ -12,12 +12,8 @@ dsq_thread_id:
   - "654414208"
 categories:
   - Web
-tags:
-  - caching
-  - google analytics
-  - hack
-  - javascript
-  - Linux
+tags: ["performance", "javascript", "caching"]
+
 ---
 <div class="alignright">
 

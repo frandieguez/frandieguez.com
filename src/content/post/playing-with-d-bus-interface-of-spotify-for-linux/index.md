@@ -12,10 +12,8 @@ dsq_thread_id:
   - "653900481"
 categories:
   - System Administration
-tags:
-  - d-bus
-  - Linux
-  - spotify
+tags: ["linux", "scripting"]
+
 ---
 <div class="alignright">
 

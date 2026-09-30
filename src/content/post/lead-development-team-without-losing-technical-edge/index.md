@@ -10,13 +10,8 @@ guid: http://www.mabishu.com/?p=1694
 categories:
   - Software Development
   - Career Advice
-tags:
-  - clean code
-  - software engineering
-  - best practices
-  - programming
-  - developer mistakes
-  - lessons learned
+tags: ["leadership", "career", "software-engineering"]
+
 ---
 
 <div class="aligncenter">

@@ -13,6 +13,7 @@ dsq_thread_id:
   - "654481991"
 categories:
   - Programming
+tags: ["programming-culture"]
 ---
 Buscando un poco por la red me he encontrado un tema muy curioso, y la verdad es que nunca me he parado a pensar. Como se consideran unos programadores a otros en función del lenguaje que utilizan. Unos chavales han echo un estudio sobre la jerarquía de programadores, o lo que es lo mismo lo que piensa uno que programa en Java de uno que programa en C, o los machotes que programan en Ensamblador.
 

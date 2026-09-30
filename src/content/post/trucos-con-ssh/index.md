@@ -13,6 +13,7 @@ dsq_thread_id:
   - "664399149"
 categories:
   - Uncategorized
+tags: ["linux", "ssh", "terminal", "sysadmin"]
 ---
 Si vives y trabajas entre diferentes servidores remotos, probablemente estes accediendo mediante SSH y autenticando mediante llaves RSA. Pero cuando el número de servidores crece, los nombres de host y usuarios respectivos también se incrementa, por lo que no estaría mal un sistema que recordara esos parametros.
 

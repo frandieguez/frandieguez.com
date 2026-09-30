@@ -12,11 +12,8 @@ dsq_thread_id:
   - "974557009"
 categories:
   - System Administration
-tags:
-  - Linux
-  - performance
-  - SSD
-  - tips
+tags: ["linux", "performance", "hardware"]
+
 ---
 
 <img alt="OCZ Vertex 4" src="./ocz-vertex-4-256gb-ssd-sata-iii-3-6gbps-120k-max-iops-adapt_MLA-F-3249716722_102012.jpg" style="max-width: 300px" />

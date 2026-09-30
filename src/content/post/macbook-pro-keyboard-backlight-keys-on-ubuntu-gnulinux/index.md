@@ -12,12 +12,8 @@ dsq_thread_id:
   - "653844454"
 categories:
   - System Administration
-tags:
-  - backlight
-  - bash
-  - keyboard
-  - macbook
-  - macbook
+tags: ["ubuntu", "linux", "macos", "hardware"]
+
 ---
 <div class="alignright">
 

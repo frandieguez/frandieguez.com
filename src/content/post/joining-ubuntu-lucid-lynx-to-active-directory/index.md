@@ -12,10 +12,8 @@ dsq_thread_id:
   - "654456624"
 categories:
   - System Administration
-tags:
-  - active directory
-  - join
-  - ubuntu
+tags: ["ubuntu", "linux", "sysadmin"]
+
 ---
 From Jaunty Jackalope version of Ubuntu and now in the lastest release (Ludid, 10.4) it's very easy to join your Ubuntu to an Active Directory. Where I work we have a huge Active Directory to centralize users, groups, computers and resources (far more than 3000 users).
 

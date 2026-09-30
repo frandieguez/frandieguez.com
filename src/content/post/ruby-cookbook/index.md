@@ -14,9 +14,8 @@ dsq_thread_id:
 categories:
   - Programming
 
-tags:
-  - ruby
-  - coding
+tags: ["ruby"]
+
 ---
 
 <div class="alignright">

@@ -13,10 +13,8 @@ dsq_thread_id:
 categories:
   - System Administration
   - Web
-tags:
-  - configuration
-  - mysql
-  - server
+tags: ["mysql", "databases", "performance"]
+
 ---
 A huge used database reverberate on a more fragmented database even if
 you delete any large data. The data base admin should optimize and take

@@ -13,12 +13,8 @@ dsq_thread_id:
   - "671201181"
 categories:
   - Web
-tags:
-  - lighttpd
-  - Linux
-  - php5
-  - rails
-  - ssl
+tags: ["web-servers", "php", "rails", "security"]
+
 ---
 Recientemente he migrado mi server casero de Apache a Lighttpd, con la eterna promesa de la reducción consumo de recursos, sobre todo para deploys de múltiples aplicaciones en Rails. No se si es una panacea, pero aquí voy a relatar los puntos más algidos sobre la configuración de un server de estas características, así como mis valoraciones iniciales e intermedias.
 

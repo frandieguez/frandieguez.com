@@ -12,15 +12,8 @@ dsq_thread_id:
   - "654108978"
 categories:
   - System Administration
-tags:
-  - deb
-  - debian
-  - debian packaging
-  - debuild
-  - packaging
-  - pecl
-  - PHP
-  - php extensions
+tags: ["php", "debian", "packaging"]
+
 ---
 <div class="aligncenter">
 

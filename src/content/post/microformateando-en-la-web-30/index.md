@@ -13,10 +13,8 @@ dsq_thread_id:
   - "677020991"
 categories:
   - Web
-tags:
-  - microformatos
-  - usabilidad
-  - web 3.0
+tags: ["frontend", "html", "seo"]
+
 ---
 
 <img class="alignright" style="text-align: center;" alt="Microformatos" src="./wiki.png" width="120" height="127" />

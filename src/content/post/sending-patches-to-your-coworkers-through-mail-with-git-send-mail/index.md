@@ -12,12 +12,8 @@ dsq_thread_id:
   - "653731548"
 categories:
   - Sofware Development
-tags:
-  - code versioning
-  - email
-  - format-patch
-  - git
-  - send-email
+tags: ["git"]
+
 ---
 <div class="alignright">
 

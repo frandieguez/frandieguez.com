@@ -12,14 +12,8 @@ dsq_thread_id:
   - '653726187'
 categories:
   - Web
-tags:
-  - book recomendations
-  - designing
-  - Information architecture
-  - social design patterns
-  - ui
-  - ui patterns
-  - user interface
+tags: ["frontend", "design", "ux"]
+
 ---
 
 <div class="aligncenter">

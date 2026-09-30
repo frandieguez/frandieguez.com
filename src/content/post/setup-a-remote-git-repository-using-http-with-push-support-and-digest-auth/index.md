@@ -12,11 +12,8 @@ dsq_thread_id:
   - "653725484"
 categories:
   - System Administration
-tags:
-  - digest
-  - git
-  - http
-  - push
+tags: ["git", "sysadmin"]
+
 ---
 <div class="aligncenter">
 

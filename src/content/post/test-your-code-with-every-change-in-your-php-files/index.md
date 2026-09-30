@@ -12,12 +12,8 @@ dsq_thread_id:
   - "653725137"
 categories:
   - Sofware Development
-tags:
-  - autotest
-  - code
-  - PHP
-  - testing
-  - watchr
+tags: ["php", "testing"]
+
 ---
 <div class="aligncenter">
 

@@ -13,6 +13,7 @@ dsq_thread_id:
   - "655370746"
 categories:
   - Uncategorized
+tags: ["travel"]
 ---
 De todos los que me conocen es bien conocido que soy devoto de la cultura japonesa. Hago mis pinitos con el lenguaje japonés, pero realmente no es lo que me más me apasiona, intento fijarme más en el estilo de vida y pensar de la sociedad oriental. Algo tan simple como son las <a title="Geisha" href="http://www.kirainet.com/fotos-de-un-geisha/">geishas,</a> los <a title="Ryoan-ji" href="http://www.kirainet.com/ryoan-ji-???/">jardines</a>, la <a title="Haruki Murakami" href="http://pjorge.com/2002/11/10/haruki-murakami/">literatura</a>, los poemas hikus, los bonsais, el manga. Pero realmente, ¿porqué me gusta tanto todo esto?
 <p style="text-align: left;">Primero quiero lanzar una pregunta ¿Os habeis dado cuenta que cuando lees un manga japonés, cuando estás un rato en un jardín japonés, cuando lees un par de haikus o cuando comes sushi de calidad sientes algo especial? Es como una paz mental o un estado de tranquilidad total donde todo está en su sitio.</p>

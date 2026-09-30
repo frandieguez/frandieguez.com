@@ -12,13 +12,8 @@ dsq_thread_id:
   - "655370820"
 categories:
   - Uncategorized
-tags:
-  - fixes
-  - install
-  - issues
-  - karmic
-  - koala
-  - macbook
+tags: ["ubuntu", "linux", "macos"]
+
 ---
 After 4 months trying to fix my laptop finally with success, yesterday I installed Ubuntu 9.10 (Karmic Koala)<a title="Building Linux Kernel for Macbook 2,1" href="http://www.mabishu.com/blog/2007/09/22/cocinando-el-kernel-linux-para-macbook-core-2-duo/"> on my MacBook</a> (2,1).  Actually, rather than write a “OMG it’s so great!”-post, I turned it out a howto fix some issues of Ubuntu 9.10 (Karmic Koala) on a MacBook 2,1.
 

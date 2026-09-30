@@ -12,12 +12,8 @@ dsq_thread_id:
   - "655370847"
 categories:
   - Open Source
-tags:
-  - conference
-  - coruña
-  - free software
-  - gnome
-  - guadec-es
+tags: ["gnome", "open-source", "conferences"]
+
 ---
 Last  Thursday and Friday I was in Coruña attending to the GUADEC-ES,
 the most important event of GNOME and "hispanic version" of GNOME Users

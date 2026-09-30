@@ -14,10 +14,8 @@ dsq_thread_id:
 categories:
   - System Administration
   - Web
-tags:
-  - drupal
-  - lighttpd
-  - url limpia
+tags: ["web-servers", "php"]
+
 ---
 No sabeis el trabajiño que me dio solventar el problema de las URLs limpias con el binomio Drupal, Lighttpd. Como no soi de mucha falacia os enseño el código que tenéis que pegar dentro de `/etc/lighttpd.conf` o dentro del archivo de configuración de cada slide virtual.
 

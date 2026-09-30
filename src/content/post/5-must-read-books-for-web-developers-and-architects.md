@@ -15,17 +15,8 @@ categories:
   - Career Growth
   - Web Development
   - System Architecture
-tags:
-  - programming books
-  - software architecture
-  - best practices
-  - career development
-  - mysql
-  - scalability
-  - productivity
-  - devops
-  - web operations
-  - clean code
+tags: ["books", "career", "architecture"]
+
 ---
 
 Over the years I've gone through many books about software development — some deeply technical, others more about mindset and culture. The following list is a mix of resources that really shaped the way I code, work with teams, and think about building software. If you’re looking for inspiration or practical advice to level up as a developer, these are a great starting point.

@@ -12,10 +12,8 @@ dsq_thread_id:
   - "661127456"
 categories:
   - Open Source
-tags:
-  - galician
-  - l10n
-  - trasno
+tags: ["galician", "l10n", "open-source"]
+
 ---
 <div class="alignright">
 

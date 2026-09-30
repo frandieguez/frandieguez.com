@@ -12,10 +12,8 @@ dsq_thread_id:
   - "653725906"
 categories:
   - System Administration
-tags:
-  - debian
-  - disk space
-  - restore
+tags: ["debian", "linux", "sysadmin"]
+
 ---
 
 <img src="./4242576451_39b4be5d76_c.jpg" title=" Disk image from http://www.flickr.com/photos/beercoaster/4242576451/" />

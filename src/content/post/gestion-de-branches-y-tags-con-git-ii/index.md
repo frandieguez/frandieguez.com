@@ -13,9 +13,8 @@ dsq_thread_id:
   - "654261830"
 categories:
   - System administration
-tags:
-  - git
-  - git
+tags: ["git"]
+
 ---
 
 Continuo la serie de articulos sobre Git, echa un vistazo a la anterior

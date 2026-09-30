@@ -2,7 +2,7 @@
 title: "Code Agents: From Writing Code to Controlling the Code That Writes Itself"
 description: "What code agents actually are, how they work internally, and how to use them without losing control of your codebase. A deep dive into the ReAct loop, the skill system, OpenCode, and the security considerations nobody talks about."
 publishDate: 2026-02-23
-tags: ["ai", "agents", "opencode", "claude-code", "developer-tools", "productivity"]
+tags: ["ai", "agents", "claude-code", "developer-tools", "productivity"]
 coverImage:
   src: "./image.png"
   alt: "Slide from the Situm talk on code agents"

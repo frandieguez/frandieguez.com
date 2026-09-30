@@ -13,10 +13,8 @@ dsq_thread_id:
   - "666288062"
 categories:
   - Uncategorized
-tags:
-  - nokia e65
-  - Ruby
-  - symbian
+tags: ["ruby", "mobile"]
+
 ---
 <div class="alignright">
 

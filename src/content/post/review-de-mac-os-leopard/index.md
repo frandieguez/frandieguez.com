@@ -13,10 +13,8 @@ dsq_thread_id:
   - "684969733"
 categories:
   - Uncategorized
-tags:
-  - leopard
-  - mac os x
-  - review
+tags: ["macos"]
+
 ---
 Ha llegado ya el nuevo sistema operativo de Mac, Mac OS X Leopard. Vengo usando Mac OS X, aúnque no mucho, desde que me he comprado el MacBook. Reconozco que no estoy muy ducho en todo este sistema operativo, pero donde haya un bash, no hay problema.
 

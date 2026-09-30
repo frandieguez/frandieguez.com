@@ -13,12 +13,8 @@ dsq_thread_id:
   - "655370743"
 categories:
   - Uncategorized
-tags:
-  - databases
-  - bash
-  - exportado
-  - script
-  - utf-8
+tags: ["databases", "mysql", "scripting"]
+
 ---
 Estuve esta tarde trabajando en la migración de la web de <a href="http://www.glug.es" title="Grupo de Usuarios de Linux da Galiza">www.glug.es</a> a Drupal 5, desde un Drupal 4.6, vamos todo un reto. He tenido una serie de complicaciones al exportar la base de datos ya que tiene un charset latin1_swedish_ci y un collate latin1 pero que no hay manera de que me lo exporte bien por lo que los acentos, las ñ y todo car&aacute;cter que no estea en ASCII lo pilla mal, por lo que como soy un vago, pero un Vago Bueno™, me puse manos a la obra y me he currado un cutre script en bash que me convierte la gran base de datos de la web citada. Aquí os lo dejo para regocijo del personal:
 ```bash

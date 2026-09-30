@@ -12,11 +12,8 @@ dsq_thread_id:
   - "715109305"
 categories:
   - System Administration
-tags:
-  - authentication
-  - dni-e
-  - pam
-  - ubuntu
+tags: ["ubuntu", "linux", "security"]
+
 ---
 
 ![DNI](./dni_electronico.png)

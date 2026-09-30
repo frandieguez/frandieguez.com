@@ -13,12 +13,8 @@ dsq_thread_id:
   - "655370808"
 categories:
   - Uncategorized
-tags:
-  - corunha
-  - festa
-  - galego
-  - gnome
-  - launch party
+tags: ["gnome", "open-source", "galician"]
+
 ---
 <div class="aligncenter">
 
