@@ -3,8 +3,7 @@ title: "A .gitignore that is only yours"
 description: "Ignoring files in a shared repository without touching the shared .gitignore — the two ways Git offers, and the one that silently switches off your global ignores if you are not expecting it."
 publishDate: "05 Mar 2025"
 lang: "en-GB"
-tags: ["git", "gitignore"]
-draft: true
+tags: ["git", "developer-tools", "terminal"]
 ---
 Every shared repository eventually collects files that are yours alone. A scratch script, a `notes.md`, a dump of production data you are debugging against, the config for an editor nobody else on the team uses.
 

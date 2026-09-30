@@ -6,8 +6,7 @@ publishDate: 2013-04-08T14:53:47+00:00
 author: Fran Dieguez
 layout: post
 published: false
-draft: true
-tags: ["php", "algorithms"]
+tags: ["php", "software-engineering", "performance"]
 guid: http://www.mabishu.com/?p=1501
 permalink: /?p=1501
 categories:

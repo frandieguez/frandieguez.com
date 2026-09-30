@@ -5,9 +5,8 @@ publishDate: 2013-04-07T18:58:05+00:00
 author: Fran Dieguez
 layout: post
 published: false
-draft: true
 lang: "en-GB"
-tags: ["linux", "debian", "ubuntu", "systemd", "laptop"]
+tags: ["linux", "debian", "ubuntu", "hardware"]
 categories:
   - Uncategorized
 ---
@@ -119,6 +118,6 @@ $ journalctl -b -1 | grep -i -E 'hibernat|suspend|resume'
 
 `-b -1` is the previous boot, which after a successful hibernate is the session you are trying to inspect.
 
-The failure I hit most often was not hibernation itself but coming back: a graphics driver that resumes from RAM happily and comes back from disk with a black screen. If that happens, it is almost always the proprietary driver, and `nomodeset` is not the fix — reinstalling the driver against the current kernel usually is, because a kernel upgrade that did not rebuild the module leaves you in exactly that state.
+The failure that bites most often is not hibernation itself but coming back: a graphics driver that resumes from RAM happily and comes back from disk with a black screen. If that happens, it is almost always the proprietary driver, and `nomodeset` is not the fix — reinstalling the driver against the current kernel usually is, because a kernel upgrade that did not rebuild the module leaves you in exactly that state.
 
 The Debian wiki's [SystemdSuspendSedation](https://wiki.debian.org/SystemdSuspendSedation) page is the reference for the systemd side and covers the inhibitor logic I have skipped here.

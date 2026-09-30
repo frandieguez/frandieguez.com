@@ -6,9 +6,8 @@ publishDate: 2008-12-26T17:39:20+00:00
 author: Fran Dieguez
 layout: post
 published: false
-draft: true
 lang: "es"
-tags: ["capistrano", "debian", "sysadmin", "automatizacion"]
+tags: ["automation", "debian", "sysadmin", "ssh"]
 categories:
   - Uncategorized
 ---

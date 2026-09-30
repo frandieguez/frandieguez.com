@@ -5,8 +5,7 @@ description: "The gap between something that works and something you can be resp
 publishDate: 2015-01-13T15:11:53+00:00
 author: Fran Dieguez
 layout: post
-draft: true
-tags: ["operations", "backups", "monitoring", "deployment"]
+tags: ["devops", "monitoring", "sysadmin", "testing"]
 categories:
   - Uncategorized
 ---

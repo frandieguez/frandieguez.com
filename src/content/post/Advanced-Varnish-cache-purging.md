@@ -5,8 +5,7 @@ description: "Purge, ban and tag-based invalidation in Varnish 3 — why banning
 publishDate: 2013-12-04T11:15:02+00:00
 author: Fran Dieguez
 layout: post
-draft: true
-tags: ["varnish", "cache", "performance", "sysadmin"]
+tags: ["caching", "performance", "web-servers", "sysadmin"]
 guid: http://www.mabishu.com/?p=1686
 permalink: /?p=1686
 categories:

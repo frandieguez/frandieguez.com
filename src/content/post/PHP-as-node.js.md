@@ -6,8 +6,7 @@ publishDate: 2013-04-20T21:52:28+00:00
 author: Fran Dieguez
 layout: post
 published: false
-draft: true
-tags: ["php", "reactphp", "nodejs", "websockets"]
+tags: ["php", "javascript", "web-servers", "performance"]
 guid: http://www.mabishu.com/?p=1537
 permalink: /?p=1537
 categories:
@@ -138,7 +137,7 @@ Node has the same problem and a decade of libraries built to manage it. PHP in 2
 
 A PHP process that lives for milliseconds can be careless with memory and never pay for it. A PHP process that lives for weeks pays for all of it. Some of that is circular references the collector will get to eventually and some of it is in extensions where it will not.
 
-This is why I would keep that periodic timer printing `memory_get_usage()`. Not as instrumentation — as a habit. The first ReactPHP process I left running over a weekend taught me more than the documentation did.
+This is why the periodic timer printing `memory_get_usage()` earns its place. Not as instrumentation — as a habit. Leave one of these running over a weekend before you trust it with anything real; that single experiment says more than the documentation does.
 
 The practical answer is the same one that applies to any long-running PHP: make the process deliberately mortal. Bound it by uptime or by requests served, exit cleanly, and let supervisord start a fresh interpreter.
 

@@ -6,8 +6,7 @@ publishDate: 2014-12-17T00:55:53+00:00
 author: Fran Dieguez
 layout: post
 published: false
-draft: true
-tags: ["nginx", "ssl", "tls", "security", "sysadmin"]
+tags: ["nginx", "security", "web-servers", "sysadmin"]
 guid: http://www.mabishu.com/?p=1717
 permalink: /?p=1717
 categories:

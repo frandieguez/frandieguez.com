@@ -6,8 +6,7 @@ publishDate: 2013-01-09T20:30:00+00:00
 author: Fran Dieguez
 layout: post
 published: false
-draft: true
-tags: ["php", "cli", "linux", "sysadmin"]
+tags: ["php", "terminal", "linux", "sysadmin"]
 guid: http://www.mabishu.com/?p=1110
 permalink: /?p=1110
 categories:

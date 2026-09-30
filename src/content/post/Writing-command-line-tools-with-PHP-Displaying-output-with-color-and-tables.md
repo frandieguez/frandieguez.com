@@ -6,8 +6,7 @@ publishDate: 2012-12-21T19:10:00+00:00
 author: Fran Dieguez
 layout: post
 published: false
-draft: true
-tags: ["php", "cli", "symfony"]
+tags: ["php", "terminal", "scripting", "developer-tools"]
 guid: http://www.mabishu.com/?p=1106
 permalink: /?p=1106
 categories:

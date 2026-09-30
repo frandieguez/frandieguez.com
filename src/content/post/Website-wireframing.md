@@ -6,8 +6,7 @@ publishDate: 2013-04-08T15:34:40+00:00
 author: Fran Dieguez
 layout: post
 published: false
-draft: true
-tags: ["ux", "design", "process"]
+tags: ["ux", "design", "frontend", "productivity"]
 guid: http://www.mabishu.com/?p=863
 permalink: /?p=863
 categories:
