@@ -42,7 +42,7 @@ single time I needed a piece of software it was available in there.
 So back into the topic of the post, I usually make two changes on how packages are installed on
 my computers, they are quite simple but really helpful.
 
-# Use all the CPU cores to build AUR packages
+## Use all the CPU cores to build AUR packages
 
 By default to build AUR packages from sources, ArchLinux uses only two cores.
 So if your computer has more than that, it's a good idea to take advantage of all of them.
@@ -53,7 +53,7 @@ be equals to the number of CPU threads.
 sed -i 's,#MAKEFLAGS="-j2",MAKEFLAGS="-j$(nproc)",g' /etc/makepkg.conf
 ```
 
-# Do not compress packages when building
+## Do not compress packages when building
 Again when installing packages from AUR, those packages got built on installation time
 by default Archlinux creates a compressed archive to save disk space. This
 slows down installation for packages that are big, i.e. Google Chrome, as before

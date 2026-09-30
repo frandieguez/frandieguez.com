@@ -23,7 +23,7 @@ Sphinx se divide de 2 componentes:
 * *Indexador:* parte que procesa toda la información recogida por un crawler y genera uno o varios índices.
 * *Buscador:* componente que consulta el índice y recupera la información resultante
 
-# Instalación
+## Instalación
 
 Para instalarlo en GNU/Linux o en cualquier sabor de *nix necesitamos compilar desde las fuentes par eso hacemos:
 

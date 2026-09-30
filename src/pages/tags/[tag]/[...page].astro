@@ -48,8 +48,14 @@ const MIN_POSTS_PER_INDEXED_TAG = 3;
 
 const meta = {
 	// Was the bare template "View all posts with the tag - {tag}" on all 304 tag
-	// pages. Naming the count at least differentiates them from each other.
-	description: `${page.total} post${page.total === 1 ? "" : "s"} tagged ${tag} on Fran Dieguez's blog.`,
+	// pages. Naming the count at least differentiates them from each other — and
+	// naming the page differentiates /tags/sysadmin/2/ from /tags/sysadmin/,
+	// which otherwise shipped the same sentence. The titles already carried the
+	// page number; the descriptions did not, so six pairs were identical.
+	description:
+		page.currentPage > 1
+			? `Page ${page.currentPage} of ${page.lastPage} — posts tagged ${tag} on Fran Dieguez's blog.`
+			: `${page.total} post${page.total === 1 ? "" : "s"} tagged ${tag} on Fran Dieguez's blog.`,
 	noindex: page.total < MIN_POSTS_PER_INDEXED_TAG,
 	title: `Tag: ${tag}${pageSuffix}`,
 };

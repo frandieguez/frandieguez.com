@@ -15,7 +15,7 @@ categories:
 tags: ["debian", "linux", "sysadmin"]
 ---
 
-<img src="./4242576451_39b4be5d76_c.jpg" title=" Disk image from http://www.flickr.com/photos/beercoaster/4242576451/" />
+![A stack of bare hard disk platters](./4242576451_39b4be5d76_c.jpg)
 
 There are some actions you can perform to achieve if you can get back disk space in your Debian/Ubuntu based box. Most packages contain files that aren't necessary. For example, UI and documentation translations in
 languages you don't use. Wouldn’t it be nice if you could get rid of them and get back a few megabytes? Well, since dpkg 1.15.8 you can. dpkg has two options `--path-include=glob-pattern` and `--path-exclude=glob-pattern` that filter what files are installed or not. You can get the format of the pattern from the glob man page:

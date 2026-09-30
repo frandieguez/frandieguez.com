@@ -19,7 +19,7 @@ If you have been playing for some time with [heroku](https://www.heroku.com) or 
 ![Dokku initial configuration form page](./dokku-logo.png)
 </div>
 
-# 🚀 Deploying a DO droplet with Dokku
+## 🚀 Deploying a DO droplet with Dokku
 Due to addition of the [Marketplace](https://blog.digitalocean.com/introducing-digitalocean-marketplace/) to Digital Ocean you can easily deploy prebuilt droplets from your DO dashboard. So let's search for dokku and create a droplet with their 1-click install.
 
 ![Dokku on Digital Ocean Marketplace](./dokku-do-marketplace.png)
@@ -40,7 +40,7 @@ Click _Finish setup_, and after that you will have your dokku server up and runn
 yay -S dokku
 ```
 
-# Deploying your app
+## Deploying your app
 
 Ok, you have reached the point that you have your own heroku like server. So lets ramp up the server and deploy our custom app on it.
 
