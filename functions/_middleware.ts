@@ -100,10 +100,56 @@ function legacyTarget(url: URL): string | undefined {
 		if (target) return target;
 	}
 
-	if (!url.pathname.startsWith("/blog/") && !url.pathname.startsWith("/posts/")) {
-		return undefined;
+	if (url.pathname.startsWith("/blog/") || url.pathname.startsWith("/posts/")) {
+		const exact = LEGACY_PATHS.get(legacyKey(url.pathname));
+		if (exact) return exact;
 	}
-	return LEGACY_PATHS.get(legacyKey(url.pathname));
+
+	return structuralTarget(url.pathname);
+}
+
+/**
+ * WordPress's own furniture: the blog index, the feeds, the tag, category,
+ * author and date archives.
+ *
+ * The generated map covers individual posts, because it is built from the
+ * `permalink` and `guid` fields those posts carry. Nothing in the content
+ * records the URLs WordPress produced on its own, so every one of these was
+ * answering 404 — including `/blog/`, which is the most linked-to URL the old
+ * site had, and `/blog/feed/`, which is where its RSS subscribers still point.
+ *
+ * Tag and category slugs are passed straight through to /tags/. Where the slug
+ * survived the move this turns a 404 into a topic page; where it did not, the
+ * result is the 404 that was already being served. It cannot be worse than the
+ * current behaviour, which is what makes guessing acceptable here.
+ */
+function structuralTarget(pathname: string): string | undefined {
+	const path = pathname.replace("/blog/index.php/", "/blog/").toLowerCase();
+	const rest = path.startsWith("/blog/") ? path.slice(5) : path;
+
+	// Feeds: /blog/feed/, /feed/, /blog/comments/feed/, and the per-archive feeds
+	// WordPress hangs off a tag or category. Anchored at both ends on purpose —
+	// an unanchored /feed/?$ would also catch a post whose slug ends in "feed".
+	if (/^\/(comments\/|(tag|category)\/[^/]+\/)?feed\/?$/.test(rest)) return "/rss.xml";
+
+	const archive = /^\/(tag|category)\/([^/]+)\/?$/.exec(rest);
+	if (archive) return `/tags/${archive[2]}/`;
+
+	if (/^\/author\//.test(rest)) return "/about/";
+
+	// Date archives: /blog/2008/, /blog/2008/12/. A dated path with a slug on the
+	// end is a post, and belongs to the generated map rather than here.
+	if (/^\/\d{4}(\/\d{2})?\/?$/.test(rest)) return "/posts/";
+
+	// The blog index itself, and its pagination.
+	if (path === "/blog" || path === "/blog/" || /^\/blog\/page\/\d+\/?$/.test(path)) {
+		return "/posts/";
+	}
+
+	// Submitted to Search Console for years, and never a real file here.
+	if (path === "/sitemap.xml") return "/sitemap-index.xml";
+
+	return undefined;
 }
 
 export const onRequest = async (context: PagesContext): Promise<Response> => {
