@@ -59,7 +59,11 @@ const graph = [websiteSchema(), personSchema(), ...schema];
 		/>
 		<StructuredData graph={graph} />
 	</head>
-	<body class="min-w-4xl relative m-auto min-h-screen w-full max-w-6xl grow bg-bgColor">
+	<!-- No `min-w-*` here. It used to carry `min-w-4xl`, which computes to
+		min-width: 1080px, so every phone was handed a 1080px page folded into a
+		~400px viewport. The `overflow-x-hidden` on <html> above hid the scrollbar
+		that would have made it obvious, which is why it survived this long. -->
+	<body class="relative m-auto min-h-screen w-full max-w-6xl grow bg-bgColor">
 		<ThemeProvider />
 		<SkipLink />
 
@@ -79,7 +83,9 @@ const graph = [websiteSchema(), personSchema(), ...schema];
 			<!-- Sidebar for Docs Series -->
 			<slot name="sidebar" />
 			<!-- Main container for the page content -->
-			<div id="container" class="min-w-3xl relative m-auto max-w-6xl grow">
+			<!-- Same again: `min-w-3xl` was 960px. Both floors have to go, or the
+				remaining one still overflows. -->
+			<div id="container" class="relative m-auto max-w-6xl grow">
 				{/* No top padding under a hero band: the band is min-h-screen, so 16px
 					above it would push its bottom edge — and the tech stack line sitting
 					just inside it — below the fold. */}
