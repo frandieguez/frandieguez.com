@@ -3,8 +3,7 @@ import Search from "@/components/Search.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import { siteConfig, menuLinks } from "@/site.config";
 import { Icon } from "astro-icon/components";
-import Logo from "../../assets/images/header.svg?react";
-import GlassesMark from "../../assets/images/glasses.svg?react";
+import BrandLockup from "@/components/ui/BrandLockup.astro";
 
 interface Props {
 	/**
@@ -32,18 +31,14 @@ const { compact = false } = Astro.props;
 				{/* text-accent-base, not text-black + a dark: variant: the logo also has
 					to flip inside `.surface-dark`, which is dark in both themes and so
 					never matches `dark:`. The token resolves to black in light mode
-					anyway, so nothing changes outside the band. */}
-				{/* `size-30` was not a real Tailwind class — there's no 30 in the spacing
-					scale — so the logo rendered at its intrinsic size and ran into the
-					search and theme buttons on narrow screens. */}
-				<div
-					title={siteConfig.title}
-					class:list={[
-						"inline-block text-accent-base [&>svg]:h-auto [&>svg]:w-full",
-						compact ? "w-12 md:w-16" : "w-36 md:w-52",
-					]}
-				>
-					{compact ? <GlassesMark /> : <Logo />}
+					anyway, so nothing changes outside the band. BrandLockup owns that
+					token now.
+
+					`named` belongs here and nowhere else: the footer renders the same
+					lockup, and two elements sharing a view-transition-name make Chrome
+					abandon the entire transition. */}
+				<div title={siteConfig.title}>
+					<BrandLockup compact={compact} named />
 				</div>
 			</a>
 			<nav

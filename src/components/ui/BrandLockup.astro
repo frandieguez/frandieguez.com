@@ -1,0 +1,91 @@
+---
+/**
+ * The brand: the glasses mark, optionally with the FRAN DIEGUEZ wordmark beside it.
+ *
+ * This exists as two sibling <svg>s rather than the single header.svg because
+ * `view-transition-name` does not work on SVG children. The spec only captures
+ * elements that generate a principal box in the CSS box tree, and a <path> or a
+ * <g> inside an <svg> does not. It fails silently — no console warning, the
+ * transition simply never happens — so "just name the glasses path" is not an
+ * option however much it looks like one.
+ *
+ * The two boxes are positioned by percentage inside a frame whose aspect ratio is
+ * header.svg's viewBox, which makes the result pixel-equivalent to rendering that
+ * file whole. The percentages below were MEASURED in the browser with getBBox()
+ * and getCTM(), not derived from the source file, because svgr runs the asset
+ * through SVGO first: it merges the letterform paths, drops the ids and rounds
+ * the viewBox to `0 0 57.275 11.214`. What ships is not what the file says.
+ *
+ * Both halves are aria-hidden; the <a> wrapping this in Header.astro carries the
+ * accessible name.
+ */
+import GlassesMark from "@/assets/images/glasses.svg?react";
+import Wordmark from "@/assets/images/wordmark.svg?react";
+
+interface Props {
+	/** Glasses only. The homepage hero already states the name at display size. */
+	compact?: boolean;
+	/**
+	 * Apply the transition hooks. ONLY the header may set this. Two elements
+	 * sharing a view-transition-name make Chrome skip the whole transition — not
+	 * just this one, every transition on the page, including the post-title morph
+	 * — and the footer renders this same lockup.
+	 */
+	named?: boolean;
+	class?: string;
+}
+
+const { compact = false, named = false, class: className } = Astro.props;
+
+/* Measured fractions of header.svg's frame. The glasses are 41.128% of the full
+   width, which is what sets the compact frame below: dividing by it keeps the
+   glasses at exactly the same rendered size in both states, so they do not move
+   by a single pixel across a navigation. That is the entire point of the
+   animation, and it is why the full lockup is narrower than the old w-36/w-52. */
+const GLASSES = { width: 41.128, top: 1.4231, height: 89.6643 };
+const WORD = { left: 43.7107, width: 56.2864 };
+
+/* The compact frame is the glasses' SLOT in the full lockup, not the glasses'
+   own bounding box — same width, but the full lockup's height.
+
+   Cutting it down to the tight box instead (aspect 2.343 rather than 2.101) is
+   the obvious thing to do and it is wrong: the header centres the frame with
+   `items-center`, so a frame 3px shorter puts the glasses 1.14px higher. Measured,
+   after the 16px grid-padding fix had already been made. A morph built on "these
+   do not move" cannot afford a pixel of drift, and it does not show up until you
+   compare the two pages number by number. */
+const COMPACT_ASPECT = "23.557837 / 11.214177";
+const FULL_ASPECT = "57.275463 / 11.214177";
+---
+
+<div
+	class:list={[
+		"relative text-accent-base",
+		compact ? "w-12 md:w-16" : "w-[7.294rem] md:w-[9.726rem]",
+		className,
+	]}
+	style={`aspect-ratio:${compact ? COMPACT_ASPECT : FULL_ASPECT}`}
+>
+	{/* Identical geometry in both states: the frame differs, the slot inside it
+		does not. Both resolve to the same rendered glasses — 48px, then 64px from
+		md — because the lockup's width is the compact width divided by 41.128%. */}
+	<div
+		data-brand-mark={named ? "" : undefined}
+		class="absolute [&>svg]:h-full [&>svg]:w-full"
+		style={`left:0;width:${compact ? 100 : GLASSES.width}%;top:${GLASSES.top}%;height:${GLASSES.height}%`}
+	>
+		<GlassesMark aria-hidden="true" />
+	</div>
+
+	{
+		!compact && (
+			<div
+				data-brand-word={named ? "" : undefined}
+				class="absolute inset-y-0 [&>svg]:h-full [&>svg]:w-full"
+				style={`left:${WORD.left}%;width:${WORD.width}%`}
+			>
+				<Wordmark aria-hidden="true" />
+			</div>
+		)
+	}
+</div>

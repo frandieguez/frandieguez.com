@@ -79,6 +79,90 @@
       object-fit: fill;
     }
 
+    /* The brand morph. Unlike the title, these names ARE in the markup — there is
+       one lockup per page, so the reason title-transition.ts assigns names in JS
+       (91 listing titles would mean 91 captures per navigation) does not apply.
+
+       Declaring them here rather than with Astro's `transition:name` keeps them
+       inside this reduced-motion block: no name means no capture, and the capture
+       is the part that flickers on slow hardware.
+
+       Scoped to #main-header deliberately. Footer.astro renders the same lockup,
+       and two elements sharing a name make Chrome skip EVERY transition on the
+       page, the post-title morph included. BrandLockup's `named` prop is the
+       second guard. */
+    #main-header [data-brand-mark] {
+      view-transition-name: brand-mark;
+    }
+
+    #main-header [data-brand-word] {
+      view-transition-name: brand-word;
+    }
+
+    /* The glasses are the fixed point of the whole navigation: same size, same
+       position on both pages, and a named element is excluded from the root fade,
+       so they sit perfectly still while everything else cross-fades.
+
+       They do still change colour. The homepage header lives inside
+       `.surface-dark`, where --theme-accent-base is near-white; everywhere else in
+       the light theme it resolves to black. That cross-fade has to run WITH the
+       background, not after it — delay it and you get a white mark on cream. */
+    ::view-transition-group(brand-mark),
+    ::view-transition-old(brand-mark),
+    ::view-transition-new(brand-mark) {
+      animation-duration: 180ms;
+      animation-delay: 0ms;
+    }
+
+    /* The wordmark has no counterpart on the other page, so `:only-child` is what
+       distinguishes "appearing" from "moving" — it matches only when the pair has
+       a single snapshot. A browser without it falls back to the default fade
+       rather than breaking. */
+    ::view-transition-new(brand-word):only-child {
+      animation: 300ms cubic-bezier(0.22, 0.61, 0.36, 1) 120ms both brand-word-in;
+    }
+
+    ::view-transition-old(brand-word):only-child {
+      animation: 160ms ease-in both brand-word-out;
+    }
+
+    /* Wipes from the glasses outwards AND fades up, so the name reads as being
+       written rather than uncovered. The 120ms delay holds it back until the dark
+       band has begun to lift, so it never flashes against the wrong background.
+
+       The opacity ramp reaches full at 70% rather than running the whole way: a
+       fade that finishes exactly when the wipe does makes the last letters look
+       faint just as they arrive. Ending it early lets the tail of the movement be
+       pure geometry. An earlier version reached full at 25%, which was over in
+       75ms of the 300 and read as no fade at all. */
+    @keyframes brand-word-in {
+      from {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+      }
+      70% {
+        opacity: 1;
+      }
+      to {
+        clip-path: inset(0);
+        opacity: 1;
+      }
+    }
+
+    /* Retracting, the fade leads instead of trailing — the name is already going
+       before the edge reaches it, which is what makes it read as leaving rather
+       than being wiped away. */
+    @keyframes brand-word-out {
+      from {
+        clip-path: inset(0);
+        opacity: 1;
+      }
+      to {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+      }
+    }
+
     /* The rest of the page keeps Astro's default fade, but it has to be quicker
        than the morph or the title arrives over a half-faded page. */
     ::view-transition-old(root),

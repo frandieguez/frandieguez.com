@@ -86,14 +86,21 @@ const graph = [websiteSchema(), personSchema(), ...schema];
 			<!-- Same again: `min-w-3xl` was 960px. Both floors have to go, or the
 				remaining one still overflows. -->
 			<div id="container" class="relative m-auto max-w-6xl grow">
-				{/* No top padding under a hero band: the band is min-h-screen, so 16px
-					above it would push its bottom edge — and the tech stack line sitting
-					just inside it — below the fold. */}
+				{/* No top padding at all, on either branch.
+
+					It used to be `!heroBand && "md:pt-4"`, which put the header 16px
+					lower on every page except the homepage. That was invisible until the
+					brand morph, whose whole premise is that the glasses do not move: a
+					16px vertical slide on desktop is exactly the thing it promises not to
+					do. Equalising by ADDING the padding to the hero branch was not an
+					option — the band is min-h-screen, so 16px above it pushes its bottom
+					edge, and the tech stack line just inside it, below the fold.
+
+					So the padding is gone and <main> carries the 16px instead, which
+					leaves the content and the footer where they were and moves only the
+					header. */}
 				<div
-					class:list={[
-						"m-auto grid min-h-screen px-4 md:grid-rows-[auto_auto_1fr] md:px-8",
-						!heroBand && "md:pt-4",
-					]}
+					class="m-auto grid min-h-screen px-4 md:grid-rows-[auto_auto_1fr] md:px-8"
 				>
 					{
 						heroBand ? (
@@ -124,7 +131,9 @@ const graph = [websiteSchema(), personSchema(), ...schema];
 						id="main"
 						class:list={[
 							"relative flex-grow",
-							heroBand ? "mt-12 md:mt-16" : "mt-24 md:mt-[3.5rem]",
+							/* The non-hero 4.5rem is the old 3.5rem plus the 16px of grid
+								padding removed above, so the content has not moved. */
+							heroBand ? "mt-12 md:mt-16" : "mt-24 md:mt-[4.5rem]",
 						]}
 						transition:animate="initial"
 					>
@@ -136,7 +145,7 @@ const graph = [websiteSchema(), personSchema(), ...schema];
 		</div>
 		<script>
 			import "@/scripts/reveal";
-			import "@/scripts/title-transition";
+			import "@/scripts/view-transitions";
 		</script>
 	</body>
 
