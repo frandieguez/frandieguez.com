@@ -7,7 +7,7 @@ author: Fran Dieguez
 layout: post
 published: false
 draft: true
-tags: ["continuous-delivery", "jenkins", "deployment", "devops"]
+tags: ["continuous-integration", "devops", "testing", "databases"]
 guid: http://www.mabishu.com/?p=1333
 permalink: /?p=1333
 categories:

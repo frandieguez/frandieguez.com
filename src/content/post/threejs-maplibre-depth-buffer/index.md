@@ -3,7 +3,7 @@ title: "Rendering Three.js on Top of MapLibre Without Breaking the Depth Buffer"
 description: "Two renderers, one WebGL context, one depth buffer. The custom layer that hands Three.js a frame, the GL state Three.js quietly takes with it, and why your building disappears behind a wall it is standing in front of."
 publishDate: 2026-10-20
 lang: "en-GB"
-tags: ["threejs", "maplibre", "webgl", "3d"]
+tags: ["threejs", "javascript", "frontend", "performance"]
 seriesId: indoor-3d-web
 orderInSeries: 1
 draft: true

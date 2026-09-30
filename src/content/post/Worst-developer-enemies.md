@@ -7,7 +7,7 @@ author: Fran Dieguez
 layout: post
 published: false
 draft: true
-tags: ["career", "craftsmanship", "opinion"]
+tags: ["career", "clean-code", "programming-culture", "debugging"]
 guid: http://www.mabishu.com/?p=1539
 permalink: /?p=1539
 categories:

@@ -3,7 +3,7 @@ title: "I asked DeepSeek to introduce itself"
 description: "DeepSeek V3 arrived with open weights and an API an order of magnitude cheaper than anyone else. I asked it to describe its own capabilities, and the answer is more revealing for what it leaves out than for what it claims."
 publishDate: "10 Jan 2025"
 lang: "en-GB"
-tags: ["deepseek", "ai", "llm", "code-assistant"]
+tags: ["ai", "agents", "developer-tools"]
 draft: true
 ---
 DeepSeek V3 landed at the end of December with two claims that are hard to ignore: open weights you can actually download, and API pricing roughly an order of magnitude below the frontier models. For anyone who has priced an assistant into a real workflow, the second one is the interesting number.
