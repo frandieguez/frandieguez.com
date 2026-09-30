@@ -28,10 +28,6 @@ Even though it’s over a decade old, many of the points still apply today. It�
 
 ## [The Developer's Code: What Real Programmers Do](https://www.google.es/books/edition/The_Developer_s_Code/uMpYEQAAQBAJ?hl=en&gbpv=0)
 
-<div class=" align-middle flex justify-center text-center ">
-
-![](https://prodimage.images-bn.com/pimages/9781680505023_p0_v1_s600x595.jpg)
-</div>
 
 Ka Wai Cheung's book isn't about syntax, algorithms, or frameworks — it’s about the craft of programming. It covers around 50 short lessons on topics like work habits, communication, and how to build a career in software that goes beyond just writing code.
 

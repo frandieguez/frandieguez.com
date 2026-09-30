@@ -15,10 +15,5 @@ categories:
   - Uncategorized
 ---
 Estoy empezando este blog nuevo, por lo que en los proximos días haré el diseño, pero en estos momentos estoy haciendo labores de mantenimiento
-<div class="aligncenter">
-
-
-![Nuevo diseño](https://farm2.static.flickr.com/1395/600272369_0fd5ffcb7e.jpg?v=0)
-</div>
 
 Pero ahora mismo ya estoy con el diseño a vueltas y puede estar un poco todo revuelto, mientras tanto puedes deleitarte viendo como estan <a href="http://flickr.com/photos/cuppido/" title="Flickr: Photos from cuppido">mis fotos en flickr.com</a>
