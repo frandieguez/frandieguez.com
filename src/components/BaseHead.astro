@@ -15,7 +15,15 @@ const { articleDate, description, lang, noindex, ogImage, title } = Astro.props;
 const ogLocale = lang ? lang.replace("-", "_") : siteConfig.ogLocale;
 
 const titleSeparator = "•";
-const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
+
+// Every page is "<Page> • Fran Dieguez", except the one whose title already opens
+// with the name. The homepage leads with it on purpose: a personal site's only
+// realistic query is the person, and "Full Stack Developer" is a phrase no
+// personal site wins. Without this check that page would read "Fran Dieguez •
+// Full Stack Developer & Web Tech Lead • Fran Dieguez".
+const siteTitle = title.startsWith(siteConfig.title)
+	? title
+	: `${title} ${titleSeparator} ${siteConfig.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 // The fallback used to be /social-card.png, a file that does not exist, so every
 // page without an explicit ogImage shipped a broken social card. /og-image/site.png

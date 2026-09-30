@@ -16,7 +16,11 @@ const trajectoryId = "trajectory-heading";
 		// Was "Home", which spent the most valuable token position on the most
 		// important title tag of the site saying nothing. BaseHead appends
 		// " • Fran Dieguez", so this reads as a full positioning line in a SERP.
-		title: "Full Stack Developer & Web Tech Lead",
+		// Name first. This is the one page whose search query is the name itself,
+		// and og:title/twitter:title use this string raw — so the old value meant a
+		// shared link to the homepage showed a card titled "Full Stack Developer &
+		// Web Tech Lead" with the name nowhere on it.
+		title: "Fran Dieguez • Full Stack Developer & Web Tech Lead",
 	}}
 >
 	<HomeHero slot="hero" />
