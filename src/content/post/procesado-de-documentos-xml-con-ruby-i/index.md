@@ -14,6 +14,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 tags: ["ruby", "xml"]
+seriesId: xml-con-ruby
+orderInSeries: 1
 ---
 Uno de los problemas al lidiar con documentos XML es el análisis de los
 mismos y la representación del resultado en nuestros programas.

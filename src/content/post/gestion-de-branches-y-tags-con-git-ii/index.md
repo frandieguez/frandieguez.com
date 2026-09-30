@@ -14,6 +14,8 @@ dsq_thread_id:
 categories:
   - System administration
 tags: ["git", "developer-tools"]
+seriesId: control-de-versiones-con-git
+orderInSeries: 2
 ---
 
 Continuo la serie de articulos sobre Git, echa un vistazo a la anterior

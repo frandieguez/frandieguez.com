@@ -30,10 +30,16 @@ interface Props {
 }
 
 const { series } = Astro.props;
-const { title, description } = series.data;
+const { title, description, lang } = series.data;
 
 const { headings } = await render(series);
 
+// A series with nothing published yet is an empty page, and staying out of the
+// sitemap is not the same as asking to stay out of the index — the mistake this
+// site has now made twice, with the notes and with the tag pages. So the page
+// says `noindex` itself, on the same count the sitemap filter uses, and starts
+// indexing on its own the day its first instalment publishes.
+//
 // The eyebrow states how much of the series actually exists. A series file can
 // be committed before its first instalment publishes, and saying "3 parts" when
 // none are readable yet would be a promise the page cannot keep.
@@ -44,7 +50,7 @@ const eyebrow = published === 0
 	: `Series — ${published} ${published === 1 ? "part" : "parts"}`;
 ---
 
-<BaseLayout meta={{ description, title }}>
+<BaseLayout meta={{ description, title, lang, noindex: published === 0 }}>
 	{series.id && <SeriesPanel slot="sidebar" seriesId={series.id} />}
 
 	<div class="flex items-center gap-2 md:sticky md:top-4 md:z-20">

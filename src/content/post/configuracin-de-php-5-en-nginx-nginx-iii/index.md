@@ -14,6 +14,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 tags: ["nginx", "php", "web-servers", "sysadmin"]
+seriesId: nginx-desde-cero
+orderInSeries: 3
 ---
 <div class="aligncenter">
 

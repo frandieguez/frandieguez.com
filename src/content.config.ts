@@ -109,6 +109,11 @@ const series = defineCollection({
     id: z.string(),
     title: z.string(),
     description: z.string(),
+    // Three of the four series collect posts written in Spanish, and a series
+    // page is prose in its own right. Without this it would render `en-GB` on
+    // `<html lang>` and `og:locale` over Spanish text — the same defect the
+    // note collection had before its schema grew this field.
+    lang: z.string().default("en-GB"),
     featured: z.boolean().default(false), // Marks a series as a prominent one
   }),
 });

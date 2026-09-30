@@ -15,6 +15,8 @@ categories:
   - System Administration
   - Web
 tags: ["nginx", "caching", "performance", "web-servers", "linux"]
+seriesId: nginx-desde-cero
+orderInSeries: 1
 ---
 <div class="aligncenter">
 
