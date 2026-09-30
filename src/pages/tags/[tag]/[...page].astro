@@ -31,10 +31,26 @@ const { tag } = Astro.params;
 
 const pageSuffix = page.currentPage > 1 ? ` (page ${page.currentPage})` : "";
 
+/**
+ * A tag page earns indexing by grouping enough posts to be worth landing on.
+ *
+ * Must match MIN_POSTS_PER_INDEXED_TAG in astro.config.ts, which applies the
+ * same rule to the sitemap. Keeping the sitemap rule alone was half a fix: this
+ * archive has 261 tags across 93 posts and 213 of them sit on exactly one post,
+ * so 237 tag pages were out of the sitemap and still fully indexable, reachable
+ * from the tag list under every post. Staying out of the sitemap is not a
+ * request to leave a page out of the index; `noindex` is.
+ *
+ * `follow`, so the posts these pages link to keep being crawled, and no
+ * navigation changes — a reader browsing by tag still gets the page.
+ */
+const MIN_POSTS_PER_INDEXED_TAG = 3;
+
 const meta = {
 	// Was the bare template "View all posts with the tag - {tag}" on all 304 tag
 	// pages. Naming the count at least differentiates them from each other.
 	description: `${page.total} post${page.total === 1 ? "" : "s"} tagged ${tag} on Fran Dieguez's blog.`,
+	noindex: page.total < MIN_POSTS_PER_INDEXED_TAG,
 	title: `Tag: ${tag}${pageSuffix}`,
 };
 

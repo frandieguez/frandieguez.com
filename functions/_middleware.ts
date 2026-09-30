@@ -123,6 +123,18 @@ function legacyTarget(url: URL): string | undefined {
  * result is the 404 that was already being served. It cannot be worse than the
  * current behaviour, which is what makes guessing acceptable here.
  */
+/**
+ * Old taxonomy slugs with no counterpart under /tags/, sent to the post they
+ * described instead of through a redirect that only reaches another 404.
+ *
+ * Sourced from Search Console's "Not found (404)" report rather than guessed:
+ * across the whole migration it lists exactly one URL, and the slug carries a
+ * typo — "teminologia" for "terminología" — which is why nothing here matches it.
+ */
+const DEAD_TAXONOMY = new Map<string, string>([
+	["teminologia", "/posts/complementos-terminoloxicos-galegos-para-fantasdic/"],
+]);
+
 function structuralTarget(pathname: string): string | undefined {
 	const path = pathname.replace("/blog/index.php/", "/blog/").toLowerCase();
 	const rest = path.startsWith("/blog/") ? path.slice(5) : path;
@@ -133,7 +145,10 @@ function structuralTarget(pathname: string): string | undefined {
 	if (/^\/(comments\/|(tag|category)\/[^/]+\/)?feed\/?$/.test(rest)) return "/rss.xml";
 
 	const archive = /^\/(tag|category)\/([^/]+)\/?$/.exec(rest);
-	if (archive) return `/tags/${archive[2]}/`;
+	if (archive) {
+		const slug = archive[2] ?? "";
+		return DEAD_TAXONOMY.get(slug) ?? `/tags/${slug}/`;
+	}
 
 	if (/^\/author\//.test(rest)) return "/about/";
 
