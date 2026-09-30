@@ -11,7 +11,6 @@ permalink: /blog/2019/04/speed-up-archlinux-aur-package-building/
 categories:
   - Operating Systems
 tags: ["linux", "packaging", "performance"]
-
 ---
 
 

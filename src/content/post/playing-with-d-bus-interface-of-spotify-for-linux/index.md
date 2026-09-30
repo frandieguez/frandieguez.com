@@ -12,8 +12,7 @@ dsq_thread_id:
   - "653900481"
 categories:
   - System Administration
-tags: ["linux", "scripting"]
-
+tags: ["linux", "scripting", "developer-tools"]
 ---
 <div class="alignright">
 

@@ -13,8 +13,7 @@ dsq_thread_id:
 categories:
   - System Administration
   - Web
-tags: ["architecture", "performance", "sysadmin"]
-
+tags: ["architecture", "performance", "sysadmin", "databases"]
 ---
 There is no doubt that cloud hosting is taking its place and it offers some advantages for managing your deployments but, is it the right choice to take?
 

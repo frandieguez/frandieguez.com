@@ -14,8 +14,7 @@ dsq_thread_id:
 categories:
   - Programming
 
-tags: ["ruby"]
-
+tags: ["ruby", "books"]
 ---
 
 <div class="alignright">

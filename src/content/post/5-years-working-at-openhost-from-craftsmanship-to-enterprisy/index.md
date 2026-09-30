@@ -12,8 +12,7 @@ dsq_thread_id:
   - "3309642125"
 categories:
   - Work
-tags: ["career"]
-
+tags: ["career", "leadership"]
 ---
 <h3 class="post-title">Making a quick pit stop to mark this milestone in my professional career: today is my 5-year anniversary at Openhost! Time has certainly flown by and I really cannot believe that it has been five years since I joined this company.</h3>
 

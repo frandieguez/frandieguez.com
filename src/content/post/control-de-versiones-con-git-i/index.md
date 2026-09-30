@@ -13,8 +13,7 @@ dsq_thread_id:
   - "654675898"
 categories:
   - Uncategorized
-tags: ["git"]
-
+tags: ["git", "developer-tools"]
 ---
 Para configurar un poco el comportamiento de git y sus diferentes acciones podeis editar el archivo general ~/.gitconfig que teneis en vuestro directorio home:
 En el ciclo de vida de un producto software siempre se debe contar con

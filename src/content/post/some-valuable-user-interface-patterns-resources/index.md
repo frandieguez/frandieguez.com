@@ -12,8 +12,7 @@ dsq_thread_id:
   - '653726187'
 categories:
   - Web
-tags: ["frontend", "design", "ux"]
-
+tags: ["frontend", "design", "ux", "books"]
 ---
 
 <div class="aligncenter">

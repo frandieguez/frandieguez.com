@@ -3,7 +3,7 @@ title: "Astro 5 to 7, Tailwind 3 to 4: Everything That Broke, Broke Quietly"
 description: "Two majors in one afternoon, driven by a security advisory. Exactly one failure stopped the build. The other four shipped green and had to be found by looking."
 publishDate: 2026-10-13
 lang: "en-GB"
-tags: ["astro", "css", "javascript", "developer-tools"]
+tags: ["astro", "css", "javascript", "developer-tools", "frontend"]
 draft: false
 ---
 

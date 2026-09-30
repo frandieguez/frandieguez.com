@@ -13,8 +13,7 @@ dsq_thread_id:
   - "655863285"
 categories:
   - Web
-tags: ["rails", "ruby", "search"]
-
+tags: ["rails", "ruby", "search", "performance"]
 ---
 Cuando lo que quieres es maximizar el rendimiento de tu aplicación en consultas y búsquedas en una base de datos con millones registros normalmente utilizar el *indexador* y *buscador* de MySql no es la mejor opción.
 

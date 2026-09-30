@@ -12,8 +12,7 @@ dsq_thread_id:
   - "654577183"
 categories:
   - System Administration
-tags: ["git"]
-
+tags: ["git", "developer-tools"]
 ---
 
 ![Git pony](./git-pony-svn-ogre.png)

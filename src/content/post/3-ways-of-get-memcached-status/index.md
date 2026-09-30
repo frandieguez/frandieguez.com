@@ -13,8 +13,7 @@ dsq_thread_id:
 categories:
   - System Administration
   - Uncategorized
-tags: ["caching", "sysadmin"]
-
+tags: ["caching", "sysadmin", "monitoring"]
 ---
 If you use **memcached** to cache contents among different servers and
 apps, and you want to get statistics for what is happening inside the

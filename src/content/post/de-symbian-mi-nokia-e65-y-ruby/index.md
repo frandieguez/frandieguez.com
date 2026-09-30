@@ -14,7 +14,6 @@ dsq_thread_id:
 categories:
   - Uncategorized
 tags: ["ruby", "mobile"]
-
 ---
 <div class="alignright">
 

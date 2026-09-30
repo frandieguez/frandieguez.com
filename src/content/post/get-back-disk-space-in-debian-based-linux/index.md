@@ -13,7 +13,6 @@ dsq_thread_id:
 categories:
   - System Administration
 tags: ["debian", "linux", "sysadmin"]
-
 ---
 
 <img src="./4242576451_39b4be5d76_c.jpg" title=" Disk image from http://www.flickr.com/photos/beercoaster/4242576451/" />

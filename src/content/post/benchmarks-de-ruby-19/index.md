@@ -14,7 +14,6 @@ dsq_thread_id:
 categories:
   - Uncategorized
 tags: ["ruby", "performance", "testing"]
-
 ---
 Recientemente ha salido Ruby on Rails versión 2 que todavía estoy estudiando para llevar a cabo un review. Pero ahora mismo voy a mostrar unos pequeños benchmarks de Ruby 1.9, versión recién salida del horno, y que por lo que parece los se va acercando a lenguajes más "enterprise".
 

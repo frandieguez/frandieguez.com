@@ -14,7 +14,6 @@ dsq_thread_id:
 categories:
   - System Administration
 tags: ["php", "security"]
-
 ---
 1. Utiliza los parámetros de [PDO](http://us2.php.net/manual/en/ref.pdo.php) o [mysql_real_escape_string](http://ar2.php.net/mysql_real_escape_string) sobre valores SQL para evitar la inyección del SQL.
 

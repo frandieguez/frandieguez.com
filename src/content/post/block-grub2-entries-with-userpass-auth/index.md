@@ -13,7 +13,6 @@ dsq_thread_id:
 categories:
   - System Administration
 tags: ["linux", "security", "sysadmin"]
-
 ---
 As I wrote on tittle since grub's 2529 svn revision we can use "Basic authentication" on entries. One of the huge regression bugs that grub2 introduces since is replacing grub on main distribution, like Ubuntu. This bug impedes me to implement on the hostile environments where I have deployed GNU/Linux boxes (university community).
 

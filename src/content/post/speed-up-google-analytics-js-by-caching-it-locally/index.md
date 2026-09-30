@@ -12,8 +12,7 @@ dsq_thread_id:
   - "654414208"
 categories:
   - Web
-tags: ["performance", "javascript", "caching"]
-
+tags: ["performance", "javascript", "caching", "frontend"]
 ---
 <div class="alignright">
 

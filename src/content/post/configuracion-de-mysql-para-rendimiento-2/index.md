@@ -13,8 +13,7 @@ dsq_thread_id:
   - "655863288"
 categories:
   - System Administration
-tags: ["mysql", "databases", "performance"]
-
+tags: ["mysql", "databases", "performance", "sysadmin"]
 ---
 En el desarrollo de aplicaciones contra bases de datos, la mayoría de
 las veces, necesitas unos valores de referencia para saber si las

@@ -10,8 +10,7 @@ guid: http://www.frandieguez.dev/?p=1690
 permalink: /blog/2019/04/dokku-create-your-own-paas/
 categories:
   - Software
-tags: ["docker", "devops"]
-
+tags: ["docker", "devops", "sysadmin"]
 ---
 If you have been playing for some time with [heroku](https://www.heroku.com) or even [now.sh](https://zeit.co/now) you will be on my boat about how easy is to deploy applications on those services. **What if I tell you that you can have your own PaaS using [dokku](https://github.com/dokku/dokku) ? 😍** In this post I will explain how to deploy a node.js application within a docker container on your own Dokku service using a cheap Digital Ocean droplet.
 

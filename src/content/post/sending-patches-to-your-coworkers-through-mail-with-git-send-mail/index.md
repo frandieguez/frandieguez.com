@@ -12,8 +12,7 @@ dsq_thread_id:
   - "653731548"
 categories:
   - Sofware Development
-tags: ["git"]
-
+tags: ["git", "email"]
 ---
 <div class="alignright">
 

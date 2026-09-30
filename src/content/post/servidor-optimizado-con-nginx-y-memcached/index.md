@@ -14,8 +14,7 @@ dsq_thread_id:
 categories:
   - System Administration
   - Web
-tags: ["nginx", "caching", "performance", "web-servers"]
-
+tags: ["nginx", "caching", "performance", "web-servers", "linux"]
 ---
 <div class="aligncenter">
 

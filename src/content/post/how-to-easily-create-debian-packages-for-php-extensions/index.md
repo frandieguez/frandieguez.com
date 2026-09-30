@@ -12,8 +12,7 @@ dsq_thread_id:
   - "654108978"
 categories:
   - System Administration
-tags: ["php", "debian", "packaging"]
-
+tags: ["php", "debian", "packaging", "linux"]
 ---
 <div class="aligncenter">
 

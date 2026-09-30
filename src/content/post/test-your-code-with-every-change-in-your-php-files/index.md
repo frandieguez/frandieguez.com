@@ -12,8 +12,7 @@ dsq_thread_id:
   - "653725137"
 categories:
   - Sofware Development
-tags: ["php", "testing"]
-
+tags: ["php", "testing", "developer-tools"]
 ---
 <div class="aligncenter">
 

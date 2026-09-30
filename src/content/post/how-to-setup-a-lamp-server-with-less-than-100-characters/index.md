@@ -12,8 +12,7 @@ dsq_thread_id:
   - "653744817"
 categories:
   - System Administration
-tags: ["apache", "php", "mysql", "sysadmin"]
-
+tags: ["apache", "php", "mysql", "sysadmin", "linux", "web-servers", "databases"]
 ---
 <div class="aligncenter">
 

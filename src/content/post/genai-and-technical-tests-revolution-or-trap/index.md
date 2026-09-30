@@ -11,7 +11,6 @@ categories:
   - Software Development
   - Technical Interviews
 tags: ["ai", "career", "hiring"]
-
 ---
 
 ![Interviews and chatbots](./interviews-chatbot.png)

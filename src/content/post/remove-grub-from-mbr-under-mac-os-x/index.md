@@ -13,7 +13,6 @@ dsq_thread_id:
 categories:
   - System Administration
 tags: ["macos", "linux", "sysadmin"]
-
 ---
 <div class="aligncenter">
 

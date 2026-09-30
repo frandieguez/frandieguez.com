@@ -13,8 +13,7 @@ dsq_thread_id:
   - "653704630"
 categories:
   - Web
-tags: ["css", "frontend", "javascript"]
-
+tags: ["css", "frontend", "javascript", "html"]
 ---
 Sabías que se pueden rotar imagenes (y cualquier elemento HTML) utilizando solo CSS?
 Añade estas clases CSS a tus elementos HTML para rotarlos en pasos de 90 grados.

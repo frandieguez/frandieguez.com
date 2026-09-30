@@ -13,8 +13,7 @@ dsq_thread_id:
   - "653780943"
 categories:
   - Programming
-tags: ["ruby", "rails", "testing", "macos"]
-
+tags: ["ruby", "rails", "testing", "macos", "developer-tools"]
 ---
 He buscado en la red un método para "enganchar" la utilidad de testeo Autotest en Ruby y el sistema de mensajes de sistema Growl en Mac OS X y la verdad es que no me fue muy bien.
 Una vez modificado el archivo .autotest en mi $home ya funciona a la perfección. Relato a continuación como obtener esta maravilla.

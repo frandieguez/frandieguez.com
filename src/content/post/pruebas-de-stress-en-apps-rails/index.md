@@ -13,8 +13,7 @@ dsq_thread_id:
   - "653873385"
 categories:
   - System Administration
-tags: ["rails", "testing", "performance"]
-
+tags: ["rails", "ruby", "testing", "performance"]
 ---
 Muchas veces cuando estas en las fases de pruebas, y cuando tu aplicación se supone que va a soportar grandes flujos de peticiones, querrías testear la misma antes de ponerla en producción.
 

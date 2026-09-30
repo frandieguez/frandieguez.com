@@ -12,8 +12,7 @@ dsq_thread_id:
   - "653955795"
 categories:
   - System Administration
-tags: ["sysadmin", "monitoring"]
-
+tags: ["sysadmin", "monitoring", "linux", "performance"]
 ---
 When the  number of your servers is increasing more than you have expected, is a good practice to have a friend that  helps you track what's happenning on those.
 

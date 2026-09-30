@@ -13,7 +13,6 @@ dsq_thread_id:
 categories:
   - Open Source
 tags: ["galician", "l10n", "open-source"]
-
 ---
 <div class="alignright">
 

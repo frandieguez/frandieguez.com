@@ -12,8 +12,7 @@ dsq_thread_id:
   - "653690718"
 categories:
   - System Administration
-tags: ["php", "continuous-integration", "testing", "ubuntu"]
-
+tags: ["php", "continuous-integration", "testing", "ubuntu", "devops", "sysadmin"]
 ---
 
 <div class="alignright">

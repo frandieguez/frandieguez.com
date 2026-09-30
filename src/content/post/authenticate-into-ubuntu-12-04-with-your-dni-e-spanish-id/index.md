@@ -12,8 +12,7 @@ dsq_thread_id:
   - "715109305"
 categories:
   - System Administration
-tags: ["ubuntu", "linux", "security"]
-
+tags: ["ubuntu", "linux", "security", "sysadmin"]
 ---
 
 ![DNI](./dni_electronico.png)

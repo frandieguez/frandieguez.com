@@ -14,7 +14,6 @@ dsq_thread_id:
 categories:
   - Programming
 tags: ["php", "security", "databases"]
-
 ---
 SQL Injection, la temida dirían algunos, y la verdad es que si no tienes
 cuidado al programar suelen ser verdaderos quebraderos de cabeza, que

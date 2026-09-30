@@ -14,7 +14,6 @@ categories:
   - System Administration
   - Uncategorized
 tags: ["ubuntu", "debian", "linux", "sysadmin"]
-
 ---
 If you want to get automatic upgrades of your personal repositories I haven't find a way to get managed with unattended-upgrades so I have done the next workarround.
 

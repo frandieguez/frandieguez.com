@@ -14,7 +14,7 @@ dsq_thread_id:
 categories:
   - Open Source
   - Sofware Development
-tags: ["php", "testing", "developer-tools"]
+tags: ["php", "testing", "developer-tools", "continuous-integration"]
 ---
 If you need an easy and quick way to install your <a title="PHP QA tools website" href="http://phpqatools.org/" target="_blank">PHP QA tools</a>, you can use the next bash snippet.
 ```bash

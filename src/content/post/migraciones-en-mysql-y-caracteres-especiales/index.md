@@ -13,8 +13,7 @@ dsq_thread_id:
   - ""
 categories:
   - Web
-tags: ["mysql", "databases"]
-
+tags: ["mysql", "databases", "rails"]
 ---
 Muchas veces cuando estás trabajando con aplicaciones web o standalone que trabajan contra Bases de datos te ves en la necesidad de hacer un volcado de tu BD para hacer un backup o para migrar la aplicación. El problema es que en Mysql y con columnas con tipos de datos text o varchar que continen datos con caracteres especiales como á, ó, ç o ñ, letras acentuadas, etc. al hacer el volcado descubres que aparecen simbolos extraños. Por ejemplo
 

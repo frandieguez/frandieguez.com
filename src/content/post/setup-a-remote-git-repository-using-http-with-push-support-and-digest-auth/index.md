@@ -12,8 +12,7 @@ dsq_thread_id:
   - "653725484"
 categories:
   - System Administration
-tags: ["git", "sysadmin"]
-
+tags: ["git", "sysadmin", "web-servers"]
 ---
 <div class="aligncenter">
 

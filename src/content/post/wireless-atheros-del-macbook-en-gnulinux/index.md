@@ -14,7 +14,6 @@ dsq_thread_id:
 categories:
   - System Administration
 tags: ["linux", "macos", "hardware"]
-
 ---
 <div class="alignright">
 

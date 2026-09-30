@@ -14,7 +14,6 @@ dsq_thread_id:
 categories:
   - Uncategorized
 tags: ["mysql", "databases"]
-
 ---
 Es algo común que estés desarrollando contra un gestor de bases de datos de "juguete" como puede ser sqlite3 y en un momento dado querer pasar a uno "de verdad" para probar cuanto rendimiento tiene tu app.
 

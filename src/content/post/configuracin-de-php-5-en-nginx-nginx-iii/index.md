@@ -13,7 +13,7 @@ dsq_thread_id:
   - "657362008"
 categories:
   - Uncategorized
-tags: ["nginx", "php", "web-servers"]
+tags: ["nginx", "php", "web-servers", "sysadmin"]
 ---
 <div class="aligncenter">
 

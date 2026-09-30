@@ -13,8 +13,7 @@ dsq_thread_id:
   - "654261830"
 categories:
   - System administration
-tags: ["git"]
-
+tags: ["git", "developer-tools"]
 ---
 
 Continuo la serie de articulos sobre Git, echa un vistazo a la anterior

@@ -14,7 +14,6 @@ dsq_thread_id:
 categories:
   - System Administration
 tags: ["linux", "terminal", "sysadmin"]
-
 ---
 Todos los que trabajamos asiduamente con un terminal no podemos evitar
 en algún momento lidiar con la tarea de búsqueda de archivos por nombre

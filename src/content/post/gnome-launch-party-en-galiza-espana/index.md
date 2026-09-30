@@ -14,7 +14,6 @@ dsq_thread_id:
 categories:
   - Uncategorized
 tags: ["gnome", "open-source", "galician"]
-
 ---
 <div class="aligncenter">
 

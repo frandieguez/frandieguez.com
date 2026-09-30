@@ -12,8 +12,7 @@ dsq_thread_id:
   - "654139266"
 categories:
   - System Administration
-tags: ["apache", "sysadmin"]
-
+tags: ["apache", "sysadmin", "web-servers"]
 ---
 Recently I have working on "mabishu-apache-autoindex", a set of html, css, icons and image files designed to work together with the <a href="http://httpd.apache.org/docs/2.0/mod/mod_autoindex.html">mod_autoindex</a> module to make the default Apache file listings look a little nicer.  Try this <a title="Screenshot demo of mabishu apache autoindex theme" href="http://img715.yfrog.com/img715/3013/capturadepantalla.png">screenshot demo</a> and If you like it, grab the source files at <a href="http://github.com/frandieguez/mabishu-apache-autoindex">my Github repository</a>, now I'll explain how to set it up.
 <h3>Installation</h3>

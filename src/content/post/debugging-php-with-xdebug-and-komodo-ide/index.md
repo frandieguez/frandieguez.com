@@ -13,7 +13,6 @@ dsq_thread_id:
 categories:
   - Sofware Development
 tags: ["php", "debugging", "developer-tools"]
-
 ---
 
 <div class="alignright">

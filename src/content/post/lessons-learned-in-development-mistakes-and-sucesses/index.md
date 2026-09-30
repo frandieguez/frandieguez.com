@@ -10,8 +10,7 @@ guid: http://www.mabishu.com/?p=1693
 categories:
   - Software Development
   - Career Advice
-tags: ["career", "software-engineering", "leadership"]
-
+tags: ["career", "software-engineering", "leadership", "clean-code"]
 ---
 
 ![Performance](./performance.png)

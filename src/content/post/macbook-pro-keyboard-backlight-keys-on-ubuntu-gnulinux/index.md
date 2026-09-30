@@ -13,7 +13,6 @@ dsq_thread_id:
 categories:
   - System Administration
 tags: ["ubuntu", "linux", "macos", "hardware"]
-
 ---
 <div class="alignright">
 

@@ -12,8 +12,7 @@ dsq_thread_id:
   - "653692338"
 categories:
   - System Administration
-tags: ["apache", "caching", "performance"]
-
+tags: ["apache", "caching", "performance", "web-servers"]
 ---
 With memcached and mod_memcache_cache we can use the memcached server as a content cache. This allows us share content of cache between different servers.
 

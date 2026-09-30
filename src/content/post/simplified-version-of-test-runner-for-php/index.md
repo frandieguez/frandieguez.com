@@ -12,8 +12,7 @@ dsq_thread_id:
   - "1962238441"
 categories:
   - Sofware Development
-tags: ["php", "testing"]
-
+tags: ["php", "testing", "developer-tools"]
 ---
 In my course of getting continuous <a title="Test your code with every change in your PHP files" href="http://www.mabishu.com/blog/2012/04/15/test-your-code-with-every-change-in-your-php-files/">testing in practice</a> I have improved my test runner by using less dependencies.
 

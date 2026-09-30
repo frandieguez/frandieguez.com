@@ -12,8 +12,7 @@ dsq_thread_id:
   - "1270047519"
 categories:
   - System Administration
-tags: ["caching", "devops"]
-
+tags: ["caching", "devops", "developer-tools"]
 ---
 
 <div class="aligncenter">

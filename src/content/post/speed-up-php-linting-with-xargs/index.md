@@ -12,7 +12,7 @@ dsq_thread_id:
   - "1548227962"
 categories:
   - Programming
-tags: ["php", "continuous-integration", "performance"]
+tags: ["php", "continuous-integration", "performance", "terminal"]
 ---
 Most of us use Jenkins to continuously integrate our projects with every commit to the repository, but when it comes with PHP most of the time is spent "<a title="Linting software" href="http://en.wikipedia.org/wiki/Lint_(software)">linting</a>".
 

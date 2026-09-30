@@ -13,7 +13,6 @@ dsq_thread_id:
 categories:
   - Web
 tags: ["privacy"]
-
 ---
 Recently I had an interesting conversation in G+ about social network privacy policies. I supported the view that their privacy policies are mere posturing. The moment you upload content to any social network that content is no longer belong to you just because they can be analyzed and schematized by incredible software that tracks that vast flow of information.
 

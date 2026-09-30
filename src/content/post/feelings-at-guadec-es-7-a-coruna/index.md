@@ -13,7 +13,6 @@ dsq_thread_id:
 categories:
   - Open Source
 tags: ["gnome", "open-source", "conferences"]
-
 ---
 Last  Thursday and Friday I was in Coruña attending to the GUADEC-ES,
 the most important event of GNOME and "hispanic version" of GNOME Users

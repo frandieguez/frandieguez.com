@@ -13,7 +13,6 @@ dsq_thread_id:
 categories:
   - Sofware Development
 tags: ["software-engineering", "clean-code"]
-
 ---
 “Object Calisthenics” is supposedly an exercise to get you to write better object-oriented code. If you want me to sum-up in one sentence I will definitely say:
 
