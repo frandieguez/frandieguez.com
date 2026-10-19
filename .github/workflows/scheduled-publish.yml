@@ -1,4 +1,4 @@
-# Rebuild the site once a day so scheduled posts actually appear.
+# Rebuild the site every four days so scheduled posts actually appear.
 #
 # getAllPosts() in src/data/post.ts hides any post whose publishDate is still in
 # the future. That comparison happens at BUILD time, so on a static site nothing
@@ -27,10 +27,22 @@ name: Scheduled publish
 
 on:
   schedule:
-    # 05:15 UTC daily — 07:15 in Galicia in summer, 06:15 in winter. Offset from
-    # the hour on purpose: the top of the hour is the busiest slot on GitHub's
-    # shared schedulers and the most delayed.
-    - cron: "15 5 * * *"
+    # 05:15 UTC on the 1st, 5th, 9th, 13th, 17th, 21st, 25th and 29th — 07:15 in
+    # Galicia in summer, 06:15 in winter. Offset from the hour on purpose: the
+    # top of the hour is the busiest slot on GitHub's shared schedulers and the
+    # most delayed.
+    #
+    # Cron has no "every four days": `*/4` steps through the days of the MONTH
+    # and restarts at 1, so the gap across a month boundary is shorter than four
+    # days — two after a 30-day month, three after a 31-day one. The error is
+    # always towards building more often, never less, which is the harmless
+    # direction.
+    #
+    # What this costs: a post is invisible until the next run after its
+    # publishDate, so scheduling one for the 7th puts it live on the 9th. Date a
+    # post to land on one of the days above, or trigger the workflow by hand
+    # from the Actions tab, which is what workflow_dispatch below is for.
+    - cron: "15 5 */4 * *"
   workflow_dispatch: # so you can also trigger a rebuild by hand
 
 jobs:
