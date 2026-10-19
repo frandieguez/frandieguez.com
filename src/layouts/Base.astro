@@ -45,7 +45,14 @@ const graph = [websiteSchema(), personSchema(), ...schema];
 	en-GB — which sends screen readers to the wrong pronunciation engine and
 	suppresses the browser's own translation prompt. -->
 <html
-	class="overflow-x-hidden grid scroll-pt-20 scroll-smooth font-sans text-textColor text-xl md:text-base antialiased"
+	{/* `bg-bgColor` belongs here, not on <body>. The body is `max-w-6xl`, so a
+		background on it stops at 1216px and the viewport either side is painted by
+		nothing — invisible on most pages because the full-bleed bands break out of
+		the column anyway, and plainly visible the moment anything samples the
+		whole viewport. The search dialog's `backdrop-filter` does exactly that:
+		its 15% transparency was showing white gutters down both edges in dark
+		mode, measured at luminance 58 against 36 in the middle. */}
+	class="overflow-x-hidden grid scroll-pt-20 scroll-smooth bg-bgColor font-sans text-textColor text-xl md:text-base antialiased"
 	lang={lang}
 >
 	<head>
@@ -63,7 +70,7 @@ const graph = [websiteSchema(), personSchema(), ...schema];
 		min-width: 1080px, so every phone was handed a 1080px page folded into a
 		~400px viewport. The `overflow-x-hidden` on <html> above hid the scrollbar
 		that would have made it obvious, which is why it survived this long. -->
-	<body class="relative m-auto min-h-screen w-full max-w-6xl grow bg-bgColor">
+	<body class="relative m-auto min-h-screen w-full max-w-6xl grow">
 		<ThemeProvider />
 		<SkipLink />
 

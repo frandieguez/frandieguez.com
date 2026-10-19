@@ -24,6 +24,18 @@ import { Icon } from "astro-icon/components";
 
 	<dialog
 		aria-label="search"
+		{/* The backdrop needs a colour, not only a blur. `backdrop-blur-xl` alone
+			shows a blurred copy of whatever happens to be behind the modal, so on
+			the homepage the dark hero read as a band across the middle while the
+			cream page showed at the edges — one surface in two tones. Washing it
+			with the page colour at 85% flattens that to a single tint and leaves
+			the blur doing what it is there for.
+
+			`bgColor` rather than a dark scrim because it is the one choice that is
+			already correct in both themes: cream over cream, charcoal over
+			charcoal. The cost is that the panel and its backdrop are now the same
+			hue, which is what the hairline border is for. */}
+
 		{/* `mx-auto` is load-bearing, not decoration. A modal <dialog> is centred
 			by the UA stylesheet's `margin: auto` against `inset: 0`, and Tailwind's
 			preflight resets every margin to 0 — which killed the horizontal
@@ -36,7 +48,7 @@ import { Icon } from "astro-icon/components";
 			class attribute, so the token Tailwind saw included the quotes and no
 			such class was ever generated. `w-full` with `md:max-w-[44rem]` is what
 			has actually been sizing this all along. */}
-		class="mx-auto h-full max-h-full w-full max-w-full overflow-y-hidden bg-bgColor backdrop:backdrop-blur-xl md:my-8 md:h-fit md:min-h-[6.5rem] md:max-w-[44rem] md:rounded-lg"
+		class="mx-auto h-full max-h-full w-full max-w-full overflow-y-hidden bg-bgColor backdrop:bg-bgColor/85 backdrop:backdrop-blur-xl md:my-8 md:h-fit md:min-h-[6.5rem] md:max-w-[44rem] md:rounded-lg md:border md:border-color-250"
 	>
 		<div class="dialog-frame flex flex-col h-[100%] px-4 pt-4 pb-4 md:px-8 md:py-8 gap-4">
 			<!-- Title and close button -->
