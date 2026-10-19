@@ -1,7 +1,7 @@
 ---
 id: 1104
 title: 'Command line tools written with PHP (I): handling input data'
-description: "Three ways a PHP script can take input — argv, getopt() and standard input — what each one gets wrong, and when to stop and reach for Symfony2's Console component instead."
+description: "Three ways a PHP script can take input — argv, getopt() and standard input — what each one gets wrong, and when to stop and reach for Symfony's Console component instead."
 publishDate: 2012-12-14T16:02:34+00:00
 author: Fran Dieguez
 layout: post
@@ -219,7 +219,7 @@ This is also where to be disciplined. Prompting is convenient for a human and fa
 
 Everything above is the raw material. For anything past a script of a few dozen lines, I would not write it myself any more.
 
-The Console component from Symfony2 treats arguments and options as a *declaration* rather than a parsing exercise:
+The Console component from Symfony treats arguments and options as a *declaration* rather than a parsing exercise:
 
 ```php
 <?php

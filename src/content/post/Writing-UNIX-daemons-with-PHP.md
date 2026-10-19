@@ -145,6 +145,17 @@ unlink('/var/run/mydaemon.pid');
 
 `declare(ticks = 1)` is what makes this work at all on PHP 5.3: without it the handlers are registered and never called, because PHP only dispatches signals at tick boundaries. It is also a real cost — the engine runs its tick handler after almost every statement. On 5.4 you can drop the ticks and call `pcntl_signal_dispatch()` explicitly once per loop instead, which is both faster and easier to reason about, since you know exactly where in the loop a signal can be handled.
 
+:::note
+**Writing this today, use neither.** PHP 7.1 added `pcntl_async_signals(true)`, which gives you handlers that fire on delivery without the per-statement tick cost and without having to remember a dispatch call in every loop:
+
+```php
+pcntl_async_signals(true);
+pcntl_signal(SIGTERM, 'handleSignal');
+```
+
+The rest of the section stands unchanged — setting a flag instead of exiting inside the handler is the part that matters, and it matters exactly as much in PHP 8 as it did in 5.3. Only the mechanism for getting the handler called has moved on.
+:::
+
 Setting a flag rather than exiting inside the handler is the point of the whole section. It turns "stop now, wherever you are" into "stop at the next safe boundary".
 
 :::caution
